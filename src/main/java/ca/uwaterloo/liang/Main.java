@@ -31,6 +31,8 @@ public class Main {
 		
 		executeCommand(command);
 		
+		//Scene.v().loadNecessaryClasses();
+		
 		/*List<SootClass> to_investigate = new ArrayList<SootClass>();
 		
 		String classname = null;
