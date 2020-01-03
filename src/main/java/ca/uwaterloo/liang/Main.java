@@ -66,33 +66,10 @@ public class Main {
 				    + File.separator + "commons-math-MATH_3_6_1" + File.separator + "src/main/java/classes/";
 		 
 		 Options.v().set_prepend_classpath(true);
+		 Options.v().set_whole_program(true);
 		 Options.v().set_verbose(true);
 		 Options.v().set_soot_classpath(class_path);
 		 soot.Main.main(args);
-	}
-	
-	public static String executeCommand(String command) {
-	    String line;
-	    String result = "";
-	    try {
-	    	ProcessBuilder builder;
-
-	        builder = new ProcessBuilder("bash", "-c", command);
-	        
-	        builder.redirectErrorStream(true);
-	        Process pr = builder.start();
-	        // StringBuilder output = new StringBuilder();
-
-			BufferedReader reader = new BufferedReader(
-							new InputStreamReader(pr.getInputStream()));
-			while ((line = reader.readLine()) != null) {
-				System.out.println(line);
-				result += line + "\n";
-			}
-		} catch (IOException e) {
-	        System.out.println("Exception = " + e.getMessage());
-	    }
-	    return result;
 	}
 	
 	private static boolean ifHaveMultipleDirectSubClasses(SootClass sc, Hierarchy h) {
