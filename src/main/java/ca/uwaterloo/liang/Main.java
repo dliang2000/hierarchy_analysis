@@ -34,7 +34,7 @@ public class Main {
 	  		 // after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
 	  		 Hierarchy hierarchy = Scene.v().getActiveHierarchy();
 	  		 
-	  		 Map<SootClass, Integer> superclass_map = new HashMap<SootClass, Integer>();
+	  		 Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
 	  		 Set<SootClass> completable_candidates = new HashSet<SootClass>();
 	  		 String classname = null;
 	  		 
@@ -63,14 +63,14 @@ public class Main {
 		  			 SootClass superclass = l.get(0);
 		  			 // System.out.println("Package name: " + superclass.getPackageName());
 		  			 // System.out.println("Class name: " + superclass.getName());
-		  			 if (superclass_map.containsKey(superclass)) {
-		  				superclass_map.put(superclass, superclass_map.get(superclass) + 1);
+		  			 if (subclassCount.containsKey(superclass)) {
+		  				subclassCount.put(superclass, subclassCount.get(superclass) + 1);
  		  			 } else {
- 		  				superclass_map.put(superclass, 1);
+ 		  				subclassCount.put(superclass, 1);
 		  			 }
 		  		}
 		  		
-		  		for (Map.Entry<SootClass, Integer> entry : superclass_map.entrySet()) {
+		  		for (Map.Entry<SootClass, Integer> entry : subclassCount.entrySet()) {
 		  			if (entry.getValue() == 1) {
 		  				SootClass sootclass = entry.getKey();
 		  				sootclass.setApplicationClass();
