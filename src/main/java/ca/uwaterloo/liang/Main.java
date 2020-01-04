@@ -34,6 +34,7 @@ public class Main {
 	  		 // after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
 	  		 Hierarchy hierarchy = Scene.v().getActiveHierarchy();
 	  		 
+	  		 Map<SootClass, Integer> superclass_map = new HashMap<SootClass, Integer>();
 	  		 Set<SootClass> completable_candidates = new HashSet<SootClass>();
 	  		 String classname = null;
 	  		 
@@ -51,8 +52,9 @@ public class Main {
 		  		while((line = reader.readLine()) != null){
 		  			 classname = line;
 		  			 SootClass sc = Scene.v().loadClassAndSupport(classname);
+		  			 
 		  			 System.out.println(classname);
-		  			 sc.setApplicationClass();
+		  			 // sc.setApplicationClass();
 		  			 
 		  			 List<SootClass> l = hierarchy.getSuperclassesOf(sc);
 		  			 if (l.size() == 1)
@@ -61,11 +63,22 @@ public class Main {
 		  			 SootClass superclass = l.get(0);
 		  			 // System.out.println("Package name: " + superclass.getPackageName());
 		  			 // System.out.println("Class name: " + superclass.getName());
-		  		   
-		  			 if (ifHaveMultipleDirectSubClasses(superclass, hierarchy)) {
-		  				 completable_candidates.add(superclass);
+		  			 if (superclass_map.containsKey(superclass)) {
+		  				superclass_map.put(superclass, superclass_map.get(superclass) + 1);
+ 		  			 } else {
+ 		  				superclass_map.put(superclass, 1);
 		  			 }
 		  		}
+		  		
+		  		for (Map.Entry<SootClass, Integer> entry : superclass_map.entrySet()) {
+		  			if (entry.getValue() == 1) {
+		  				SootClass sootclass = entry.getKey();
+		  				if (ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
+			  				 completable_candidates.add(sootclass);
+			  			}
+		  			}
+		  		}
+		  		System.out.println("Completable candidates size: " + completable_candidates.size());
 		  		for (SootClass s: completable_candidates) {
 					 System.out.println("Class name: " + s.getName());
 				}
@@ -79,11 +92,7 @@ public class Main {
 	  	 }
 	}
 	
-	private static boolean ifHaveMultipleDirectSubClasses(SootClass sc, Hierarchy h) {
-		// Hierarchy hierarchy = Scene.v().getActiveHierarchy();
-		
-		// List<SootClass> l = h.getSuperclassesOf(sc);
-		
+	private static boolean ifHaveMultipleDirectSubClasses(SootClass sc, Hierarchy h) {		
 		List<SootClass> l = h.getDirectSubclassesOf(sc);
 		System.out.println("List size: " + l.size());
 		
