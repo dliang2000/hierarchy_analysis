@@ -73,6 +73,7 @@ public class Main {
 		  		for (Map.Entry<SootClass, Integer> entry : superclass_map.entrySet()) {
 		  			if (entry.getValue() == 1) {
 		  				SootClass sootclass = entry.getKey();
+		  				sootclass.setApplicationClass();
 		  				if (ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
 			  				 completable_candidates.add(sootclass);
 			  			}
