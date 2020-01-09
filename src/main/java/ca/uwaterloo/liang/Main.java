@@ -1,6 +1,7 @@
 package ca.uwaterloo.liang;
 
 import soot.*;
+import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.pointer.LocalMustNotAliasAnalysis;
 import soot.options.*;
 import soot.toolkits.graph.ExceptionalUnitGraph;
@@ -31,43 +32,45 @@ public class Main {
 		public static CompletableTestTransformer v() { return instance; }
 	    @Override
 	    protected void internalTransform(String phaseName, Map options) {
-	  		 // after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
-	  		 Hierarchy hierarchy = Scene.v().getActiveHierarchy();
+	    	// after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
+	    	
+	    	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
+	    	CHATransformer.v().transform();
+	    	
+	    	Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
+	  		Set<SootClass> completable_candidates = new HashSet<SootClass>();
+	  		String classname = null;
 	  		 
-	  		 Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
-	  		 Set<SootClass> completable_candidates = new HashSet<SootClass>();
-	  		 String classname = null;
+	  		// Read in the classes with missed methods coverage
+	  		String csv_file = "commons_MATH_3_6_1_missing_methods.csv";
+	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
+	  		File file = new File(classLoader.getResource(csv_file).getFile());
 	  		 
-	  		 // Read in the classes with missed methods coverage
-	  		 String csv_file = "commons_MATH_3_6_1_missing_methods.csv";
-	  		 ClassLoader classLoader = new Main().getClass().getClassLoader();
-	  		 File file = new File(classLoader.getResource(csv_file).getFile());
+	  		System.out.println("File Found : " + file.exists());
 	  		 
-	  		 System.out.println("File Found : " + file.exists());
-	  		 
-	  		 BufferedReader reader;
-	  		 try {
-				reader = new BufferedReader(new FileReader(file));
+	  		BufferedReader reader;
+	  		try {
+	  			reader = new BufferedReader(new FileReader(file));
 				String line = null;
 		  		while((line = reader.readLine()) != null){
-		  			 classname = line;
-		  			 SootClass sc = Scene.v().loadClassAndSupport(classname);
+		  			classname = line;
+		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
 		  			 
-		  			 System.out.println(classname);
-		  			 // sc.setApplicationClass();
+		  			System.out.println(classname);
+		  			// sc.setApplicationClass();
 		  			 
-		  			 List<SootClass> l = hierarchy.getSuperclassesOf(sc);
-		  			 if (l.size() == 1)
-		  				 // when the size of l is 1, it means the superclass of sc is java.lang.Object.
-		  				 continue;
-		  			 SootClass superclass = l.get(0);
-		  			 // System.out.println("Package name: " + superclass.getPackageName());
-		  			 // System.out.println("Class name: " + superclass.getName());
-		  			 if (subclassCount.containsKey(superclass)) {
+		  			List<SootClass> l = hierarchy.getSuperclassesOf(sc);
+		  			if (l.size() == 1)
+		  				// when the size of l is 1, it means the superclass of sc is java.lang.Object.
+		  				continue;
+		  			SootClass superclass = l.get(0);
+		  			// System.out.println("Package name: " + superclass.getPackageName());
+		  			// System.out.println("Class name: " + superclass.getName());
+		  			if (subclassCount.containsKey(superclass)) {
 		  				subclassCount.put(superclass, subclassCount.get(superclass) + 1);
- 		  			 } else {
+ 		  			} else {
  		  				subclassCount.put(superclass, 1);
-		  			 }
+		  			}
 		  		}
 		  		
 		  		for (Map.Entry<SootClass, Integer> entry : subclassCount.entrySet()) {
@@ -75,7 +78,7 @@ public class Main {
 		  				SootClass sootclass = entry.getKey();
 		  				sootclass.setApplicationClass();
 		  				if (ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
-			  				 completable_candidates.add(sootclass);
+		  					completable_candidates.add(sootclass);
 			  			}
 		  			}
 		  		}
