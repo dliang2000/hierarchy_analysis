@@ -1,7 +1,7 @@
 package ca.uwaterloo.liang;
 
 import soot.*;
-import soot.jimple.toolkits.callgraph.CHATransformer;
+//import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.pointer.LocalMustNotAliasAnalysis;
 import soot.options.*;
 import soot.toolkits.graph.ExceptionalUnitGraph;
@@ -35,10 +35,12 @@ public class Main {
 	    	// after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
 	    	
 	    	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
-	    	CHATransformer.v().transform();
-	    	
+	    	//CHATransformer.v().transform();
+	    	System.out.println(Scene.v().getSootClassPath());
 	    	Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
-	  		Set<SootClass> completable_candidates = new HashSet<SootClass>();
+	    	Map<SootClass, String> classParameterListMap = new HashMap<SootClass, String>();
+	    	Map<SootClass, String> classReturnTypeMap = new HashMap<SootClass, String>();
+	    	Set<SootClass> completable_candidates = new HashSet<SootClass>();
 	  		String classname = null;
 	  		 
 	  		// Read in the classes with missed methods coverage
@@ -46,18 +48,19 @@ public class Main {
 	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
 	  		File file = new File(classLoader.getResource(csv_file).getFile());
 	  		 
-	  		System.out.println("File Found : " + file.exists());
+	  		System.out.println("File Found: " + file.exists());
 	  		 
 	  		BufferedReader reader;
 	  		try {
 	  			reader = new BufferedReader(new FileReader(file));
 				String line = null;
+				line = reader.readLine();
 		  		while((line = reader.readLine()) != null){
-		  			classname = line;
-		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
-		  			 
+		  			String[] data = line.split(",");
+		  			classname = data[1];
 		  			System.out.println(classname);
-		  			// sc.setApplicationClass();
+		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
+		  			sc.setApplicationClass();
 		  			 
 		  			List<SootClass> l = hierarchy.getSuperclassesOf(sc);
 		  			if (l.size() == 1)
@@ -76,12 +79,13 @@ public class Main {
 		  		for (Map.Entry<SootClass, Integer> entry : subclassCount.entrySet()) {
 		  			if (entry.getValue() == 1) {
 		  				SootClass sootclass = entry.getKey();
-		  				sootclass.setApplicationClass();
+		  				// sootclass.setApplicationClass();
 		  				if (ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
-		  					completable_candidates.add(sootclass);
+		  					List<SootClass> subclasses = retDirectSubClasses(sootclass, hierarchy);
+		  					//completable_candidates.add(sootclass);
 			  			}
 		  			}
-		  		}
+		  		} 
 		  		System.out.println("Completable candidates size: " + completable_candidates.size());
 		  		for (SootClass s: completable_candidates) {
 					 System.out.println("Class name: " + s.getName());
@@ -107,5 +111,11 @@ public class Main {
 			}
 		}
 		return l.size() > 1;
+	}
+	
+	private static List<SootClass> retDirectSubClasses(SootClass sc, Hierarchy h) {		
+		List<SootClass> l = h.getDirectSubclassesOf(sc);
+		System.out.println("List size: " + l.size());
+		return l;
 	}
 }
