@@ -1,6 +1,7 @@
 package ca.uwaterloo.liang;
 
 import soot.*;
+import soot.coffi.ClassFile;
 //import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.pointer.LocalMustNotAliasAnalysis;
 import soot.options.*;
@@ -38,11 +39,17 @@ public class Main {
 	    	//CHATransformer.v().transform();
 	    	System.out.println(Scene.v().getSootClassPath());
 	    	Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
-	    	Map<SootClass, String> classParameterListMap = new HashMap<SootClass, String>();
-	    	Map<SootClass, String> classReturnTypeMap = new HashMap<SootClass, String>();
-	    	Set<SootClass> completable_candidates = new HashSet<SootClass>();
-	  		String classname = null;
-	  		 
+	    	Map<SootClass, List<SootMethod>> classMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
+	    	Map<SootMethod, String> methodDescriptorMap = new HashMap<SootMethod, String>();
+	    	
+	    	// Completable candidates are stored as a hashmap with entries containing key of SootMethod 
+	    	// and value of SootClass, which is the direct superclass of the class in
+	    	// the missing_methods.csv file
+	    	Map<SootMethod, SootClass> completable_candidates = new HashMap<SootMethod, SootClass>();
+	  		
+	    	String classname = null;
+	    	String methodname = null;
+	    	String descriptor = null;
 	  		// Read in the classes with missed methods coverage
 	  		String csv_file = "commons_MATH_3_6_1_missing_methods.csv";
 	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
@@ -58,17 +65,28 @@ public class Main {
 		  		while((line = reader.readLine()) != null){
 		  			String[] data = line.split(",");
 		  			classname = data[1];
+		  			methodname = data[2];
+		  			descriptor = data[3];
+		  			
+		  			String params = ClassFile.parseMethodDesc_params(descriptor);
+		  			String returnType = ClassFile.parseMethodDesc_return(descriptor);
+		  					  		
 		  			System.out.println(classname);
 		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
 		  			sc.setApplicationClass();
-		  			 
+		  			
+		  			if (classMethodsListMap.containsKey(classname)) {
+		  				List<SootMethod> sootMethodList = classMethodsListMap.get(classname);
+		  				SootMethod sootMethod = 
+		  				sootMethodList.add(sootMethod);
+		  			} else {
+		  				
+		  			}
 		  			List<SootClass> l = hierarchy.getSuperclassesOf(sc);
 		  			if (l.size() == 1)
 		  				// when the size of l is 1, it means the superclass of sc is java.lang.Object.
 		  				continue;
 		  			SootClass superclass = l.get(0);
-		  			// System.out.println("Package name: " + superclass.getPackageName());
-		  			// System.out.println("Class name: " + superclass.getName());
 		  			if (subclassCount.containsKey(superclass)) {
 		  				subclassCount.put(superclass, subclassCount.get(superclass) + 1);
  		  			} else {
