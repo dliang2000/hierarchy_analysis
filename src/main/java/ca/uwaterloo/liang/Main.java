@@ -1,7 +1,6 @@
 package ca.uwaterloo.liang;
 
 import soot.*;
-import soot.coffi.ClassFile;
 //import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.pointer.LocalMustNotAliasAnalysis;
 import soot.options.*;
@@ -69,32 +68,56 @@ public class Main {
 		  			descriptor = data[3];
 		  			
 		  			String params = ClassFile.parseMethodDesc_params(descriptor);
-		  			String returnType = ClassFile.parseMethodDesc_return(descriptor);
-		  					  		
-		  			System.out.println(classname);
+		  			
+		  			if (params.length() == 0 || params == null)
+		  				params = "void";
+		  			String[] paramList = params.split(",");
+		  			System.out.println(paramList[0]);
+		  			List<Type> parameterTypeList = new ArrayList<Type>(); 
+		  			
+		  			
+		  			for (String p: paramList) {
+		  				Type t = Scene.v().getType(p);
+		  				parameterTypeList.add(t);
+		  			}
+		  			
+		  			Type returnType = Scene.v().getType(ClassFile.parseMethodDesc_return(descriptor));
+		  			
+		  			System.out.println("Classname:" + classname);
+		  			System.out.println("Methodname:" + methodname);
 		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
 		  			sc.setApplicationClass();
 		  			
-		  			if (classMethodsListMap.containsKey(classname)) {
-		  				List<SootMethod> sootMethodList = classMethodsListMap.get(classname);
-		  				SootMethod sootMethod = 
-		  				sootMethodList.add(sootMethod);
-		  			} else {
-		  				
-		  			}
 		  			List<SootClass> l = hierarchy.getSuperclassesOf(sc);
-		  			if (l.size() == 1)
+		  			if (l.size() == 1) {
 		  				// when the size of l is 1, it means the superclass of sc is java.lang.Object.
+		  				System.out.println("a");
 		  				continue;
+		  			}
 		  			SootClass superclass = l.get(0);
 		  			if (subclassCount.containsKey(superclass)) {
 		  				subclassCount.put(superclass, subclassCount.get(superclass) + 1);
  		  			} else {
  		  				subclassCount.put(superclass, 1);
 		  			}
+		  			
+		  			SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
+		  			System.out.println("Method subsignature: " + sootMethod.getSubSignature());
+	  				//System.out.println("Method signature: " + sootMethod.getSignature());
+	  				
+		  			// update classMethodsListMap
+		  			if (classMethodsListMap.containsKey(superclass)) {
+		  				List<SootMethod> sootMethodList = classMethodsListMap.get(superclass);
+		  				sootMethodList.add(sootMethod);
+		  				classMethodsListMap.put(superclass, sootMethodList);
+		  			} else {
+		  				List<SootMethod> sootMethodList = new ArrayList<SootMethod>();
+		  				sootMethodList.add(sootMethod);
+		  				classMethodsListMap.put(superclass, sootMethodList);
+		  			}
 		  		}
 		  		
-		  		for (Map.Entry<SootClass, Integer> entry : subclassCount.entrySet()) {
+		  		/*for (Map.Entry<SootClass, Integer> entry : subclassCount.entrySet()) {
 		  			if (entry.getValue() == 1) {
 		  				SootClass sootclass = entry.getKey();
 		  				// sootclass.setApplicationClass();
@@ -107,7 +130,7 @@ public class Main {
 		  		System.out.println("Completable candidates size: " + completable_candidates.size());
 		  		for (SootClass s: completable_candidates) {
 					 System.out.println("Class name: " + s.getName());
-				}
+				}*/
 	  		 } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -120,12 +143,12 @@ public class Main {
 	
 	private static boolean ifHaveMultipleDirectSubClasses(SootClass sc, Hierarchy h) {		
 		List<SootClass> l = h.getDirectSubclassesOf(sc);
-		System.out.println("List size: " + l.size());
+		//System.out.println("List size: " + l.size());
 		
 		if (l.size() > 1) {
 			for (SootClass sootclass: l) {
-				System.out.println("Package name: " + sootclass.getPackageName());
-				System.out.println("Class name: " + sootclass.getName());
+				//System.out.println("Package name: " + sootclass.getPackageName());
+				//System.out.println("Class name: " + sootclass.getName());
 			}
 		}
 		return l.size() > 1;
