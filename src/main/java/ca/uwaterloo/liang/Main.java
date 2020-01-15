@@ -133,14 +133,12 @@ public class Main {
 		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
 		  			boolean isCandidate = true;
 		  			for (SootMethod sootmethod: entry.getValue()) {
+		  				if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
+		  					isCandidate = false;
+		  				}
 		  				for (SootClass sc: sootClassList) {
-		  					try {
-		  						sc.getMethod(sootmethod.getNumberedSubSignature());
-		  					}
-		  					catch (RuntimeException re) {
-		  						System.out.println("No SootMethod in SootClass" + sc.getName());
+		  					if (!sc.declaresMethod(sootmethod.getName(), sootmethod.getParameterTypes(), sootmethod.getReturnType())) {
 		  						isCandidate = false;
-		  						break;
 		  					}
 		  				}
 		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName())) {
@@ -174,11 +172,5 @@ public class Main {
 			}
 		}
 		return l.size() > 1;
-	}
-	
-	private static List<SootClass> retDirectSubClasses(SootClass sc, Hierarchy h) {		
-		List<SootClass> l = h.getDirectSubclassesOf(sc);
-		System.out.println("List size: " + l.size());
-		return l;
 	}
 }
