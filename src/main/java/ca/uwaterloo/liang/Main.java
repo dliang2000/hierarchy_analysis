@@ -9,6 +9,7 @@ import soot.util.*;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
@@ -72,26 +73,37 @@ public class Main {
 		  			if (params.length() == 0 || params == null)
 		  				params = "void";
 		  			String[] paramList = params.split(",");
-		  			System.out.println(paramList[0]);
+		  			// System.out.println(paramList[0]);
 		  			List<Type> parameterTypeList = new ArrayList<Type>(); 
 		  			
 		  			
 		  			for (String p: paramList) {
-		  				Type t = Scene.v().getType(p);
+		  				Type t;
+		  				if (Scene.v().getTypeUnsafe(p, false) == null) {
+			  				t = VoidType.v();
+			  			} else {
+			  				t = Scene.v().getType(p);
+			  			}
 		  				parameterTypeList.add(t);
 		  			}
 		  			
-		  			Type returnType = Scene.v().getType(ClassFile.parseMethodDesc_return(descriptor));
+		  			// System.out.println("Classname:" + classname);
+		  			// System.out.println("Methodname:" + methodname);
 		  			
-		  			System.out.println("Classname:" + classname);
-		  			System.out.println("Methodname:" + methodname);
+		  			// System.out.println(ClassFile.parseMethodDesc_return(descriptor));
+		  			Type returnType;
+		  			if (Scene.v().getTypeUnsafe(ClassFile.parseMethodDesc_return(descriptor), false) == null) {
+		  				returnType = VoidType.v();
+		  			} else {
+		  				returnType = Scene.v().getType(ClassFile.parseMethodDesc_return(descriptor));
+		  			}
+		  					  			
 		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
 		  			sc.setApplicationClass();
 		  			
 		  			List<SootClass> l = hierarchy.getSuperclassesOf(sc);
 		  			if (l.size() == 1) {
 		  				// when the size of l is 1, it means the superclass of sc is java.lang.Object.
-		  				System.out.println("a");
 		  				continue;
 		  			}
 		  			SootClass superclass = l.get(0);
@@ -103,7 +115,6 @@ public class Main {
 		  			
 		  			SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
 		  			System.out.println("Method subsignature: " + sootMethod.getSubSignature());
-	  				//System.out.println("Method signature: " + sootMethod.getSignature());
 	  				
 		  			// update classMethodsListMap
 		  			if (classMethodsListMap.containsKey(superclass)) {
@@ -117,20 +128,31 @@ public class Main {
 		  			}
 		  		}
 		  		
-		  		/*for (Map.Entry<SootClass, Integer> entry : subclassCount.entrySet()) {
-		  			if (entry.getValue() == 1) {
-		  				SootClass sootclass = entry.getKey();
-		  				// sootclass.setApplicationClass();
-		  				if (ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
-		  					List<SootClass> subclasses = retDirectSubClasses(sootclass, hierarchy);
-		  					//completable_candidates.add(sootclass);
-			  			}
+		  		for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
+		  			SootClass sootclass = entry.getKey();
+		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
+		  			boolean isCandidate = true;
+		  			for (SootMethod sootmethod: entry.getValue()) {
+		  				for (SootClass sc: sootClassList) {
+		  					try {
+		  						sc.getMethod(sootmethod.getNumberedSubSignature());
+		  					}
+		  					catch (RuntimeException re) {
+		  						System.out.println("No SootMethod in SootClass" + sc.getName());
+		  						isCandidate = false;
+		  						break;
+		  					}
+		  				}
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod)) {
+		  					completable_candidates.put(sootmethod, sootclass);
+		  				}
+		  				isCandidate = true;
 		  			}
 		  		} 
 		  		System.out.println("Completable candidates size: " + completable_candidates.size());
-		  		for (SootClass s: completable_candidates) {
-					 System.out.println("Class name: " + s.getName());
-				}*/
+		  		for (Entry<SootMethod, SootClass> entry: completable_candidates.entrySet()) {
+					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey().getName());
+				}
 	  		 } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
