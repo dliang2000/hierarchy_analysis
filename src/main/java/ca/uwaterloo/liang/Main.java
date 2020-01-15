@@ -45,7 +45,7 @@ public class Main {
 	    	// Completable candidates are stored as a hashmap with entries containing key of SootMethod 
 	    	// and value of SootClass, which is the direct superclass of the class in
 	    	// the missing_methods.csv file
-	    	Map<SootMethod, SootClass> completable_candidates = new HashMap<SootMethod, SootClass>();
+	    	Map<String, SootClass> completable_candidates = new HashMap<String, SootClass>();
 	  		
 	    	String classname = null;
 	    	String methodname = null;
@@ -143,15 +143,15 @@ public class Main {
 		  						break;
 		  					}
 		  				}
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod)) {
-		  					completable_candidates.put(sootmethod, sootclass);
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName())) {
+		  					completable_candidates.put(sootmethod.getName(), sootclass);
 		  				}
 		  				isCandidate = true;
 		  			}
 		  		} 
 		  		System.out.println("Completable candidates size: " + completable_candidates.size());
-		  		for (Entry<SootMethod, SootClass> entry: completable_candidates.entrySet()) {
-					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey().getName());
+		  		for (Entry<String, SootClass> entry: completable_candidates.entrySet()) {
+					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
 				}
 	  		 } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
