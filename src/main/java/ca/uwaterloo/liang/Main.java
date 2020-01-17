@@ -18,7 +18,7 @@ public class Main {
 			     });
 		 String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
 				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
-				    + File.separator + "commons-math-MATH_3_6_1" + File.separator + "src/main/java/classes/";
+				    + File.separator + "commons-collections-collections-4.3" + File.separator + "src/main/java/classes/";
 		 
 		 Options.v().set_prepend_classpath(true);
 		 Options.v().set_whole_program(true);
@@ -38,6 +38,8 @@ public class Main {
 	    	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
 	    	//CHATransformer.v().transform();
 	    	System.out.println(Scene.v().getSootClassPath());
+	    	
+	    	HashSet<Pair<SootClass, SootMethod>> missingMethodCoverageClassSet = new HashSet<Pair<SootClass, SootMethod>>();
 	    	Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
 	    	Map<SootClass, List<SootMethod>> classMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
 	    	Map<SootMethod, String> methodDescriptorMap = new HashMap<SootMethod, String>();
@@ -114,8 +116,11 @@ public class Main {
 		  			}
 		  			
 		  			SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
-		  			System.out.println("Method subsignature: " + sootMethod.getSubSignature());
+		  			// System.out.println("Method subsignature: " + sootMethod.getSubSignature());
 	  				
+		  			Pair<SootClass, SootMethod> pair = new Pair(sc, sootMethod);
+		  			missingMethodCoverageClassSet.add(pair);
+		  			
 		  			// update classMethodsListMap
 		  			if (classMethodsListMap.containsKey(superclass)) {
 		  				List<SootMethod> sootMethodList = classMethodsListMap.get(superclass);
@@ -128,22 +133,36 @@ public class Main {
 		  			}
 		  		}
 		  		
+		  		boolean isCandidate = true;
+		  		int missingMethodClassCounter = 0;
+		  		
 		  		for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
 		  			SootClass sootclass = entry.getKey();
 		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
-		  			boolean isCandidate = true;
 		  			for (SootMethod sootmethod: entry.getValue()) {
+		  				// Horizontal Completable Hierarchy Condition Requirement 1: there are multiple sibling classes
 		  				if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
 		  					isCandidate = false;
 		  				}
+		  				// Horizontal Completable Hierarchy Condition Requirement 2: 
+		  				// All sibling classes have an implementation of the SootMethod in interest
 		  				for (SootClass sc: sootClassList) {
 		  					if (!sc.declaresMethod(sootmethod.getName(), sootmethod.getParameterTypes(), sootmethod.getReturnType())) {
 		  						isCandidate = false;
 		  					}
+		  					// Horizontal Completable Hierarchy Condition Requirement 3: 
+			  				// Only one of the sibling classes does not have the SootMethod in interest tested
+		  					Pair<SootClass, SootMethod> temp_pair = new Pair(sc, sootmethod);
+		  					if (missingMethodCoverageClassSet.contains(temp_pair)) {
+		  						missingMethodClassCounter++;
+		  					}
 		  				}
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName())) {
+		  				
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName()) 
+		  						&& (missingMethodClassCounter != 1)) {
 		  					completable_candidates.put(sootmethod.getName(), sootclass);
 		  				}
+		  				missingMethodClassCounter = 0;
 		  				isCandidate = true;
 		  			}
 		  		} 
