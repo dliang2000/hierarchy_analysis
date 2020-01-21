@@ -16,13 +16,45 @@ public class Main {
 		 PackManager.v().getPack("wjtp").add(
 			     new Transform("wjtp.myTransform", CompletableTestTransformer.v()) {
 			     });
-		 String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
+		 
+		 // list of maven dependent jars
+		 // jars needed for google guava
+		/* String failure_access = common_jar_path + "com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar";
+		 String listenable_future = common_jar_path + "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava"
+		 		+ "/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
+		 String jsr305 = common_jar_path + "com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar";
+		 String check_qual = common_jar_path + "org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar";
+		 String error_prone = common_jar_path + "com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar";
+		 String j2objc = common_jar_path + "com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar";
+		 String animal_sniffer = common_jar_path + "org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar";*/
+		 
+		 /*failure_access + File.pathSeparator + listenable_future + File.pathSeparator 
+		 + jsr305 + File.pathSeparator + check_qual + File.pathSeparator  + error_prone + File.pathSeparator 
+		 + j2objc + File.pathSeparator + animal_sniffer + File.pathSeparator*/
+		 
+		 String common_jar_path = "/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/";
+/*		 List<String> setting = new ArrayList<String>();
+		 setting.add(common_jar_path);*/
+		 
+		 String gnujaxp = common_jar_path + "gnujaxp.jar";
+		 String iText = common_jar_path + "iText-2.1.1.jar";
+		 String jcommon = common_jar_path + "jcommon-1.0.13.jar";
+		 String junit = common_jar_path + "junit.jar";
+		 String servlet = common_jar_path + "servlet.jar";
+		 String swt = common_jar_path + "swt.jar";
+		 String swt2d = common_jar_path + "swtgraphics2d.jar";
+		 
+		 String class_path = gnujaxp + File.pathSeparator + iText + File.pathSeparator + jcommon + File.pathSeparator 
+				 	+ junit + File.pathSeparator + servlet + File.pathSeparator + swt + File.pathSeparator + swt2d 
+				 	+ File.pathSeparator + File.separator + "home" + File.separator + "daveroar" + File.separator + 
 				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
-				    + File.separator + "commons-collections-collections-4.3" + File.separator + "src/main/java/classes/";
+				    + File.separator + "jfreechart" + File.separator + "src/org/classes/";
+		 // setting.add(class_path);
 		 
 		 Options.v().set_prepend_classpath(true);
 		 Options.v().set_whole_program(true);
 		 Options.v().set_verbose(true);
+		 //Options.v().set_process_dir(setting);
 		 Options.v().set_soot_classpath(class_path);
 		 soot.Main.main(args);
 	}
@@ -53,7 +85,7 @@ public class Main {
 	    	String methodname = null;
 	    	String descriptor = null;
 	  		// Read in the classes with missed methods coverage
-	  		String csv_file = "commons_MATH_3_6_1_missing_methods.csv";
+	  		String csv_file = "jfreechart_1.0.10_missing_methods.csv";
 	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
 	  		File file = new File(classLoader.getResource(csv_file).getFile());
 	  		 
@@ -89,10 +121,6 @@ public class Main {
 		  				parameterTypeList.add(t);
 		  			}
 		  			
-		  			// System.out.println("Classname:" + classname);
-		  			// System.out.println("Methodname:" + methodname);
-		  			
-		  			// System.out.println(ClassFile.parseMethodDesc_return(descriptor));
 		  			Type returnType;
 		  			if (Scene.v().getTypeUnsafe(ClassFile.parseMethodDesc_return(descriptor), false) == null) {
 		  				returnType = VoidType.v();
@@ -101,6 +129,9 @@ public class Main {
 		  			}
 		  					  			
 		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
+		  			if (sc.isInterface())
+		  				continue;
+		  			
 		  			sc.setApplicationClass();
 		  			
 		  			List<SootClass> l = hierarchy.getSuperclassesOf(sc);
@@ -152,14 +183,14 @@ public class Main {
 		  					}
 		  					// Horizontal Completable Hierarchy Condition Requirement 3: 
 			  				// Only one of the sibling classes does not have the SootMethod in interest tested
-		  					Pair<SootClass, SootMethod> temp_pair = new Pair(sc, sootmethod);
+		  					/*Pair<SootClass, SootMethod> temp_pair = new Pair(sc, sootmethod);
 		  					if (missingMethodCoverageClassSet.contains(temp_pair)) {
 		  						missingMethodClassCounter++;
 		  					}
+		  					&& (missingMethodClassCounter != 1)*/
 		  				}
 		  				
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName()) 
-		  						&& (missingMethodClassCounter != 1)) {
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName()) ) {
 		  					completable_candidates.put(sootmethod.getName(), sootclass);
 		  				}
 		  				missingMethodClassCounter = 0;

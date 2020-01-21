@@ -1,0 +1,51 @@
+# All sibling classes have implementations for the method of interest.
+
+## commons-collections-collections-4.3:
+
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/commons-collections-collections-4.3/src/main/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 2
+Candidate class name: org.apache.commons.collections4.bag.AbstractSortedBagDecorator, method name: addAll
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: putAll
+
+## commons-math-MATH_3_6_1:
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/commons-math-MATH_3_6_1/src/main/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 3
+Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: multiplyEntry
+Candidate class name: org.apache.commons.math3.linear.PreconditionedIterativeLinearSolver, method name: solveInPlace
+Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: addToEntry
+
+## google guava (guava/guava):
+/home/daveroar/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/daveroar/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/daveroar/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/daveroar/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar:/home/daveroar/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar:/home/daveroar/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/daveroar/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/guava/guava/target/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 4
+Candidate class name: com.google.common.graph.AbstractValueGraph, method name: hasEdgeConnecting
+Candidate class name: com.google.common.collect.ContiguousSet, method name: range
+Candidate class name: com.google.common.collect.ForwardingDeque, method name: drainTo
+Candidate class name: com.google.common.escape.Escaper, method name: growBuffer
+
+
+## jfreechart-1.0.10-original:
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/gnujaxp.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/iText-2.1.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/jcommon-1.0.13.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/junit.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/servlet.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/swt.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/swtgraphics2d.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/src/org/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 19
+Candidate class name: org.jfree.chart.plot.CategoryPlot, method name: setOrientation
+Candidate class name: org.jfree.data.time.RegularTimePeriod, method name: getFirstMillisecond
+Candidate class name: org.jfree.chart.axis.ValueAxis, method name: refreshTicks
+Candidate class name: org.jfree.chart.renderer.xy.XYBarRenderer, method name: drawItem
+Candidate class name: org.jfree.data.xy.AbstractIntervalXYDataset, method name: getItemCount
+Candidate class name: org.jfree.chart.plot.XYPlot, method name: findSubplot
+Candidate class name: org.jfree.chart.needle.MeterNeedle, method name: drawNeedle
+Candidate class name: org.jfree.chart.axis.ValueAxis, method name: draw
+Candidate class name: org.jfree.chart.axis.ValueAxis, method name: valueToJava2D
+Candidate class name: org.jfree.chart.plot.CategoryPlot, method name: plotChanged
+Candidate class name: org.jfree.data.time.RegularTimePeriod, method name: getLastMillisecond
+Candidate class name: org.jfree.data.time.RegularTimePeriod, method name: peg
+Candidate class name: javax.swing.table.AbstractTableModel, method name: isCellEditable
+Candidate class name: org.jfree.chart.title.Title, method name: arrange
+Candidate class name: org.jfree.chart.plot.XYPlot, method name: setRenderer
+Candidate class name: org.jfree.chart.plot.CategoryPlot, method name: setGap
+Candidate class name: org.jfree.chart.plot.XYPlot, method name: handleClick
+Candidate class name: org.jfree.chart.plot.CategoryPlot, method name: getDataRange
+Candidate class name: org.jfree.chart.axis.ValueAxis, method name: java2DToValue
