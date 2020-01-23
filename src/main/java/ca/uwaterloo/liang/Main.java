@@ -18,23 +18,47 @@ public class Main {
 			     });
 		 
 		 // list of maven dependent jars
-		 // jars needed for google guava
-		/* String failure_access = common_jar_path + "com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar";
+		 
+		 //String common_jar_path = "/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/";
+		 //List<String> setting = new ArrayList<String>();
+		 //setting.add(common_jar_path);
+		 
+		 
+		// class_path for joda-time-2.10
+		 //jars needed for joda-time:
+/*		 String common_jar_path = "/home/daveroar/.m2/repository";
+		 String joda_convert = common_jar_path + "/org/joda/joda-convert/1.2/joda-convert-1.2.jar";
+		 String junit = common_jar_path + "/junit/junit/3.8.2/junit-3.8.2.jar";
+		 String class_path = joda_convert + File.pathSeparator + junit + File.pathSeparator 
+				 	+ File.separator + "home" + File.separator + "daveroar" + File.separator + 
+				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
+				    + File.separator + "joda-time-2.10-original-nojqf" + File.separator + "target/classes/";*/
+		 
+		 
+		 // class_path for commons-math-MATH_3_6_1
+/*		 String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
+				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
+				    + File.separator + "commons-math-MATH_3_6_1" + File.separator + "src/main/java/classes/";*/
+		 
+		 //class path for guava/guava
+		 //jars needed for google guava (to be removed if the resolving level issue could be resolved)
+		 /*String failure_access = common_jar_path + "com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar";
 		 String listenable_future = common_jar_path + "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava"
-		 		+ "/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
+			 		+ "/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
 		 String jsr305 = common_jar_path + "com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar";
 		 String check_qual = common_jar_path + "org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar";
 		 String error_prone = common_jar_path + "com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar";
 		 String j2objc = common_jar_path + "com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar";
-		 String animal_sniffer = common_jar_path + "org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar";*/
+		 String animal_sniffer = common_jar_path + "org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar";
+			 
+		 String class_path = failure_access + File.pathSeparator + listenable_future + File.pathSeparator 
+				 + jsr305 + File.pathSeparator + check_qual + File.pathSeparator  + error_prone + File.pathSeparator 
+				 + j2objc + File.pathSeparator + animal_sniffer + File.pathSeparator + File.separator + "home" + File.separator + "daveroar" + File.separator + 
+				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
+				    + File.separator + "guava" + File.separator + "guava/target/classes/";*/
 		 
-		 /*failure_access + File.pathSeparator + listenable_future + File.pathSeparator 
-		 + jsr305 + File.pathSeparator + check_qual + File.pathSeparator  + error_prone + File.pathSeparator 
-		 + j2objc + File.pathSeparator + animal_sniffer + File.pathSeparator*/
-		 
-		 String common_jar_path = "/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/";
-/*		 List<String> setting = new ArrayList<String>();
-		 setting.add(common_jar_path);*/
+		 //class path for jfreechart
+		 /*String common_jar_path = "/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/";
 		 
 		 String gnujaxp = common_jar_path + "gnujaxp.jar";
 		 String iText = common_jar_path + "iText-2.1.1.jar";
@@ -48,14 +72,20 @@ public class Main {
 				 	+ junit + File.pathSeparator + servlet + File.pathSeparator + swt + File.pathSeparator + swt2d 
 				 	+ File.pathSeparator + File.separator + "home" + File.separator + "daveroar" + File.separator + 
 				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
-				    + File.separator + "jfreechart" + File.separator + "src/org/classes/";
-		 // setting.add(class_path);
+				    + File.separator + "jfreechart" + File.separator + "src/org/classes/";*/
+		 //setting.add(class_path);
+		 
+		 //class path for lucene-core:
+		 String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
+				    "git" + File.separator + "lucene-solr" + File.separator + "lucene" 
+				 + File.separator + "core/src/java/classes/";
 		 
 		 Options.v().set_prepend_classpath(true);
-		 Options.v().set_whole_program(true);
+		 
 		 Options.v().set_verbose(true);
 		 //Options.v().set_process_dir(setting);
 		 Options.v().set_soot_classpath(class_path);
+		 Options.v().set_whole_program(true);
 		 soot.Main.main(args);
 	}
 	
@@ -85,7 +115,8 @@ public class Main {
 	    	String methodname = null;
 	    	String descriptor = null;
 	  		// Read in the classes with missed methods coverage
-	  		String csv_file = "jfreechart_1.0.10_missing_methods.csv";
+	  		String csv_file = "lucene_core_missing_methods.csv";
+	  		
 	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
 	  		File file = new File(classLoader.getResource(csv_file).getFile());
 	  		 

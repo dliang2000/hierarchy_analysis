@@ -5,4 +5,4 @@ shopt -s globstar
 mkdir classes
 javac **/*.java -d \classes
 
-java -cp ca.uwaterloo.liang.Main -process-dir .
+java -cp ca.uwaterloo.liang.Main
