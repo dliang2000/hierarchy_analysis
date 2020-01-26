@@ -1,0 +1,1366 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer=""></script>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<h1> Missed Coverage Examples </h1>
+<h2> Benchmark: jfreechart-1.0.10-original</h2>
+
+<h3 style="bold">#1</h3>
+<div>Base Class: <strong>Axis</strong></div>
+<div>Direct Superclass: <strong>ValueAxis</strong></div>
+<div>Sibling Classes: <strong>4</strong></div>
+<ol style="list-style-type:disc;">
+  <li><strong>DateAxis		  (Partially covered)</strong></li>
+  <li><strong>LogAxis			  (Not covered)</strong></li>
+  <li><strong>NumberAxis		(Covered)</strong></li>
+  <li><strong>PeriodAxis		(Not Covered)</strong></li>
+</ol>
+<div>Method Name: <strong>refreshTicks</strong></div>
+<br>
+<span style="color: red">This candidate group is an example where the majority of the sibling classes have the same
+  implementation for the method. It is also an example where the method is not directly called by a unit test case,
+  but may be invoked through a chain of call hierarchy.</span>
+
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // method declaration in Axis.java
+      /**
+       * Calculates the positions of the ticks for the axis, storing the results
+       * in the tick list (ready for drawing).
+       *
+       * @param g2  the graphics device.
+       * @param state  the axis state.
+       * @param dataArea  the area inside the axes.
+       * @param edge  the edge on which the axis is located.
+       *
+       * @return The list of ticks.
+       */
+      public abstract List refreshTicks(Graphics2D g2,
+                                        AxisState state,
+                                        Rectangle2D dataArea,
+                                        RectangleEdge edge);
+  </code>
+</div>
+
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in DateAxis.java:
+        public List refreshTicks(Graphics2D g2,
+                                 AxisState state,
+                                 Rectangle2D dataArea,
+                                 RectangleEdge edge) {
+
+            List result = null;
+            if (RectangleEdge.isTopOrBottom(edge)) {
+                result = refreshTicksHorizontal(g2, dataArea, edge);
+            }
+            else if (RectangleEdge.isLeftOrRight(edge)) {
+                result = refreshTicksVertical(g2, dataArea, edge);
+            }
+            return result;
+
+        }
+  </code>
+  <code id="code1_2">
+    // Implementation in LogAxis.java:
+        public List refreshTicks(Graphics2D g2, AxisState state,
+                Rectangle2D dataArea, RectangleEdge edge) {
+
+            List result = new java.util.ArrayList();
+            if (RectangleEdge.isTopOrBottom(edge)) {
+                result = refreshTicksHorizontal(g2, dataArea, edge);
+            }
+            else if (RectangleEdge.isLeftOrRight(edge)) {
+                result = refreshTicksVertical(g2, dataArea, edge);
+            }
+            return result;
+
+        }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in NumberAxis.java:
+        public List refreshTicks(Graphics2D g2,
+                                 AxisState state,
+                                 Rectangle2D dataArea,
+                                 RectangleEdge edge) {
+
+            List result = new java.util.ArrayList();
+            if (RectangleEdge.isTopOrBottom(edge)) {
+                result = refreshTicksHorizontal(g2, dataArea, edge);
+            }
+            else if (RectangleEdge.isLeftOrRight(edge)) {
+                result = refreshTicksVertical(g2, dataArea, edge);
+            }
+            return result;
+
+        }
+  </code>
+  <code id="code1_2">
+    // Implementation in PeriodAxis.java:
+        public List refreshTicks(Graphics2D g2,
+                                 AxisState state,
+                                 Rectangle2D dataArea,
+                                 RectangleEdge edge) {
+            return Collections.EMPTY_LIST;
+        }
+  </code>
+</div>
+
+</pre>
+
+<br><br>
+<h3 style="bold">#2</h3>
+<div>Base Class: <strong>Axis</strong></div>
+<div>Direct Superclass: <strong>ValueAxis</strong></div>
+<div>Sibling Classes: <strong>4</strong></div>
+<ol style="list-style-type:disc;">
+  <li><strong>DateAxis		  (Partially covered)</strong></li>
+  <li><strong>LogAxis			  (Not covered)</strong></li>
+  <li><strong>NumberAxis		(Covered)</strong></li>
+  <li><strong>PeriodAxis		(Not Covered)</strong></li>
+</ol>
+<div>Method Name: <strong>valueToJava2D</strong></div>
+<br>
+<span style="color: red">This candidate is an example where method implemented is not tested in two of the sibling classes, and only partially tested in the other two.</span>
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // method declaration in ValueAxis.java
+        /**
+         * Converts a data value to a coordinate in Java2D space, assuming that the
+         * axis runs along one edge of the specified dataArea.
+         *
+         * Note that it is possible for the coordinate to fall outside the area.
+         *
+         * @param value  the data value.
+         * @param area  the area for plotting the data.
+         * @param edge  the edge along which the axis lies.
+         *
+         * @return The Java2D coordinate.
+         *
+         * @see #java2DToValue(double, Rectangle2D, RectangleEdge)
+         */
+        public abstract double valueToJava2D(double value, Rectangle2D area,
+                                             RectangleEdge edge);
+  </code>
+</div>
+
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in DateAxis.java:
+        public double valueToJava2D(double value, Rectangle2D area,
+                                    RectangleEdge edge) {
+
+            value = this.timeline.toTimelineValue((long) value);
+
+            DateRange range = (DateRange) getRange();
+            double axisMin = this.timeline.toTimelineValue(range.getLowerDate());
+            double axisMax = this.timeline.toTimelineValue(range.getUpperDate());
+            double result = 0.0;
+            if (RectangleEdge.isTopOrBottom(edge)) {
+                double minX = area.getX();
+                double maxX = area.getMaxX();
+                if (isInverted()) {
+                    result = maxX + ((value - axisMin) / (axisMax - axisMin))
+                             * (minX - maxX);
+                }
+                else {
+                    result = minX + ((value - axisMin) / (axisMax - axisMin))
+                             * (maxX - minX);
+                }
+            }
+            else if (RectangleEdge.isLeftOrRight(edge)) {
+                double minY = area.getMinY();
+                double maxY = area.getMaxY();
+                if (isInverted()) {
+                    result = minY + (((value - axisMin) / (axisMax - axisMin))
+                             * (maxY - minY));
+                }
+                else {
+                    result = maxY - (((value - axisMin) / (axisMax - axisMin))
+                             * (maxY - minY));
+                }
+            }
+            return result;
+        }
+  </code>
+  <code id="code1_2">
+    // Implementation in LogAxis.java:
+        public double valueToJava2D(double value, Rectangle2D area,
+                RectangleEdge edge) {
+
+            Range range = getRange();
+            double axisMin = calculateLog(range.getLowerBound());
+            double axisMax = calculateLog(range.getUpperBound());
+            value = calculateLog(value);
+
+            double min = 0.0;
+            double max = 0.0;
+            if (RectangleEdge.isTopOrBottom(edge)) {
+                min = area.getX();
+                max = area.getMaxX();
+            }
+            else if (RectangleEdge.isLeftOrRight(edge)) {
+                max = area.getMinY();
+                min = area.getMaxY();
+            }
+            if (isInverted()) {
+                return max
+                       - ((value - axisMin) / (axisMax - axisMin)) * (max - min);
+            }
+            else {
+                return min
+                       + ((value - axisMin) / (axisMax - axisMin)) * (max - min);
+            }
+        }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in NumberAxis.java:
+    public double valueToJava2D(double value, Rectangle2D area,
+                                RectangleEdge edge) {
+
+        Range range = getRange();
+        double axisMin = range.getLowerBound();
+        double axisMax = range.getUpperBound();
+
+        double min = 0.0;
+        double max = 0.0;
+        if (RectangleEdge.isTopOrBottom(edge)) {
+            min = area.getX();
+            max = area.getMaxX();
+        }
+        else if (RectangleEdge.isLeftOrRight(edge)) {
+            max = area.getMinY();
+            min = area.getMaxY();
+        }
+        if (isInverted()) {
+            return max
+                   - ((value - axisMin) / (axisMax - axisMin)) * (max - min);
+        }
+        else {
+            return min
+                   + ((value - axisMin) / (axisMax - axisMin)) * (max - min);
+        }
+
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in PeriodAxis.java:
+        public double valueToJava2D(double value,
+                                    Rectangle2D area,
+                                    RectangleEdge edge) {
+
+            double result = Double.NaN;
+            double axisMin = this.first.getFirstMillisecond(this.calendar);
+            double axisMax = this.last.getLastMillisecond(this.calendar);
+            if (RectangleEdge.isTopOrBottom(edge)) {
+                double minX = area.getX();
+                double maxX = area.getMaxX();
+                if (isInverted()) {
+                    result = maxX + ((value - axisMin) / (axisMax - axisMin))
+                             * (minX - maxX);
+                }
+                else {
+                    result = minX + ((value - axisMin) / (axisMax - axisMin))
+                             * (maxX - minX);
+                }
+            }
+            else if (RectangleEdge.isLeftOrRight(edge)) {
+                double minY = area.getMinY();
+                double maxY = area.getMaxY();
+                if (isInverted()) {
+                    result = minY + (((value - axisMin) / (axisMax - axisMin))
+                             * (maxY - minY));
+                }
+                else {
+                    result = maxY - (((value - axisMin) / (axisMax - axisMin))
+                             * (maxY - minY));
+                }
+            }
+            return result;
+
+        }
+  </code>
+</div>
+</pre>
+
+<h3 style="bold">#3</h3>
+<div>Base Class: <strong>MeterNeedle</strong></div>
+<div>Direct Superclass: <strong>MeterNeedle</strong></div>
+<div>Sibling Classes: <strong>8</strong></div>
+<ol style="list-style-type:disc;">
+  <li><strong>ArrowNeedle		  (Not covered)</strong></li>
+  <li><strong>LineNeedle			  (Not covered)</strong></li>
+  <li><strong>LongNeedle		(Not Covered)</strong></li>
+  <li><strong>MiddlePinNeedle		(Not Covered)</strong></li>
+  <li><strong>PinNeedle		  (Not covered)</strong></li>
+  <li><strong>PlumNeedle			  (Not covered)</strong></li>
+  <li><strong>PointerNeedle		(Not Covered)</strong></li>
+  <li><strong>ShipNeedle		(Not Covered)</strong></li>
+</ol>
+<div>Method Name: <strong>drawNeedle</strong></div>
+<br>
+<span style="color: red">This candidate group is an example with a large number of sibling Classes,
+  all with the method implemented but not tested. This kind of candidate group may require further
+  investigation to figure out why none of the whole group of implmentations is tested.
+</span>
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // method declaration in MeterNeedle.java
+    /**
+    * Draws the needle.
+    *
+    * @param g2  the graphics device.
+    * @param plotArea  the plot area.
+    * @param rotate  the rotation point.
+    * @param angle  the angle.
+    */
+    protected abstract void drawNeedle(Graphics2D g2,
+                               Rectangle2D plotArea, Point2D rotate,
+                               double angle);
+  </code>
+</div>
+
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in ArrowNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        Line2D shape = new Line2D.Float();
+        Shape d = null;
+
+        float x = (float) (plotArea.getMinX() +  (plotArea.getWidth() / 2));
+        float minY = (float) plotArea.getMinY();
+        float maxY = (float) plotArea.getMaxY();
+        shape.setLine(x, minY, x, maxY);
+
+        GeneralPath shape1 = new GeneralPath();
+        if (this.isArrowAtTop) {
+            shape1.moveTo(x, minY);
+            minY += 4 * getSize();
+        }
+        else {
+            shape1.moveTo(x, maxY);
+            minY = maxY - 4 * getSize();
+        }
+        shape1.lineTo(x + getSize(), minY);
+        shape1.lineTo(x - getSize(), minY);
+        shape1.closePath();
+
+        if ((rotate != null) && (angle != 0)) {
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            d = getTransform().createTransformedShape(shape);
+        }
+        else {
+            d = shape;
+        }
+        defaultDisplay(g2, d);
+
+        if ((rotate != null) && (angle != 0)) {
+            d = getTransform().createTransformedShape(shape1);
+        }
+        else {
+            d = shape1;
+        }
+        defaultDisplay(g2, d);
+
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in LineNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        Line2D shape = new Line2D.Double();
+
+        double x = plotArea.getMinX() + (plotArea.getWidth() / 2);
+        shape.setLine(x, plotArea.getMinY(), x, plotArea.getMaxY());
+
+        Shape s = shape;
+
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            s = getTransform().createTransformedShape(s);
+        }
+
+        defaultDisplay(g2, s);
+
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in LongNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        GeneralPath shape1 = new GeneralPath();
+        GeneralPath shape2 = new GeneralPath();
+        GeneralPath shape3 = new GeneralPath();
+
+        float minX = (float) plotArea.getMinX();
+        float minY = (float) plotArea.getMinY();
+        float maxX = (float) plotArea.getMaxX();
+        float maxY = (float) plotArea.getMaxY();
+        //float midX = (float) (minX + (plotArea.getWidth() * getRotateX()));
+        //float midY = (float) (minY + (plotArea.getHeight() * getRotateY()));
+        float midX = (float) (minX + (plotArea.getWidth() * 0.5));
+        float midY = (float) (minY + (plotArea.getHeight() * 0.8));
+        float y = maxY - (2 * (maxY - midY));
+        if (y < minY) {
+            y = minY;
+        }
+        shape1.moveTo(minX, midY);
+        shape1.lineTo(midX, minY);
+        shape1.lineTo(midX, y);
+        shape1.closePath();
+
+        shape2.moveTo(maxX, midY);
+        shape2.lineTo(midX, minY);
+        shape2.lineTo(midX, y);
+        shape2.closePath();
+
+        shape3.moveTo(minX, midY);
+        shape3.lineTo(midX, maxY);
+        shape3.lineTo(maxX, midY);
+        shape3.lineTo(midX, y);
+        shape3.closePath();
+
+        Shape s1 = shape1;
+        Shape s2 = shape2;
+        Shape s3 = shape3;
+
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation huston, please spin me
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            s1 = shape1.createTransformedShape(transform);
+            s2 = shape2.createTransformedShape(transform);
+            s3 = shape3.createTransformedShape(transform);
+        }
+
+
+        if (getHighlightPaint() != null) {
+            g2.setPaint(getHighlightPaint());
+            g2.fill(s3);
+        }
+
+        if (getFillPaint() != null) {
+            g2.setPaint(getFillPaint());
+            g2.fill(s1);
+            g2.fill(s2);
+        }
+
+
+        if (getOutlinePaint() != null) {
+            g2.setStroke(getOutlineStroke());
+            g2.setPaint(getOutlinePaint());
+            g2.draw(s1);
+            g2.draw(s2);
+            g2.draw(s3);
+        }
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in MiddlePinNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        Area shape;
+        GeneralPath pointer = new GeneralPath();
+
+        int minY = (int) (plotArea.getMinY());
+        //int maxX = (int) (plotArea.getMaxX());
+        int maxY = (int) (plotArea.getMaxY());
+        int midY = ((maxY - minY) / 2) + minY;
+
+        int midX = (int) (plotArea.getMinX() + (plotArea.getWidth() / 2));
+        //int midY = (int) (plotArea.getMinY() + (plotArea.getHeight() / 2));
+        int lenX = (int) (plotArea.getWidth() / 10);
+        if (lenX < 2) {
+            lenX = 2;
+        }
+
+        pointer.moveTo(midX - lenX, midY - lenX);
+        pointer.lineTo(midX + lenX, midY - lenX);
+        pointer.lineTo(midX, minY);
+        pointer.closePath();
+
+        lenX = 4 * lenX;
+        Ellipse2D circle = new Ellipse2D.Double(midX - lenX / 2,
+                                                midY - lenX, lenX, lenX);
+
+        shape = new Area(circle);
+        shape.add(new Area(pointer));
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            shape.transform(getTransform());
+        }
+
+        defaultDisplay(g2, shape);
+
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in PinNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        Area shape;
+        GeneralPath pointer = new GeneralPath();
+
+        int minY = (int) (plotArea.getMinY());
+        //int maxX = (int) (plotArea.getMaxX());
+        int maxY = (int) (plotArea.getMaxY());
+        int midX = (int) (plotArea.getMinX() + (plotArea.getWidth() / 2));
+        //int midY = (int) (plotArea.getMinY() + (plotArea.getHeight() / 2));
+        int lenX = (int) (plotArea.getWidth() / 10);
+        if (lenX < 2) {
+            lenX = 2;
+        }
+
+        pointer.moveTo(midX - lenX, maxY - lenX);
+        pointer.lineTo(midX + lenX, maxY - lenX);
+        pointer.lineTo(midX, minY + lenX);
+        pointer.closePath();
+
+        lenX = 4 * lenX;
+        Ellipse2D circle = new Ellipse2D.Double(midX - lenX / 2,
+                plotArea.getMaxY() - lenX, lenX, lenX);
+
+        shape = new Area(circle);
+        shape.add(new Area(pointer));
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            shape.transform(getTransform());
+        }
+
+        defaultDisplay(g2, shape);
+
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in PlumNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        Arc2D shape = new Arc2D.Double(Arc2D.PIE);
+        double radius = plotArea.getHeight();
+        double halfX = plotArea.getWidth() / 2;
+        double diameter = 2 * radius;
+
+        shape.setFrame(plotArea.getMinX() + halfX - radius ,
+                       plotArea.getMinY() - radius,
+                       diameter, diameter);
+        radius = Math.toDegrees(Math.asin(halfX / radius));
+        shape.setAngleStart(270 - radius);
+        shape.setAngleExtent(2 * radius);
+
+        Area s = new Area(shape);
+
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation houston, please spin me
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            s.transform(getTransform());
+        }
+
+        defaultDisplay(g2, s);
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in PointerNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        GeneralPath shape1 = new GeneralPath();
+        GeneralPath shape2 = new GeneralPath();
+        float minX = (float) plotArea.getMinX();
+        float minY = (float) plotArea.getMinY();
+        float maxX = (float) plotArea.getMaxX();
+        float maxY = (float) plotArea.getMaxY();
+        float midX = (float) (minX + (plotArea.getWidth() / 2));
+        float midY = (float) (minY + (plotArea.getHeight() / 2));
+
+        shape1.moveTo(minX, midY);
+        shape1.lineTo(midX, minY);
+        shape1.lineTo(maxX, midY);
+        shape1.closePath();
+
+        shape2.moveTo(minX, midY);
+        shape2.lineTo(midX, maxY);
+        shape2.lineTo(maxX, midY);
+        shape2.closePath();
+
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation huston, please spin me
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            shape1.transform(getTransform());
+            shape2.transform(getTransform());
+        }
+
+        if (getFillPaint() != null) {
+            g2.setPaint(getFillPaint());
+            g2.fill(shape1);
+        }
+
+        if (getHighlightPaint() != null) {
+            g2.setPaint(getHighlightPaint());
+            g2.fill(shape2);
+        }
+
+        if (getOutlinePaint() != null) {
+            g2.setStroke(getOutlineStroke());
+            g2.setPaint(getOutlinePaint());
+            g2.draw(shape1);
+            g2.draw(shape2);
+        }
+    }
+
+  </code>
+  <code id="code1_2">
+    // Implementation in MiddlePinNeedle.java:
+    protected void drawNeedle(Graphics2D g2, Rectangle2D plotArea,
+                              Point2D rotate, double angle) {
+
+        GeneralPath shape = new GeneralPath();
+        shape.append(new Arc2D.Double(-9.0, -7.0, 10, 14, 0.0, 25.5,
+                Arc2D.OPEN), true);
+        shape.append(new Arc2D.Double(0.0, -7.0, 10, 14, 154.5, 25.5,
+                Arc2D.OPEN), true);
+        shape.closePath();
+        getTransform().setToTranslation(plotArea.getMinX(), plotArea.getMaxY());
+        getTransform().scale(plotArea.getWidth(), plotArea.getHeight() / 3);
+        shape.transform(getTransform());
+
+        if ((rotate != null) && (angle != 0)) {
+            /// we have rotation
+            getTransform().setToRotation(angle, rotate.getX(), rotate.getY());
+            shape.transform(getTransform());
+        }
+
+        defaultDisplay(g2, shape);
+    }
+  </code>
+</div>
+</pre>
+<br><br>
+<h3 style="bold">#4</h3>
+<img src="AbstractIntervalXYDataset_hierarchy.png" alt="AbstractIntervalXYDataset Hierarchy">
+<div>Base Class: <strong>AbstractDataset</strong></div>
+<div>Direct Superclass: <strong>AbstractIntervalXYDataset</strong></div>
+<div>Sibling Classes: <strong>16</strong></div>
+<ol>
+  <li><strong>CategoryTableXYDataset		  (Covered)</strong></li>
+  <li><strong>CombinedTableXYDataset			  (Not covered)</strong></li>
+  <li><strong>DefaultIntervalXYDataset		(Partially Covered)</strong></li>
+  <li><strong>DefaultTableXYDataset		(Partially Covered)</strong></li>
+  <li><strong>DynamicTimeSeriesCollection		(Not Covered)</strong></li>
+  <li><strong>HistogramDataset		  (Not covered)</strong></li>
+  <li><strong>SimpleHistogramDataset			  (Covered)</strong></li>
+  <li><strong>SubseriesDataset		(Not Covered)</strong></li>
+  <li><strong>TimePeriodValuesCollection		(Not Covered)</strong></li>
+  <li><strong>TimeSeriesCollection		  (Covered)</strong></li>
+  <li><strong>TimeTableXYDataset			  (Covered)</strong></li>
+  <li><strong>XIntervalSeriesCollection		(Not Covered)</strong></li>
+  <li><strong>XYBarDataset		(Covered)</strong></li>
+  <li><strong>XYIntervalSeriesCollection		  (Not covered)</strong></li>
+  <li><strong>XYSeriesCollection			  (Covered)</strong></li>
+  <li><strong>YIntervalSeriesCollection		(Covered)</strong></li>
+</ol>
+<div>Method Name: <strong>getItemCount</strong></div>
+<br>
+<span style="color: red">This candidate group does not have the method declared in any level of their superclasses, but all of the 16
+  sibling classes have the method implemented.
+
+  Out of the 16, seven of the implementations are not covered.
+</span>
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in CategoryTableXYDataset.java:
+    /**
+     * Returns the number of x values in the dataset.
+     *
+     * @return The item count.
+     */
+    public int getItemCount() {
+        return this.values.getRowCount();
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in CombinedTableXYDataset.java:
+    /**
+     * Returns the number of items in a series.
+     *
+     * Note:  throws <code>ClassCastException</code> if the series is not from
+     * a {@link XYDataset}.
+     *
+     * @param series  the index of the series of interest (zero-based).
+     *
+     * @return The number of items in a series.
+     */
+    public int getItemCount(int series) {
+        DatasetInfo di = getDatasetInfo(series);
+        return ((XYDataset) di.data).getItemCount(di.series);
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in DefaultIntervalXYDataset.java:
+    /**
+     * Returns the number of items in the specified series.
+     *
+     * @param series  the series index (in the range <code>0</code> to
+     *     <code>getSeriesCount() - 1</code>).
+     *
+     * @return The item count.
+     *
+     * @throws IllegalArgumentException if <code>series</code> is not in the
+     *     specified range.
+     */
+    public int getItemCount(int series) {
+        if ((series < 0) || (series >= getSeriesCount())) {
+            throw new IllegalArgumentException("Series index out of bounds");
+        }
+        double[][] seriesArray = (double[][]) this.seriesList.get(series);
+        return seriesArray[0].length;
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in DefaultTableXYDataset.java:
+    /**
+     * Returns the number of x values in the dataset.
+     *
+     * @return The number of x values in the dataset.
+     */
+    public int getItemCount() {
+        if (this.xPoints == null) {
+            return 0;
+        }
+        else {
+            return this.xPoints.size();
+        }
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in DynamicTimeSeriesCollection.java:
+    /**
+     * Returns the number of items in a series.
+     *
+     * For this implementation, all series have the same number of items.
+     *
+     * @param series  the series index (zero-based).
+     *
+     * @return The item count.
+     */
+    public int getItemCount(int series) {  // all arrays equal length,
+                                           // so ignore argument:
+        return this.historyCount;
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in HistogramDataset.java:
+    /**
+     * Returns the number of data items for a series.
+     *
+     * @param series  the series index (in the range <code>0</code> to
+     *     <code>getSeriesCount() - 1</code>).
+     *
+     * @return The item count.
+     *
+     * @throws IndexOutOfBoundsException if <code>series</code> is outside the
+     *     specified range.
+     */
+    public int getItemCount(int series) {
+        return getBins(series).size();
+    }
+
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in SimpleHistogramDataset.java:
+    /**
+     * Returns the number of items in a series.  Since this dataset only stores
+     * a single series, the <code>series</code> argument is ignored.
+     *
+     * @param series  the series index (zero-based, ignored in this dataset).
+     *
+     * @return The item count.
+     */
+    public int getItemCount(int series) {
+        return this.bins.size();
+    }
+
+  </code>
+  <code id="code1_2">
+    // Implementation in SubSeriesDataset.java:
+    /**
+     * Returns the number of items in a series.
+     *
+     * Note: throws <code>ClassCastException</code> if the series if not from a
+     * {@link XYDataset}.
+     *
+     * @param series  the index of the series of interest (zero-based).
+     *
+     * @return The number of items in a series.
+     */
+    public int getItemCount(int series) {
+        return ((XYDataset) this.parent).getItemCount(this.map[series]);
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in TimePeriodValuesCollection.java:
+    /**
+     * Returns the number of items in the specified series.
+     *
+     * This method is provided for convenience.
+     *
+     * @param series  the index of the series of interest (zero-based).
+     *
+     * @return The number of items in the specified series.
+     */
+    public int getItemCount(int series) {
+        return getSeries(series).getItemCount();
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in TimeSeriesCollection.java:
+    /**
+     * Returns the number of items in the specified series.  This method is
+     * provided for convenience.
+     *
+     * @param series  the series index (zero-based).
+     *
+     * @return The item count.
+     */
+    public int getItemCount(int series) {
+        return getSeries(series).getItemCount();
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in TimeTableXYDataset.java:
+    /**
+     * Returns the time period for the specified item.  Bear in mind that all
+     * series share the same set of time periods.
+     *
+     * @param item  the item index (0 <= i <= {@link #getItemCount()}).
+     *
+     * @return The time period.
+     */
+    public TimePeriod getTimePeriod(int item) {
+        return (TimePeriod) this.values.getRowKey(item);
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in XIntervalSeriesCollection.java:
+    /**
+     * Returns the number of items in the specified series.
+     *
+     * @param series  the series (zero-based index).
+     *
+     * @return The item count.
+     *
+     * @throws IllegalArgumentException if <code>series</code> is not in the
+     *     range <code>0</code> to <code>getSeriesCount() - 1</code>.
+     */
+    public int getItemCount(int series) {
+        // defer argument checking
+        return getSeries(series).getItemCount();
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in XYBarDataset.java:
+    /**
+     * Returns the number of items in a series.
+     *
+     * @param series  the series index (zero-based).
+     *
+     * @return The item count.
+     */
+    public int getItemCount(int series) {
+        return this.underlying.getItemCount(series);
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in XYIntervalSeriesCollection.java:
+    /**
+     * Returns the number of items in the specified series.
+     *
+     * @param series  the series (zero-based index).
+     *
+     * @return The item count.
+     *
+     * @throws IllegalArgumentException if <code>series</code> is not in the
+     *     range <code>0</code> to <code>getSeriesCount() - 1</code>.
+     */
+    public int getItemCount(int series) {
+        // defer argument checking
+        return getSeries(series).getItemCount();
+    }
+
+
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in XYSeriesCollection.java:
+    /**
+     * Returns the number of items in the specified series.
+     *
+     * @param series  the series (zero-based index).
+     *
+     * @return The item count.
+     *
+     * @throws IllegalArgumentException if <code>series</code> is not in the
+     *     range <code>0</code> to <code>getSeriesCount() - 1</code>.
+     */
+    public int getItemCount(int series) {
+        // defer argument checking
+        return getSeries(series).getItemCount();
+    }
+
+  </code>
+  <code id="code1_2">
+    // Implementation in YIntervalSeriesCollection.java:
+    /**
+     * Returns the number of items in the specified series.
+     *
+     * @param series  the series (zero-based index).
+     *
+     * @return The item count.
+     *
+     * @throws IllegalArgumentException if <code>series</code> is not in the
+     *     range <code>0</code> to <code>getSeriesCount() - 1</code>.
+     */
+    public int getItemCount(int series) {
+        // defer argument checking
+        return getSeries(series).getItemCount();
+    }
+  </code>
+</div>
+</pre>
+
+<br><br>
+<h2> Benchmark: joda-time-2.10-original</h2>
+<br><br>
+<h3 style="bold">#5</h3>
+<div>Base Class: <strong>DateTimeField</strong></div>
+<div>Direct Superclass: <strong>DateTimeField</strong></div>
+<div>Sibling Classes: <strong>3</strong></div>
+<ol style="list-style-type:disc;">
+  <li><strong>BaseDateTimeField		  (Partially covered)</strong></li>
+  <li><strong>DelegatedDateTimeField			  (Not covered)</strong></li>
+  <li><strong>UnsupportedDateTimeField		(Covered)</strong></li>
+</ol>
+<div>Method Name: <strong>addWrapField</strong></div>
+<div>Return Type: <strong>int[]</strong></div>
+<br>
+<span style="color: red">This group candidate of three sibling classes all have the method implemented, with exactly one not tested. Meanwhile,
+  one of the implementation throws an exception is specifically tested in TestUnsupportedDateTimeField.java. </span>
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // method declaration in DateTimeField.java
+    /**
+     * Adds a value (which may be negative) to the partial instant,
+     * wrapping within this field.
+     *
+     * The value will be added to this field. If the value is too large to be
+     * added solely to this field then it wraps. Larger fields are always
+     * unaffected. Smaller fields should be unaffected, except where the
+     * result would be an invalid value for a smaller field. In this case the
+     * smaller field is adjusted to be in range.
+     *
+     * For example, in the ISO chronology:<br>
+     * 2000-08-20 addWrapField six months is 2000-02-20<br>
+     * 2000-08-20 addWrapField twenty months is 2000-04-20<br>
+     * 2000-08-20 addWrapField minus nine months is 2000-11-20<br>
+     * 2001-01-31 addWrapField one month  is 2001-02-28<br>
+     * 2001-01-31 addWrapField two months is 2001-03-31<br>
+     *
+     * @param instant  the partial instant
+     * @param fieldIndex  the index of this field in the instant
+     * @param values  the values of the partial instant which should be updated
+     * @param valueToAdd  the value to add, in the units of the field
+     * @return the passed in values
+     * @throws IllegalArgumentException if the value is invalid
+     */
+    public abstract int[] addWrapField(ReadablePartial instant, int fieldIndex, int[] values, int valueToAdd);
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in BaseDateTimeField.java:
+    public int[] addWrapField(ReadablePartial instant, int fieldIndex, int[] values, int valueToAdd) {
+        int current = values[fieldIndex];
+        int wrapped = FieldUtils.getWrappedValue
+            (current, valueToAdd, getMinimumValue(instant), getMaximumValue(instant));
+        return set(instant, fieldIndex, values, wrapped);  // adjusts smaller fields
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in DelegatedDateTimeField.java:
+    public int[] addWrapField(ReadablePartial instant, int fieldIndex, int[] values, int valueToAdd) {
+        return iField.addWrapField(instant, fieldIndex, values, valueToAdd);
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in UnsupportedDateTimeField.java:
+    /**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */
+    public int[] addWrapField(ReadablePartial instant, int fieldIndex, int[] values, int valueToAdd) {
+        throw unsupported();
+    }
+  </code>
+</div>
+</pre>
+
+<br><br>
+<h2> Benchmark: lucene-solr-6.6/lucene/core/src</h2>
+<br><br>
+<h3 style="bold">#6</h3>
+<img src="lucene_core_MergePolicy_Hierarchy.png" alt="MergePolicy Hierarchy">
+
+<div>Base Class: <strong>MergePolicy</strong></div>
+<div>Direct Superclass: <strong>MergePolicy</strong></div>
+<div>Sibling Classes: <strong>7</strong></div>
+<ol style="list-style-type:disc;">
+  <li><strong>LogMergePolicy		  (Covered, abstract class)</strong></li>
+  <li><strong>MergePolicyWrapper			  (Not covered)</strong></li>
+  <li><strong>MockRandomMergePolicy		(Covered)</strong></li>
+  <li><strong>NoMergePolicy		  (Covered, final class)</strong></li>
+  <li><strong>PredeterminedMergePolicy			  (Covered, private class built inside a test class)</strong></li>
+  <li><strong>RangeMergePolicy		(Covered, public class built inside a test class)</strong></li>
+  <li><strong>TieredMergePolicy		(Covered)</strong></li>
+</ol>
+<div>Method Name: <strong>MergePolicy</strong></div>
+<div>Return Type: <strong>MergeSPecification</strong></div>
+<br>
+<span style="color: red">This group candidate is an example that the sibling classes are of different types.
+  For example, LogMergePolicy is an abstract class that has additional layer of hierarchy. NoMergePolicy is a final class which never
+  returns merges to execute. PredeterminedMergePolicy and RangeMergePolicy are constructed within another test class.
+</span>
+<span style="color: red">
+Maybe refined code is needed to detect this kind of candidates, or the definition of sibling classes can be detailed.
+</span>
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // method declaration in MergePolicy.java
+    /**
+     * Determine what set of merge operations is necessary in
+     * order to merge to {@code <=} the specified segment count. {@link IndexWriter} calls this when its
+     * {@link IndexWriter#forceMerge} method is called. This call is always
+     * synchronized on the {@link IndexWriter} instance so only one thread at a
+     * time will call this method.
+     *
+     * @param segmentInfos
+     *          the total set of segments in the index
+     * @param maxSegmentCount
+     *          requested maximum number of segments in the index (currently this
+     *          is always 1)
+     * @param segmentsToMerge
+     *          contains the specific SegmentInfo instances that must be merged
+     *          away. This may be a subset of all
+     *          SegmentInfos.  If the value is True for a
+     *          given SegmentInfo, that means this segment was
+     *          an original segment present in the
+     *          to-be-merged index; else, it was a segment
+     *          produced by a cascaded merge.
+     * @param writer the IndexWriter to find the merges on
+     */
+    public abstract MergeSpecification findForcedMerges(
+            SegmentInfos segmentInfos, int maxSegmentCount, Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer)
+        throws IOException;
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in LogMergePolicy.java:
+    /** Returns the merges necessary to merge the index down
+     *  to a specified number of segments.
+     *  This respects the {@link #maxMergeSizeForForcedMerge} setting.
+     *  By default, and assuming {@code maxNumSegments=1}, only
+     *  one segment will be left in the index, where that segment
+     *  has no deletions pending nor separate norms, and it is in
+     *  compound file format if the current useCompoundFile
+     *  setting is true.  This method returns multiple merges
+     *  (mergeFactor at a time) so the {@link MergeScheduler}
+     *  in use may make use of concurrency. */
+    @Override
+    public MergeSpecification findForcedMerges(SegmentInfos infos,
+              int maxNumSegments, Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer) throws IOException {
+
+      assert maxNumSegments > 0;
+      if (verbose(writer)) {
+        message("findForcedMerges: maxNumSegs=" + maxNumSegments + " segsToMerge="+ segmentsToMerge, writer);
+      }
+
+      // If the segments are already merged (e.g. there's only 1 segment), or
+      // there are maxNumSegments:.
+      if (isMerged(infos, maxNumSegments, segmentsToMerge, writer)) {
+        if (verbose(writer)) {
+          message("already merged; skip", writer);
+        }
+        return null;
+      }
+
+      // Find the newest (rightmost) segment that needs to
+      // be merged (other segments may have been flushed
+      // since merging started):
+      int last = infos.size();
+      while (last > 0) {
+        final SegmentCommitInfo info = infos.info(--last);
+        if (segmentsToMerge.get(info) != null) {
+          last++;
+          break;
+        }
+      }
+
+      if (last == 0) {
+        if (verbose(writer)) {
+          message("last == 0; skip", writer);
+        }
+        return null;
+      }
+
+      // There is only one segment already, and it is merged
+      if (maxNumSegments == 1 && last == 1 && isMerged(infos, infos.info(0), writer)) {
+        if (verbose(writer)) {
+          message("already 1 seg; skip", writer);
+        }
+        return null;
+      }
+
+      // Check if there are any segments above the threshold
+      boolean anyTooLarge = false;
+      for (int i = 0; i < last; i++) {
+        SegmentCommitInfo info = infos.info(i);
+        if (size(info, writer) > maxMergeSizeForForcedMerge || sizeDocs(info, writer) > maxMergeDocs) {
+          anyTooLarge = true;
+          break;
+        }
+      }
+
+      if (anyTooLarge) {
+        return findForcedMergesSizeLimit(infos, maxNumSegments, last, writer);
+      } else {
+        return findForcedMergesMaxNumSegments(infos, maxNumSegments, last, writer);
+      }
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in MergePolicyWrapper.java:
+    @Override
+    public MergeSpecification findForcedMerges(SegmentInfos segmentInfos, int maxSegmentCount,
+        Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer) throws IOException {
+      return in.findForcedMerges(segmentInfos, maxSegmentCount, segmentsToMerge, writer);
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in MockRandomMergePolicy.java:
+    @Override
+    public MergeSpecification findForcedMerges(
+         SegmentInfos segmentInfos, int maxSegmentCount, Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer)
+      throws IOException {
+
+      final List&lt;SegmentCommitInfo&gt; eligibleSegments = new ArrayList&lt;&gt;();
+      for(SegmentCommitInfo info : segmentInfos) {
+        if (segmentsToMerge.containsKey(info)) {
+          eligibleSegments.add(info);
+        }
+      }
+
+      //System.out.println("MRMP: findMerges sis=" + segmentInfos + " eligible=" + eligibleSegments);
+      MergeSpecification mergeSpec = null;
+      if (eligibleSegments.size() > 1 || (eligibleSegments.size() == 1 && isMerged(segmentInfos, eligibleSegments.get(0), writer) == false)) {
+        mergeSpec = new MergeSpecification();
+        // Already shuffled having come out of a set but
+        // shuffle again for good measure:
+        Collections.shuffle(eligibleSegments, random);
+        int upto = 0;
+        while(upto < eligibleSegments.size()) {
+          int max = Math.min(10, eligibleSegments.size()-upto);
+          int inc = max <= 2 ? max : TestUtil.nextInt(random, 2, max);
+          if (doNonBulkMerges && random.nextBoolean()) {
+            mergeSpec.add(new MockRandomOneMerge(eligibleSegments.subList(upto, upto+inc), random.nextLong()));
+          } else {
+            mergeSpec.add(new OneMerge(eligibleSegments.subList(upto, upto+inc)));
+          }
+          upto += inc;
+        }
+      }
+
+      if (mergeSpec != null) {
+        for(OneMerge merge : mergeSpec.merges) {
+          for(SegmentCommitInfo info : merge.segments) {
+            assert segmentsToMerge.containsKey(info);
+          }
+        }
+      }
+      return mergeSpec;
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in NoMergePolicy.java:
+    @Override
+    public MergeSpecification findForcedMerges(SegmentInfos segmentInfos,
+           int maxSegmentCount, Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer) { return null; }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in PredeterminedMergePolicy.java:
+    final private MergePolicy.MergeSpecification forcedMerges;
+    @Override
+    public MergePolicy.MergeSpecification findForcedMerges(SegmentInfos segmentInfos, int maxSegmentCount,
+        Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer) throws IOException {
+      return forcedMerges;
+    }
+  </code>
+  <code id="code1_2">
+    // Implementation in RangeMergePolicy.java:
+    @Override
+    public MergeSpecification findForcedMerges(SegmentInfos segmentInfos,
+        int maxSegmentCount, Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer)
+        throws IOException {
+      return null;
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <code id="code1_1">
+    // Implementation in TieredMergePolicy.java:
+    @Override
+    public MergeSpecification findForcedMerges(SegmentInfos infos, int maxSegmentCount, Map&lt;SegmentCommitInfo,Boolean&gt; segmentsToMerge, IndexWriter writer) throws IOException {
+      if (verbose(writer)) {
+        message("findForcedMerges maxSegmentCount=" + maxSegmentCount + " infos=" + writer.segString(infos) + " segmentsToMerge=" + segmentsToMerge, writer);
+      }
+
+      List&lt;SegmentCommitInfo&gt; eligible = new ArrayList&lt;&gt;();
+      boolean forceMergeRunning = false;
+      final Collection&lt;SegmentCommitInfo&gt; merging = writer.getMergingSegments();
+      boolean segmentIsOriginal = false;
+      for(SegmentCommitInfo info : infos) {
+        final Boolean isOriginal = segmentsToMerge.get(info);
+        if (isOriginal != null) {
+          segmentIsOriginal = isOriginal;
+          if (!merging.contains(info)) {
+            eligible.add(info);
+          } else {
+            forceMergeRunning = true;
+          }
+        }
+      }
+
+      if (eligible.size() == 0) {
+        return null;
+      }
+
+      if ((maxSegmentCount > 1 && eligible.size() <= maxSegmentCount) ||
+          (maxSegmentCount == 1 && eligible.size() == 1 && (!segmentIsOriginal || isMerged(infos, eligible.get(0), writer)))) {
+        if (verbose(writer)) {
+          message("already merged", writer);
+        }
+        return null;
+      }
+
+      Collections.sort(eligible, new SegmentByteSizeDescending(writer));
+
+      if (verbose(writer)) {
+        message("eligible=" + eligible, writer);
+        message("forceMergeRunning=" + forceMergeRunning, writer);
+      }
+
+      int end = eligible.size();
+
+      MergeSpecification spec = null;
+
+      // Do full merges, first, backwards:
+      while(end >= maxMergeAtOnceExplicit + maxSegmentCount - 1) {
+        if (spec == null) {
+          spec = new MergeSpecification();
+        }
+        final OneMerge merge = new OneMerge(eligible.subList(end-maxMergeAtOnceExplicit, end));
+        if (verbose(writer)) {
+          message("add merge=" + writer.segString(merge.segments), writer);
+        }
+        spec.add(merge);
+        end -= maxMergeAtOnceExplicit;
+      }
+
+      if (spec == null && !forceMergeRunning) {
+        // Do final merge
+        final int numToMerge = end - maxSegmentCount + 1;
+        final OneMerge merge = new OneMerge(eligible.subList(end-numToMerge, end));
+        if (verbose(writer)) {
+          message("add final merge=" + merge.segString(), writer);
+        }
+        spec = new MergeSpecification();
+        spec.add(merge);
+      }
+
+      return spec;
+    }
+  </code>
+</div>
+</pre>
+
+</body>
+</html>
