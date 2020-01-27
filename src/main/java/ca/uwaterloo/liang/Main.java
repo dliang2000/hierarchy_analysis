@@ -12,7 +12,10 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class Main {
+	private static String csv_arg;
+
 	public static void main(String[] args) throws IOException {
+		 Main.csv_arg = args[2];
 		 PackManager.v().getPack("wjtp").add(
 			     new Transform("wjtp.myTransform", CompletableTestTransformer.v()) {
 			     });
@@ -36,9 +39,9 @@ public class Main {
 		 
 		 
 		 // class_path for commons-math-MATH_3_6_1
-/*		 String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
-				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
-				    + File.separator + "commons-math-MATH_3_6_1" + File.separator + "src/main/java/classes/";*/
+		 //String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
+		//		    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
+		//		    + File.separator + "Benchmarks" + File.separator + "commons-math-MATH_3_6_1" + File.separator + "target/classes/";
 		 
 		 //class path for guava/guava
 		 //jars needed for google guava (to be removed if the resolving level issue could be resolved)
@@ -80,21 +83,22 @@ public class Main {
 				    "git" + File.separator + "lucene-solr" + File.separator + "lucene" 
 				 + File.separator + "core/src/java/classes/";
 		 
-		 Options.v().set_prepend_classpath(true);
-		 
-		 Options.v().set_verbose(true);
-		 //Options.v().set_process_dir(setting);
-		 Options.v().set_soot_classpath(class_path);
-		 Options.v().set_whole_program(true);
-		 soot.Main.main(args);
+		 Options.v().set_prepend_classpath(true);                                                                                 
+		 Options.v().set_verbose(true);                                                                                            
+		 List<String> pd = new ArrayList<>();                                                                                   
+		 pd.add("-process-dir");                                                                                                  
+		 pd.add(args[0]);                                                                                                       
+		 Options.v().set_soot_classpath(args[1]);                                                                                  
+		 Options.v().set_whole_program(true);                                                                                      
+		 soot.Main.main(pd.toArray(new String[0]));
 	}
 	
-	public static class CompletableTestTransformer extends SceneTransformer {
+	static class CompletableTestTransformer extends SceneTransformer {
 		private final static CompletableTestTransformer instance = new CompletableTestTransformer();
 	    private CompletableTestTransformer() {}
 		public static CompletableTestTransformer v() { return instance; }
 	    @Override
-	    protected void internalTransform(String phaseName, Map options) {
+		protected void internalTransform(String phaseName, Map options) {
 	    	// after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
 	    	
 	    	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
@@ -115,7 +119,7 @@ public class Main {
 	    	String methodname = null;
 	    	String descriptor = null;
 	  		// Read in the classes with missed methods coverage
-	  		String csv_file = "lucene_core_missing_methods.csv";
+	  		String csv_file = csv_arg;
 	  		
 	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
 	  		File file = new File(classLoader.getResource(csv_file).getFile());
@@ -214,15 +218,16 @@ public class Main {
 		  					}
 		  					// Horizontal Completable Hierarchy Condition Requirement 3: 
 			  				// Only one of the sibling classes does not have the SootMethod in interest tested
-		  					/*Pair<SootClass, SootMethod> temp_pair = new Pair(sc, sootmethod);
+		  					Pair<SootClass, SootMethod> temp_pair = new Pair(sc, sootmethod);
 		  					if (missingMethodCoverageClassSet.contains(temp_pair)) {
+		  						//System.out.println("temp_pair exists.");
 		  						missingMethodClassCounter++;
+		  						//System.out.println("SootClass: " + sc.getName() + " SootMethod: " + sootmethod.getSubSignature());
 		  					}
-		  					&& (missingMethodClassCounter != 1)*/
 		  				}
-		  				
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getName()) ) {
-		  					completable_candidates.put(sootmethod.getName(), sootclass);
+		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getSubSignature()) && (missingMethodClassCounter == 1) ) {
+		  					completable_candidates.put(sootmethod.getSubSignature(), sootclass);
 		  				}
 		  				missingMethodClassCounter = 0;
 		  				isCandidate = true;
