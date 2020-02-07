@@ -1362,5 +1362,82 @@ Maybe refined code is needed to detect this kind of candidates, or the definitio
 </div>
 </pre>
 
+<br><br>
+<h2> Benchmark: guava/guava</h2>
+<br><br>
+<h3 style="bold">#7</h3>
+<div>Base Interface: <strong>BaseGraph&lt;N&gt;</strong></div>
+<div>Base Class: <strong>AbstractBaseGraph&lt;N&gt;</strong></div>
+<div>Direct Superclass: <strong>AbstractValueGraph&lt;N,V&gt;</strong></div>
+<div>Sibling Classes: <strong>2</strong></div>
+<ol style="list-style-type:disc;">
+  <li><strong>ConfigurableValueGraph&lt;N,V&gt;		  (Covered)</strong></li>
+  <li><strong>ForwardingValueGraph&lt;N,V&gt;			  (Not covered)</strong></li>
+</ol>
+
+<pre class="prettyprint lang=java">
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // method declaration in BaseGraph.java
+    /**
+     * Returns true if there is an edge that directly connects {@code nodeU} to {@code nodeV}. This is
+     * equivalent to {@code nodes().contains(nodeU) && successors(nodeU).contains(nodeV)}.
+     *
+     * In an undirected graph, this is equal to {@code hasEdgeConnecting(nodeV, nodeU)}.
+     *
+     * @since 23.0
+     */
+    boolean hasEdgeConnecting(N nodeU, N nodeV);
+
+    // Method first implementation in AbstractBaseGraph.java
+    @Override
+    public boolean hasEdgeConnecting(N nodeU, N nodeV) {
+      checkNotNull(nodeU);
+      checkNotNull(nodeV);
+      return nodes().contains(nodeU) && successors(nodeU).contains(nodeV);
+    }
+  </code>
+</div>
+<div id="codeblocks" class="code1">
+  <!-- <code class="java"> -->
+  <code id="code1_1">
+    // Implementation in ConfigurableValueGraph.java:
+    @Override
+    public boolean hasEdgeConnecting(N nodeU, N nodeV) {
+      return hasEdgeConnecting_internal(checkNotNull(nodeU), checkNotNull(nodeV));
+    }
+
+    protected final boolean hasEdgeConnecting_internal(N nodeU, N nodeV) {
+      GraphConnections&lt;N, V&gt; connectionsU = nodeConnections.get(nodeU);
+      return (connectionsU != null) && connectionsU.successors().contains(nodeV);
+    }
+
+  </code>
+  <code id="code1_2">
+
+    // Implementation in ForwardingValueGraph.java:
+    protected abstract ValueGraph&lt;N, V&gt;delegate();
+
+    @Override
+    public boolean hasEdgeConnecting(N nodeU, N nodeV) {
+      return delegate().hasEdgeConnecting(nodeU, nodeV);
+    }
+
+    /**
+     * Returns true if there is an edge that directly connects {@code nodeU} to {@code nodeV}. This is
+     * equivalent to {@code nodes().contains(nodeU) && successors(nodeU).contains(nodeV)}.
+     *
+     * In an undirected graph, this is equal to {@code hasEdgeConnecting(nodeV, nodeU)}.
+     *
+     * @since 23.0
+     */
+    @Override
+    boolean hasEdgeConnecting(N nodeU, N nodeV);
+  </code>
+</div>
+</pre>
+
+
 </body>
 </html>

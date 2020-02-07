@@ -164,7 +164,7 @@ public class Main {
 		  			}
 		  					  			
 		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
-		  			if (sc.isInterface())
+		  			if (sc.isInterface() || sc.isAbstract())
 		  				continue;
 		  			
 		  			sc.setApplicationClass();
@@ -205,6 +205,15 @@ public class Main {
 		  		for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
 		  			SootClass sootclass = entry.getKey();
 		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
+		  			List<SootClass> concreteSootClassList = new ArrayList<SootClass>();
+		  			List<SootClass> abstractSootClassList = new ArrayList<SootClass>();
+		  			for (SootClass sc: sootClassList) {
+		  				if(sc.isConcrete()) {
+		  					concreteSootClassList.add(sc);
+		  				} else if (sc.isAbstract()){
+		  					abstractSootClassList.add(sc);
+		  				}
+		  			}
 		  			for (SootMethod sootmethod: entry.getValue()) {
 		  				// Horizontal Completable Hierarchy Condition Requirement 1: there are multiple sibling classes
 		  				if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
@@ -212,7 +221,7 @@ public class Main {
 		  				}
 		  				// Horizontal Completable Hierarchy Condition Requirement 2: 
 		  				// All sibling classes have an implementation of the SootMethod in interest
-		  				for (SootClass sc: sootClassList) {
+		  				for (SootClass sc: concreteSootClassList) {
 		  					if (!sc.declaresMethod(sootmethod.getName(), sootmethod.getParameterTypes(), sootmethod.getReturnType())) {
 		  						isCandidate = false;
 		  					}
@@ -236,6 +245,12 @@ public class Main {
 		  		System.out.println("Completable candidates size: " + completable_candidates.size());
 		  		for (Entry<String, SootClass> entry: completable_candidates.entrySet()) {
 					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
+					 List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
+			  		 for (SootClass sc: sootClassList) {
+			  			 if(sc.isConcrete()) {
+			  				System.out.println("Concrete direct subclass: " + sc.getName());
+			  			 }
+			  		 }
 				}
 	  		 } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
