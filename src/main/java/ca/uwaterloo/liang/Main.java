@@ -214,6 +214,8 @@ public class Main {
 		  					abstractSootClassList.add(sc);
 		  				}
 		  			}
+		  			if (concreteSootClassList.size() <= 1)
+		  				continue;
 		  			for (SootMethod sootmethod: entry.getValue()) {
 		  				// Horizontal Completable Hierarchy Condition Requirement 1: there are multiple sibling classes
 		  				if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
@@ -251,6 +253,7 @@ public class Main {
 			  				System.out.println("Concrete direct subclass: " + sc.getName());
 			  			 }
 			  		 }
+			  		System.out.println();
 				}
 	  		 } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block

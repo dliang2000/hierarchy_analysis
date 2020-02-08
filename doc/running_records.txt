@@ -9,12 +9,35 @@ Candidate class name: org.apache.commons.collections4.bag.AbstractSortedBagDecor
 Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: putAll
 
 ## commons-math-MATH_3_6_1:
-/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/commons-math-MATH_3_6_1/src/main/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-math-MATH_3_6_1/target/classes:target/classes:/opt/jdk/jdk1.8.0_202/jre/lib/rt.jar:/opt/jdk/jdk1.8.0_202/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 3
-Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: multiplyEntry
-Candidate class name: org.apache.commons.math3.linear.PreconditionedIterativeLinearSolver, method name: solveInPlace
-Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: addToEntry
+Completable candidates size: 5
+Candidate class name: org.apache.commons.math3.linear.AbstractRealMatrix, method name: void addToEntry(int,int,double)
+Concrete direct subclass: org.apache.commons.math3.linear.OpenMapRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.DiagonalMatrix
+
+Candidate class name: org.apache.commons.math3.linear.PreconditionedIterativeLinearSolver, method name: org.apache.commons.math3.linear.RealVector solveInPlace(org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealVector,org.apache.commons.math3.linear.RealVector)
+Concrete direct subclass: org.apache.commons.math3.linear.SymmLQ
+Concrete direct subclass: org.apache.commons.math3.linear.ConjugateGradient
+
+Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: void addToEntry(int,int,org.apache.commons.math3.FieldElement)
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.SparseFieldMatrix
+
+Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: void multiplyEntry(int,int,org.apache.commons.math3.FieldElement)
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.SparseFieldMatrix
+
+Candidate class name: org.apache.commons.math3.linear.AbstractRealMatrix, method name: void multiplyEntry(int,int,double)
+Concrete direct subclass: org.apache.commons.math3.linear.OpenMapRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.DiagonalMatrix
+
 
 ## google guava (guava/guava):
 /home/daveroar/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/daveroar/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/daveroar/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/daveroar/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar:/home/daveroar/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar:/home/daveroar/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/daveroar/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/guava/guava/target/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
@@ -52,1561 +75,183 @@ Candidate class name: org.jfree.chart.axis.ValueAxis, method name: java2DToValue
 
 
 ## joda-time-2.10-original:
-/home/daveroar/.m2/repository/org/joda/joda-convert/1.2/joda-convert-1.2.jar:/home/daveroar/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/joda-time-2.10-original-nojqf/target/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10-original/target/classes:target/classes:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10-original/mvn_dependencies/joda-convert-1.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10-original/mvn_dependencies/junit-3.8.2.jar:/opt/jdk/jdk1.8.0_202/jre/lib/rt.jar:/opt/jdk/jdk1.8.0_202/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 21
-Candidate class name: org.joda.time.DateTimeField, method name: getDifferenceAsLong
-Candidate class name: org.joda.time.DateTimeField, method name: add
-Candidate class name: org.joda.time.field.BaseDateTimeField, method name: set
-Candidate class name: org.joda.time.DateTimeZone, method name: previousTransition
-Candidate class name: org.joda.time.DateTimeField, method name: roundHalfCeiling
-Candidate class name: org.joda.time.DateTimeField, method name: addWrapPartial
-Candidate class name: org.joda.time.DateTimeField, method name: getMaximumShortTextLength
-Candidate class name: org.joda.time.DurationField, method name: compareTo
-Candidate class name: org.joda.time.chrono.BasicChronology, method name: getYearDifference
-Candidate class name: org.joda.time.DateTimeField, method name: addWrapField
-Candidate class name: org.joda.time.DurationField, method name: getMillis
-Candidate class name: org.joda.time.DurationField, method name: getValue
-Candidate class name: org.joda.time.chrono.BasicChronology, method name: getDaysInMonthMax
-Candidate class name: org.joda.time.DurationField, method name: getDifference
-Candidate class name: org.joda.time.field.BaseDateTimeField, method name: roundFloor
-Candidate class name: org.joda.time.DateTimeField, method name: getMaximumValue
-Candidate class name: org.joda.time.DateTimeField, method name: getMaximumTextLength
-Candidate class name: org.joda.time.DateTimeZone, method name: nextTransition
-Candidate class name: org.joda.time.field.DecoratedDateTimeField, method name: remainder
-Candidate class name: org.joda.time.DurationField, method name: getValueAsLong
-Candidate class name: org.joda.time.DateTimeField, method name: getMinimumValue
-Soot finished on Thu Jan 23 01:11:41 EST 2020
-Soot has run for 0 min. 21 sec.
+Completable candidates size: 30
+Candidate class name: org.joda.time.DurationField, method name: int compareTo(org.joda.time.DurationField)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.DurationField, method name: int getValue(long,long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.field.BaseDurationField, method name: long getMillis(int,long)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDurationField
+Concrete direct subclass: org.joda.time.field.DecoratedDurationField
+Concrete direct subclass: org.joda.time.field.PreciseDurationField
+Concrete direct subclass: org.joda.time.field.ImpreciseDateTimeField$LinkedDurationField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int[] add(org.joda.time.ReadablePartial,int,int[],int)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.DateTimeField, method name: long roundHalfCeiling(long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.DurationField, method name: long getMillis(long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int getMinimumValue(org.joda.time.ReadablePartial)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int[] addWrapPartial(org.joda.time.ReadablePartial,int,int[],int)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.field.ImpreciseDateTimeField, method name: long add(long,long)
+Concrete direct subclass: org.joda.time.chrono.BasicWeekyearDateTimeField
+Concrete direct subclass: org.joda.time.chrono.BasicYearDateTimeField
+Concrete direct subclass: org.joda.time.chrono.BasicMonthOfYearDateTimeField
+
+Candidate class name: org.joda.time.field.DecoratedDateTimeField, method name: long remainder(long)
+Concrete direct subclass: org.joda.time.chrono.ISOYearOfEraDateTimeField
+Concrete direct subclass: org.joda.time.field.RemainderDateTimeField
+Concrete direct subclass: org.joda.time.field.DividedDateTimeField
+Concrete direct subclass: org.joda.time.field.ZeroIsMaxDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJYearOfEraDateTimeField
+Concrete direct subclass: org.joda.time.field.OffsetDateTimeField
+Concrete direct subclass: org.joda.time.chrono.LimitChronology$LimitDateTimeField
+
+Candidate class name: org.joda.time.field.BaseDurationField, method name: long getDifferenceAsLong(long,long)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDurationField
+Concrete direct subclass: org.joda.time.field.DecoratedDurationField
+Concrete direct subclass: org.joda.time.field.PreciseDurationField
+Concrete direct subclass: org.joda.time.field.ImpreciseDateTimeField$LinkedDurationField
+
+Candidate class name: org.joda.time.field.BaseDurationField, method name: long add(long,int)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDurationField
+Concrete direct subclass: org.joda.time.field.DecoratedDurationField
+Concrete direct subclass: org.joda.time.field.PreciseDurationField
+Concrete direct subclass: org.joda.time.field.ImpreciseDateTimeField$LinkedDurationField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int[] set(org.joda.time.ReadablePartial,int,int[],int)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.field.BaseDurationField, method name: long getValueAsLong(long,long)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDurationField
+Concrete direct subclass: org.joda.time.field.DecoratedDurationField
+Concrete direct subclass: org.joda.time.field.PreciseDurationField
+Concrete direct subclass: org.joda.time.field.ImpreciseDateTimeField$LinkedDurationField
+
+Candidate class name: org.joda.time.field.BaseDurationField, method name: long getMillis(long,long)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDurationField
+Concrete direct subclass: org.joda.time.field.DecoratedDurationField
+Concrete direct subclass: org.joda.time.field.PreciseDurationField
+Concrete direct subclass: org.joda.time.field.ImpreciseDateTimeField$LinkedDurationField
+
+Candidate class name: org.joda.time.DurationField, method name: long getValueAsLong(long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.DurationField, method name: int getDifference(long,long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.field.DelegatedDateTimeField, method name: long set(long,int)
+Concrete direct subclass: org.joda.time.field.SkipDateTimeField
+Concrete direct subclass: org.joda.time.field.SkipUndoDateTimeField
+Concrete direct subclass: org.joda.time.field.LenientDateTimeField
+Concrete direct subclass: org.joda.time.field.StrictDateTimeField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int getMaximumValue(org.joda.time.ReadablePartial)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int getMaximumShortTextLength(java.util.Locale)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.field.DecoratedDateTimeField, method name: long addWrapField(long,int)
+Concrete direct subclass: org.joda.time.chrono.ISOYearOfEraDateTimeField
+Concrete direct subclass: org.joda.time.field.RemainderDateTimeField
+Concrete direct subclass: org.joda.time.field.DividedDateTimeField
+Concrete direct subclass: org.joda.time.field.ZeroIsMaxDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJYearOfEraDateTimeField
+Concrete direct subclass: org.joda.time.field.OffsetDateTimeField
+Concrete direct subclass: org.joda.time.chrono.LimitChronology$LimitDateTimeField
+
+Candidate class name: org.joda.time.DurationField, method name: int getValue(long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.chrono.AssembledChronology, method name: org.joda.time.Chronology withZone(org.joda.time.DateTimeZone)
+Concrete direct subclass: org.joda.time.chrono.ISOChronology
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology
+Concrete direct subclass: org.joda.time.chrono.GJChronology
+Concrete direct subclass: org.joda.time.chrono.BuddhistChronology
+Concrete direct subclass: org.joda.time.chrono.LimitChronology
+Concrete direct subclass: org.joda.time.chrono.LenientChronology
+Concrete direct subclass: org.joda.time.chrono.StrictChronology
+
+Candidate class name: org.joda.time.DateTimeZone, method name: long nextTransition(long)
+Concrete direct subclass: org.joda.time.tz.FixedDateTimeZone
+Concrete direct subclass: org.joda.time.UTCDateTimeZone
+Concrete direct subclass: org.joda.time.tz.DateTimeZoneBuilder$DSTZone
+Concrete direct subclass: org.joda.time.tz.DateTimeZoneBuilder$PrecalculatedZone
+Concrete direct subclass: org.joda.time.tz.CachedDateTimeZone
+
+Candidate class name: org.joda.time.DateTimeZone, method name: long previousTransition(long)
+Concrete direct subclass: org.joda.time.tz.FixedDateTimeZone
+Concrete direct subclass: org.joda.time.UTCDateTimeZone
+Concrete direct subclass: org.joda.time.tz.DateTimeZoneBuilder$DSTZone
+Concrete direct subclass: org.joda.time.tz.DateTimeZoneBuilder$PrecalculatedZone
+Concrete direct subclass: org.joda.time.tz.CachedDateTimeZone
+
+Candidate class name: org.joda.time.DurationField, method name: long getMillis(int)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.DateTimeField, method name: int[] addWrapField(org.joda.time.ReadablePartial,int,int[],int)
+Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
+Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
+
+Candidate class name: org.joda.time.field.BaseDateTimeField, method name: int getMaximumTextLength(java.util.Locale)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJEraDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJChronology$CutoverField
+Concrete direct subclass: org.joda.time.chrono.BasicSingleEraDateTimeField
+
+Candidate class name: org.joda.time.field.DecoratedDateTimeField, method name: long roundFloor(long)
+Concrete direct subclass: org.joda.time.chrono.ISOYearOfEraDateTimeField
+Concrete direct subclass: org.joda.time.field.RemainderDateTimeField
+Concrete direct subclass: org.joda.time.field.DividedDateTimeField
+Concrete direct subclass: org.joda.time.field.ZeroIsMaxDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJYearOfEraDateTimeField
+Concrete direct subclass: org.joda.time.field.OffsetDateTimeField
+Concrete direct subclass: org.joda.time.chrono.LimitChronology$LimitDateTimeField
+
+Candidate class name: org.joda.time.field.BaseDateTimeField, method name: long roundCeiling(long)
+Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJEraDateTimeField
+Concrete direct subclass: org.joda.time.chrono.GJChronology$CutoverField
+Concrete direct subclass: org.joda.time.chrono.BasicSingleEraDateTimeField
 
 
 ## lucene-solr-branch_6_6 lucene_core:
 /home/daveroar/git/lucene-solr/lucene/core/src/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 30
-Candidate class name: org.apache.lucene.search.similarities.Similarity, method name: computeWeight
-Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: ln
-Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: tfln
-Candidate class name: org.apache.lucene.index.TermsEnum, method name: seekCeil
-Candidate class name: org.apache.lucene.util.AttributeImpl, method name: reflectWith
-Candidate class name: org.apache.lucene.index.DocValuesWriter, method name: getDocComparator
-Candidate class name: org.apache.lucene.store.IndexInput, method name: seek
-Candidate class name: org.apache.lucene.index.PostingsEnum, method name: advance
-Candidate class name: org.apache.lucene.util.AttributeImpl, method name: copyTo
-Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: indexOptionsByte
-Candidate class name: org.apache.lucene.index.DocValuesFieldUpdates, method name: merge
-Candidate class name: org.apache.lucene.index.TermsEnum, method name: postings
-Candidate class name: java.util.concurrent.AbstractExecutorService, method name: awaitTermination
-Candidate class name: org.apache.lucene.search.similarities.Similarity, method name: computeNorm
-Candidate class name: org.apache.lucene.index.MergePolicy, method name: findForcedDeletesMerges
-Candidate class name: org.apache.lucene.index.MergePolicy, method name: findForcedMerges
-Candidate class name: org.apache.lucene.index.TermsEnum, method name: seekExact
-Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: docValuesByte
-Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: idf
-Candidate class name: org.apache.lucene.index.LeafReader, method name: getTermVectors
-Candidate class name: org.apache.lucene.index.DirectoryReader, method name: doOpenIfChanged
-Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: getDocValuesType
-Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: getIndexOptions
-Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: tf
-Candidate class name: org.apache.lucene.index.CodecReader, method name: removeCoreClosedListener
-Candidate class name: org.apache.lucene.index.CodecReader, method name: addCoreClosedListener
-Candidate class name: org.apache.lucene.index.MergePolicy, method name: findMerges
-Candidate class name: org.apache.lucene.search.spans.ConjunctionSpans, method name: collect
-Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: gamma
-Candidate class name: org.apache.lucene.search.similarities.Similarity, method name: simScorer
-Soot finished on Thu Jan 23 01:20:33 EST 2020
-Soot has run for 0 min. 35 sec.
-
-
-
-## Only one
-
-/home/daveroar/git/lucene-solr/lucene/core/src/java/classes/
-Soot started on Sun Jan 26 17:51:14 EST 2020
-/home/daveroar/git/lucene-solr/lucene/core/src/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
-File Found: true
-temp_pair exists.
-SootClass: org.apache.lucene.index.LeafReaderContext SootMethod: java.util.List children(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.MSBRadixSorter SootMethod: int compare(int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.StopwordAnalyzerBase SootMethod: org.apache.lucene.analysis.CharArraySet getStopwordSet(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.StopwordAnalyzerBase SootMethod: org.apache.lucene.analysis.CharArraySet loadStopwordSet(boolean,void,void,void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.StopwordAnalyzerBase SootMethod: org.apache.lucene.analysis.CharArraySet loadStopwordSet(java.nio.file.Path)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.StopwordAnalyzerBase SootMethod: org.apache.lucene.analysis.CharArraySet loadStopwordSet(java.io.Reader)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.AnalyzerWrapper SootMethod: org.apache.lucene.analysis.Analyzer$TokenStreamComponents wrapComponents(void,org.apache.lucene.analysis.Analyzer$TokenStreamComponents)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.AnalyzerWrapper SootMethod: java.io.Reader wrapReader(void,java.io.Reader)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.AnalyzerWrapper SootMethod: org.apache.lucene.analysis.Analyzer$TokenStreamComponents createComponents(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.AnalyzerWrapper SootMethod: int getPositionIncrementGap(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.AnalyzerWrapper SootMethod: int getOffsetGap(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.AnalyzerWrapper SootMethod: java.io.Reader initReader(void,java.io.Reader)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.ClassicSimilarity SootMethod: float scorePayload(int,int,int,org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.ClassicSimilarity SootMethod: boolean getDiscountOverlaps(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.bkd.HeapPointReader SootMethod: void writePackedValue(int,byte[])
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.BlockPackedReader SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.BlockPackedReader SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.AbstractPagedMutable SootMethod: org.apache.lucene.util.packed.AbstractPagedMutable grow(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.AbstractPagedMutable SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.SparseFixedBitSet SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.FixedBitSet SootMethod: boolean getAndClear(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.FixedBitSet SootMethod: void xor(org.apache.lucene.search.DocIdSetIterator)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.FixedBitSet SootMethod: boolean scanIsEmpty(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooOldException SootMethod: void getResourceDescription(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooOldException SootMethod: void getReason(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooOldException SootMethod: void getVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooOldException SootMethod: void getMaxVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooOldException SootMethod: void getMinVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooNewException SootMethod: void getResourceDescription(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooNewException SootMethod: int getVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooNewException SootMethod: int getMaxVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexFormatTooNewException SootMethod: int getMinVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.CorruptIndexException SootMethod: void getResourceDescription(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.CorruptIndexException SootMethod: void getOriginalMessage(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.Packed8ThreeBlocks SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.Direct32 SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.Packed16ThreeBlocks SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.Packed64 SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.Direct64 SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.DirectPacked64SingleBlockReader SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.DirectPackedReader SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SegmentReader SootMethod: void getCombinedCoreAndDeletesKey(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SegmentReader SootMethod: void removeCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: org.apache.lucene.index.PointValues getPointValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: void addCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: void removeCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: void doClose(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: java.util.Collection getChildResources(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterCodecReader SootMethod: void checkIntegrity(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueLong SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueDouble SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueFloat SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueInt SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueBool SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueStr SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.LeafReader SootMethod: void removeCoreClosedListenerAsReaderClosedListener(org.apache.lucene.index.IndexReader,org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.ContainSpans SootMethod: int width(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.ContainSpans SootMethod: void collect(org.apache.lucene.search.spans.SpanCollector)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.IndexWriterConfig SootMethod: org.apache.lucene.index.IndexWriterConfig setInfoStream(java.io.PrintStream)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NoDeletionPolicy SootMethod: org.apache.lucene.index.IndexDeletionPolicy clone(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FieldDoc SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.NormalizationH2 SootMethod: float getC(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.NormalizationZ SootMethod: float getZ(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.NormalizationH1 SootMethod: float getC(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.NormalizationH3 SootMethod: float getMu(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.BaseCompositeReader SootMethod: int readerBase(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermCollectingRewrite SootMethod: void addClause(void,org.apache.lucene.index.Term,int,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.DFRSimilarity SootMethod: org.apache.lucene.search.similarities.AfterEffect getAfterEffect(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.DFRSimilarity SootMethod: org.apache.lucene.search.similarities.Normalization getNormalization(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.IBSimilarity SootMethod: org.apache.lucene.search.similarities.Lambda getLambda(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.IBSimilarity SootMethod: org.apache.lucene.search.similarities.Normalization getNormalization(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.DFISimilarity SootMethod: org.apache.lucene.search.similarities.Independence getIndependence(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.Axiomatic SootMethod: float score(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.Axiomatic SootMethod: void explain(java.util.List,org.apache.lucene.search.similarities.BasicStats,int,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ConcurrentMergeScheduler SootMethod: double getForceMergeMBPerSec(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ConcurrentMergeScheduler SootMethod: double getIORateLimitMBPerSec(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ConcurrentMergeScheduler SootMethod: void handleMergeException(org.apache.lucene.store.Directory,void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ConcurrentMergeScheduler SootMethod: boolean isBacklog(long,org.apache.lucene.index.MergePolicy$OneMerge)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ConcurrentMergeScheduler SootMethod: void targetMBPerSecChanged(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NoMergeScheduler SootMethod: org.apache.lucene.store.Directory wrapForMerge(org.apache.lucene.index.MergePolicy$OneMerge,org.apache.lucene.store.Directory)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NoMergeScheduler SootMethod: org.apache.lucene.index.MergeScheduler clone(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.GrowableWriter SootMethod: org.apache.lucene.util.packed.PackedInts$Mutable getMutable(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.GrowableWriter SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.GrowableWriter SootMethod: void fill(int,int,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.packed.GrowableWriter SootMethod: void save(org.apache.lucene.store.DataOutput)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.Token SootMethod: void reinit(org.apache.lucene.analysis.Token)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.Token SootMethod: void copyToWithoutPayloadClone(org.apache.lucene.util.AttributeImpl)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.LegacyNumericTokenStream SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MappingMultiPostingsEnum SootMethod: int docID(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MappingMultiPostingsEnum SootMethod: int advance(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MappingMultiPostingsEnum SootMethod: long cost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiPostingsEnum SootMethod: long cost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiPostingsEnum SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int freq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int docID(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int nextDoc(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int advance(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: long cost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: void reset(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: org.apache.lucene.util.BytesRef getPayload(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int nextPosition(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int startOffset(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum SootMethod: int endOffset(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.LeafReader wrap(org.apache.lucene.index.LeafReader,org.apache.lucene.search.Sort)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.BinaryDocValues getBinaryDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.NumericDocValues getNormValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.SortedNumericDocValues getSortedNumericDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.SortedDocValues getSortedDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.SortedSetDocValues getSortedSetDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: org.apache.lucene.index.Fields getTermVectors(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingLeafReader SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NumericDocValuesWriter SootMethod: double lambda$4(java.util.function.IntPredicate,java.util.function.IntToLongFunction,double,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NumericDocValuesWriter SootMethod: double lambda$5(java.util.function.IntPredicate,java.util.function.IntToLongFunction,float,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.BinaryDocValuesWriter SootMethod: org.apache.lucene.index.Sorter$DocComparator getDocComparator(int,org.apache.lucene.search.SortField)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.RAMOutputStream SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.RAMOutputStream SootMethod: java.util.Collection getChildResources(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.BinaryDocValuesFieldUpdates SootMethod: void merge(org.apache.lucene.index.DocValuesFieldUpdates)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NumericDocValuesFieldUpdates SootMethod: void merge(org.apache.lucene.index.DocValuesFieldUpdates)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.CharArrayMap SootMethod: void put(void,void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.CharArrayMap SootMethod: void remove(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.PostingsEnum SootMethod: org.apache.lucene.util.AttributeSource attributes(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilteredDocIdSetIterator SootMethod: org.apache.lucene.search.DocIdSetIterator getDelegate(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilteredDocIdSetIterator SootMethod: int docID(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilteredDocIdSetIterator SootMethod: int nextDoc(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilteredDocIdSetIterator SootMethod: int advance(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilteredDocIdSetIterator SootMethod: long cost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.Spans SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanPositionRangeQuery SootMethod: int getStart(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanPositionRangeQuery SootMethod: int getEnd(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat SootMethod: org.apache.lucene.index.FieldInfos read(org.apache.lucene.store.Directory,org.apache.lucene.index.SegmentInfo,void,org.apache.lucene.store.IOContext)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat SootMethod: byte docValuesByte(org.apache.lucene.index.DocValuesType)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat SootMethod: org.apache.lucene.index.DocValuesType getDocValuesType(org.apache.lucene.store.IndexInput,byte)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat SootMethod: byte indexOptionsByte(org.apache.lucene.index.IndexOptions)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat SootMethod: org.apache.lucene.index.IndexOptions getIndexOptions(org.apache.lucene.store.IndexInput,byte)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat SootMethod: void write(org.apache.lucene.store.Directory,org.apache.lucene.index.SegmentInfo,void,org.apache.lucene.index.FieldInfos,org.apache.lucene.store.IOContext)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.PrintStreamInfoStream SootMethod: void close(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.PrintStreamInfoStream SootMethod: boolean isSystemStream(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.RegexpQuery SootMethod: org.apache.lucene.index.Term getRegexp(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.WildcardQuery SootMethod: org.apache.lucene.index.Term getTerm(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermRangeQuery SootMethod: org.apache.lucene.util.BytesRef getLowerTerm(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermRangeQuery SootMethod: org.apache.lucene.util.BytesRef getUpperTerm(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermRangeQuery SootMethod: boolean includesLower(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermRangeQuery SootMethod: boolean includesUpper(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PrefixQuery SootMethod: org.apache.lucene.index.Term getPrefix(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.BlockTermState SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: void addCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: void removeCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.index.BinaryDocValues getBinaryDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.index.SortedDocValues getSortedDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.index.SortedNumericDocValues getSortedNumericDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.index.SortedSetDocValues getSortedSetDocValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.index.NumericDocValues getNormValues(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.index.Fields getTermVectors(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: void doClose(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: void getCoreCacheKey(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: void getCombinedCoreAndDeletesKey(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeReaderWrapper SootMethod: org.apache.lucene.search.Sort getIndexSort(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterLeafReader SootMethod: void removeCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterLeafReader SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ParallelLeafReader SootMethod: void removeCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueDate SootMethod: void toObject(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.mutable.MutableValueDate SootMethod: org.apache.lucene.util.mutable.MutableValue duplicate(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader SootMethod: org.apache.lucene.codecs.compressing.CompressingStoredFieldsIndexReader getIndexReader(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader SootMethod: org.apache.lucene.store.IndexInput getVectorsStream(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader SootMethod: long getMaxPointer(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.RoaringDocIdSet SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.BitDocIdSet SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.DocValuesDocIdSet SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.DocValuesDocIdSet SootMethod: org.apache.lucene.util.Bits bits(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.DocValuesDocIdSet SootMethod: org.apache.lucene.search.DocIdSetIterator iterator(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilterWeight SootMethod: org.apache.lucene.search.Scorer scorer(org.apache.lucene.index.LeafReaderContext)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ConstantScoreWeight SootMethod: float queryNorm(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ConstantScoreWeight SootMethod: float boost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.CharArraySet SootMethod: boolean add(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.CharArraySet SootMethod: boolean add(char[])
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiTermsEnum SootMethod: void seekExact(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiTermsEnum SootMethod: long ord(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiTermsEnum SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedSetDocValuesTermsEnum SootMethod: int docFreq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedSetDocValuesTermsEnum SootMethod: long totalTermFreq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedSetDocValuesTermsEnum SootMethod: org.apache.lucene.index.PostingsEnum postings(org.apache.lucene.index.PostingsEnum,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedSetDocValuesTermsEnum SootMethod: void seekExact(org.apache.lucene.util.BytesRef,org.apache.lucene.index.TermState)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedSetDocValuesTermsEnum SootMethod: org.apache.lucene.index.TermState termState(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilteredTermsEnum SootMethod: boolean seekExact(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilteredTermsEnum SootMethod: org.apache.lucene.index.TermsEnum$SeekStatus seekCeil(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilteredTermsEnum SootMethod: void seekExact(org.apache.lucene.util.BytesRef,org.apache.lucene.index.TermState)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedDocValuesTermsEnum SootMethod: int docFreq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedDocValuesTermsEnum SootMethod: long totalTermFreq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedDocValuesTermsEnum SootMethod: org.apache.lucene.index.PostingsEnum postings(org.apache.lucene.index.PostingsEnum,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedDocValuesTermsEnum SootMethod: void seekExact(org.apache.lucene.util.BytesRef,org.apache.lucene.index.TermState)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortedDocValuesTermsEnum SootMethod: org.apache.lucene.index.TermState termState(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: int initialMaxDistance(float,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: org.apache.lucene.index.PostingsEnum postings(org.apache.lucene.index.PostingsEnum,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: void seekExact(org.apache.lucene.util.BytesRef,org.apache.lucene.index.TermState)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: long ord(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: boolean seekExact(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: org.apache.lucene.index.TermsEnum$SeekStatus seekCeil(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: void seekExact(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: org.apache.lucene.util.BytesRef term(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: float getMinSimilarity(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyTermsEnum SootMethod: float getScaleFactor(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: boolean skipPastLastAutoPrefixTerm(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: boolean acceptsSuffixRange(int,int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: void brToString(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: boolean seekExact(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: void seekExact(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: long ord(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum SootMethod: org.apache.lucene.index.TermsEnum$SeekStatus seekCeil(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.SegmentTermsEnum SootMethod: void printSeekState(java.io.PrintStream)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: org.apache.lucene.index.TermsEnum$SeekStatus seekCeil(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: void seekExact(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: org.apache.lucene.util.BytesRef term(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: org.apache.lucene.util.BytesRef next(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: long ord(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: int docFreq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: long totalTermFreq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum SootMethod: org.apache.lucene.index.PostingsEnum postings(org.apache.lucene.index.PostingsEnum,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergeRateLimiter SootMethod: boolean lambda$0(double)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.OrdTermState SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BlockTreeTermsReader SootMethod: void brToString(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.SameThreadExecutorService SootMethod: java.util.List shutdownNow(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.SameThreadExecutorService SootMethod: void shutdown(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.SameThreadExecutorService SootMethod: boolean isTerminated(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.SameThreadExecutorService SootMethod: boolean isShutdown(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.SameThreadExecutorService SootMethod: boolean awaitTermination(long,java.util.concurrent.TimeUnit)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingStoredFieldsConsumer SootMethod: void abort(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.NRTCachingDirectory SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.NRTCachingDirectory SootMethod: java.util.Collection getChildResources(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.RAMDirectory SootMethod: java.util.Collection getChildResources(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.FSDirectory SootMethod: void listAll(java.nio.file.Path)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FieldValueHitQueue SootMethod: org.apache.lucene.search.FieldComparator[] getComparators(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MaxNonCompetitiveBoostAttributeImpl SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MaxNonCompetitiveBoostAttributeImpl SootMethod: void copyTo(org.apache.lucene.util.AttributeImpl)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MaxNonCompetitiveBoostAttributeImpl SootMethod: void reflectWith(org.apache.lucene.util.AttributeReflector)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.BoostAttributeImpl SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.BoostAttributeImpl SootMethod: void copyTo(org.apache.lucene.util.AttributeImpl)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.BoostAttributeImpl SootMethod: void reflectWith(org.apache.lucene.util.AttributeReflector)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl SootMethod: void copyTo(org.apache.lucene.util.AttributeImpl)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl SootMethod: boolean isKeyword(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl SootMethod: void setKeyword(boolean)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.BytesTermAttributeImpl SootMethod: void reflectWith(org.apache.lucene.util.AttributeReflector)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.FlagsAttributeImpl SootMethod: void clear(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.FlagsAttributeImpl SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.PayloadAttributeImpl SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.PayloadAttributeImpl SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.OffsetAttributeImpl SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.OffsetAttributeImpl SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.PositionIncrementAttributeImpl SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.PositionIncrementAttributeImpl SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.PositionLengthAttributeImpl SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.tokenattributes.PositionLengthAttributeImpl SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BlockTreeTermsWriter SootMethod: void brToString(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.blocktree.BlockTreeTermsWriter SootMethod: void brToString(byte[])
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SortingTermVectorsConsumer SootMethod: void abort(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.DelegatingAnalyzerWrapper SootMethod: org.apache.lucene.analysis.Analyzer$TokenStreamComponents wrapComponents(void,org.apache.lucene.analysis.Analyzer$TokenStreamComponents)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.DelegatingAnalyzerWrapper SootMethod: java.io.Reader wrapReader(void,java.io.Reader)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ExitableDirectoryReader SootMethod: org.apache.lucene.index.DirectoryReader doWrapDirectoryReader(org.apache.lucene.index.DirectoryReader)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ExitableDirectoryReader SootMethod: org.apache.lucene.index.DirectoryReader wrap(org.apache.lucene.index.DirectoryReader,org.apache.lucene.index.QueryTimeout)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ExitableDirectoryReader SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ExactPhraseScorer SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FilterScorer SootMethod: float score(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ReqOptSumScorer SootMethod: int freq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ReqOptSumScorer SootMethod: java.util.Collection getChildren(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FakeScorer SootMethod: org.apache.lucene.search.DocIdSetIterator iterator(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FakeScorer SootMethod: org.apache.lucene.search.Weight getWeight(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FakeScorer SootMethod: java.util.Collection getChildren(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ReqExclScorer SootMethod: int freq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ReqExclScorer SootMethod: java.util.Collection getChildren(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermScorer SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.SloppyPhraseScorer SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ConstantScoreScorer SootMethod: int freq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanScorer SootMethod: org.apache.lucene.search.spans.Spans getSpans(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanScorer SootMethod: int freq(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1LOG SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1LOG SootMethod: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1LOG SootMethod: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1LOG SootMethod: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1LOG SootMethod: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1LOG SootMethod: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2EXP SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2EXP SootMethod: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2EXP SootMethod: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2EXP SootMethod: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2EXP SootMethod: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2EXP SootMethod: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1EXP SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1EXP SootMethod: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1EXP SootMethod: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1EXP SootMethod: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1EXP SootMethod: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF1EXP SootMethod: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3EXP SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3EXP SootMethod: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3EXP SootMethod: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3EXP SootMethod: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3EXP SootMethod: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3EXP SootMethod: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3LOG SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3LOG SootMethod: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3LOG SootMethod: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3LOG SootMethod: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3LOG SootMethod: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF3LOG SootMethod: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2LOG SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2LOG SootMethod: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2LOG SootMethod: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2LOG SootMethod: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2LOG SootMethod: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.AxiomaticF2LOG SootMethod: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.LogByteSizeMergePolicy SootMethod: void setMaxMergeMB(double)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.LogByteSizeMergePolicy SootMethod: double getMaxMergeMB(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50CompoundReader SootMethod: void syncMetaData(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50CompoundReader SootMethod: org.apache.lucene.store.IndexOutput createTempOutput(void,void,org.apache.lucene.store.IOContext)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.codecs.lucene50.Lucene50CompoundReader SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.AutomatonQuery SootMethod: org.apache.lucene.util.automaton.Automaton getAutomaton(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.LegacyNumericRangeQuery SootMethod: boolean includesMin(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.LegacyNumericRangeQuery SootMethod: boolean includesMax(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.LegacyNumericRangeQuery SootMethod: void getMin(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.LegacyNumericRangeQuery SootMethod: void getMax(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.LegacyNumericRangeQuery SootMethod: int getPrecisionStep(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyQuery SootMethod: int getMaxEdits(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyQuery SootMethod: int getPrefixLength(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyQuery SootMethod: boolean getTranspositions(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FuzzyQuery SootMethod: int floatToEdits(float,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.StopFilter SootMethod: org.apache.lucene.analysis.CharArraySet makeStopSet(java.util.List)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.StopFilter SootMethod: org.apache.lucene.analysis.CharArraySet makeStopSet(java.util.List,boolean)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterDirectoryReader SootMethod: org.apache.lucene.index.DirectoryReader doOpenIfChanged(org.apache.lucene.index.IndexCommit)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterDirectoryReader SootMethod: org.apache.lucene.index.DirectoryReader doOpenIfChanged(org.apache.lucene.index.IndexWriter,boolean)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterDirectoryReader SootMethod: long getVersion(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterDirectoryReader SootMethod: boolean isCurrent(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FilterDirectoryReader SootMethod: org.apache.lucene.index.IndexCommit getIndexCommit(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.StandardDirectoryReader SootMethod: org.apache.lucene.index.SegmentInfos getSegmentInfos(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.SortedDocValuesField SootMethod: org.apache.lucene.search.Query newExactQuery(void,org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.LongRange SootMethod: long getMin(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.LongRange SootMethod: long getMax(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.LongRange SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.IntRange SootMethod: int getMin(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.IntRange SootMethod: int getMax(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.IntRange SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.DoubleRange SootMethod: double getMin(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.DoubleRange SootMethod: double getMax(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.DoubleRange SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.SortedNumericDocValuesField SootMethod: org.apache.lucene.search.Query newExactQuery(void,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.FloatRange SootMethod: float getMin(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.FloatRange SootMethod: float getMax(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.FloatRange SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.SortedSetDocValuesField SootMethod: org.apache.lucene.search.Query newExactQuery(void,org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.document.NumericDocValuesField SootMethod: org.apache.lucene.search.Query newExactQuery(void,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: org.apache.lucene.index.MergePolicy$MergeSpecification findMerges(org.apache.lucene.index.MergeTrigger,org.apache.lucene.index.SegmentInfos,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: org.apache.lucene.index.MergePolicy$MergeSpecification findForcedMerges(org.apache.lucene.index.SegmentInfos,int,java.util.Map,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: org.apache.lucene.index.MergePolicy$MergeSpecification findForcedDeletesMerges(org.apache.lucene.index.SegmentInfos,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: boolean useCompoundFile(org.apache.lucene.index.SegmentInfos,org.apache.lucene.index.SegmentCommitInfo,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: long size(org.apache.lucene.index.SegmentCommitInfo,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: double getNoCFSRatio(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MergePolicyWrapper SootMethod: void setMaxCFSSegmentSizeMB(double)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.LogMergePolicy SootMethod: boolean getCalibrateSizeByDeletes(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.TieredMergePolicy SootMethod: int getMaxMergeAtOnceExplicit(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.TieredMergePolicy SootMethod: double getReclaimDeletesWeight(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.TieredMergePolicy SootMethod: double getForceMergeDeletesPctAllowed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NoMergePolicy SootMethod: boolean useCompoundFile(org.apache.lucene.index.SegmentInfos,org.apache.lucene.index.SegmentCommitInfo,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NoMergePolicy SootMethod: long size(org.apache.lucene.index.SegmentCommitInfo,org.apache.lucene.index.IndexWriter)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.NoMergePolicy SootMethod: double getNoCFSRatio(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiTerms SootMethod: org.apache.lucene.index.Terms[] getSubTerms(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiTerms SootMethod: org.apache.lucene.index.ReaderSlice[] getSubSlices(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.automaton.TooComplexToDeterminizeException SootMethod: org.apache.lucene.util.automaton.Automaton getAutomaton(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.automaton.TooComplexToDeterminizeException SootMethod: org.apache.lucene.util.automaton.RegExp getRegExp(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.automaton.TooComplexToDeterminizeException SootMethod: int getMaxDeterminizedStates(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ByteSliceReader SootMethod: long writeTo(org.apache.lucene.store.DataOutput)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.InputStreamDataInput SootMethod: byte readByte(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.InputStreamDataInput SootMethod: void readBytes(byte[],int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.InputStreamDataInput SootMethod: void close(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.ScoreCachingWrappingScorer SootMethod: java.util.Collection getChildren(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.NoOutputs SootMethod: void outputToString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.NoOutputs SootMethod: long ramBytesUsed(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.NoOutputs SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.PairOutputs SootMethod: void outputToString(org.apache.lucene.util.fst.PairOutputs$Pair)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.ByteSequenceOutputs SootMethod: void outputToString(org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: void <clinit>(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: org.apache.lucene.util.fst.CharSequenceOutputs getSingleton(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: org.apache.lucene.util.CharsRef common(org.apache.lucene.util.CharsRef,org.apache.lucene.util.CharsRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: org.apache.lucene.util.CharsRef subtract(org.apache.lucene.util.CharsRef,org.apache.lucene.util.CharsRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: org.apache.lucene.util.CharsRef add(org.apache.lucene.util.CharsRef,org.apache.lucene.util.CharsRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: void write(org.apache.lucene.util.CharsRef,org.apache.lucene.store.DataOutput)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: org.apache.lucene.util.CharsRef read(org.apache.lucene.store.DataInput)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: void skipOutput(org.apache.lucene.store.DataInput)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: org.apache.lucene.util.CharsRef getNoOutput(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: void outputToString(org.apache.lucene.util.CharsRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.CharSequenceOutputs SootMethod: long ramBytesUsed(org.apache.lucene.util.CharsRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.IntSequenceOutputs SootMethod: void outputToString(org.apache.lucene.util.IntsRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.IntSequenceOutputs SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.BufferedChecksumIndexInput SootMethod: org.apache.lucene.store.IndexInput clone(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.BufferedChecksumIndexInput SootMethod: org.apache.lucene.store.IndexInput slice(void,long,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.BM25Similarity SootMethod: float scorePayload(int,int,int,org.apache.lucene.util.BytesRef)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.BM25Similarity SootMethod: boolean getDiscountOverlaps(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.BM25Similarity SootMethod: float getK1(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.BM25Similarity SootMethod: float getB(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.MultiSimilarity SootMethod: long computeNorm(org.apache.lucene.index.FieldInvertState)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.MultiSimilarity SootMethod: org.apache.lucene.search.similarities.Similarity$SimWeight computeWeight(org.apache.lucene.search.CollectionStatistics,org.apache.lucene.search.TermStatistics[])
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.MultiSimilarity SootMethod: org.apache.lucene.search.similarities.Similarity$SimScorer simScorer(org.apache.lucene.search.similarities.Similarity$SimWeight,org.apache.lucene.index.LeafReaderContext)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.similarities.SimilarityBase SootMethod: boolean getDiscountOverlaps(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ByteSliceWriter SootMethod: void writeBytes(byte[],int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.util.fst.BytesStore SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.OutputStreamDataOutput SootMethod: void writeByte(byte)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.OutputStreamDataOutput SootMethod: void writeBytes(byte[],int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.OutputStreamDataOutput SootMethod: void close(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.VerifyingLockFactory SootMethod: org.apache.lucene.store.Lock obtainLock(org.apache.lucene.store.Directory,void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.FilterSpans SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.FilterSpans SootMethod: float positionsCost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.TermSpans SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.TermSpans SootMethod: org.apache.lucene.index.PostingsEnum getPostings(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.ConjunctionSpans SootMethod: float positionsCost(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.ConjunctionSpans SootMethod: org.apache.lucene.search.spans.Spans[] getSubSpans(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.FreqProxFields SootMethod: int size(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.MultiFields SootMethod: java.util.Collection getIndexedFields(org.apache.lucene.index.IndexReader)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.standard.StandardAnalyzer SootMethod: int getMaxTokenLength(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.BufferedIndexInput SootMethod: org.apache.lucene.store.IndexInput slice(void,long,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.BufferedIndexInput SootMethod: int flushBuffer(org.apache.lucene.store.IndexOutput,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.BufferedIndexInput SootMethod: org.apache.lucene.store.BufferedIndexInput wrap(void,org.apache.lucene.store.IndexInput,long,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteBufferIndexInput SootMethod: byte readByte(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteBufferIndexInput SootMethod: void setPos(long,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteBufferIndexInput SootMethod: short readShort(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteBufferIndexInput SootMethod: int readInt(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteBufferIndexInput SootMethod: long readLong(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: long getFilePointer(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: void seek(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: void reset(byte[],int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: long length(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: boolean eof(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: void skipBytes(long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: short readShort(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: int readInt(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: long readLong(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: int readVInt(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: long readVLong(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: byte readByte(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: void readBytes(byte[],int,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: void close(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.ByteArrayIndexInput SootMethod: org.apache.lucene.store.IndexInput slice(void,long,long)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermInSetQuery SootMethod: org.apache.lucene.index.PrefixCodedTerms getTermData(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TermInSetQuery SootMethod: java.util.Collection getChildResources(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: boolean equalsTo(org.apache.lucene.search.NGramPhraseQuery)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: int hashCode(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: int getN(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: org.apache.lucene.index.Term[] getTerms(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: int[] getPositions(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.NGramPhraseQuery SootMethod: void toString(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.SynonymQuery SootMethod: java.util.List getTerms(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.FieldValueQuery SootMethod: void getField(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MultiPhraseQuery SootMethod: int getSlop(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MultiPhraseQuery SootMethod: org.apache.lucene.index.Term[][] getTermArrays(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MultiPhraseQuery SootMethod: int[] getPositions(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointRangeQuery SootMethod: void getField(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointRangeQuery SootMethod: int getNumDims(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointRangeQuery SootMethod: int getBytesPerDim(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointRangeQuery SootMethod: byte[] getLowerPoint(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointRangeQuery SootMethod: byte[] getUpperPoint(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointInSetQuery SootMethod: void getField(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointInSetQuery SootMethod: int getNumDims(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.PointInSetQuery SootMethod: int getBytesPerDim(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.DisjunctionMaxQuery SootMethod: java.util.Iterator iterator(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.DisjunctionMaxQuery SootMethod: java.util.List getDisjuncts(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.DisjunctionMaxQuery SootMethod: float getTieBreakerMultiplier(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.IndexOrDocValuesQuery SootMethod: org.apache.lucene.search.Query getIndexQuery(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.IndexOrDocValuesQuery SootMethod: org.apache.lucene.search.Query getRandomAccessQuery(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.IndexOrDocValuesQuery SootMethod: boolean equals(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MultiTermQueryConstantScoreWrapper SootMethod: org.apache.lucene.search.MultiTermQuery getQuery(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.MultiTermQueryConstantScoreWrapper SootMethod: void getField(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.analysis.standard.StandardTokenizer SootMethod: int getMaxTokenLength(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.TopFieldCollector SootMethod: void updateBottom(int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.MMapDirectory SootMethod: boolean getPreload(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.MMapDirectory SootMethod: int getMaxChunkSize(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.store.MMapDirectory SootMethod: java.io.IOException convertMapFailedIOException(java.io.IOException,void,int)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.SegmentDocValuesProducer SootMethod: void close(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanPositionCheckQuery SootMethod: org.apache.lucene.search.spans.SpanQuery getMatch(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanTermQuery SootMethod: org.apache.lucene.index.Term getTerm(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanOrQuery SootMethod: org.apache.lucene.search.spans.SpanQuery[] getClauses(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanNearQuery SootMethod: org.apache.lucene.search.spans.SpanQuery[] getClauses(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanNearQuery SootMethod: int getSlop(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanNearQuery SootMethod: boolean isInOrder(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanMultiTermQueryWrapper SootMethod: org.apache.lucene.search.spans.SpanMultiTermQueryWrapper$SpanRewriteMethod getRewriteMethod(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanMultiTermQueryWrapper SootMethod: org.apache.lucene.search.spans.SpanWeight createWeight(org.apache.lucene.search.IndexSearcher,boolean)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanMultiTermQueryWrapper SootMethod: org.apache.lucene.search.Query getWrappedQuery(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanBoostQuery SootMethod: org.apache.lucene.search.spans.SpanQuery getQuery(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanContainQuery SootMethod: org.apache.lucene.search.spans.SpanQuery getBig(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanContainQuery SootMethod: org.apache.lucene.search.spans.SpanQuery getLittle(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanNotQuery SootMethod: org.apache.lucene.search.spans.SpanQuery getInclude(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.search.spans.SpanNotQuery SootMethod: org.apache.lucene.search.spans.SpanQuery getExclude(void)
-missingMethodClassCounter: 1
-temp_pair exists.
-SootClass: org.apache.lucene.index.ReaderManager SootMethod: int getRefCount(org.apache.lucene.index.DirectoryReader)
-missingMethodClassCounter: 1
 Completable candidates size: 31
 Candidate class name: org.apache.lucene.util.AttributeImpl, method name: void copyTo(org.apache.lucene.util.AttributeImpl)
 Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
