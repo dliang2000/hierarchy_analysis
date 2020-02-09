@@ -2,11 +2,24 @@
 
 ## commons-collections-collections-4.3:
 
-/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/commons-collections-collections-4.3/src/main/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-collections-collections-4.3/target/classes:target/classes:/opt/jdk/jdk1.8.0_202/jre/lib/rt.jar:/opt/jdk/jdk1.8.0_202/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 2
-Candidate class name: org.apache.commons.collections4.bag.AbstractSortedBagDecorator, method name: addAll
-Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: putAll
+Completable candidates size: 3
+Candidate class name: org.apache.commons.collections4.bag.AbstractBagDecorator, method name: boolean addAll(java.util.Collection)
+Concrete direct subclass: org.apache.commons.collections4.bag.UnmodifiableBag
+Concrete direct subclass: org.apache.commons.collections4.bag.CollectionBag
+
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(java.util.Map)
+Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
+Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
+
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(org.apache.commons.collections4.MultiValuedMap)
+Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
+Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
+
+Soot finished on Sun Feb 09 01:11:02 EST 2020
+Soot has run for 0 min. 30 sec.
+
 
 ## commons-math-MATH_3_6_1:
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-math-MATH_3_6_1/target/classes:target/classes:/opt/jdk/jdk1.8.0_202/jre/lib/rt.jar:/opt/jdk/jdk1.8.0_202/jre/lib/jce.jar
