@@ -17,7 +17,7 @@ TARGET_PATH="build/core/classes/java"
 # done
 # echo $JAR_PATH
 #
-# cd $BENCHMARK_PATH
+cd $BENCHMARK_PATH
 
 # touch is_maven in the benchmark directory to indicate that a benchmark is mvn
 if [ -a is_ant ]; then

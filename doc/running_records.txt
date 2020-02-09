@@ -250,39 +250,246 @@ Concrete direct subclass: org.joda.time.chrono.BasicSingleEraDateTimeField
 
 
 ## lucene-solr-branch_6_6 lucene_core:
-/home/daveroar/git/lucene-solr/lucene/core/src/java/classes/:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/lucene-solr/lucene/build/core/classes/java:lucene/build/core/classes/java:/opt/jdk/jdk1.8.0_202/jre/lib/rt.jar:/opt/jdk/jdk1.8.0_202/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 31
+Completable candidates size: 32
 Candidate class name: org.apache.lucene.util.AttributeImpl, method name: void copyTo(org.apache.lucene.util.AttributeImpl)
+Concrete direct subclass: org.apache.lucene.analysis.LegacyNumericTokenStream$LegacyNumericTermAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.CharTermAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.OffsetAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.PayloadAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.FlagsAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.TypeAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.BytesTermAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.PositionIncrementAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.PositionLengthAttributeImpl
+Concrete direct subclass: org.apache.lucene.search.MaxNonCompetitiveBoostAttributeImpl
+Concrete direct subclass: org.apache.lucene.search.FuzzyTermsEnum$LevenshteinAutomataAttributeImpl
+Concrete direct subclass: org.apache.lucene.search.BoostAttributeImpl
+
 Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: float idf(org.apache.lucene.search.similarities.BasicStats,float,float)
-Candidate class name: org.apache.lucene.index.DirectoryReader, method name: org.apache.lucene.index.DirectoryReader doOpenIfChanged(org.apache.lucene.index.IndexCommit)
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3EXP
+
 Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: org.apache.lucene.index.DocValuesType getDocValuesType(org.apache.lucene.store.IndexInput,byte)
+Concrete direct subclass: org.apache.lucene.codecs.lucene60.Lucene60FieldInfosFormat
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat
+
 Candidate class name: org.apache.lucene.index.CodecReader, method name: void removeCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
-Candidate class name: org.apache.lucene.index.DirectoryReader, method name: org.apache.lucene.index.DirectoryReader doOpenIfChanged(org.apache.lucene.index.IndexWriter,boolean)
+Concrete direct subclass: org.apache.lucene.index.SlowCodecReaderWrapper$1
+Concrete direct subclass: org.apache.lucene.index.SegmentReader
+
 Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: float gamma(org.apache.lucene.search.similarities.BasicStats,float,float)
-Candidate class name: org.apache.lucene.index.CodecReader, method name: void addCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3EXP
+
 Candidate class name: org.apache.lucene.index.TermsEnum, method name: org.apache.lucene.index.TermsEnum$SeekStatus seekCeil(org.apache.lucene.util.BytesRef)
+Concrete direct subclass: org.apache.lucene.index.TermsEnum$2
+Concrete direct subclass: org.apache.lucene.index.SortedSetDocValuesTermsEnum
+Concrete direct subclass: org.apache.lucene.index.SortedDocValuesTermsEnum
+Concrete direct subclass: org.apache.lucene.index.MultiTermsEnum
+Concrete direct subclass: org.apache.lucene.index.FreqProxFields$FreqProxTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader$TVTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.SegmentTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.lucene54.Lucene54DocValuesProducer$CompressedBinaryDocValues$CompressedBinaryTermsEnum
+Concrete direct subclass: org.apache.lucene.search.FuzzyTermsEnum
+
+Candidate class name: org.apache.lucene.index.LeafReader, method name: void addCoreClosedListener(org.apache.lucene.index.LeafReader$CoreClosedListener)
+Concrete direct subclass: org.apache.lucene.index.MergeReaderWrapper
+Concrete direct subclass: org.apache.lucene.index.ParallelLeafReader
+
 Candidate class name: org.apache.lucene.index.TermsEnum, method name: void seekExact(long)
+Concrete direct subclass: org.apache.lucene.index.TermsEnum$2
+Concrete direct subclass: org.apache.lucene.index.SortedSetDocValuesTermsEnum
+Concrete direct subclass: org.apache.lucene.index.SortedDocValuesTermsEnum
+Concrete direct subclass: org.apache.lucene.index.MultiTermsEnum
+Concrete direct subclass: org.apache.lucene.index.FreqProxFields$FreqProxTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader$TVTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.SegmentTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.lucene54.Lucene54DocValuesProducer$CompressedBinaryDocValues$CompressedBinaryTermsEnum
+Concrete direct subclass: org.apache.lucene.search.FuzzyTermsEnum
+
+Candidate class name: org.apache.lucene.store.DataOutput, method name: void writeByte(byte)
+Concrete direct subclass: org.apache.lucene.util.PagedBytes$PagedBytesDataOutput
+Concrete direct subclass: org.apache.lucene.store.GrowableByteArrayDataOutput
+Concrete direct subclass: org.apache.lucene.util.fst.BytesStore
+Concrete direct subclass: org.apache.lucene.store.ByteArrayDataOutput
+Concrete direct subclass: org.apache.lucene.store.OutputStreamDataOutput
+Concrete direct subclass: org.apache.lucene.index.ByteSliceWriter
+
 Candidate class name: org.apache.lucene.index.LeafReader, method name: org.apache.lucene.index.Fields getTermVectors(int)
+Concrete direct subclass: org.apache.lucene.index.MergeReaderWrapper
+Concrete direct subclass: org.apache.lucene.index.ParallelLeafReader
+
 Candidate class name: org.apache.lucene.index.MergePolicy, method name: org.apache.lucene.index.MergePolicy$MergeSpecification findForcedMerges(org.apache.lucene.index.SegmentInfos,int,java.util.Map,org.apache.lucene.index.IndexWriter)
+Concrete direct subclass: org.apache.lucene.index.TieredMergePolicy
+Concrete direct subclass: org.apache.lucene.index.MergePolicyWrapper
+Concrete direct subclass: org.apache.lucene.index.NoMergePolicy
+
 Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: float tf(org.apache.lucene.search.similarities.BasicStats,float,float)
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3EXP
+
 Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: float ln(org.apache.lucene.search.similarities.BasicStats,float,float)
-Candidate class name: org.apache.lucene.search.spans.ConjunctionSpans, method name: void collect(org.apache.lucene.search.spans.SpanCollector)
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3EXP
+
 Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: byte indexOptionsByte(org.apache.lucene.index.IndexOptions)
+Concrete direct subclass: org.apache.lucene.codecs.lucene60.Lucene60FieldInfosFormat
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat
+
+Candidate class name: org.apache.lucene.store.IndexInput, method name: void readBytes(byte[],int,int)
+Concrete direct subclass: org.apache.lucene.store.RAMInputStream
+Concrete direct subclass: org.apache.lucene.store.ByteArrayIndexInput
+Concrete direct subclass: org.apache.lucene.codecs.MultiLevelSkipListReader$SkipBuffer
+
 Candidate class name: org.apache.lucene.index.PostingsEnum, method name: int advance(int)
+Concrete direct subclass: org.apache.lucene.index.MultiPostingsEnum
+Concrete direct subclass: org.apache.lucene.search.MultiPhraseQuery$UnionPostingsEnum
+Concrete direct subclass: org.apache.lucene.index.MappingMultiPostingsEnum
+Concrete direct subclass: org.apache.lucene.index.FreqProxFields$FreqProxPostingsEnum
+Concrete direct subclass: org.apache.lucene.index.FreqProxFields$FreqProxDocsEnum
+Concrete direct subclass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader$TVPostingsEnum
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$BlockDocsEnum
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$BlockPostingsEnum
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$EverythingEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.BitSetPostingsEnum
+
 Candidate class name: org.apache.lucene.util.AttributeImpl, method name: void reflectWith(org.apache.lucene.util.AttributeReflector)
+Concrete direct subclass: org.apache.lucene.analysis.LegacyNumericTokenStream$LegacyNumericTermAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.CharTermAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.OffsetAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.PayloadAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.FlagsAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.KeywordAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.TypeAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.BytesTermAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.PositionIncrementAttributeImpl
+Concrete direct subclass: org.apache.lucene.analysis.tokenattributes.PositionLengthAttributeImpl
+Concrete direct subclass: org.apache.lucene.search.MaxNonCompetitiveBoostAttributeImpl
+Concrete direct subclass: org.apache.lucene.search.FuzzyTermsEnum$LevenshteinAutomataAttributeImpl
+Concrete direct subclass: org.apache.lucene.search.BoostAttributeImpl
+
 Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: byte docValuesByte(org.apache.lucene.index.DocValuesType)
+Concrete direct subclass: org.apache.lucene.codecs.lucene60.Lucene60FieldInfosFormat
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat
+
 Candidate class name: org.apache.lucene.index.TermsEnum, method name: org.apache.lucene.index.PostingsEnum postings(org.apache.lucene.index.PostingsEnum,int)
+Concrete direct subclass: org.apache.lucene.index.TermsEnum$2
+Concrete direct subclass: org.apache.lucene.index.SortedSetDocValuesTermsEnum
+Concrete direct subclass: org.apache.lucene.index.SortedDocValuesTermsEnum
+Concrete direct subclass: org.apache.lucene.index.MultiTermsEnum
+Concrete direct subclass: org.apache.lucene.index.FreqProxFields$FreqProxTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader$TVTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.IntersectTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.SegmentTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.blocktree.BitSetTermsEnum
+Concrete direct subclass: org.apache.lucene.codecs.lucene54.Lucene54DocValuesProducer$CompressedBinaryDocValues$CompressedBinaryTermsEnum
+Concrete direct subclass: org.apache.lucene.search.FuzzyTermsEnum
+
 Candidate class name: org.apache.lucene.index.DocValuesWriter, method name: org.apache.lucene.index.Sorter$DocComparator getDocComparator(int,org.apache.lucene.search.SortField)
+Concrete direct subclass: org.apache.lucene.index.NumericDocValuesWriter
+Concrete direct subclass: org.apache.lucene.index.SortedSetDocValuesWriter
+Concrete direct subclass: org.apache.lucene.index.BinaryDocValuesWriter
+Concrete direct subclass: org.apache.lucene.index.SortedNumericDocValuesWriter
+Concrete direct subclass: org.apache.lucene.index.SortedDocValuesWriter
+
 Candidate class name: java.util.concurrent.AbstractExecutorService, method name: boolean awaitTermination(long,java.util.concurrent.TimeUnit)
+Concrete direct subclass: java.util.concurrent.ForkJoinPool
+Concrete direct subclass: java.util.concurrent.ThreadPoolExecutor
+Concrete direct subclass: java.util.concurrent.Executors$DelegatedExecutorService
+Concrete direct subclass: org.apache.lucene.util.SameThreadExecutorService
+
 Candidate class name: org.apache.lucene.search.similarities.Similarity, method name: long computeNorm(org.apache.lucene.index.FieldInvertState)
+Concrete direct subclass: org.apache.lucene.search.IndexSearcher$1
+Concrete direct subclass: org.apache.lucene.search.similarities.BM25Similarity
+Concrete direct subclass: org.apache.lucene.search.similarities.BooleanSimilarity
+Concrete direct subclass: org.apache.lucene.search.similarities.PerFieldSimilarityWrapper$1
+Concrete direct subclass: org.apache.lucene.search.similarities.MultiSimilarity
+
+Candidate class name: org.apache.lucene.store.DataOutput, method name: void writeBytes(byte[],int,int)
+Concrete direct subclass: org.apache.lucene.util.PagedBytes$PagedBytesDataOutput
+Concrete direct subclass: org.apache.lucene.store.GrowableByteArrayDataOutput
+Concrete direct subclass: org.apache.lucene.util.fst.BytesStore
+Concrete direct subclass: org.apache.lucene.store.ByteArrayDataOutput
+Concrete direct subclass: org.apache.lucene.store.OutputStreamDataOutput
+Concrete direct subclass: org.apache.lucene.index.ByteSliceWriter
+
 Candidate class name: org.apache.lucene.index.MergePolicy, method name: org.apache.lucene.index.MergePolicy$MergeSpecification findMerges(org.apache.lucene.index.MergeTrigger,org.apache.lucene.index.SegmentInfos,org.apache.lucene.index.IndexWriter)
+Concrete direct subclass: org.apache.lucene.index.TieredMergePolicy
+Concrete direct subclass: org.apache.lucene.index.MergePolicyWrapper
+Concrete direct subclass: org.apache.lucene.index.NoMergePolicy
+
 Candidate class name: org.apache.lucene.index.MergePolicy, method name: org.apache.lucene.index.MergePolicy$MergeSpecification findForcedDeletesMerges(org.apache.lucene.index.SegmentInfos,org.apache.lucene.index.IndexWriter)
+Concrete direct subclass: org.apache.lucene.index.TieredMergePolicy
+Concrete direct subclass: org.apache.lucene.index.MergePolicyWrapper
+Concrete direct subclass: org.apache.lucene.index.NoMergePolicy
+
 Candidate class name: org.apache.lucene.codecs.FieldInfosFormat, method name: org.apache.lucene.index.IndexOptions getIndexOptions(org.apache.lucene.store.IndexInput,byte)
+Concrete direct subclass: org.apache.lucene.codecs.lucene60.Lucene60FieldInfosFormat
+Concrete direct subclass: org.apache.lucene.codecs.lucene50.Lucene50FieldInfosFormat
+
 Candidate class name: org.apache.lucene.store.IndexInput, method name: void seek(long)
+Concrete direct subclass: org.apache.lucene.store.RAMInputStream
+Concrete direct subclass: org.apache.lucene.store.ByteArrayIndexInput
+Concrete direct subclass: org.apache.lucene.codecs.MultiLevelSkipListReader$SkipBuffer
+
 Candidate class name: org.apache.lucene.search.similarities.Axiomatic, method name: float tfln(org.apache.lucene.search.similarities.BasicStats,float,float)
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2EXP
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF1LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF2LOG
+Concrete direct subclass: org.apache.lucene.search.similarities.AxiomaticF3EXP
+
+Candidate class name: org.apache.lucene.search.spans.SpanQuery, method name: org.apache.lucene.search.spans.SpanWeight createWeight(org.apache.lucene.search.IndexSearcher,boolean)
+Concrete direct subclass: org.apache.lucene.search.spans.SpanTermQuery
+Concrete direct subclass: org.apache.lucene.search.spans.SpanNearQuery
+Concrete direct subclass: org.apache.lucene.search.spans.SpanOrQuery
+Concrete direct subclass: org.apache.lucene.search.spans.SpanNearQuery$SpanGapQuery
+Concrete direct subclass: org.apache.lucene.search.spans.SpanBoostQuery
+Concrete direct subclass: org.apache.lucene.search.spans.SpanNotQuery
+Concrete direct subclass: org.apache.lucene.search.spans.FieldMaskingSpanQuery
+Concrete direct subclass: org.apache.lucene.search.spans.SpanMultiTermQueryWrapper
+
 Candidate class name: org.apache.lucene.index.DocValuesFieldUpdates, method name: void merge(org.apache.lucene.index.DocValuesFieldUpdates)
+Concrete direct subclass: org.apache.lucene.index.NumericDocValuesFieldUpdates
+Concrete direct subclass: org.apache.lucene.index.BinaryDocValuesFieldUpdates
+
 Candidate class name: org.apache.lucene.search.similarities.Similarity, method name: org.apache.lucene.search.similarities.Similarity$SimWeight computeWeight(org.apache.lucene.search.CollectionStatistics,org.apache.lucene.search.TermStatistics[])
+Concrete direct subclass: org.apache.lucene.search.IndexSearcher$1
+Concrete direct subclass: org.apache.lucene.search.similarities.BM25Similarity
+Concrete direct subclass: org.apache.lucene.search.similarities.BooleanSimilarity
+Concrete direct subclass: org.apache.lucene.search.similarities.PerFieldSimilarityWrapper$1
+Concrete direct subclass: org.apache.lucene.search.similarities.MultiSimilarity
+
 Candidate class name: org.apache.lucene.search.similarities.Similarity, method name: org.apache.lucene.search.similarities.Similarity$SimScorer simScorer(org.apache.lucene.search.similarities.Similarity$SimWeight,org.apache.lucene.index.LeafReaderContext)
-Soot finished on Sun Jan 26 17:51:52 EST 2020
-Soot has run for 0 min. 37 sec.
+Concrete direct subclass: org.apache.lucene.search.IndexSearcher$1
+Concrete direct subclass: org.apache.lucene.search.similarities.BM25Similarity
+Concrete direct subclass: org.apache.lucene.search.similarities.BooleanSimilarity
+Concrete direct subclass: org.apache.lucene.search.similarities.PerFieldSimilarityWrapper$1
+Concrete direct subclass: org.apache.lucene.search.similarities.MultiSimilarity
+
+Soot finished on Sat Feb 08 21:49:47 EST 2020
+Soot has run for 0 min. 35 sec.
