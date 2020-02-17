@@ -1,0 +1,67 @@
+# detailed instructions for installing
+$script = <<SCRIPT
+
+sudo -i
+# update ubuntu (security etc.)
+apt-get update
+
+# instll java openjdk-8
+apt-get install -y openjdk-8-jdk
+
+# JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+# export JAVA_HOME
+# PATH=$PATH:$JAVA_HOME/bin
+# export PATH
+
+# jython
+JYTHON_VERSION=2.7-rc3
+wget -O /tmp/jython-installer.jar "http://search.maven.org/remotecontent?filepath=org/python/jython-installer/$JYTHON_VERSION/jython-installer-$JYTHON_VERSION.jar"
+jar xvf /tmp/jython-$JYTHON_VERSION.jar /opt/jython
+# /opt/jython/bin/pip install virtualenv
+# echo 'PATH=/opt/jython/bin:$PATH' >> /etc/profile
+#
+# su - vagrant -c "git clone https://github.com/jythontools/pip.git --depth 1"
+# su - vagrant -c "git clone https://github.com/jythontools/setuptools.git --depth 1"
+# su - vagrant -c "virtualenv venv --no-setuptools"
+
+
+# Aphache JMeter Core-5.2
+JMETER_VERSION=5.2
+wget -O /tmp/ApacheJMeter_core-$JMETER_VERSION.jar "https://repo1.maven.org/maven2/org/apache/jmeter/ApacheJMeter_core/$JMETER_VERSION/ApacheJMeter_core-$JMETER_VERSION.jar"
+jar xvf /tmp/ApacheJMeter_core-$JMETER_VERSION.jar /opt/jmeter
+
+# asm-7.3.1
+ASM_VERSION=7.3.1
+wget -O /tmp/asm-$ASM_VERSION.jar "https://repo1.maven.org/maven2/org/ow2/asm/asm/$ASM_VERSION/asm-$ASM_VERSION.jar"
+jar xvf /tmp/asm-$ASM_VERSION.jar /opt/asm
+
+# findbugs-3.0.1
+FINDBUGS_VERSION=3.0.1
+wget -O /tmp/findbugs-$FINDBUGS_VERSION.jar "https://repo1.maven.org/maven2/com/google/code/findbugs/findbugs/$FINDBUGS_VERSION/findbugs-$FINDBUGS_VERSION.jar"
+jar xvf /tmp/findbugs-$FINDBUGS_VERSION.jar /opt/findbugs
+
+SCRIPT
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "bento/ubuntu-18.10"
+  config.vm.box_check_update = true
+
+  config.vm.network :forwarded_port, guest: 4000, host: 4000
+
+  # config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
+  # end
+
+  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
+  # such as FTP and Heroku are also available. See the documentation at
+  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
+  # config.push.define "atlas" do |push|
+  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
+  # end
+
+  config.vm.provision :shell, :inline => $script
+end
