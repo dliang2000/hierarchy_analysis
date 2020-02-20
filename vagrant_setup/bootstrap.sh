@@ -3,11 +3,14 @@ case $(id -u) in
     0)
         # install java 8
         apt update
-        DEBIAN_FRONTEND=noninteractive
+        apt install -y debconf-utils
+        sudo debconf-set-selections < "/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/vagrant_projects/shared/selections.conf"
+        sudo dpkg-reconfigure keyboard-configuration -f noninteractive
+        # DEBIAN_FRONTEND=noninteractive apt-get install keyboard-configuration
         apt upgrade -y
         apt install -y openjdk-8-jdk xauth
         apt install -y junit4 maven git emacs unzip gradle
-	apt upgrade
+	apt upgrade -y
 
 	( VERSION=0.17.0; \
         curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" \
