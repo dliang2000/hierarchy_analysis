@@ -15,7 +15,7 @@ case $(id -u) in
         # DEBIAN_FRONTEND=noninteractive apt-get install keyboard-configuration
         apt upgrade -y
         apt install -y openjdk-8-jdk xauth
-        apt install -y junit4 maven git emacs unzip gradle
+        apt install -y junit4 maven ant git python3 emacs unzip gradle
 	apt upgrade -y
 
   echo "apt upgrade processed"
@@ -23,7 +23,7 @@ case $(id -u) in
   #MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/OpenSourceProjects"
 	  mkdir benchmarks
 	  cd benchmarks
-
+    mkdir csv
   echo "In benchmarks folder"
   # jsoup runs fine, jacoco .xml report generated successfully
 	wget https://github.com/jhy/jsoup/archive/jsoup-1.10.1.tar.gz
@@ -31,8 +31,9 @@ case $(id -u) in
   ( cd jsoup-jsoup-1.10.1; patch pom.xml -i /vagrant/shared/patchfile_jsoup_jsoup_1.10.1.patch)
   ( cd jsoup-jsoup-1.10.1; mvn clean test )
   ( cd jsoup-jsoup-1.10.1; java -jar /vagrant/shared/jacoco-0.8.5/lib/jacococli.jar report --classfiles ./target/classes/ --xml ./jsoup_jsoup_1.10.1_coverage.xml )
+  ( cd jsoup-jsoup-1.10.1; python3 /vagrant/shared/python_scripts/jsoup_jsoup_1.10.1_processing.py )
 
-	# # 3.3 runs fine
+  # # 3.3 runs fine
 	# wget http://archive.apache.org/dist/commons/math/source/commons-math3-3.6.1-src.tar.gz
 	# tar xzvf commons-math3-3.6.1-src.tar.gz
 	# ( cd commons-math3-3.6.1-src; mvn test )
@@ -44,10 +45,10 @@ case $(id -u) in
 
     # jmeter. This is a gradle build project, which has jacocoReport command built-in
     # The current build has error for task :src:dist-check:batchTestRedirectionPolicies, so it is skipped in the build below
-    wget https://archive.apache.org/dist/jmeter/source/apache-jmeter-5.2.1_src.tgz
-    tar xzvf apache-jmeter-5.2.1_src.tgz
-    ( cd apache-jmeter-5.2.1; ./gradlew -x :src:dist-check:batchTestRedirectionPolicies test)
-    ( cd apache-jmeter-5.2.1; ./gradlew -x :src:dist-check:batchTestRedirectionPolicies jacocoReport)
+    # wget https://archive.apache.org/dist/jmeter/source/apache-jmeter-5.2.1_src.tgz
+    # tar xzvf apache-jmeter-5.2.1_src.tgz
+    # ( cd apache-jmeter-5.2.1; ./gradlew -x :src:dist-check:batchTestRedirectionPolicies test)
+    # ( cd apache-jmeter-5.2.1; ./gradlew -x :src:dist-check:batchTestRedirectionPolicies jacocoReport)
 
     # joda-time-2.10.5 runs fine, jacoco .xml report generated successfully
     wget https://github.com/JodaOrg/joda-time/archive/v2.10.5.tar.gz
@@ -55,6 +56,7 @@ case $(id -u) in
     ( cd joda-time-2.10.5; patch pom.xml -i /vagrant/shared/patchfile_joda_time_2.10.5.patch)
     ( cd joda-time-2.10.5; mvn clean test )
     ( cd joda-time-2.10.5; java -jar /vagrant/shared/jacoco-0.8.5/lib/jacococli.jar report --classfiles ./target/classes/ --xml ./joda_time_2.10.5_coverage.xml )
+    ( cd joda-time-2.10.5; python3 /vagrant/shared/python_scripts/joda_time_2.10.5_processing.py )
 
     # findbugs-3.0.1
     wget https://sourceforge.net/projects/findbugs/files/findbugs/3.0.1/findbugs-3.0.1-source.zip
@@ -62,6 +64,20 @@ case $(id -u) in
     ( cd findbugs-3.0.1; patch pom.xml -i /vagrant/shared/patchfile_findbugs_3.0.1.patch)
     ( cd findbugs-3.0.1; mvn clean test )
     ( cd findbugs-3.0.1; java -jar /vagrant/shared/jacoco-0.8.5/lib/jacococli.jar report --classfiles ./target/classes/ --xml ./findbugs_3.0.1_coverage.xml )
+    ( cd findbugs-3.0.1; python3 /vagrant/shared/python_scripts/findbugs_3.0.1_processing.py )
+    # guava-28.2
+    # wget https://github.com/google/guava/archive/v28.2.tar.gz
+    # tar xzvf v28.2.tar.gz
+    # ( cd guava-28.2; patch pom.xml -i /vagrant/shared/patchfile_guava_28.2.patch)
+    # ( cd guava-28.2; mvn clean test )
+    # ( cd guava-28.2; java -jar /vagrant/shared/jacoco-0.8.5/lib/jacococli.jar report --classfiles ./target/classes/ --xml ./guava_28.2_coverage.xml )
+
+    # tomcat-9.0.31
+    # will work out insert jacoco plugin correctly into ant build.xml file
+    # wget https://github.com/apache/tomcat/archive/9.0.31.tar.gz
+    # tar xzvf 9.0.31.tar.gz
+    # ( cd tomcat-9.0.31/; )
+
 
     ;;
     *)
