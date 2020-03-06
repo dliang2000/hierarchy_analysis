@@ -45,3 +45,9 @@
 424a468,469
 >           <!-- Sets the VM argument line used when unit tests are run. -->
 >           <argLine>${surefireArgLine}</argLine>
+587a633,637
+>           <configuration>
+>               <outputDirectory>
+>                 ${project.build.directory}/mvn_dependencies
+>               </outputDirectory>
+>           </configuration>
