@@ -1,0 +1,71 @@
+[
+    {
+	"name": "jsoup",
+	"url": "https://jsoup.org/",
+	"type": "tgz",
+	"build": "mvn",
+  "version": "1.10.1",
+  "source": "https://github.com/jhy/jsoup/archive/jsoup-1.10.1.tar.gz",
+  "dir": "jsoup-jsoup-1.10.1"
+    },
+    {
+	"name": "apache-commons-lang",
+	"url": "https://commons.apache.org/proper/commons-lang/",
+	"releases": "https://archive.apache.org/dist/commons/lang/source/",
+	"type": "tgz",
+	"build": "mvn",
+  "version": "3.9",
+  "source": "http://archive.apache.org/dist/commons/lang/source/commons-lang3-3.9-src.tar.gz",
+  "dir": "commons-lang3-3.9-src"
+    },
+    {
+	"name": "jodatime",
+	"url": "https://www.joda.org/joda-time/",
+	"releases": "https://github.com/JodaOrg/joda-time/releases",
+	"type": "tgz",
+	"build": "mvn",
+  "version": "2.10.5",
+  "source": "https://github.com/JodaOrg/joda-time/releases/download/v2.10.5/joda-time-2.10.5-dist.tar.gz",
+  "dir": "joda-time-2.10.5"
+    },
+    {
+  "name": "findbugs",
+  "url": "http://findbugs.sourceforge.net/",
+  "releases": "https://github.com/findbugsproject/findbugs/releases",
+  "type": "zip",
+  "build": "mvn",
+  "version": "3.0.1",
+  "source": "https://sourceforge.net/projects/findbugs/files/findbugs/3.0.1/findbugs-3.0.1-source.zip",
+  "dir": "findbugs-3.0.1"
+    },
+    {
+  "name": "gson",
+  "url": "https://sites.google.com/site/gson/",
+  "releases": "https://github.com/google/gson/releases",
+  "type": "tgz",
+  "build": "mvn",
+  "version": "2.8.5",
+  "source": "https://github.com/google/gson/archive/gson-parent-2.8.5.tar.gz",
+  "dir": "gson-gson-parent-2.8.5"
+    },
+    {
+  "name": "jgrapht",
+  "url": "https://jgrapht.org/",
+  "releases": "https://github.com/jgrapht/jgrapht/releases",
+  "type": "tgz",
+  "build": "mvn",
+  "version": "1.3.1",
+  "source": "https://github.com/jgrapht/jgrapht/archive/jgrapht-1.3.1.tar.gz",
+  "dir": "jgrapht-jgrapht-1.3.1"
+    },
+    {
+  "name": "javacc",
+  "url": "https://javacc.github.io/javacc/",
+  "releases": "https://github.com/javacc/javacc/releases",
+  "type": "tgz",
+  "build": "mvn",
+  "version": "7.0.5",
+  "source": "https://github.com/javacc/javacc/archive/7.0.5.tar.gz",
+  "dir": "javacc-7.0.5"
+    }
+]

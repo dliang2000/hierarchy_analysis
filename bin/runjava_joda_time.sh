@@ -24,4 +24,5 @@ if [ -a is_maven ]; then
   mvn compile
 fi
 
+echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH joda_time_2.10_missing_methods.csv
 java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH joda_time_2.10_missing_methods.csv
