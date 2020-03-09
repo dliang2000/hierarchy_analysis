@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install -y openjdk-8-jdk junit4 maven gradle
-sudo apt-get install -y xauth git emacs-nox unzip jq
+sudo apt-get install -y openjdk-8-jdk junit4 maven gradle ant
+sudo apt-get install -y xauth git unzip python3 emacs jq
 sudo apt-get upgrade -y
-# for maven-scm benchmark:
-sudo apt-get install subversion
-
-( VERSION=0.17.0; \
-curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" \
-  | sudo tar -C /opt -xJ && \
-    sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
-)
+# # for maven-scm benchmark:
+# sudo apt-get install subversion
+#
+# ( VERSION=0.17.0; \
+# curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" \
+#   | sudo tar -C /opt -xJ && \
+#     sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
+# )
 
 mkdir benchmarks
 cd benchmarks
@@ -47,16 +47,16 @@ cd benchmarks
 # benchmark 3: commons-lang 3.2.1 vs 3.3
 # 1 test failure
 #wget http://archive.apache.org/dist/commons/lang/source/commons-lang3-3.2.1-src.tar.gz
-#tar xzvf commons-lang3-3.2.1-src.tar.gz 
+#tar xzvf commons-lang3-3.2.1-src.tar.gz
 #( cd commons-lang3-3.2.1-src; mvn test )
 
 # 1 test failure
 #wget http://archive.apache.org/dist/commons/lang/source/commons-lang3-3.3-src.tar.gz
-#tar xzvf commons-lang3-3.3-src.tar.gz 
+#tar xzvf commons-lang3-3.3-src.tar.gz
 #( cd commons-lang3-3.3-src; mvn test )
 
 # benchmark 4: maven-svm 1.9.1 vs 1.11.2
-#wget "http://archive.apache.org/dist/maven/scm/maven-scm-1.9.1-source-release.zip" 
+#wget "http://archive.apache.org/dist/maven/scm/maven-scm-1.9.1-source-release.zip"
 #unzip maven-scm-1.9.1-source-release.zip
 #( cd maven-scm-1.9.1; mvn clean; infer run -- mvn compile )
 
@@ -102,5 +102,3 @@ cd benchmarks
 #tar xzvf appformer-7.33.0.Final.tar.gz
 #wget https://github.com/kiegroup/appformer/archive/7.5.0.Final.tar.gz -O appformer-7.5.0.Final.tar.gz
 #tar xzvf appformer-7.5.0.Final.tar.gz
-
-
