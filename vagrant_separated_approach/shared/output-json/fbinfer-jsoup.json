@@ -1,1 +1,0 @@
-{"name": "jsoup", "version1": "1.9.2", "version2": "1.10.1", "results": [{"tool": "fbinfer", "key": "RESOURCE_LEAK", "file": "src/main/java/org/jsoup/nodes/Entities.java", "line": 316, "method": "org.jsoup.nodes.Entities.load(org.jsoup.nodes.Entities$EscapeMode,java.lang.String,int):void", "direction": "+1"}]}
