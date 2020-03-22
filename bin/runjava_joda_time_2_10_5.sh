@@ -5,7 +5,7 @@ MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/OpenSourceProjects"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
 CC_CLASS="ca.uwaterloo.liang.Main"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/joda-time-2.10-original"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/joda-time-2.10.5-patched"
 TARGET_PATH="target/classes"
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/mvn_dependencies"
@@ -24,5 +24,5 @@ if [ -a is_maven ]; then
   mvn compile
 fi
 
-echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH joda_time_2.10_missing_methods.csv
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH joda_time_2.10_missing_methods.csv
+echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH joda_time_2.10.5_missing_methods.csv
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH joda_time_2.10.5_missing_methods.csv
