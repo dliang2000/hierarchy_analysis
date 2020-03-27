@@ -172,3 +172,19 @@ Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDateTimeFiel
 Concrete direct subclass: org.joda.time.chrono.GJEraDateTimeField
 Concrete direct subclass: org.joda.time.chrono.GJChronology$CutoverField
 Concrete direct subclass: org.joda.time.chrono.BasicSingleEraDateTimeField
+
+## jsoup-jsoup-1.10.1:
+Soot started on Sun Mar 22 22:37:58 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/gson-2.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/junit-4.12.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 0
+Soot finished on Sun Mar 22 22:38:18 EDT 2020
+Soot has run for 0 min. 19 sec.
+
+## commons-lang3-3.9-src:
+Soot started on Thu Mar 26 21:53:51 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/apiguardian-api-1.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/easymock-4.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/hamcrest-2.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-api-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-engine-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-params-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-pioneer-0.3.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-commons-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-engine-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/objenesis-3.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/opentest4j-1.1.1.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 0
+Soot finished on Thu Mar 26 21:54:13 EDT 2020
+Soot has run for 0 min. 22 sec.
