@@ -1,0 +1,7 @@
+Package,Class,Method Name,Descriptor
+com.fasterxml.jackson.annotation,com.fasterxml.jackson.annotation.SimpleObjectIdResolver,bindItem,(Lcom/fasterxml/jackson/annotation/ObjectIdGenerator$IdKey;Ljava/lang/Object;)V
+com.fasterxml.jackson.annotation,com.fasterxml.jackson.annotation.SimpleObjectIdResolver,resolveId,(Lcom/fasterxml/jackson/annotation/ObjectIdGenerator$IdKey;)Ljava/lang/Object;
+com.fasterxml.jackson.annotation,com.fasterxml.jackson.annotation.SimpleObjectIdResolver,canUseFor,(Lcom/fasterxml/jackson/annotation/ObjectIdResolver;)Z
+com.fasterxml.jackson.annotation,com.fasterxml.jackson.annotation.SimpleObjectIdResolver,newForDeserialization,(Ljava/lang/Object;)Lcom/fasterxml/jackson/annotation/ObjectIdResolver;
+com.fasterxml.jackson.annotation,com.fasterxml.jackson.annotation.ObjectIdGenerator,maySerializeAsObject,()Z
+com.fasterxml.jackson.annotation,com.fasterxml.jackson.annotation.ObjectIdGenerator,isValidReferencePropertyName,(Ljava/lang/String;Ljava/lang/Object;)Z
