@@ -181,6 +181,69 @@ Completable candidates size: 0
 Soot finished on Sun Mar 22 22:38:18 EDT 2020
 Soot has run for 0 min. 19 sec.
 
+## commons_collections-collections-4.3:
+Soot started on Fri Apr 10 19:53:35 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-collections-collections-4.3/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 3
+Candidate class name: org.apache.commons.collections4.bag.AbstractSortedBagDecorator, method name: boolean addAll(java.util.Collection)
+Concrete direct subclass: org.apache.commons.collections4.bag.UnmodifiableSortedBag
+Concrete direct subclass: org.apache.commons.collections4.bag.CollectionSortedBag
+
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(java.util.Map)
+Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
+Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
+
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(org.apache.commons.collections4.MultiValuedMap)
+Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
+Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
+
+Soot finished on Fri Apr 10 19:54:04 EDT 2020
+Soot has run for 0 min. 29 sec.
+
+## commons-math-3.6.1:
+Soot started on Fri Apr 10 19:36:45 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-math-MATH_3_6_1/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 5
+Candidate class name: org.apache.commons.math3.linear.AbstractRealMatrix, method name: void addToEntry(int,int,double)
+Concrete direct subclass: org.apache.commons.math3.linear.OpenMapRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.DiagonalMatrix
+
+Candidate class name: org.apache.commons.math3.linear.PreconditionedIterativeLinearSolver, method name: org.apache.commons.math3.linear.RealVector solveInPlace(org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealVector,org.apache.commons.math3.linear.RealVector)
+Concrete direct subclass: org.apache.commons.math3.linear.SymmLQ
+Concrete direct subclass: org.apache.commons.math3.linear.ConjugateGradient
+
+Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: void addToEntry(int,int,org.apache.commons.math3.FieldElement)
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.SparseFieldMatrix
+
+Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: void multiplyEntry(int,int,org.apache.commons.math3.FieldElement)
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockFieldMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.SparseFieldMatrix
+
+Candidate class name: org.apache.commons.math3.linear.AbstractRealMatrix, method name: void multiplyEntry(int,int,double)
+Concrete direct subclass: org.apache.commons.math3.linear.OpenMapRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.BlockRealMatrix
+Concrete direct subclass: org.apache.commons.math3.linear.DiagonalMatrix
+
+Soot finished on Fri Apr 10 19:37:31 EDT 2020
+Soot has run for 0 min. 46 sec.
+
+## gson-gson-2.8.5:
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/gson-gson-parent-2.8.5-patched/gson/target/classes target/classes gson_2.8.5_missing_methods.csv
+Soot started on Fri Apr 10 19:35:11 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/gson-gson-parent-2.8.5-patched/gson/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 0
+Soot finished on Fri Apr 10 19:35:33 EDT 2020
+Soot has run for 0 min. 21 sec.
+
 ## commons-lang3-3.9-src:
 Soot started on Thu Mar 26 21:53:51 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/apiguardian-api-1.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/easymock-4.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/hamcrest-2.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-api-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-engine-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-params-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-pioneer-0.3.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-commons-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-engine-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/objenesis-3.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/opentest4j-1.1.1.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
@@ -189,7 +252,7 @@ Completable candidates size: 0
 Soot finished on Thu Mar 26 21:54:13 EDT 2020
 Soot has run for 0 min. 22 sec.
 
-## plexus_utils_3.3.0:
+## plexus-utils-3.3.0:
 Soot started on Wed Apr 01 22:02:39 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/classworlds-1.1-alpha-2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/commons-cli-1.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/doxia-sink-api-1.0-alpha-4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jsch-0.1.23.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-artifact-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-artifact-manager-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-core-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-error-diagnostics-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-model-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-monitor-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-api-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-descriptor-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-parameter-documenter-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-registry-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-testing-harness-1.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-profile-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-project-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-reporting-api-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-repository-metadata-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-settings-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-archiver-1.0-alpha-7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-container-default-1.0-alpha-8.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-interactivity-api-1.0-alpha-4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-utils-1.4.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-file-1.0-alpha-5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-http-lightweight-1.0-alpha-5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-provider-api-1.0-alpha-5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-ssh-1.0-alpha-5.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
@@ -1651,7 +1714,7 @@ Concrete direct subclass: soot.JastAddJ.WildcardSuperType
 Soot finished on Sat Apr 04 19:55:55 EDT 2020
 Soot has run for 7 min. 14 sec.
 
-## jgrapht_1.3.1-core:
+## jgrapht-1.3.1-core:
 
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-io-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-library-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jheaps-0.10.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-toolbox-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/mockito-core-1.9.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/objenesis-1.0.jar jgrapht_1.3.1_core_missing_methods.csv
 Soot started on Tue Apr 07 17:41:09 EDT 2020
@@ -1730,3 +1793,47 @@ Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Gener
 	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
 	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
 	... 5 more
+
+## velocity-engine-2.1-core:
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-io-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-lang3-3.8.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hsqldb-2.3.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-api-1.7.26.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-simple-1.7.26.jar velocity_engine_2.1_core_missing_methods.csv
+Soot started on Fri Apr 10 19:49:14 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-io-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-lang3-3.8.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hsqldb-2.3.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-api-1.7.26.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-simple-1.7.26.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 4
+Candidate class name: org.apache.velocity.runtime.resource.loader.ResourceLoader, method name: boolean isSourceModified(org.apache.velocity.runtime.resource.Resource)
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.StringResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.JarResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.URLResourceLoader
+
+Candidate class name: org.apache.velocity.runtime.resource.loader.ResourceLoader, method name: long getLastModified(org.apache.velocity.runtime.resource.Resource)
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.StringResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.JarResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader
+Concrete direct subclass: org.apache.velocity.runtime.resource.loader.URLResourceLoader
+
+Candidate class name: org.apache.velocity.runtime.directive.Directive, method name: boolean render(org.apache.velocity.context.InternalContextAdapter,java.io.Writer,org.apache.velocity.runtime.parser.node.Node)
+Concrete direct subclass: org.apache.velocity.runtime.directive.Foreach
+Concrete direct subclass: org.apache.velocity.runtime.directive.RuntimeMacro
+Concrete direct subclass: org.apache.velocity.runtime.directive.VelocimacroProxy
+Concrete direct subclass: org.apache.velocity.runtime.directive.Break
+Concrete direct subclass: org.apache.velocity.runtime.directive.Macro
+Concrete direct subclass: org.apache.velocity.runtime.directive.Evaluate
+Concrete direct subclass: org.apache.velocity.runtime.directive.Stop
+
+Candidate class name: java.io.Writer, method name: void write(char[],int,int)
+Concrete direct subclass: java.io.PrintWriter
+Concrete direct subclass: java.io.BufferedWriter
+Concrete direct subclass: java.io.OutputStreamWriter
+Concrete direct subclass: sun.nio.cs.StreamEncoder
+Concrete direct subclass: java.io.StringWriter
+Concrete direct subclass: org.apache.velocity.util.StringBuilderWriter
+Concrete direct subclass: org.apache.commons.lang3.text.StrBuilder$StrBuilderWriter
+Concrete direct subclass: org.apache.velocity.io.VelocityWriter
+
+Soot finished on Fri Apr 10 19:49:41 EDT 2020
+Soot has run for 0 min. 26 sec.
