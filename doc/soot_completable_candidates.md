@@ -1650,3 +1650,83 @@ Concrete direct subclass: soot.JastAddJ.WildcardSuperType
 
 Soot finished on Sat Apr 04 19:55:55 EDT 2020
 Soot has run for 7 min. 14 sec.
+
+## jgrapht_1.3.1-core:
+
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-io-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-library-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jheaps-0.10.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-toolbox-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/mockito-core-1.9.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/objenesis-1.0.jar jgrapht_1.3.1_core_missing_methods.csv
+Soot started on Tue Apr 07 17:41:09 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-io-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-library-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jheaps-0.10.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-toolbox-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/mockito-core-1.9.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/objenesis-1.0.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 1
+Candidate class name: org.jgrapht.graph.AbstractBaseGraph, method name: org.jgrapht.graph.builder.GraphBuilder createBuilder(java.util.function.Supplier)
+Concrete direct subclass: org.jgrapht.graph.Pseudograph
+Concrete direct subclass: org.jgrapht.graph.Multigraph
+Concrete direct subclass: org.jgrapht.graph.SimpleGraph
+Concrete direct subclass: org.jgrapht.graph.SimpleDirectedGraph
+Concrete direct subclass: org.jgrapht.graph.DirectedPseudograph
+Concrete direct subclass: org.jgrapht.graph.DefaultUndirectedGraph
+Concrete direct subclass: org.jgrapht.graph.DefaultDirectedGraph
+Concrete direct subclass: org.jgrapht.graph.DirectedMultigraph
+Concrete direct subclass: org.jgrapht.graph.DirectedAcyclicGraph
+
+[Thread-10] ERROR heros.solver.CountingThreadPoolExecutor - Worker thread execution failed: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
+java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.PackManager$1.run(PackManager.java:1279)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Generate - Not Implemented
+	at soot.javaToJimple.LocalGenerator.generateLocal(LocalGenerator.java:141)
+	at soot.LambdaMetaFactory$ThunkMethodSource.unbox(LambdaMetaFactory.java:574)
+	at soot.LambdaMetaFactory$ThunkMethodSource.adapt(LambdaMetaFactory.java:529)
+	at soot.LambdaMetaFactory$ThunkMethodSource.invokeImplMethod(LambdaMetaFactory.java:663)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getInvokeBody(LambdaMetaFactory.java:483)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getBody(LambdaMetaFactory.java:334)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.LambdaMetaFactory.makeLambdaHelper(LambdaMetaFactory.java:239)
+	at soot.asm.AsmMethodSource.convertInvokeDynamicInsn(AsmMethodSource.java:1420)
+	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
+	... 5 more
+java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.PackManager$1.run(PackManager.java:1279)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Generate - Not Implemented
+	at soot.javaToJimple.LocalGenerator.generateLocal(LocalGenerator.java:141)
+	at soot.LambdaMetaFactory$ThunkMethodSource.unbox(LambdaMetaFactory.java:574)
+	at soot.LambdaMetaFactory$ThunkMethodSource.adapt(LambdaMetaFactory.java:529)
+	at soot.LambdaMetaFactory$ThunkMethodSource.invokeImplMethod(LambdaMetaFactory.java:663)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getInvokeBody(LambdaMetaFactory.java:483)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getBody(LambdaMetaFactory.java:334)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.LambdaMetaFactory.makeLambdaHelper(LambdaMetaFactory.java:239)
+	at soot.asm.AsmMethodSource.convertInvokeDynamicInsn(AsmMethodSource.java:1420)
+	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
+	... 5 more
+Exception in thread "Thread-10" java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.PackManager$1.run(PackManager.java:1279)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Generate - Not Implemented
+	at soot.javaToJimple.LocalGenerator.generateLocal(LocalGenerator.java:141)
+	at soot.LambdaMetaFactory$ThunkMethodSource.unbox(LambdaMetaFactory.java:574)
+	at soot.LambdaMetaFactory$ThunkMethodSource.adapt(LambdaMetaFactory.java:529)
+	at soot.LambdaMetaFactory$ThunkMethodSource.invokeImplMethod(LambdaMetaFactory.java:663)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getInvokeBody(LambdaMetaFactory.java:483)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getBody(LambdaMetaFactory.java:334)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.LambdaMetaFactory.makeLambdaHelper(LambdaMetaFactory.java:239)
+	at soot.asm.AsmMethodSource.convertInvokeDynamicInsn(AsmMethodSource.java:1420)
+	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
+	... 5 more
