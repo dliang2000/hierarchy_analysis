@@ -16,7 +16,9 @@
 	- plexus-utils-3.3.0
 	- ph-commons-9.3.9
 	- soot-4.0.0
-(%) means that the completable candidates have not been collected for the benchmark. 
+
+	
+(%) means that the completable candidates have not been collected for the benchmark.
 
 - Plan to add (to be discussed):
 	- apache-hive-3.1.2
