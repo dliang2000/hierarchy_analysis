@@ -181,6 +181,79 @@ Completable candidates size: 0
 Soot finished on Sun Mar 22 22:38:18 EDT 2020
 Soot has run for 0 min. 19 sec.
 
+## javacc-7.0.5:
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/mvn_dependencies/junit-3.8.1.jar javacc_7.0.5_missing_methods.csv
+Soot started on Fri Apr 10 20:40:28 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/mvn_dependencies/junit-3.8.1.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 14
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void nonTerminalEnd(org.javacc.parser.NonTerminal)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void reEnd(org.javacc.parser.RegularExpression)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjtree.DefaultJJTreeVisitor, method name: void findThrown(org.javacc.jjtree.NodeScope,java.util.Hashtable,org.javacc.jjtree.JJTreeNode)
+Concrete direct subclass: org.javacc.jjtree.CPPCodeGenerator
+Concrete direct subclass: org.javacc.jjtree.JavaCodeGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void productionEnd(org.javacc.parser.NormalProduction)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void expansionStart(org.javacc.parser.Expansion,boolean)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void nonTerminalStart(org.javacc.parser.NonTerminal)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void reStart(org.javacc.parser.RegularExpression)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void expansionEnd(org.javacc.parser.Expansion,boolean)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void productionStart(org.javacc.parser.NormalProduction)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void cppcode(org.javacc.parser.CppCodeProduction)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void javacode(org.javacc.parser.JavaCodeProduction)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Candidate class name: org.javacc.jjtree.DefaultJJTreeVisitor, method name: void closeJJTreeComment(org.javacc.jjtree.IO)
+Concrete direct subclass: org.javacc.jjtree.CPPCodeGenerator
+Concrete direct subclass: org.javacc.jjtree.JavaCodeGenerator
+
+Candidate class name: org.javacc.parser.RegularExpression, method name: org.javacc.parser.Nfa GenerateNfa(boolean)
+Concrete direct subclass: org.javacc.parser.RStringLiteral
+Concrete direct subclass: org.javacc.parser.REndOfFile
+Concrete direct subclass: org.javacc.parser.RZeroOrMore
+Concrete direct subclass: org.javacc.parser.RChoice
+Concrete direct subclass: org.javacc.parser.RZeroOrOne
+Concrete direct subclass: org.javacc.parser.ROneOrMore
+Concrete direct subclass: org.javacc.parser.RJustName
+Concrete direct subclass: org.javacc.parser.RSequence
+Concrete direct subclass: org.javacc.parser.RRepetitionRange
+Concrete direct subclass: org.javacc.parser.RCharacterList
+
+Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void handleTokenProduction(org.javacc.parser.TokenProduction)
+Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
+Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
+
+Soot finished on Fri Apr 10 20:40:56 EDT 2020
+Soot has run for 0 min. 27 sec.
+
 ## commons_collections-collections-4.3:
 Soot started on Fri Apr 10 19:53:35 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-collections-collections-4.3/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
