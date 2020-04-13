@@ -137,6 +137,9 @@ public class Main {
 		  			methodname = data[2];
 		  			descriptor = data[3];
 		  			
+		  			if (methodname.startsWith("set") || methodname.startsWith("get"))
+		  				continue;
+		  			
 		  			String params = ClassFile.parseMethodDesc_params(descriptor);
 		  			
 		  			if (params.length() == 0 || params == null)
