@@ -1,0 +1,62 @@
+[
+    {
+	"name": "jsoup",
+	"project": "jsoup-1.10.1",
+  "bash_file": "../bin/runjava_jsoup_1_10_1.sh"
+    },
+    {
+	"name": "apache-commons-lang",
+	"project": "commons-lang3_3.9",
+  "bash_file": "../bin/runjava_commons_lang3_3.9.sh"
+    },
+    {
+	"name": "jodatime",
+	"project": "joda-time-2.10.5",
+  "bash_file": "../bin/runjava_joda_time_2_10_5.sh"
+    },
+    {
+  "name": "commons-collections",
+  "project": "commons-collections-4.3",
+  "bash_file": "../bin/runjava_commons_collections_4.3.sh"
+    },
+    {
+  "name": "commons-math3",
+  "project": "commons-math-3.6.1",
+  "bash_file": "../bin/runjava_commons_math_3.6.1.sh"
+    },
+    {
+  "name": "gson",
+  "project": "gson-parent-2.8.5",
+  "bash_file": "../bin/runjava_gson_parent_2.8.5.sh"
+    },
+    {
+  "name": "jgrapht",
+  "project": "jgrapht-1.3.1-core",
+  "bash_file": "../bin/runjava_jgrapht_1.3.1_core.sh"
+    },
+    {
+  "name": "javacc",
+  "project": "javacc-7.0.5",
+  "bash_file": "../bin/runjava_javacc_7.0.5.sh"
+    },
+    {
+  "name": "velocity-engine",
+  "project": "velocity-engine-2.1-core",
+  "bash_file": "../bin/runjava_velocity_engine_2.1_core.sh"
+    },
+    {
+  "name": "ph-commons",
+  "project": "ph-commons-9.3.9",
+  "bash_file": "../bin/runjava_ph_commons_9.3.9.sh"
+    },
+    {
+  "name": "soot",
+  "project": "soot-4.0.0",
+  "bash_file": "../bin/runjava_soot_4.0.0.sh"
+    },
+    {
+  "name": "plexus-utils",
+  "project": "plexus-utils-9.3.9",
+  "bash_file": "../bin/runjava_plexus_utils_3.3.0.sh"
+    }
+]
