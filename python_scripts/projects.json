@@ -6,7 +6,7 @@
     },
     {
 	"name": "apache-commons-lang",
-	"project": "commons-lang3_3.9",
+	"project": "commons-lang3-3.9",
   "bash_file": "../bin/runjava_commons_lang3_3.9.sh"
     },
     {

@@ -10,7 +10,7 @@ TARGET_PATH="target/classes"
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/mvn_dependencies"
 
-add all the jar files needed for set_soot_classpath
+# add all the jar files needed for set_soot_classpath
 for jar in $MVN_DEPENDENCY_PATH/*; do
   JAR_PATH=$JAR_PATH:$jar
 done
