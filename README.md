@@ -34,16 +34,17 @@
 	- JMoney
 
 ## Completable Candidates table
-									 Benchmark  Number of Completable Candidates
-0                 soot-4.0.0                               197
-1          gson-parent-2.8.5                                 0
-2         commons-math-3.6.1                                 5
-3               jsoup-1.10.1                                 0
-4         plexus-utils-3.3.0                                 2
-5          commons-lang3-3.9                                 0
-6         jgrapht-1.3.1-core                                 1
-7           joda-time-2.10.5                                14
-8               javacc-7.0.5                                14
-9           ph-commons-9.3.9                                 4
-10  velocity-engine-2.1-core                                 3
-11   commons-collections-4.3                                 3
+| Benchmark | Number of Completable Candidates |
+| --- | --- |
+| soot-4.0.0 | 197 |
+| gson-parent-2.8.5 | 0 |
+| commons-math-3.6.1 | 5 |
+| jsoup-1.10.1 | 0 |
+| plexus-utils-3.3.0 | 2 |
+| commons-lang3-3.9 | 0 |
+| jgrapht-1.3.1-core | 1 |
+| joda-time-2.10.5 | 14 |
+| javacc-7.0.5 | 14 |
+| ph-commons-9.3.9 | 4 |
+| velocity-engine-2.1-core | 3 |
+| commons-collections-4.3 | 3 |
