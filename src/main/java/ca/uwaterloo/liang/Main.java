@@ -26,18 +26,6 @@ public class Main {
 		 //List<String> setting = new ArrayList<String>();
 		 //setting.add(common_jar_path);
 		 
-		 
-		// class_path for joda-time-2.10
-		 //jars needed for joda-time:
-/*		 String common_jar_path = "/home/daveroar/.m2/repository";
-		 String joda_convert = common_jar_path + "/org/joda/joda-convert/1.2/joda-convert-1.2.jar";
-		 String junit = common_jar_path + "/junit/junit/3.8.2/junit-3.8.2.jar";
-		 String class_path = joda_convert + File.pathSeparator + junit + File.pathSeparator 
-				 	+ File.separator + "home" + File.separator + "daveroar" + File.separator + 
-				    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
-				    + File.separator + "joda-time-2.10-original-nojqf" + File.separator + "target/classes/";*/
-		 
-		 
 		 // class_path for commons-math-MATH_3_6_1
 		 //String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
 		//		    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
@@ -106,7 +94,7 @@ public class Main {
 	    	System.out.println(Scene.v().getSootClassPath());
 	    	
 	    	HashSet<Pair<SootClass, SootMethod>> missingMethodCoverageClassSet = new HashSet<Pair<SootClass, SootMethod>>();
-	    	Map<SootClass, Integer> subclassCount = new HashMap<SootClass, Integer>();
+	    	Map<SootClass, Integer> nonExcludedSubclassCount = new HashMap<SootClass, Integer>();
 	    	Map<SootClass, List<SootMethod>> classMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
 	    	Map<SootMethod, String> methodDescriptorMap = new HashMap<SootMethod, String>();
 	    	
@@ -137,7 +125,14 @@ public class Main {
 		  			methodname = data[2];
 		  			descriptor = data[3];
 		  			
+		  			// Ski[ accessors and mutators
 		  			if (methodname.startsWith("set") || methodname.startsWith("get"))
+		  				continue;
+		  			
+		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
+		  			// Skip the sootclass if it is an interface, an abstract class, 
+		  			// or if it belongs to one of the excluded packages
+		  			if (sc.isInterface() || sc.isAbstract() || Scene.v().isExcluded(sc))
 		  				continue;
 		  			
 		  			String params = ClassFile.parseMethodDesc_params(descriptor);
@@ -145,10 +140,9 @@ public class Main {
 		  			if (params.length() == 0 || params == null)
 		  				params = "void";
 		  			String[] paramList = params.split(",");
-		  			// System.out.println(paramList[0]);
+
 		  			List<Type> parameterTypeList = new ArrayList<Type>(); 
-		  			
-		  			
+		  					  			
 		  			for (String p: paramList) {
 		  				Type t;
 		  				if (Scene.v().getTypeUnsafe(p, false) == null) {
@@ -165,10 +159,6 @@ public class Main {
 		  			} else {
 		  				returnType = Scene.v().getType(ClassFile.parseMethodDesc_return(descriptor));
 		  			}
-		  					  			
-		  			SootClass sc = Scene.v().loadClassAndSupport(classname);
-		  			if (sc.isInterface() || sc.isAbstract())
-		  				continue;
 		  			
 		  			sc.setApplicationClass();
 		  			
@@ -178,10 +168,10 @@ public class Main {
 		  				continue;
 		  			}
 		  			SootClass superclass = l.get(0);
-		  			if (subclassCount.containsKey(superclass)) {
-		  				subclassCount.put(superclass, subclassCount.get(superclass) + 1);
+		  			if (nonExcludedSubclassCount.containsKey(superclass)) {
+		  				nonExcludedSubclassCount.put(superclass, nonExcludedSubclassCount.get(superclass) + 1);
  		  			} else {
- 		  				subclassCount.put(superclass, 1);
+ 		  				nonExcludedSubclassCount.put(superclass, 1);
 		  			}
 		  			
 		  			SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
@@ -211,6 +201,8 @@ public class Main {
 		  			List<SootClass> concreteSootClassList = new ArrayList<SootClass>();
 		  			List<SootClass> abstractSootClassList = new ArrayList<SootClass>();
 		  			for (SootClass sc: sootClassList) {
+		  				if (Scene.v().isExcluded(sc))
+		  					continue;
 		  				if(sc.isConcrete()) {
 		  					concreteSootClassList.add(sc);
 		  				} else if (sc.isAbstract()){
@@ -240,7 +232,7 @@ public class Main {
 		  					}
 		  				}
 		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getSubSignature()) && (missingMethodClassCounter == 1) ) {
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getSubSignature()) && (missingMethodClassCounter < concreteSootClassList.size()) ) {
 		  					completable_candidates.put(sootmethod.getSubSignature(), sootclass);
 		  				}
 		  				missingMethodClassCounter = 0;
@@ -252,7 +244,7 @@ public class Main {
 					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
 					 List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
 			  		 for (SootClass sc: sootClassList) {
-			  			 if(sc.isConcrete()) {
+			  			 if(sc.isConcrete() && !Scene.v().isExcluded(sc)) {
 			  				System.out.println("Concrete direct subclass: " + sc.getName());
 			  			 }
 			  		 }
@@ -270,14 +262,13 @@ public class Main {
 	
 	private static boolean ifHaveMultipleDirectSubClasses(SootClass sc, Hierarchy h) {		
 		List<SootClass> l = h.getDirectSubclassesOf(sc);
-		//System.out.println("List size: " + l.size());
-		
+		int count_nonExcluded = 0;
 		if (l.size() > 1) {
 			for (SootClass sootclass: l) {
-				//System.out.println("Package name: " + sootclass.getPackageName());
-				//System.out.println("Class name: " + sootclass.getName());
+				if (!Scene.v().isExcluded(sootclass))
+					count_nonExcluded++;
 			}
 		}
-		return l.size() > 1;
+		return count_nonExcluded > 1;
 	}
 }

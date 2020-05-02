@@ -1,8 +1,9 @@
 # All sibling classes have implementations for the method of interest.
 
 ## joda-time-2.10.5:
+
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10.5-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10.5-patched/mvn_dependencies/joda-convert-1.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10.5-patched/mvn_dependencies/junit-3.8.2.jar joda_time_2.10.5_missing_methods.csv
-Soot started on Mon Apr 13 12:54:28 EDT 2020
+Soot started on Sat May 02 18:01:55 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10.5-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10.5-patched/mvn_dependencies/joda-convert-1.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/joda-time-2.10.5-patched/mvn_dependencies/junit-3.8.2.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 14
@@ -50,11 +51,6 @@ Candidate class name: org.joda.time.DateTimeField, method name: int[] addWrapPar
 Concrete direct subclass: org.joda.time.field.UnsupportedDateTimeField
 Concrete direct subclass: org.joda.time.field.DelegatedDateTimeField
 
-Candidate class name: org.joda.time.field.ImpreciseDateTimeField, method name: long add(long,long)
-Concrete direct subclass: org.joda.time.chrono.BasicWeekyearDateTimeField
-Concrete direct subclass: org.joda.time.chrono.BasicYearDateTimeField
-Concrete direct subclass: org.joda.time.chrono.BasicMonthOfYearDateTimeField
-
 Candidate class name: org.joda.time.field.DecoratedDateTimeField, method name: long remainder(long)
 Concrete direct subclass: org.joda.time.chrono.ISOYearOfEraDateTimeField
 Concrete direct subclass: org.joda.time.field.RemainderDateTimeField
@@ -64,11 +60,15 @@ Concrete direct subclass: org.joda.time.chrono.GJYearOfEraDateTimeField
 Concrete direct subclass: org.joda.time.field.OffsetDateTimeField
 Concrete direct subclass: org.joda.time.chrono.LimitChronology$LimitDateTimeField
 
-Candidate class name: org.joda.time.field.BaseDurationField, method name: long add(long,int)
-Concrete direct subclass: org.joda.time.chrono.ZonedChronology$ZonedDurationField
-Concrete direct subclass: org.joda.time.field.DecoratedDurationField
-Concrete direct subclass: org.joda.time.field.PreciseDurationField
-Concrete direct subclass: org.joda.time.field.ImpreciseDateTimeField$LinkedDurationField
+Candidate class name: org.joda.time.DurationField, method name: long add(long,long)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
+
+Candidate class name: org.joda.time.DurationField, method name: long add(long,int)
+Concrete direct subclass: org.joda.time.field.UnsupportedDurationField
+Concrete direct subclass: org.joda.time.field.MillisDurationField
+Concrete direct subclass: org.joda.time.field.DelegatedDurationField
 
 Candidate class name: org.joda.time.field.DecoratedDateTimeField, method name: long roundFloor(long)
 Concrete direct subclass: org.joda.time.chrono.ISOYearOfEraDateTimeField
@@ -94,22 +94,25 @@ Concrete direct subclass: org.joda.time.chrono.GJYearOfEraDateTimeField
 Concrete direct subclass: org.joda.time.field.OffsetDateTimeField
 Concrete direct subclass: org.joda.time.chrono.LimitChronology$LimitDateTimeField
 
-Soot finished on Mon Apr 13 12:54:51 EDT 2020
-Soot has run for 0 min. 22 sec.
+Soot finished on Sat May 02 18:02:16 EDT 2020
+Soot has run for 0 min. 21 sec.
+
 
 ## jsoup-jsoup-1.10.1:
+
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/gson-2.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/junit-4.12.jar jsoup_jsoup_1.10.1_missing_methods.csv
-Soot started on Mon Apr 13 12:56:27 EDT 2020
+Soot started on Sat May 02 18:04:25 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/gson-2.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched/mvn_dependencies/junit-4.12.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
-
 Completable candidates size: 0
-Soot finished on Mon Apr 13 12:56:49 EDT 2020
-Soot has run for 0 min. 22 sec.
+Soot finished on Sat May 02 18:04:46 EDT 2020
+Soot has run for 0 min. 20 sec.
+
 
 ## javacc-7.0.5:
+
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/mvn_dependencies/junit-3.8.1.jar javacc_7.0.5_missing_methods.csv
-Soot started on Mon Apr 13 13:00:37 EDT 2020
+Soot started on Sat May 02 18:05:24 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/javacc-7.0.5-patched/mvn_dependencies/junit-3.8.1.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 14
@@ -177,17 +180,19 @@ Candidate class name: org.javacc.jjdoc.TextGenerator, method name: void handleTo
 Concrete direct subclass: org.javacc.jjdoc.HTMLGenerator
 Concrete direct subclass: org.javacc.jjdoc.XTextGenerator
 
-Soot finished on Mon Apr 13 13:01:08 EDT 2020
-Soot has run for 0 min. 30 sec.
+Soot finished on Sat May 02 18:05:51 EDT 2020
+Soot has run for 0 min. 26 sec.
+
 
 ## commons_collections-collections-4.3:
-Soot started on Mon Apr 13 13:10:52 EDT 2020
+
+Soot started on Sat May 02 18:06:49 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-collections-collections-4.3/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 3
-Candidate class name: org.apache.commons.collections4.bag.AbstractSortedBagDecorator, method name: boolean addAll(java.util.Collection)
-Concrete direct subclass: org.apache.commons.collections4.bag.UnmodifiableSortedBag
-Concrete direct subclass: org.apache.commons.collections4.bag.CollectionSortedBag
+Candidate class name: org.apache.commons.collections4.bag.AbstractBagDecorator, method name: boolean addAll(java.util.Collection)
+Concrete direct subclass: org.apache.commons.collections4.bag.UnmodifiableBag
+Concrete direct subclass: org.apache.commons.collections4.bag.CollectionBag
 
 Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(java.util.Map)
 Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
@@ -197,23 +202,25 @@ Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValu
 Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
 Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
 
-Soot finished on Mon Apr 13 13:11:20 EDT 2020
-Soot has run for 0 min. 27 sec.
+Soot finished on Sat May 02 18:07:18 EDT 2020
+Soot has run for 0 min. 28 sec.
+
 
 ## commons-math-3.6.1:
-Soot started on Mon Apr 13 13:13:17 EDT 2020
+
+Soot started on Sat May 02 18:12:58 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-math-MATH_3_6_1/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 5
+Candidate class name: org.apache.commons.math3.linear.PreconditionedIterativeLinearSolver, method name: org.apache.commons.math3.linear.RealVector solveInPlace(org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealVector,org.apache.commons.math3.linear.RealVector)
+Concrete direct subclass: org.apache.commons.math3.linear.SymmLQ
+Concrete direct subclass: org.apache.commons.math3.linear.ConjugateGradient
+
 Candidate class name: org.apache.commons.math3.linear.AbstractRealMatrix, method name: void addToEntry(int,int,double)
 Concrete direct subclass: org.apache.commons.math3.linear.OpenMapRealMatrix
 Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowRealMatrix
 Concrete direct subclass: org.apache.commons.math3.linear.BlockRealMatrix
 Concrete direct subclass: org.apache.commons.math3.linear.DiagonalMatrix
-
-Candidate class name: org.apache.commons.math3.linear.PreconditionedIterativeLinearSolver, method name: org.apache.commons.math3.linear.RealVector solveInPlace(org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealLinearOperator,org.apache.commons.math3.linear.RealVector,org.apache.commons.math3.linear.RealVector)
-Concrete direct subclass: org.apache.commons.math3.linear.SymmLQ
-Concrete direct subclass: org.apache.commons.math3.linear.ConjugateGradient
 
 Candidate class name: org.apache.commons.math3.linear.AbstractFieldMatrix, method name: void addToEntry(int,int,org.apache.commons.math3.FieldElement)
 Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowFieldMatrix
@@ -231,95 +238,86 @@ Concrete direct subclass: org.apache.commons.math3.linear.Array2DRowRealMatrix
 Concrete direct subclass: org.apache.commons.math3.linear.BlockRealMatrix
 Concrete direct subclass: org.apache.commons.math3.linear.DiagonalMatrix
 
-Soot finished on Mon Apr 13 13:14:03 EDT 2020
-Soot has run for 0 min. 45 sec.
+Soot finished on Sat May 02 18:13:42 EDT 2020
+Soot has run for 0 min. 44 sec.
+
 
 ## gson-gson-2.8.5:
+
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/gson-gson-parent-2.8.5-patched/gson/target/classes target/classes gson_2.8.5_missing_methods.csv
-Soot started on Mon Apr 13 13:15:06 EDT 2020
+Soot started on Sat May 02 18:17:12 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/gson-gson-parent-2.8.5-patched/gson/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 0
-Soot finished on Mon Apr 13 13:15:29 EDT 2020
-Soot has run for 0 min. 23 sec.
+Soot finished on Sat May 02 18:17:33 EDT 2020
+Soot has run for 0 min. 20 sec.
 
 ## commons-lang3-3.9-src:
-Soot started on Mon Apr 13 13:16:09 EDT 2020
+
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/apiguardian-api-1.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/easymock-4.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/hamcrest-2.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-api-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-engine-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-params-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-pioneer-0.3.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-commons-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-engine-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/objenesis-3.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/opentest4j-1.1.1.jar commons_lang3_3.9_src_missing_methods.csv
+Soot started on Sat May 02 18:17:55 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/apiguardian-api-1.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/easymock-4.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/hamcrest-2.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-api-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-engine-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-params-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-pioneer-0.3.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-commons-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-engine-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/objenesis-3.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/opentest4j-1.1.1.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 0
-Soot finished on Mon Apr 13 13:16:34 EDT 2020
-Soot has run for 0 min. 24 sec.
+Soot finished on Sat May 02 18:18:18 EDT 2020
+Soot has run for 0 min. 22 sec.
+
 
 ## plexus-utils-3.3.0:
-Soot started on Mon Apr 13 13:17:06 EDT 2020
+
+Soot started on Sat May 02 17:55:54 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/classworlds-1.1-alpha-2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/commons-cli-1.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/doxia-sink-api-1.0-alpha-4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/jsch-0.1.23.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-artifact-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-artifact-manager-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-core-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-error-diagnostics-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-model-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-monitor-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-api-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-descriptor-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-parameter-documenter-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-registry-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-plugin-testing-harness-1.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-profile-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-project-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-reporting-api-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-repository-metadata-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/maven-settings-2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-archiver-1.0-alpha-7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-container-default-1.0-alpha-8.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-interactivity-api-1.0-alpha-4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/plexus-utils-1.4.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-file-1.0-alpha-5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-http-lightweight-1.0-alpha-5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-provider-api-1.0-alpha-5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched/mvn_dependencies/wagon-ssh-1.0-alpha-5.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 2
-Candidate class name: java.io.OutputStream, method name: void write(int)
-Concrete direct subclass: java.io.ObjectOutputStream
-Concrete direct subclass: java.io.FileOutputStream
-Concrete direct subclass: java.io.ObjectOutputStream$BlockDataOutputStream
-Concrete direct subclass: java.io.FilterOutputStream
-Concrete direct subclass: java.io.ByteArrayOutputStream
-Concrete direct subclass: java.lang.ProcessBuilder$NullOutputStream
-Concrete direct subclass: java.nio.channels.Channels$1
-Concrete direct subclass: java.nio.channels.Channels$3
-Concrete direct subclass: org.codehaus.plexus.util.StringOutputStream
-
+Completable candidates size: 1
 Candidate class name: java.io.FilterReader, method name: long skip(long)
 Concrete direct subclass: org.codehaus.plexus.util.LineOrientedInterpolatingReader
-Concrete direct subclass: java.io.PushbackReader
 Concrete direct subclass: org.codehaus.plexus.util.InterpolationFilterReader
 
-Soot finished on Mon Apr 13 13:17:28 EDT 2020
-Soot has run for 0 min. 22 sec.
+Soot finished on Sat May 02 17:56:17 EDT 2020
+Soot has run for 0 min. 23 sec.
+
 
 ## ph-commons-9.3.9-ph-commons:
 
-java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/target/classes ph-commons/target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/jsr305-3.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/slf4j-api-1.7.29.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/slf4j-simple-1.7.29.jar ph_commons_9.3.9_missing_methods.csv
-Soot started on Mon Apr 13 13:18:12 EDT 2020
+Soot started on Sat May 02 17:57:05 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/target/classes:ph-commons/target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/jsr305-3.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/slf4j-api-1.7.29.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched/ph-commons/mvn_dependencies/slf4j-simple-1.7.29.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
-Completable candidates size: 4
+Completable candidates size: 7
 Candidate class name: java.io.Writer, method name: void write(int)
-Concrete direct subclass: java.io.PrintWriter
-Concrete direct subclass: java.io.BufferedWriter
-Concrete direct subclass: java.io.OutputStreamWriter
-Concrete direct subclass: sun.nio.cs.StreamEncoder
-Concrete direct subclass: java.io.StringWriter
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingStringWriter
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingBufferedWriter
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingCharArrayWriter
-Concrete direct subclass: java.io.CharArrayWriter
-
-Candidate class name: java.io.FileInputStream, method name: int read(byte[])
-Concrete direct subclass: java.net.SocketInputStream
-Concrete direct subclass: java.lang.UNIXProcess$DeferredCloseInputStream
-Concrete direct subclass: com.helger.commons.io.stream.CountingFileInputStream
 
 Candidate class name: java.io.Reader, method name: int read(char[],int,int)
-Concrete direct subclass: sun.nio.cs.StreamDecoder
-Concrete direct subclass: java.io.Console$LineReader
-Concrete direct subclass: java.io.BufferedReader
-Concrete direct subclass: java.io.InputStreamReader
-Concrete direct subclass: java.io.StringReader
 Concrete direct subclass: jdk.internal.util.xml.impl.ReaderUTF16
 Concrete direct subclass: jdk.internal.util.xml.impl.ReaderUTF8
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingBufferedReader
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingStringReader
-Concrete direct subclass: java.io.CharArrayReader
+
+Candidate class name: java.io.InputStream, method name: long skip(long)
+Concrete direct subclass: com.helger.commons.io.stream.ByteBufferInputStream
+Concrete direct subclass: com.helger.commons.io.stream.NonBlockingByteArrayInputStream
+Concrete direct subclass: com.helger.commons.io.stream.ByteBuffersInputStream
+
+Candidate class name: java.io.InputStream, method name: int read(byte[],int,int)
+Concrete direct subclass: com.helger.commons.io.stream.ByteBufferInputStream
+Concrete direct subclass: com.helger.commons.io.stream.NonBlockingByteArrayInputStream
+Concrete direct subclass: com.helger.commons.io.stream.ByteBuffersInputStream
+
+Candidate class name: java.io.OutputStream, method name: void write(byte[],int,int)
+Concrete direct subclass: com.helger.commons.io.stream.NonBlockingByteArrayOutputStream
+Concrete direct subclass: com.helger.commons.io.stream.ByteBufferOutputStream
+Concrete direct subclass: com.helger.commons.io.stream.NullOutputStream
+
+Candidate class name: java.io.InputStream, method name: void mark(int)
+Concrete direct subclass: com.helger.commons.io.stream.ByteBufferInputStream
+Concrete direct subclass: com.helger.commons.io.stream.NonBlockingByteArrayInputStream
+Concrete direct subclass: com.helger.commons.io.stream.ByteBuffersInputStream
 
 Candidate class name: java.io.Writer, method name: void write(char[],int,int)
-Concrete direct subclass: java.io.PrintWriter
-Concrete direct subclass: java.io.BufferedWriter
-Concrete direct subclass: java.io.OutputStreamWriter
-Concrete direct subclass: sun.nio.cs.StreamEncoder
-Concrete direct subclass: java.io.StringWriter
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingStringWriter
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingBufferedWriter
 Concrete direct subclass: com.helger.commons.io.stream.NonBlockingCharArrayWriter
-Concrete direct subclass: java.io.CharArrayWriter
 
 [Thread-11] ERROR heros.solver.CountingThreadPoolExecutor - Worker thread execution failed: Failed to convert <com.helger.commons.text.display.IDisplayTextProvider: java.util.Comparator getComparatorCollating(java.util.Locale,java.util.Locale)>
 java.lang.RuntimeException: Failed to convert <com.helger.commons.text.display.IDisplayTextProvider: java.util.Comparator getComparatorCollating(java.util.Locale,java.util.Locale)>
@@ -385,16 +383,12 @@ Caused by: java.lang.RuntimeException: Trying to create virtual invoke expressio
 
 
 ## soot-4.0.0
+
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/android-4.1.1.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/ant-1.10.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/ant-launcher-1.10.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-analysis-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-commons-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-tree-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-util-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/axml-2.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/byte-buddy-1.10.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/byte-buddy-agent-1.10.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/commons-codec-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/commons-io-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/commons-logging-1.1.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/dexlib2-2.2.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/FastInfoset-1.2.15.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/functionaljava-4.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/guava-18.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/hamcrest-all-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/heros-1.2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/httpclient-4.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/httpcore-4.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/istack-commons-runtime-3.0.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jasmin-3.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/java_cup-0.9.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/javassist-3.18.2-GA.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/javax.activation-api-1.2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/javax.annotation-api-1.3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jaxb-api-2.4.0-b180725.0427.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jaxb-runtime-2.4.0-b180830.0438.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/json-20080701.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jsr305-1.3.9.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/mockito-core-3.2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/objenesis-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/opengl-api-gl1.1-android-2.1_r1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/polyglot-2006.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-api-mockito2-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-api-support-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-core-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-module-junit4-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-module-junit4-common-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-reflect-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/slf4j-api-1.7.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/slf4j-simple-1.7.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/stax-ex-1.8.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/txw2-2.4.0-b180830.0438.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/xmlParserAPIs-2.6.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/xmlpull-1.1.3.4d_b4_min.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/xpp3-1.1.4c.jar soot_4.0.0_missing_methods.csv
-Soot started on Mon Apr 13 13:22:06 EDT 2020
+Soot started on Sat May 02 18:19:07 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/android-4.1.1.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/ant-1.10.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/ant-launcher-1.10.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-analysis-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-commons-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-tree-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/asm-util-7.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/axml-2.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/byte-buddy-1.10.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/byte-buddy-agent-1.10.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/commons-codec-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/commons-io-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/commons-logging-1.1.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/dexlib2-2.2.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/FastInfoset-1.2.15.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/functionaljava-4.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/guava-18.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/hamcrest-all-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/heros-1.2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/httpclient-4.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/httpcore-4.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/istack-commons-runtime-3.0.7.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jasmin-3.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/java_cup-0.9.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/javassist-3.18.2-GA.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/javax.activation-api-1.2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/javax.annotation-api-1.3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jaxb-api-2.4.0-b180725.0427.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jaxb-runtime-2.4.0-b180830.0438.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/json-20080701.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/jsr305-1.3.9.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/mockito-core-3.2.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/objenesis-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/opengl-api-gl1.1-android-2.1_r1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/polyglot-2006.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-api-mockito2-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-api-support-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-core-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-module-junit4-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-module-junit4-common-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/powermock-reflect-2.0.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/slf4j-api-1.7.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/slf4j-simple-1.7.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/stax-ex-1.8.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/txw2-2.4.0-b180830.0438.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/xmlParserAPIs-2.6.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/xmlpull-1.1.3.4d_b4_min.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/soot-4.0.0-patched/mvn_dependencies/xpp3-1.1.4c.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 197
-Candidate class name: soot.toolkits.scalar.AbstractFlowSet, method name: void union(soot.toolkits.scalar.FlowSet,soot.toolkits.scalar.FlowSet)
-Concrete direct subclass: soot.toolkits.scalar.ArraySparseSet
-Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet
-Concrete direct subclass: soot.jimple.toolkits.scalar.ToppedSet
-
 Candidate class name: soot.jimple.toolkits.pointer.nativemethods.NativeMethodClass, method name: void simulateMethod(soot.SootMethod,soot.jimple.toolkits.pointer.representations.ReferenceVariable,soot.jimple.toolkits.pointer.representations.ReferenceVariable,soot.jimple.toolkits.pointer.representations.ReferenceVariable[])
 Concrete direct subclass: soot.jimple.toolkits.pointer.nativemethods.JavaUtilTimeZoneNative
 Concrete direct subclass: soot.jimple.toolkits.pointer.nativemethods.JavaLangRuntimeNative
@@ -437,6 +431,11 @@ Concrete direct subclass: soot.jimple.toolkits.pointer.nativemethods.JavaIoObjec
 Concrete direct subclass: soot.jimple.toolkits.pointer.nativemethods.JavaIoFileDescriptorNative
 Concrete direct subclass: soot.jimple.toolkits.pointer.nativemethods.JavaIoFileInputStreamNative
 
+Candidate class name: soot.toolkits.scalar.AbstractFlowSet, method name: void union(soot.toolkits.scalar.FlowSet,soot.toolkits.scalar.FlowSet)
+Concrete direct subclass: soot.toolkits.scalar.ArraySparseSet
+Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet
+Concrete direct subclass: soot.jimple.toolkits.scalar.ToppedSet
+
 Candidate class name: polyglot.visit.PrettyPrinter, method name: void print(polyglot.ast.Node,polyglot.ast.Node,polyglot.util.CodeWriter)
 Concrete direct subclass: soot.toolkits.astmetrics.metricPrettyPrinter
 Concrete direct subclass: polyglot.visit.Translator
@@ -475,22 +474,22 @@ Concrete direct subclass: soot.jimple.spark.geom.geomPA.DummyNode
 Concrete direct subclass: soot.jimple.spark.geom.heapinsE.HeapInsNode
 Concrete direct subclass: soot.jimple.spark.geom.ptinsE.PtInsNode
 
+Candidate class name: soot.dexpler.typing.UntypedConstant, method name: soot.Value defineType(soot.Type)
+Concrete direct subclass: soot.dexpler.typing.UntypedLongOrDoubleConstant
+Concrete direct subclass: soot.dexpler.typing.UntypedIntOrFloatConstant
+
 Candidate class name: soot.JastAddJ.ConstructorDecl, method name: void addParameterNoTransform(soot.JastAddJ.ParameterDeclaration)
 Concrete direct subclass: soot.JastAddJ.GenericConstructorDecl
 Concrete direct subclass: soot.JastAddJ.ConstructorDeclSubstituted
 Concrete direct subclass: soot.JastAddJ.ParConstructorDecl
 
-Candidate class name: soot.dexpler.typing.UntypedConstant, method name: soot.Value defineType(soot.Type)
-Concrete direct subclass: soot.dexpler.typing.UntypedLongOrDoubleConstant
-Concrete direct subclass: soot.dexpler.typing.UntypedIntOrFloatConstant
-
 Candidate class name: soot.LabeledUnitPrinter, method name: void fieldRef(soot.SootFieldRef)
 Concrete direct subclass: soot.NormalUnitPrinter
 Concrete direct subclass: soot.BriefUnitPrinter
 
-Candidate class name: soot.JastAddJ.FloatingPointType, method name: void addBodyDeclNoTransform(soot.JastAddJ.BodyDecl)
-Concrete direct subclass: soot.JastAddJ.FloatType
-Concrete direct subclass: soot.JastAddJ.DoubleType
+Candidate class name: soot.JastAddJ.PrimitiveType, method name: void addBodyDeclNoTransform(soot.JastAddJ.BodyDecl)
+Concrete direct subclass: soot.JastAddJ.BooleanType
+Concrete direct subclass: soot.JastAddJ.EmptyType
 
 Candidate class name: soot.jimple.spark.geom.geomPA.IVarAbstraction, method name: int count_flow_intervals(soot.jimple.spark.geom.geomPA.IVarAbstraction)
 Concrete direct subclass: soot.jimple.spark.geom.geomE.FullSensitiveNode
@@ -498,16 +497,16 @@ Concrete direct subclass: soot.jimple.spark.geom.geomPA.DummyNode
 Concrete direct subclass: soot.jimple.spark.geom.heapinsE.HeapInsNode
 Concrete direct subclass: soot.jimple.spark.geom.ptinsE.PtInsNode
 
+Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean isDAafterTrue_compute(soot.JastAddJ.Variable)
+Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
+Concrete direct subclass: soot.JastAddJ.OrLogicalExpr
+
 Candidate class name: soot.dava.toolkits.base.AST.structuredAnalysis.StructuredAnalysis, method name: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet processUnaryBinaryCondition(soot.dava.internal.AST.ASTUnaryBinaryCondition,soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet)
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.ReachingCopies
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.MustMayInitialize
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.CP
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.UnreachableCodeFinder
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.ReachingDefs
-
-Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean isDAafterTrue_compute(soot.JastAddJ.Variable)
-Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
-Concrete direct subclass: soot.JastAddJ.OrLogicalExpr
 
 Candidate class name: soot.jimple.spark.geom.geomPA.IVarAbstraction, method name: boolean isDeadObject(soot.jimple.spark.pag.AllocNode)
 Concrete direct subclass: soot.jimple.spark.geom.geomE.FullSensitiveNode
@@ -524,19 +523,6 @@ Candidate class name: soot.coffi.Instruction_longbranch, method name: soot.coffi
 Concrete direct subclass: soot.coffi.Instruction_Jsr_w
 Concrete direct subclass: soot.coffi.Instruction_Goto_w
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean Define_boolean_isDAbefore(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode,soot.JastAddJ.Variable)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
-
-Candidate class name: soot.jimple.parser.Walker, method name: void outAFile(soot.jimple.parser.node.AFile)
-Concrete direct subclass: soot.jimple.parser.SkeletonExtractorWalker
-Concrete direct subclass: soot.jimple.parser.BodyExtractorWalker
-
-Candidate class name: soot.jimple.spark.geom.dataRep.ContextVar, method name: boolean intersect(soot.jimple.spark.geom.dataRep.ContextVar)
-Concrete direct subclass: soot.jimple.spark.geom.dataRep.IntervalContextVar
-Concrete direct subclass: soot.jimple.spark.geom.dataRep.CallsiteContextVar
-
 Candidate class name: soot.jimple.spark.sets.PointsToSetInternal, method name: boolean addAll(soot.jimple.spark.sets.PointsToSetInternal,soot.jimple.spark.sets.PointsToSetInternal)
 Concrete direct subclass: soot.jimple.spark.sets.EmptyPointsToSet
 Concrete direct subclass: soot.jimple.spark.sets.HashPointsToSet
@@ -546,6 +532,18 @@ Concrete direct subclass: soot.jimple.spark.sets.HybridPointsToSet
 Concrete direct subclass: soot.jimple.spark.sets.SharedListSet
 Concrete direct subclass: soot.jimple.spark.sets.SharedHybridSet
 Concrete direct subclass: soot.jimple.spark.sets.BitPointsToSet
+
+Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean Define_boolean_isDAbefore(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode,soot.JastAddJ.Variable)
+Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
+Concrete direct subclass: soot.JastAddJ.OrLogicalExpr
+
+Candidate class name: soot.jimple.parser.Walker, method name: void outAFile(soot.jimple.parser.node.AFile)
+Concrete direct subclass: soot.jimple.parser.SkeletonExtractorWalker
+Concrete direct subclass: soot.jimple.parser.BodyExtractorWalker
+
+Candidate class name: soot.jimple.spark.geom.dataRep.ContextVar, method name: boolean intersect(soot.jimple.spark.geom.dataRep.ContextVar)
+Concrete direct subclass: soot.jimple.spark.geom.dataRep.IntervalContextVar
+Concrete direct subclass: soot.jimple.spark.geom.dataRep.CallsiteContextVar
 
 Candidate class name: soot.JastAddJ.AbstractWildcardType, method name: boolean supertypeArrayDecl(soot.JastAddJ.ArrayDecl)
 Concrete direct subclass: soot.JastAddJ.WildcardType
@@ -598,13 +596,9 @@ Concrete direct subclass: soot.jimple.spark.geom.geomPA.DummyNode
 Concrete direct subclass: soot.jimple.spark.geom.heapinsE.HeapInsNode
 Concrete direct subclass: soot.jimple.spark.geom.ptinsE.PtInsNode
 
-Candidate class name: soot.JastAddJ.FloatingPointType, method name: soot.JastAddJ.Constant minus(soot.JastAddJ.Constant)
-Concrete direct subclass: soot.JastAddJ.FloatType
-Concrete direct subclass: soot.JastAddJ.DoubleType
-
-Candidate class name: soot.dava.internal.AST.ASTUnaryBinaryCondition, method name: void toString(soot.UnitPrinter)
-Concrete direct subclass: soot.dava.internal.AST.ASTUnaryCondition
-Concrete direct subclass: soot.dava.internal.AST.ASTBinaryCondition
+Candidate class name: soot.dava.internal.AST.ASTNode, method name: void toString(soot.UnitPrinter)
+Concrete direct subclass: soot.dava.internal.AST.ASTMethodNode
+Concrete direct subclass: soot.dava.internal.AST.ASTStatementSequenceNode
 
 Candidate class name: soot.coffi.cp_info, method name: int compareTo(soot.coffi.cp_info[],soot.coffi.cp_info,soot.coffi.cp_info[])
 Concrete direct subclass: soot.coffi.CONSTANT_MethodHandle_info
@@ -621,13 +615,29 @@ Concrete direct subclass: soot.coffi.CONSTANT_NameAndType_info
 Concrete direct subclass: soot.coffi.CONSTANT_Class_info
 Concrete direct subclass: soot.coffi.CONSTANT_Double_info
 
-Candidate class name: soot.dexpler.instructions.TaggedInstruction, method name: void jimplify(soot.dexpler.DexBody)
-Concrete direct subclass: soot.dexpler.instructions.BinopInstruction
-Concrete direct subclass: soot.dexpler.instructions.CastInstruction
-Concrete direct subclass: soot.dexpler.instructions.CmpInstruction
-Concrete direct subclass: soot.dexpler.instructions.Binop2addrInstruction
-Concrete direct subclass: soot.dexpler.instructions.UnopInstruction
-Concrete direct subclass: soot.dexpler.instructions.BinopLitInstruction
+Candidate class name: soot.JastAddJ.FloatingPointType, method name: soot.JastAddJ.Constant minus(soot.JastAddJ.Constant)
+Concrete direct subclass: soot.JastAddJ.FloatType
+Concrete direct subclass: soot.JastAddJ.DoubleType
+
+Candidate class name: soot.dexpler.instructions.DexlibAbstractInstruction, method name: void jimplify(soot.dexpler.DexBody)
+Concrete direct subclass: soot.dexpler.instructions.MoveExceptionInstruction
+Concrete direct subclass: soot.dexpler.instructions.ConstStringInstruction
+Concrete direct subclass: soot.dexpler.instructions.NopInstruction
+Concrete direct subclass: soot.dexpler.instructions.MonitorExitInstruction
+Concrete direct subclass: soot.dexpler.instructions.MoveResultInstruction
+Concrete direct subclass: soot.dexpler.instructions.ConstInstruction
+Concrete direct subclass: soot.dexpler.instructions.MonitorEnterInstruction
+Concrete direct subclass: soot.dexpler.instructions.ConstClassInstruction
+Concrete direct subclass: soot.dexpler.instructions.ArrayLengthInstruction
+Concrete direct subclass: soot.dexpler.instructions.NewArrayInstruction
+Concrete direct subclass: soot.dexpler.instructions.CheckCastInstruction
+Concrete direct subclass: soot.dexpler.instructions.AgetInstruction
+Concrete direct subclass: soot.dexpler.instructions.MoveInstruction
+Concrete direct subclass: soot.dexpler.instructions.ReturnVoidInstruction
+Concrete direct subclass: soot.dexpler.instructions.ReturnInstruction
+Concrete direct subclass: soot.dexpler.instructions.InstanceOfInstruction
+Concrete direct subclass: soot.dexpler.instructions.ThrowInstruction
+Concrete direct subclass: soot.dexpler.instructions.NewInstanceInstruction
 
 Candidate class name: soot.JastAddJ.CompilationUnit, method name: void addImportDecl(soot.JastAddJ.ImportDecl)
 Concrete direct subclass: soot.JastAddJ.PrimitiveCompilationUnit
@@ -647,9 +657,9 @@ Candidate class name: soot.toolkits.exceptions.AbstractThrowAnalysis, method nam
 Concrete direct subclass: soot.toolkits.exceptions.PedanticThrowAnalysis
 Concrete direct subclass: soot.toolkits.exceptions.UnitThrowAnalysis
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant greaterThanOrEqual(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant greaterThanOrEqual(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.IntConstant 'cmpl'(soot.jimple.RealConstant)
 Concrete direct subclass: soot.jimple.DoubleConstant
@@ -669,19 +679,19 @@ Concrete direct subclass: soot.jimple.spark.sets.SharedListSet
 Concrete direct subclass: soot.jimple.spark.sets.SharedHybridSet
 Concrete direct subclass: soot.jimple.spark.sets.BitPointsToSet
 
-Candidate class name: soot.JastAddJ.FloatingPointType, method name: void addBodyDecl(soot.JastAddJ.BodyDecl)
-Concrete direct subclass: soot.JastAddJ.FloatType
-Concrete direct subclass: soot.JastAddJ.DoubleType
-
-Candidate class name: soot.JastAddJ.FloatingPointType, method name: boolean eqIsTrue(soot.JastAddJ.Expr,soot.JastAddJ.Expr)
-Concrete direct subclass: soot.JastAddJ.FloatType
-Concrete direct subclass: soot.JastAddJ.DoubleType
+Candidate class name: soot.JastAddJ.PrimitiveType, method name: void addBodyDecl(soot.JastAddJ.BodyDecl)
+Concrete direct subclass: soot.JastAddJ.BooleanType
+Concrete direct subclass: soot.JastAddJ.EmptyType
 
 Candidate class name: soot.jimple.toolkits.pointer.RWSet, method name: boolean hasNonEmptyIntersection(soot.jimple.toolkits.pointer.RWSet)
 Concrete direct subclass: soot.jimple.toolkits.pointer.MethodRWSet
 Concrete direct subclass: soot.jimple.toolkits.pointer.SiteRWSet
 Concrete direct subclass: soot.jimple.toolkits.pointer.StmtRWSet
 Concrete direct subclass: soot.jimple.toolkits.pointer.FullRWSet
+
+Candidate class name: soot.JastAddJ.FloatingPointType, method name: boolean eqIsTrue(soot.JastAddJ.Expr,soot.JastAddJ.Expr)
+Concrete direct subclass: soot.JastAddJ.FloatType
+Concrete direct subclass: soot.JastAddJ.DoubleType
 
 Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.ArithmeticConstant and(soot.jimple.ArithmeticConstant)
 Concrete direct subclass: soot.jimple.IntConstant
@@ -710,10 +720,9 @@ Concrete direct subclass: soot.toolkits.scalar.ArraySparseSet
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet
 Concrete direct subclass: soot.jimple.toolkits.scalar.ToppedSet
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean isDAafter_compute(soot.JastAddJ.Variable)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
+Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean isDAafter_compute(soot.JastAddJ.Variable)
+Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
+Concrete direct subclass: soot.JastAddJ.OrLogicalExpr
 
 Candidate class name: soot.dava.toolkits.base.AST.structuredAnalysis.StructuredAnalysis, method name: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet processSwitchKey(soot.Value,soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet)
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.ReachingCopies
@@ -752,17 +761,13 @@ Candidate class name: soot.dava.internal.AST.ASTNode, method name: void perform_
 Concrete direct subclass: soot.dava.internal.AST.ASTMethodNode
 Concrete direct subclass: soot.dava.internal.AST.ASTStatementSequenceNode
 
-Candidate class name: soot.dava.internal.AST.ASTUnaryBinaryCondition, method name: void apply(soot.dava.toolkits.base.AST.analysis.Analysis)
-Concrete direct subclass: soot.dava.internal.AST.ASTUnaryCondition
-Concrete direct subclass: soot.dava.internal.AST.ASTBinaryCondition
+Candidate class name: soot.dava.internal.AST.ASTNode, method name: void apply(soot.dava.toolkits.base.AST.analysis.Analysis)
+Concrete direct subclass: soot.dava.internal.AST.ASTMethodNode
+Concrete direct subclass: soot.dava.internal.AST.ASTStatementSequenceNode
 
 Candidate class name: soot.tagkit.TagAggregator, method name: void considerTag(soot.tagkit.Tag,soot.Unit,java.util.LinkedList,java.util.LinkedList)
 Concrete direct subclass: soot.jimple.spark.fieldrw.FieldTagAggregator
 Concrete direct subclass: soot.jimple.toolkits.annotation.tags.ArrayNullTagAggregator
-
-Candidate class name: soot.LabeledUnitPrinter, method name: void identityRef(soot.jimple.IdentityRef)
-Concrete direct subclass: soot.NormalUnitPrinter
-Concrete direct subclass: soot.BriefUnitPrinter
 
 Candidate class name: soot.dava.internal.SET.SETNode, method name: boolean resolve(soot.dava.internal.SET.SETNode)
 Concrete direct subclass: soot.dava.internal.SET.SETTopNode
@@ -770,6 +775,10 @@ Concrete direct subclass: soot.dava.internal.SET.SETTryNode
 Concrete direct subclass: soot.dava.internal.SET.SETSynchronizedBlockNode
 Concrete direct subclass: soot.dava.internal.SET.SETStatementSequenceNode
 Concrete direct subclass: soot.dava.internal.SET.SETLabeledBlockNode
+
+Candidate class name: soot.LabeledUnitPrinter, method name: void identityRef(soot.jimple.IdentityRef)
+Concrete direct subclass: soot.NormalUnitPrinter
+Concrete direct subclass: soot.BriefUnitPrinter
 
 Candidate class name: soot.jimple.toolkits.pointer.RWSet, method name: boolean union(soot.jimple.toolkits.pointer.RWSet)
 Concrete direct subclass: soot.jimple.toolkits.pointer.MethodRWSet
@@ -785,26 +794,29 @@ Concrete direct subclass: soot.JastAddJ.EnhancedForStmt
 Concrete direct subclass: soot.JastAddJ.SwitchStmt
 Concrete direct subclass: soot.JastAddJ.ForStmt
 
-Candidate class name: soot.JastAddJ.EqualityExpr, method name: soot.Value comparisonInv(soot.JastAddJ.Body,soot.Value,soot.Value)
-Concrete direct subclass: soot.JastAddJ.EQExpr
-Concrete direct subclass: soot.JastAddJ.NEExpr
+Candidate class name: soot.JastAddJ.RelationalExpr, method name: soot.Value comparisonInv(soot.JastAddJ.Body,soot.Value,soot.Value)
+Concrete direct subclass: soot.JastAddJ.GTExpr
+Concrete direct subclass: soot.JastAddJ.GEExpr
+Concrete direct subclass: soot.JastAddJ.LEExpr
+Concrete direct subclass: soot.JastAddJ.LTExpr
 
 Candidate class name: soot.shimple.AbstractShimpleValueSwitch, method name: void caseNewMultiArrayExpr(soot.jimple.NewMultiArrayExpr)
 Concrete direct subclass: soot.jimple.spark.builder.MethodNodeFactory
 Concrete direct subclass: soot.shimple.toolkits.graph.ValueGraph$1
 
-Candidate class name: soot.jimple.parser.node.PReference, method name: void apply(soot.jimple.parser.node.Switch)
-Concrete direct subclass: soot.jimple.parser.node.AArrayReference
-Concrete direct subclass: soot.jimple.parser.node.AFieldReference
+Candidate class name: soot.jimple.parser.node.PNewExpr, method name: void apply(soot.jimple.parser.node.Switch)
+Concrete direct subclass: soot.jimple.parser.node.AMultiNewExpr
+Concrete direct subclass: soot.jimple.parser.node.AArrayNewExpr
+Concrete direct subclass: soot.jimple.parser.node.ASimpleNewExpr
 
 Candidate class name: soot.util.PriorityQueue, method name: boolean add(int)
 Concrete direct subclass: soot.util.LargePriorityQueue
 Concrete direct subclass: soot.util.MediumPriorityQueue
 Concrete direct subclass: soot.util.SmallPriorityQueue
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant greaterThan(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant greaterThan(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean Define_boolean_handlesException(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode,soot.JastAddJ.TypeDecl)
 Concrete direct subclass: soot.JastAddJ.ConstructorDecl
@@ -850,27 +862,26 @@ Candidate class name: java.io.FilterWriter, method name: void write(int)
 Concrete direct subclass: soot.util.EscapedWriter
 Concrete direct subclass: polyglot.util.UnicodeWriter
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean isDUafter(soot.JastAddJ.Variable)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
+Candidate class name: soot.JastAddJ.PrimaryExpr, method name: boolean isDUafter(soot.JastAddJ.Variable)
+Concrete direct subclass: soot.JastAddJ.ArrayCreationExpr
+Concrete direct subclass: soot.JastAddJ.ParExpr
 
 Candidate class name: soot.JastAddJ.LogicalExpr, method name: soot.jimple.Stmt Define_soot_jimple_Stmt_condition_true_label(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
 Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
 Concrete direct subclass: soot.JastAddJ.OrLogicalExpr
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant equalEqual(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
-
-Candidate class name: soot.JastAddJ.FloatingPointType, method name: boolean ltIsTrue(soot.JastAddJ.Expr,soot.JastAddJ.Expr)
-Concrete direct subclass: soot.JastAddJ.FloatType
-Concrete direct subclass: soot.JastAddJ.DoubleType
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant equalEqual(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.JastAddJ.AbstractWildcardType, method name: boolean containedIn_compute(soot.JastAddJ.TypeDecl)
 Concrete direct subclass: soot.JastAddJ.WildcardType
 Concrete direct subclass: soot.JastAddJ.WildcardExtendsType
 Concrete direct subclass: soot.JastAddJ.WildcardSuperType
+
+Candidate class name: soot.JastAddJ.FloatingPointType, method name: boolean ltIsTrue(soot.JastAddJ.Expr,soot.JastAddJ.Expr)
+Concrete direct subclass: soot.JastAddJ.FloatType
+Concrete direct subclass: soot.JastAddJ.DoubleType
 
 Candidate class name: soot.jimple.spark.geom.geomPA.IVarAbstraction, method name: void propagate(soot.jimple.spark.geom.geomPA.GeomPointsTo,soot.jimple.spark.geom.geomPA.IWorklist)
 Concrete direct subclass: soot.jimple.spark.geom.geomE.FullSensitiveNode
@@ -878,9 +889,9 @@ Concrete direct subclass: soot.jimple.spark.geom.geomPA.DummyNode
 Concrete direct subclass: soot.jimple.spark.geom.heapinsE.HeapInsNode
 Concrete direct subclass: soot.jimple.spark.geom.ptinsE.PtInsNode
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant subtract(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant subtract(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.JastAddJ.CatchClause, method name: boolean Define_boolean_isConstructorParameter(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
 Concrete direct subclass: soot.JastAddJ.BasicCatch
@@ -910,9 +921,9 @@ Concrete direct subclass: soot.util.LargePriorityQueue
 Concrete direct subclass: soot.util.MediumPriorityQueue
 Concrete direct subclass: soot.util.SmallPriorityQueue
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant lessThan(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant lessThan(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.JastAddJ.ConstructorDecl, method name: void addException(soot.JastAddJ.Access)
 Concrete direct subclass: soot.JastAddJ.GenericConstructorDecl
@@ -934,11 +945,6 @@ Concrete direct subclass: soot.javaToJimple.JimpleBodyBuilder
 Concrete direct subclass: soot.javaToJimple.AccessFieldJBB
 Concrete direct subclass: soot.javaToJimple.CommaJBB
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean Define_boolean_inStaticContext(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
-
 Candidate class name: soot.jimple.spark.sets.PointsToSetInternal, method name: boolean forall(soot.jimple.spark.sets.P2SetVisitor)
 Concrete direct subclass: soot.jimple.spark.sets.EmptyPointsToSet
 Concrete direct subclass: soot.jimple.spark.sets.HashPointsToSet
@@ -948,6 +954,11 @@ Concrete direct subclass: soot.jimple.spark.sets.HybridPointsToSet
 Concrete direct subclass: soot.jimple.spark.sets.SharedListSet
 Concrete direct subclass: soot.jimple.spark.sets.SharedHybridSet
 Concrete direct subclass: soot.jimple.spark.sets.BitPointsToSet
+
+Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean Define_boolean_inStaticContext(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
+Concrete direct subclass: soot.JastAddJ.ConstructorDecl
+Concrete direct subclass: soot.JastAddJ.InstanceInitializer
+Concrete direct subclass: soot.JastAddJ.StaticInitializer
 
 Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean isDAafterFalse_compute(soot.JastAddJ.Variable)
 Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
@@ -981,30 +992,35 @@ Concrete direct subclass: soot.jimple.spark.geom.geomPA.DummyNode
 Concrete direct subclass: soot.jimple.spark.geom.heapinsE.HeapInsNode
 Concrete direct subclass: soot.jimple.spark.geom.ptinsE.PtInsNode
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean Define_boolean_reachable(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
+Candidate class name: soot.JastAddJ.BranchTargetStmt, method name: boolean Define_boolean_reachable(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
+Concrete direct subclass: soot.JastAddJ.LabeledStmt
+Concrete direct subclass: soot.JastAddJ.DoStmt
+Concrete direct subclass: soot.JastAddJ.WhileStmt
+Concrete direct subclass: soot.JastAddJ.EnhancedForStmt
+Concrete direct subclass: soot.JastAddJ.SwitchStmt
+Concrete direct subclass: soot.JastAddJ.ForStmt
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant add(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant add(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
-Candidate class name: soot.JastAddJ.EqualityExpr, method name: soot.Value comparison(soot.JastAddJ.Body,soot.Value,soot.Value)
-Concrete direct subclass: soot.JastAddJ.EQExpr
-Concrete direct subclass: soot.JastAddJ.NEExpr
+Candidate class name: soot.JastAddJ.RelationalExpr, method name: soot.Value comparison(soot.JastAddJ.Body,soot.Value,soot.Value)
+Concrete direct subclass: soot.JastAddJ.GTExpr
+Concrete direct subclass: soot.JastAddJ.GEExpr
+Concrete direct subclass: soot.JastAddJ.LEExpr
+Concrete direct subclass: soot.JastAddJ.LTExpr
 
 Candidate class name: soot.dexpler.instructions.SwitchInstruction, method name: void computeDataOffsets(soot.dexpler.DexBody)
 Concrete direct subclass: soot.dexpler.instructions.SparseSwitchInstruction
 Concrete direct subclass: soot.dexpler.instructions.PackedSwitchInstruction
 
-Candidate class name: soot.dexpler.instructions.ConditionalJumpInstruction, method name: soot.jimple.IfStmt ifStatement(soot.dexpler.DexBody)
-Concrete direct subclass: soot.dexpler.instructions.IfTestzInstruction
-Concrete direct subclass: soot.dexpler.instructions.IfTestInstruction
-
 Candidate class name: soot.LabeledUnitPrinter, method name: void type(soot.Type)
 Concrete direct subclass: soot.NormalUnitPrinter
 Concrete direct subclass: soot.BriefUnitPrinter
+
+Candidate class name: soot.dexpler.instructions.ConditionalJumpInstruction, method name: soot.jimple.IfStmt ifStatement(soot.dexpler.DexBody)
+Concrete direct subclass: soot.dexpler.instructions.IfTestzInstruction
+Concrete direct subclass: soot.dexpler.instructions.IfTestInstruction
 
 Candidate class name: soot.JastAddJ.BranchTargetStmt, method name: boolean targetOf_compute(soot.JastAddJ.BreakStmt)
 Concrete direct subclass: soot.JastAddJ.LabeledStmt
@@ -1014,12 +1030,13 @@ Concrete direct subclass: soot.JastAddJ.EnhancedForStmt
 Concrete direct subclass: soot.JastAddJ.SwitchStmt
 Concrete direct subclass: soot.JastAddJ.ForStmt
 
-Candidate class name: soot.grimp.internal.AbstractGrimpFloatBinopExpr, method name: void apply(soot.util.Switch)
-Concrete direct subclass: soot.grimp.internal.GDivExpr
-Concrete direct subclass: soot.grimp.internal.GSubExpr
-Concrete direct subclass: soot.grimp.internal.GAddExpr
-Concrete direct subclass: soot.grimp.internal.GMulExpr
-Concrete direct subclass: soot.grimp.internal.GRemExpr
+Candidate class name: soot.jimple.internal.AbstractJimpleIntLongBinopExpr, method name: void apply(soot.util.Switch)
+Concrete direct subclass: soot.jimple.internal.JXorExpr
+Concrete direct subclass: soot.jimple.internal.JShlExpr
+Concrete direct subclass: soot.jimple.internal.JShrExpr
+Concrete direct subclass: soot.jimple.internal.JOrExpr
+Concrete direct subclass: soot.jimple.internal.JUshrExpr
+Concrete direct subclass: soot.jimple.internal.JAndExpr
 
 Candidate class name: soot.util.PriorityQueue, method name: boolean contains(int)
 Concrete direct subclass: soot.util.LargePriorityQueue
@@ -1035,13 +1052,21 @@ Concrete direct subclass: soot.JastAddJ.GenericClassDecl
 Concrete direct subclass: soot.JastAddJ.ParClassDecl
 Concrete direct subclass: soot.JastAddJ.UnknownType
 
+Candidate class name: soot.coffi.Instruction, method name: int compile(byte[],int)
+Concrete direct subclass: soot.coffi.Instruction_Tableswitch
+Concrete direct subclass: soot.coffi.Instruction_intindex
+Concrete direct subclass: soot.coffi.Instruction_Lookupswitch
+Concrete direct subclass: soot.coffi.Instruction_bytevar
+Concrete direct subclass: soot.coffi.Instruction_Newarray
+Concrete direct subclass: soot.coffi.Instruction_int
+Concrete direct subclass: soot.coffi.Instruction_noargs
+Concrete direct subclass: soot.coffi.Instruction_byteindex
+Concrete direct subclass: soot.coffi.Instruction_intvar
+Concrete direct subclass: soot.coffi.Instruction_byte
+
 Candidate class name: soot.JastAddJ.FloatingPointType, method name: soot.JastAddJ.Constant sub(soot.JastAddJ.Constant,soot.JastAddJ.Constant)
 Concrete direct subclass: soot.JastAddJ.FloatType
 Concrete direct subclass: soot.JastAddJ.DoubleType
-
-Candidate class name: soot.coffi.Instruction_branch, method name: int compile(byte[],int)
-Concrete direct subclass: soot.coffi.Instruction_intbranch
-Concrete direct subclass: soot.coffi.Instruction_longbranch
 
 Candidate class name: soot.JastAddJ.CatchClause, method name: boolean Define_boolean_isExceptionHandlerParameter(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
 Concrete direct subclass: soot.JastAddJ.BasicCatch
@@ -1064,9 +1089,9 @@ Concrete direct subclass: soot.JastAddJ.PrimitiveCompilationUnit
 Concrete direct subclass: soot.JastAddJ.WildcardsCompilationUnit
 Concrete direct subclass: soot.JastAddJ.AnnotatedCompilationUnit
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant notEqual(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant notEqual(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.toolkits.astmetrics.ASTMetric, method name: void addMetrics(soot.toolkits.astmetrics.ClassData)
 Concrete direct subclass: soot.toolkits.astmetrics.ConditionComplexityMetric
@@ -1077,9 +1102,9 @@ Concrete direct subclass: soot.toolkits.astmetrics.AbruptEdgesMetric
 Concrete direct subclass: soot.toolkits.astmetrics.StmtSumWeightedByDepth
 Concrete direct subclass: soot.toolkits.astmetrics.IdentifiersMetric
 
-Candidate class name: soot.JastAddJ.ConstructorAccess, method name: void addArg(soot.JastAddJ.Expr)
-Concrete direct subclass: soot.JastAddJ.SuperConstructorAccess
-Concrete direct subclass: soot.JastAddJ.ParConstructorAccess
+Candidate class name: soot.JastAddJ.MethodAccess, method name: void addArg(soot.JastAddJ.Expr)
+Concrete direct subclass: soot.JastAddJ.ParMethodAccess
+Concrete direct subclass: soot.JastAddJ.BoundMethodAccess
 
 Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean isDAafterFalse(soot.JastAddJ.Variable)
 Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
@@ -1105,10 +1130,9 @@ Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.CP
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.UnreachableCodeFinder
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.ReachingDefs
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean isDAafter(soot.JastAddJ.Variable)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
+Candidate class name: soot.JastAddJ.PrimaryExpr, method name: boolean isDAafter(soot.JastAddJ.Variable)
+Concrete direct subclass: soot.JastAddJ.ArrayCreationExpr
+Concrete direct subclass: soot.JastAddJ.ParExpr
 
 Candidate class name: soot.JastAddJ.MemberTypeDecl, method name: boolean Define_boolean_isMemberType(soot.JastAddJ.ASTNode,soot.JastAddJ.ASTNode)
 Concrete direct subclass: soot.JastAddJ.MemberClassDecl
@@ -1146,9 +1170,9 @@ Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.CP
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.UnreachableCodeFinder
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.ReachingDefs
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant remainder(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant remainder(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.JastAddJ.AbstractWildcardType, method name: boolean supertypeTypeVariable(soot.JastAddJ.TypeVariable)
 Concrete direct subclass: soot.JastAddJ.WildcardType
@@ -1159,11 +1183,9 @@ Candidate class name: soot.jimple.parser.Walker, method name: void outAMethodMem
 Concrete direct subclass: soot.jimple.parser.SkeletonExtractorWalker
 Concrete direct subclass: soot.jimple.parser.BodyExtractorWalker
 
-Candidate class name: soot.JastAddJ.NumericLiteral, method name: soot.Value eval(soot.JastAddJ.Body)
-Concrete direct subclass: soot.JastAddJ.IntegerLiteral
-Concrete direct subclass: soot.JastAddJ.FloatingPointLiteral
-Concrete direct subclass: soot.JastAddJ.DoubleLiteral
-Concrete direct subclass: soot.JastAddJ.LongLiteral
+Candidate class name: soot.JastAddJ.PostfixExpr, method name: soot.Value eval(soot.JastAddJ.Body)
+Concrete direct subclass: soot.JastAddJ.PostDecExpr
+Concrete direct subclass: soot.JastAddJ.PostIncExpr
 
 Candidate class name: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet, method name: void intersection(soot.toolkits.scalar.FlowSet,soot.toolkits.scalar.FlowSet)
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.CPFlowSet
@@ -1173,9 +1195,9 @@ Candidate class name: soot.jimple.parser.Walker, method name: void caseAFile(soo
 Concrete direct subclass: soot.jimple.parser.SkeletonExtractorWalker
 Concrete direct subclass: soot.jimple.parser.BodyExtractorWalker
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant lessThanOrEqual(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant lessThanOrEqual(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.JastAddJ.BranchTargetStmt, method name: void jimplify2(soot.JastAddJ.Body)
 Concrete direct subclass: soot.JastAddJ.LabeledStmt
@@ -1194,22 +1216,30 @@ Concrete direct subclass: soot.jimple.toolkits.pointer.DependenceTagAggregator
 Concrete direct subclass: soot.jimple.spark.fieldrw.FieldReadTagAggregator
 Concrete direct subclass: soot.jimple.spark.fieldrw.FieldWriteTagAggregator
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant multiply(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant multiply(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
-Candidate class name: soot.JastAddJ.ConstructorAccess, method name: void addArgNoTransform(soot.JastAddJ.Expr)
-Concrete direct subclass: soot.JastAddJ.SuperConstructorAccess
-Concrete direct subclass: soot.JastAddJ.ParConstructorAccess
+Candidate class name: soot.JastAddJ.MethodAccess, method name: void addArgNoTransform(soot.JastAddJ.Expr)
+Concrete direct subclass: soot.JastAddJ.ParMethodAccess
+Concrete direct subclass: soot.JastAddJ.BoundMethodAccess
+
+Candidate class name: soot.coffi.Instruction, method name: int parse(byte[],int)
+Concrete direct subclass: soot.coffi.Instruction_Tableswitch
+Concrete direct subclass: soot.coffi.Instruction_intindex
+Concrete direct subclass: soot.coffi.Instruction_Lookupswitch
+Concrete direct subclass: soot.coffi.Instruction_bytevar
+Concrete direct subclass: soot.coffi.Instruction_Newarray
+Concrete direct subclass: soot.coffi.Instruction_int
+Concrete direct subclass: soot.coffi.Instruction_noargs
+Concrete direct subclass: soot.coffi.Instruction_byteindex
+Concrete direct subclass: soot.coffi.Instruction_intvar
+Concrete direct subclass: soot.coffi.Instruction_byte
 
 Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean handlesException(soot.JastAddJ.TypeDecl)
 Concrete direct subclass: soot.JastAddJ.ConstructorDecl
 Concrete direct subclass: soot.JastAddJ.InstanceInitializer
 Concrete direct subclass: soot.JastAddJ.StaticInitializer
-
-Candidate class name: soot.coffi.Instruction_branch, method name: int parse(byte[],int)
-Concrete direct subclass: soot.coffi.Instruction_intbranch
-Concrete direct subclass: soot.coffi.Instruction_longbranch
 
 Candidate class name: soot.ClassSource, method name: soot.javaToJimple.IInitialResolver$Dependencies resolve(soot.SootClass)
 Concrete direct subclass: soot.CoffiClassSource
@@ -1254,9 +1284,9 @@ Concrete direct subclass: soot.JastAddJ.AssertStmt
 Concrete direct subclass: soot.JastAddJ.SynchronizedStmt
 Concrete direct subclass: soot.JastAddJ.BreakStmt
 
-Candidate class name: soot.jimple.ArithmeticConstant, method name: soot.jimple.NumericConstant divide(soot.jimple.NumericConstant)
-Concrete direct subclass: soot.jimple.IntConstant
-Concrete direct subclass: soot.jimple.LongConstant
+Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.NumericConstant divide(soot.jimple.NumericConstant)
+Concrete direct subclass: soot.jimple.DoubleConstant
+Concrete direct subclass: soot.jimple.FloatConstant
 
 Candidate class name: soot.jimple.RealConstant, method name: soot.jimple.IntConstant 'cmpg'(soot.jimple.RealConstant)
 Concrete direct subclass: soot.jimple.DoubleConstant
@@ -1297,9 +1327,10 @@ Candidate class name: soot.jimple.parser.analysis.DepthFirstAdapter, method name
 Concrete direct subclass: soot.jimple.parser.Walker
 Concrete direct subclass: soot.jimple.parser.CstPoolExtractor$CstPoolExtractorWalker
 
-Candidate class name: soot.jimple.parser.node.PReference, method name: void removeChild(soot.jimple.parser.node.Node)
-Concrete direct subclass: soot.jimple.parser.node.AArrayReference
-Concrete direct subclass: soot.jimple.parser.node.AFieldReference
+Candidate class name: soot.jimple.parser.node.PNewExpr, method name: void removeChild(soot.jimple.parser.node.Node)
+Concrete direct subclass: soot.jimple.parser.node.AMultiNewExpr
+Concrete direct subclass: soot.jimple.parser.node.AArrayNewExpr
+Concrete direct subclass: soot.jimple.parser.node.ASimpleNewExpr
 
 Candidate class name: soot.dava.toolkits.base.AST.structuredAnalysis.StructuredAnalysis, method name: soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet processSynchronizedLocal(soot.Local,soot.dava.toolkits.base.AST.structuredAnalysis.DavaFlowSet)
 Concrete direct subclass: soot.dava.toolkits.base.AST.structuredAnalysis.ReachingCopies
@@ -1322,10 +1353,9 @@ Concrete direct subclass: soot.JastAddJ.GenericInterfaceDecl
 Concrete direct subclass: soot.JastAddJ.ParInterfaceDecl
 Concrete direct subclass: soot.JastAddJ.InterfaceDeclSubstituted
 
-Candidate class name: soot.JastAddJ.BodyDecl, method name: boolean isDUafter_compute(soot.JastAddJ.Variable)
-Concrete direct subclass: soot.JastAddJ.ConstructorDecl
-Concrete direct subclass: soot.JastAddJ.InstanceInitializer
-Concrete direct subclass: soot.JastAddJ.StaticInitializer
+Candidate class name: soot.JastAddJ.LogicalExpr, method name: boolean isDUafter_compute(soot.JastAddJ.Variable)
+Concrete direct subclass: soot.JastAddJ.AndLogicalExpr
+Concrete direct subclass: soot.JastAddJ.OrLogicalExpr
 
 Candidate class name: soot.AbstractJasminClass, method name: void assignColorsToLocals(soot.Body)
 Concrete direct subclass: soot.baf.JasminClass
@@ -1354,10 +1384,12 @@ Concrete direct subclass: soot.grimp.internal.ExprBox
 Concrete direct subclass: soot.toolkits.scalar.ValueUnitPair
 Concrete direct subclass: soot.dava.internal.javaRep.DArrayInitValueBox
 
-Candidate class name: soot.JastAddJ.AbstractWildcardType, method name: boolean subtype(soot.JastAddJ.TypeDecl)
-Concrete direct subclass: soot.JastAddJ.WildcardType
-Concrete direct subclass: soot.JastAddJ.WildcardExtendsType
-Concrete direct subclass: soot.JastAddJ.WildcardSuperType
+Candidate class name: soot.JastAddJ.ReferenceType, method name: boolean subtype(soot.JastAddJ.TypeDecl)
+Concrete direct subclass: soot.JastAddJ.ClassDecl
+Concrete direct subclass: soot.JastAddJ.InterfaceDecl
+Concrete direct subclass: soot.JastAddJ.LUBType
+Concrete direct subclass: soot.JastAddJ.GLBType
+Concrete direct subclass: soot.JastAddJ.TypeVariable
 
 Candidate class name: soot.jimple.toolkits.pointer.RWSet, method name: boolean isEquivTo(soot.jimple.toolkits.pointer.RWSet)
 Concrete direct subclass: soot.jimple.toolkits.pointer.MethodRWSet
@@ -1365,9 +1397,10 @@ Concrete direct subclass: soot.jimple.toolkits.pointer.SiteRWSet
 Concrete direct subclass: soot.jimple.toolkits.pointer.StmtRWSet
 Concrete direct subclass: soot.jimple.toolkits.pointer.FullRWSet
 
-Candidate class name: soot.jimple.parser.node.PReference, method name: void replaceChild(soot.jimple.parser.node.Node,soot.jimple.parser.node.Node)
-Concrete direct subclass: soot.jimple.parser.node.AArrayReference
-Concrete direct subclass: soot.jimple.parser.node.AFieldReference
+Candidate class name: soot.jimple.parser.node.PNewExpr, method name: void replaceChild(soot.jimple.parser.node.Node,soot.jimple.parser.node.Node)
+Concrete direct subclass: soot.jimple.parser.node.AMultiNewExpr
+Concrete direct subclass: soot.jimple.parser.node.AArrayNewExpr
+Concrete direct subclass: soot.jimple.parser.node.ASimpleNewExpr
 
 Candidate class name: soot.jimple.spark.geom.geomPA.IVarAbstraction, method name: boolean heap_sensitive_intersection(soot.jimple.spark.geom.geomPA.IVarAbstraction)
 Concrete direct subclass: soot.jimple.spark.geom.geomE.FullSensitiveNode
@@ -1375,10 +1408,12 @@ Concrete direct subclass: soot.jimple.spark.geom.geomPA.DummyNode
 Concrete direct subclass: soot.jimple.spark.geom.heapinsE.HeapInsNode
 Concrete direct subclass: soot.jimple.spark.geom.ptinsE.PtInsNode
 
-Candidate class name: soot.JastAddJ.AbstractWildcardType, method name: boolean subtype_compute(soot.JastAddJ.TypeDecl)
-Concrete direct subclass: soot.JastAddJ.WildcardType
-Concrete direct subclass: soot.JastAddJ.WildcardExtendsType
-Concrete direct subclass: soot.JastAddJ.WildcardSuperType
+Candidate class name: soot.JastAddJ.ReferenceType, method name: boolean subtype_compute(soot.JastAddJ.TypeDecl)
+Concrete direct subclass: soot.JastAddJ.ClassDecl
+Concrete direct subclass: soot.JastAddJ.InterfaceDecl
+Concrete direct subclass: soot.JastAddJ.LUBType
+Concrete direct subclass: soot.JastAddJ.GLBType
+Concrete direct subclass: soot.JastAddJ.TypeVariable
 
 Candidate class name: soot.JastAddJ.AssignBitwiseExpr, method name: soot.Value createAssignOp(soot.JastAddJ.Body,soot.Value,soot.Value)
 Concrete direct subclass: soot.JastAddJ.AssignAndExpr
@@ -1458,14 +1493,14 @@ Concrete direct subclass: soot.JastAddJ.WildcardType
 Concrete direct subclass: soot.JastAddJ.WildcardExtendsType
 Concrete direct subclass: soot.JastAddJ.WildcardSuperType
 
-Soot finished on Mon Apr 13 13:29:43 EDT 2020
-Soot has run for 7 min. 36 sec.
+Soot finished on Sat May 02 18:26:18 EDT 2020
+Soot has run for 7 min. 10 sec.
 
 
 ## jgrapht-1.3.1-core:
 
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-io-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-library-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jheaps-0.10.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-toolbox-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/mockito-core-1.9.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/objenesis-1.0.jar jgrapht_1.3.1_core_missing_methods.csv
-Soot started on Mon Apr 13 13:33:53 EDT 2020
+Soot started on Sat May 02 18:35:48 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-io-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/hamcrest-library-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jheaps-0.10.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/junit-toolbox-2.4.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/mockito-core-1.9.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/jgrapht-jgrapht-1.3.1-patched/jgrapht-core/mvn_dependencies/objenesis-1.0.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 1
@@ -1480,7 +1515,7 @@ Concrete direct subclass: org.jgrapht.graph.DefaultDirectedGraph
 Concrete direct subclass: org.jgrapht.graph.DirectedMultigraph
 Concrete direct subclass: org.jgrapht.graph.DirectedAcyclicGraph
 
-[Thread-2] ERROR heros.solver.CountingThreadPoolExecutor - Worker thread execution failed: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
+[Thread-10] ERROR heros.solver.CountingThreadPoolExecutor - Worker thread execution failed: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
 java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
 	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
 	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
@@ -1501,6 +1536,26 @@ Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Gener
 	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
 	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
 	... 5 more
+Exception in thread "Thread-10" java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.PackManager$1.run(PackManager.java:1279)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Generate - Not Implemented
+	at soot.javaToJimple.LocalGenerator.generateLocal(LocalGenerator.java:141)
+	at soot.LambdaMetaFactory$ThunkMethodSource.unbox(LambdaMetaFactory.java:574)
+	at soot.LambdaMetaFactory$ThunkMethodSource.adapt(LambdaMetaFactory.java:529)
+	at soot.LambdaMetaFactory$ThunkMethodSource.invokeImplMethod(LambdaMetaFactory.java:663)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getInvokeBody(LambdaMetaFactory.java:483)
+	at soot.LambdaMetaFactory$ThunkMethodSource.getBody(LambdaMetaFactory.java:334)
+	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
+	at soot.LambdaMetaFactory.makeLambdaHelper(LambdaMetaFactory.java:239)
+	at soot.asm.AsmMethodSource.convertInvokeDynamicInsn(AsmMethodSource.java:1420)
+	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
+	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
+	... 5 more
 java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
 	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
 	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
@@ -1521,31 +1576,12 @@ Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Gener
 	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
 	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
 	... 5 more
-Exception in thread "Thread-2" java.lang.RuntimeException: Failed to convert <org.jgrapht.alg.cycle.ChordalityInspector: boolean isPerfectEliminationOrder(java.util.List,boolean)>
-	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2040)
-	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
-	at soot.PackManager$1.run(PackManager.java:1279)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.RuntimeException: Unhandled Type of Local variable to Generate - Not Implemented
-	at soot.javaToJimple.LocalGenerator.generateLocal(LocalGenerator.java:141)
-	at soot.LambdaMetaFactory$ThunkMethodSource.unbox(LambdaMetaFactory.java:574)
-	at soot.LambdaMetaFactory$ThunkMethodSource.adapt(LambdaMetaFactory.java:529)
-	at soot.LambdaMetaFactory$ThunkMethodSource.invokeImplMethod(LambdaMetaFactory.java:663)
-	at soot.LambdaMetaFactory$ThunkMethodSource.getInvokeBody(LambdaMetaFactory.java:483)
-	at soot.LambdaMetaFactory$ThunkMethodSource.getBody(LambdaMetaFactory.java:334)
-	at soot.SootMethod.retrieveActiveBody(SootMethod.java:402)
-	at soot.LambdaMetaFactory.makeLambdaHelper(LambdaMetaFactory.java:239)
-	at soot.asm.AsmMethodSource.convertInvokeDynamicInsn(AsmMethodSource.java:1420)
-	at soot.asm.AsmMethodSource.convert(AsmMethodSource.java:1791)
-	at soot.asm.AsmMethodSource.getBody(AsmMethodSource.java:2038)
-	... 5 more
+
 
 ## velocity-engine-2.1-core:
 
 java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-io-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-lang3-3.8.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hsqldb-2.3.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-api-1.7.26.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-simple-1.7.26.jar velocity_engine_2.1_core_missing_methods.csv
-Soot started on Mon Apr 13 13:51:28 EDT 2020
+Soot started on Sat May 02 18:37:34 EDT 2020
 /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-io-2.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/commons-lang3-3.8.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/hsqldb-2.3.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-api-1.7.26.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/velocity-engine-2.1-patched/velocity-engine-core/mvn_dependencies/slf4j-simple-1.7.26.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
 File Found: true
 Completable candidates size: 3
@@ -1567,14 +1603,9 @@ Concrete direct subclass: org.apache.velocity.runtime.directive.Evaluate
 Concrete direct subclass: org.apache.velocity.runtime.directive.Stop
 
 Candidate class name: java.io.Writer, method name: void write(char[],int,int)
-Concrete direct subclass: java.io.PrintWriter
-Concrete direct subclass: java.io.BufferedWriter
-Concrete direct subclass: java.io.OutputStreamWriter
-Concrete direct subclass: sun.nio.cs.StreamEncoder
-Concrete direct subclass: java.io.StringWriter
 Concrete direct subclass: org.apache.velocity.util.StringBuilderWriter
 Concrete direct subclass: org.apache.commons.lang3.text.StrBuilder$StrBuilderWriter
 Concrete direct subclass: org.apache.velocity.io.VelocityWriter
 
-Soot finished on Mon Apr 13 13:51:56 EDT 2020
-Soot has run for 0 min. 28 sec.
+Soot finished on Sat May 02 18:38:01 EDT 2020
+Soot has run for 0 min. 27 sec.
