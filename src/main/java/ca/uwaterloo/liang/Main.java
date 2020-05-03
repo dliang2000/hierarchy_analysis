@@ -22,15 +22,6 @@ public class Main {
 		 
 		 // list of maven dependent jars
 		 
-		 //String common_jar_path = "/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/jfreechart/lib/";
-		 //List<String> setting = new ArrayList<String>();
-		 //setting.add(common_jar_path);
-		 
-		 // class_path for commons-math-MATH_3_6_1
-		 //String class_path = File.separator + "home" + File.separator + "daveroar" + File.separator + 
-		//		    "Graduation_Studies" + File.separator + "ThesisWork" + File.separator + "OpenSourceProjects"
-		//		    + File.separator + "Benchmarks" + File.separator + "commons-math-MATH_3_6_1" + File.separator + "target/classes/";
-		 
 		 //class path for guava/guava
 		 //jars needed for google guava (to be removed if the resolving level issue could be resolved)
 		 /*String failure_access = common_jar_path + "com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar";
@@ -88,12 +79,10 @@ public class Main {
 	    @Override
 		protected void internalTransform(String phaseName, Map options) {
 	    	// after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
-	    	
 	    	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
-	    	//CHATransformer.v().transform();
 	    	System.out.println(Scene.v().getSootClassPath());
 	    	
-	    	HashSet<Pair<SootClass, SootMethod>> missingMethodCoverageClassSet = new HashSet<Pair<SootClass, SootMethod>>();
+	    	HashMap<Pair<SootClass, String>, Integer> missingMethodCoverageClassMap = new HashMap<Pair<SootClass, String>, Integer>();
 	    	Map<SootClass, Integer> nonExcludedSubclassCount = new HashMap<SootClass, Integer>();
 	    	Map<SootClass, List<SootMethod>> classMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
 	    	Map<SootMethod, String> methodDescriptorMap = new HashMap<SootMethod, String>();
@@ -106,14 +95,13 @@ public class Main {
 	    	String classname = null;
 	    	String methodname = null;
 	    	String descriptor = null;
+	    	
 	  		// Read in the classes with missed methods coverage
 	  		String csv_file = csv_arg;
-	  		
 	  		ClassLoader classLoader = new Main().getClass().getClassLoader();
 	  		File file = new File(classLoader.getResource(csv_file).getFile());
 	  		 
 	  		System.out.println("File Found: " + file.exists());
-	  		 
 	  		BufferedReader reader;
 	  		try {
 	  			reader = new BufferedReader(new FileReader(file));
@@ -125,7 +113,7 @@ public class Main {
 		  			methodname = data[2];
 		  			descriptor = data[3];
 		  			
-		  			// Ski[ accessors and mutators
+		  			// Skip accessors and mutators
 		  			if (methodname.startsWith("set") || methodname.startsWith("get"))
 		  				continue;
 		  			
@@ -175,10 +163,15 @@ public class Main {
 		  			}
 		  			
 		  			SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
+		  			String methodSubsignature = sootMethod.getSubSignature();
 		  			// System.out.println("Method subsignature: " + sootMethod.getSubSignature());
 	  				
-		  			Pair<SootClass, SootMethod> pair = new Pair(sc, sootMethod);
-		  			missingMethodCoverageClassSet.add(pair);
+		  			Pair<SootClass, String> pair = new Pair<SootClass, String>(superclass, methodSubsignature);
+		  			if (missingMethodCoverageClassMap.containsKey(pair)) {
+		  				missingMethodCoverageClassMap.put(pair, missingMethodCoverageClassMap.get(pair) + 1);
+		  			} else {
+		  				missingMethodCoverageClassMap.put(pair, 1);
+		  			}
 		  			
 		  			// update classMethodsListMap
 		  			if (classMethodsListMap.containsKey(superclass)) {
@@ -199,14 +192,12 @@ public class Main {
 		  			SootClass sootclass = entry.getKey();
 		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
 		  			List<SootClass> concreteSootClassList = new ArrayList<SootClass>();
-		  			List<SootClass> abstractSootClassList = new ArrayList<SootClass>();
+		  			// List<SootClass> abstractSootClassList = new ArrayList<SootClass>();
 		  			for (SootClass sc: sootClassList) {
 		  				if (Scene.v().isExcluded(sc))
 		  					continue;
 		  				if(sc.isConcrete()) {
 		  					concreteSootClassList.add(sc);
-		  				} else if (sc.isAbstract()){
-		  					abstractSootClassList.add(sc);
 		  				}
 		  			}
 		  			if (concreteSootClassList.size() <= 1)
@@ -223,19 +214,18 @@ public class Main {
 		  						isCandidate = false;
 		  					}
 		  					// Horizontal Completable Hierarchy Condition Requirement 3: 
-			  				// Only one of the sibling classes does not have the SootMethod in interest tested
-		  					Pair<SootClass, SootMethod> temp_pair = new Pair(sc, sootmethod);
-		  					if (missingMethodCoverageClassSet.contains(temp_pair)) {
-		  						//System.out.println("temp_pair exists.");
-		  						missingMethodClassCounter++;
-		  						//System.out.println("SootClass: " + sc.getName() + " SootMethod: " + sootmethod.getSubSignature());
+			  				// At least one of the sibling classes have the SootMethod in interest tested
+		  					Pair<SootClass, String> temp_pair = new Pair<SootClass, String>(sootclass, sootmethod.getSubSignature());
+		  					if (missingMethodCoverageClassMap.containsKey(temp_pair)) {
+		  						missingMethodClassCounter =  missingMethodCoverageClassMap.get(temp_pair);
+		  						if (missingMethodClassCounter >= concreteSootClassList.size())
+		  							isCandidate = false;
 		  					}
 		  				}
 		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getSubSignature()) && (missingMethodClassCounter < concreteSootClassList.size()) ) {
+		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getSubSignature())) {
 		  					completable_candidates.put(sootmethod.getSubSignature(), sootclass);
 		  				}
-		  				missingMethodClassCounter = 0;
 		  				isCandidate = true;
 		  			}
 		  		} 
