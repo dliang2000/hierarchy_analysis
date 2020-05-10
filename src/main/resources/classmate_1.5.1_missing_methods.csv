@@ -1,0 +1,9 @@
+Package,Class,Method Name,Descriptor
+com.fasterxml.classmate.util,com.fasterxml.classmate.util.LRUTypeCache,readResolve,()Ljava/lang/Object;
+com.fasterxml.classmate.util,com.fasterxml.classmate.util.ResolvedTypeKey,toString,()Ljava/lang/String;
+com.fasterxml.classmate.util,com.fasterxml.classmate.util.ConcurrentTypeCache,readResolve,()Ljava/lang/Object;
+com.fasterxml.classmate.types,com.fasterxml.classmate.types.TypePlaceHolder,equals,(Ljava/lang/Object;)Z
+com.fasterxml.classmate.members,com.fasterxml.classmate.members.ResolvedMember,getAnnotations,()Lcom/fasterxml/classmate/Annotations;
+com.fasterxml.classmate.members,com.fasterxml.classmate.members.ResolvedMethod,compareTo,(Lcom/fasterxml/classmate/members/ResolvedMethod;)I
+com.fasterxml.classmate,com.fasterxml.classmate.Annotations,iterator,()Ljava/util/Iterator;
+com.fasterxml.classmate,com.fasterxml.classmate.TypeResolver,_fromArrayType,(Lcom/fasterxml/classmate/util/ClassStack;Ljava/lang/reflect/GenericArrayType;Lcom/fasterxml/classmate/TypeBindings;)Lcom/fasterxml/classmate/ResolvedType;

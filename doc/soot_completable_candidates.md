@@ -452,7 +452,7 @@ Concrete direct subclass: polyglot.ext.jl.ast.Local_c
 Concrete direct subclass: polyglot.ext.jl.ast.AmbExpr_c
 Concrete direct subclass: polyglot.ext.jl.ast.ArrayInit_c
 
-Candidate class name: soot.util.PriorityQueue, method name: boolean contains(int)
+Candidate class name: soot.util.PriorityQueue, method name: boolean contains(int)        (CHECK)
 Concrete direct subclass: soot.util.LargePriorityQueue
 Concrete direct subclass: soot.util.MediumPriorityQueue
 Concrete direct subclass: soot.util.SmallPriorityQueue
@@ -499,7 +499,7 @@ Concrete direct subclass: soot.grimp.internal.ExprBox
 Concrete direct subclass: soot.toolkits.scalar.ValueUnitPair
 Concrete direct subclass: soot.dava.internal.javaRep.DArrayInitValueBox
 
-Candidate class name: soot.util.PriorityQueue, method name: int nextSetBit(int)
+Candidate class name: soot.util.PriorityQueue, method name: int nextSetBit(int)       (CHECK)
 Concrete direct subclass: soot.util.LargePriorityQueue
 Concrete direct subclass: soot.util.MediumPriorityQueue
 Concrete direct subclass: soot.util.SmallPriorityQueue
@@ -536,7 +536,7 @@ Candidate class name: soot.shimple.AbstractShimpleValueSwitch, method name: void
 Concrete direct subclass: soot.jimple.spark.builder.MethodNodeFactory
 Concrete direct subclass: soot.shimple.toolkits.graph.ValueGraph$1
 
-Candidate class name: soot.util.PriorityQueue, method name: boolean add(int)
+Candidate class name: soot.util.PriorityQueue, method name: boolean add(int)       (CHECK)
 Concrete direct subclass: soot.util.LargePriorityQueue
 Concrete direct subclass: soot.util.MediumPriorityQueue
 Concrete direct subclass: soot.util.SmallPriorityQueue
@@ -580,7 +580,7 @@ Candidate class name: soot.toolkits.exceptions.AbstractThrowAnalysis, method nam
 Concrete direct subclass: soot.toolkits.exceptions.PedanticThrowAnalysis
 Concrete direct subclass: soot.toolkits.exceptions.UnitThrowAnalysis
 
-Candidate class name: soot.util.PriorityQueue, method name: boolean remove(int)
+Candidate class name: soot.util.PriorityQueue, method name: boolean remove(int)           (CHECK)
 Concrete direct subclass: soot.util.LargePriorityQueue
 Concrete direct subclass: soot.util.MediumPriorityQueue
 Concrete direct subclass: soot.util.SmallPriorityQueue
