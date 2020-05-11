@@ -1,8 +1,7 @@
 package ca.uwaterloo.liang;
 
 import soot.*;
-//import soot.jimple.toolkits.callgraph.CHATransformer;
-import soot.jimple.toolkits.pointer.LocalMustNotAliasAnalysis;
+
 import soot.options.*;
 import soot.toolkits.graph.ExceptionalUnitGraph;
 import soot.util.*;

@@ -703,3 +703,62 @@ Concrete direct subclass: org.apache.velocity.io.VelocityWriter
 
 Soot finished on Sat May 02 21:49:59 EDT 2020
 Soot has run for 0 min. 26 sec.
+
+
+## java-classmate-1.5.1:
+
+Soot started on Sun May 10 22:43:36 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/junit-4.12.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 0
+Soot finished on Sun May 10 22:43:56 EDT 2020
+Soot has run for 0 min. 20 sec.
+
+
+## woodstox-core-6.2.0:
+
+Soot started on Sun May 10 22:44:42 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/target/classes:target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/isorelax-20090621.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/junit-4.12.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/msv-core-2013.6.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/org.osgi.core-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/relaxngDatatype-20020414.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/stax2-api-4.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/woodstox-woodstox-core-6.2.0-patched/mvn_dependencies/xsdlib-2013.6.1.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 7
+Candidate class name: com.ctc.wstx.io.BaseReader, method name: int read(char[],int,int)
+Concrete direct subclass: com.ctc.wstx.io.AsciiReader
+Concrete direct subclass: com.ctc.wstx.io.UTF8Reader
+Concrete direct subclass: com.ctc.wstx.io.UTF32Reader
+Concrete direct subclass: com.ctc.wstx.io.ISOLatinReader
+
+Candidate class name: com.ctc.wstx.sw.EncodingXmlWriter, method name: int writeCDataContent(char[],int,int)
+Concrete direct subclass: com.ctc.wstx.sw.AsciiXmlWriter
+Concrete direct subclass: com.ctc.wstx.sw.ISOLatin1XmlWriter
+
+Candidate class name: com.ctc.wstx.io.BaseInputSource, method name: boolean readMore(com.ctc.wstx.io.WstxInputData,int)
+Concrete direct subclass: com.ctc.wstx.io.ReaderSource
+Concrete direct subclass: com.ctc.wstx.io.CharArraySource
+
+Candidate class name: com.ctc.wstx.dtd.DTDAttribute, method name: void validateDefault(com.ctc.wstx.sr.InputProblemReporter,boolean)
+Concrete direct subclass: com.ctc.wstx.dtd.DTDNmTokensAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDCdataAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDEnumAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDIdAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDIdRefsAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDEntitiesAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDIdRefAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDNotationAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDEntityAttr
+Concrete direct subclass: com.ctc.wstx.dtd.DTDNmTokenAttr
+
+Candidate class name: com.ctc.wstx.util.BaseNsContext, method name: void outputNamespaceDeclarations(java.io.Writer)
+Concrete direct subclass: com.ctc.wstx.sr.CompactNsContext
+Concrete direct subclass: com.ctc.wstx.util.EmptyNamespaceContext
+Concrete direct subclass: com.ctc.wstx.evt.MergedNsContext
+
+Candidate class name: com.ctc.wstx.evt.BaseStartElement, method name: void outputNsAndAttr(javax.xml.stream.XMLStreamWriter)
+Concrete direct subclass: com.ctc.wstx.evt.CompactStartElement
+Concrete direct subclass: com.ctc.wstx.evt.SimpleStartElement
+
+Candidate class name: com.ctc.wstx.ent.ExtEntity, method name: com.ctc.wstx.io.WstxInputSource expand(com.ctc.wstx.io.WstxInputSource,javax.xml.stream.XMLResolver,com.ctc.wstx.api.ReaderConfig,int)
+Concrete direct subclass: com.ctc.wstx.ent.UnparsedExtEntity
+Concrete direct subclass: com.ctc.wstx.ent.ParsedExtEntity
+
+Soot finished on Sun May 10 22:45:05 EDT 2020
+Soot has run for 0 min. 22 sec.
