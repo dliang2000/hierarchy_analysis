@@ -762,3 +762,151 @@ Concrete direct subclass: com.ctc.wstx.ent.ParsedExtEntity
 
 Soot finished on Sun May 10 22:45:05 EDT 2020
 Soot has run for 0 min. 22 sec.
+
+
+## findbugs-3.0.1
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/findbugs-3.0.1-patched/target/classes target/classes findbugs_3.0.1_missing_methods.csv
+Soot started on Sun May 31 18:26:39 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/findbugs-3.0.1-patched/target/classes:target/classes:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 11
+Candidate class name: edu.umd.cs.findbugs.ba.ResourceValueFrameModelingVisitor, method name: boolean instanceEscapes(org.apache.bcel.generic.InvokeInstruction,int)
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindUnreleasedLock$LockFrameModelingVisitor
+Concrete direct subclass: edu.umd.cs.findbugs.detect.StreamFrameModelingVisitor
+
+Candidate class name: edu.umd.cs.findbugs.classfile.RecomputableClassAnalysisEngine, method name: void registerWith(edu.umd.cs.findbugs.classfile.IAnalysisCache)
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.bcel.AssertionMethodsFactory
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.bcel.ConstantPoolGenFactory
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.bcel.ClassContextClassAnalysisEngine
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.asm.ClassReaderAnalysisEngine
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.asm.ClassNodeAnalysisEngine
+Concrete direct subclass: edu.umd.cs.findbugs.classfile.engine.bcel.AssignedFieldMapFactory
+
+Candidate class name: edu.umd.cs.findbugs.bcel.OpcodeStackDetector, method name: void sawOpcode(int)
+Concrete direct subclass: edu.umd.cs.findbugs.detect.UnreadFields
+Concrete direct subclass: edu.umd.cs.findbugs.ba.OpcodeStackScanner$Scanner
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindReturnRef
+Concrete direct subclass: edu.umd.cs.findbugs.detect.SwitchFallthrough
+Concrete direct subclass: edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical
+Concrete direct subclass: edu.umd.cs.findbugs.detect.MutableEnum
+Concrete direct subclass: edu.umd.cs.findbugs.detect.DumbMethods
+Concrete direct subclass: edu.umd.cs.findbugs.detect.MethodReturnCheck
+Concrete direct subclass: edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindHEmismatch
+Concrete direct subclass: edu.umd.cs.findbugs.detect.DefaultEncodingDetector
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindDoubleCheck
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindComparatorProblems
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindNoSideEffectMethods
+Concrete direct subclass: edu.umd.cs.findbugs.detect.BadSyntaxForRegularExpression
+Concrete direct subclass: edu.umd.cs.findbugs.detect.SerializableIdiom
+Concrete direct subclass: edu.umd.cs.findbugs.detect.ReadOfInstanceFieldInMethodInvokedByConstructorInSuperclass
+Concrete direct subclass: edu.umd.cs.findbugs.ba.PutfieldScanner$Scanner
+Concrete direct subclass: edu.umd.cs.findbugs.detect.ConfusionBetweenInheritedAndOuterMethod
+Concrete direct subclass: edu.umd.cs.findbugs.detect.AppendingToAnObjectOutputStream
+Concrete direct subclass: edu.umd.cs.findbugs.detect.CovariantArrayAssignment
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures
+Concrete direct subclass: edu.umd.cs.findbugs.detect.Noise
+Concrete direct subclass: edu.umd.cs.findbugs.detect.AtomicityProblem
+Concrete direct subclass: edu.umd.cs.findbugs.detect.NumberConstructor
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindNullDerefsInvolvingNonShortCircuitEvaluation
+Concrete direct subclass: edu.umd.cs.findbugs.detect.LostLoggerDueToWeakReference
+Concrete direct subclass: edu.umd.cs.findbugs.detect.TestingGround
+Concrete direct subclass: edu.umd.cs.findbugs.detect.ExplicitSerialization
+Concrete direct subclass: edu.umd.cs.findbugs.detect.RepeatedConditionals
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindPuzzlers
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindFloatEquality
+Concrete direct subclass: edu.umd.cs.findbugs.detect.SynchronizingOnContentsOfFieldToProtectField
+Concrete direct subclass: edu.umd.cs.findbugs.detect.InefficientInitializationInsideLoop
+Concrete direct subclass: edu.umd.cs.findbugs.detect.StaticCalendarDetector
+Concrete direct subclass: edu.umd.cs.findbugs.detect.CrossSiteScripting
+Concrete direct subclass: edu.umd.cs.findbugs.detect.SynchronizeOnClassLiteralNotGetClass
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindBadForLoop
+Concrete direct subclass: edu.umd.cs.findbugs.detect.BuildStringPassthruGraph
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindFieldSelfAssignment
+Concrete direct subclass: edu.umd.cs.findbugs.detect.InefficientIndexOf
+Concrete direct subclass: edu.umd.cs.findbugs.detect.CbeckMustOverrideSuperAnnotation
+Concrete direct subclass: edu.umd.cs.findbugs.detect.URLProblems
+Concrete direct subclass: edu.umd.cs.findbugs.detect.IntCast2LongAsInstant
+Concrete direct subclass: edu.umd.cs.findbugs.detect.BadResultSetAccess
+Concrete direct subclass: edu.umd.cs.findbugs.detect.InfiniteRecursiveLoop
+Concrete direct subclass: edu.umd.cs.findbugs.detect.TestingGround2
+Concrete direct subclass: edu.umd.cs.findbugs.detect.RuntimeExceptionCapture
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FieldItemSummary
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FormatStringChecker
+Concrete direct subclass: edu.umd.cs.findbugs.detect.InitializeNonnullFieldsInConstructor
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindNonShortCircuit
+Concrete direct subclass: edu.umd.cs.findbugs.detect.InfiniteLoop
+Concrete direct subclass: edu.umd.cs.findbugs.detect.SynchronizationOnSharedBuiltinConstant
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindSelfComparison
+Concrete direct subclass: edu.umd.cs.findbugs.detect.MultithreadedInstanceAccess
+
+Candidate class name: edu.umd.cs.findbugs.PackageMemberAnnotation, method name: int compareTo(edu.umd.cs.findbugs.BugAnnotation)
+Concrete direct subclass: edu.umd.cs.findbugs.ClassAnnotation
+Concrete direct subclass: edu.umd.cs.findbugs.MethodAnnotation
+Concrete direct subclass: edu.umd.cs.findbugs.FieldAnnotation
+
+Candidate class name: edu.umd.cs.findbugs.ba.ResourceValueFrameModelingVisitor, method name: void transferInstruction(org.apache.bcel.generic.InstructionHandle,edu.umd.cs.findbugs.ba.BasicBlock)
+Concrete direct subclass: edu.umd.cs.findbugs.detect.FindUnreleasedLock$LockFrameModelingVisitor
+Concrete direct subclass: edu.umd.cs.findbugs.detect.StreamFrameModelingVisitor
+
+Candidate class name: edu.umd.cs.findbugs.TextUIBugReporter, method name: void observeClass(edu.umd.cs.findbugs.classfile.ClassDescriptor)
+Concrete direct subclass: edu.umd.cs.findbugs.SortingBugReporter
+Concrete direct subclass: edu.umd.cs.findbugs.EmacsBugReporter
+Concrete direct subclass: edu.umd.cs.findbugs.PrintingBugReporter
+Concrete direct subclass: edu.umd.cs.findbugs.XDocsBugReporter
+Concrete direct subclass: edu.umd.cs.findbugs.BugCollectionBugReporter
+
+Candidate class name: edu.umd.cs.findbugs.filter.CompoundMatcher, method name: boolean match(edu.umd.cs.findbugs.BugInstance)
+Concrete direct subclass: edu.umd.cs.findbugs.filter.OrMatcher
+Concrete direct subclass: edu.umd.cs.findbugs.filter.AndMatcher
+Concrete direct subclass: edu.umd.cs.findbugs.filter.NotMatcher
+
+Candidate class name: edu.umd.cs.findbugs.filter.CompoundMatcher, method name: void writeXML(edu.umd.cs.findbugs.xml.XMLOutput,boolean)
+Concrete direct subclass: edu.umd.cs.findbugs.filter.OrMatcher
+Concrete direct subclass: edu.umd.cs.findbugs.filter.AndMatcher
+Concrete direct subclass: edu.umd.cs.findbugs.filter.NotMatcher
+
+Candidate class name: edu.umd.cs.findbugs.PackageMemberAnnotation, method name: void writeXML(edu.umd.cs.findbugs.xml.XMLOutput,boolean,boolean)
+Concrete direct subclass: edu.umd.cs.findbugs.ClassAnnotation
+Concrete direct subclass: edu.umd.cs.findbugs.MethodAnnotation
+Concrete direct subclass: edu.umd.cs.findbugs.FieldAnnotation
+
+Candidate class name: java.util.concurrent.AbstractExecutorService, method name: boolean awaitTermination(long,java.util.concurrent.TimeUnit)
+Concrete direct subclass: edu.umd.cs.findbugs.CommandLineUiCallback$CurrentThreadExecutorService
+Concrete direct subclass: edu.umd.cs.findbugs.AWTEventQueueExecutor
+
+Candidate class name: javax.swing.filechooser.FileFilter, method name: boolean accept(java.io.File)
+Concrete direct subclass: edu.umd.cs.findbugs.gui2.FindBugsFilterFileFilter
+Concrete direct subclass: edu.umd.cs.findbugs.gui2.NewProjectWizard$1
+Concrete direct subclass: edu.umd.cs.findbugs.gui2.PreferencesFrame$4$1
+
+Soot finished on Sun May 31 18:28:13 EDT 2020
+Soot has run for 1 min. 33 sec.
+
+## quartz-2.3.1-core
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/quartz-quartz-2.3.1-patched/quartz-core/target/classes target/classes: quartz_core_2.3.1_missing_methods.csv
+Soot started on Sun May 31 18:27:30 EDT 2020
+/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/quartz-quartz-2.3.1-patched/quartz-core/target/classes:target/classes::/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar
+File Found: true
+Completable candidates size: 3
+Candidate class name: org.quartz.impl.triggers.AbstractTrigger, method name: void updateAfterMisfire(org.quartz.Calendar)
+Concrete direct subclass: org.quartz.impl.triggers.SimpleTriggerImpl
+Concrete direct subclass: org.quartz.impl.triggers.CronTriggerImpl
+Concrete direct subclass: org.quartz.impl.triggers.DailyTimeIntervalTriggerImpl
+Concrete direct subclass: org.quartz.impl.triggers.CalendarIntervalTriggerImpl
+
+Candidate class name: org.quartz.impl.jdbcjobstore.JobStoreSupport, method name: void initialize(org.quartz.spi.ClassLoadHelper,org.quartz.spi.SchedulerSignaler)
+Concrete direct subclass: org.quartz.impl.jdbcjobstore.JobStoreCMT
+Concrete direct subclass: org.quartz.impl.jdbcjobstore.JobStoreTX
+
+Candidate class name: org.quartz.impl.calendar.BaseCalendar, method name: boolean isTimeIncluded(long)
+Concrete direct subclass: org.quartz.impl.calendar.AnnualCalendar
+Concrete direct subclass: org.quartz.impl.calendar.MonthlyCalendar
+Concrete direct subclass: org.quartz.impl.calendar.DailyCalendar
+Concrete direct subclass: org.quartz.impl.calendar.CronCalendar
+Concrete direct subclass: org.quartz.impl.calendar.WeeklyCalendar
+Concrete direct subclass: org.quartz.impl.calendar.HolidayCalendar
+
+Soot finished on Sun May 31 18:29:02 EDT 2020
+Soot has run for 1 min. 32 sec.

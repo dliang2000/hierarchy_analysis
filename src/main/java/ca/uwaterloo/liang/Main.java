@@ -65,9 +65,13 @@ public class Main {
 		 Options.v().set_verbose(true);                                                                                            
 		 List<String> pd = new ArrayList<>();                                                                                   
 		 pd.add("-process-dir");                                                                                                  
-		 pd.add(args[0]);                                                                                                       
-		 Options.v().set_soot_classpath(args[1]);                                                                                  
-		 Options.v().set_whole_program(true);                                                                                      
+		 pd.add(args[0]); 
+		 //pd.add(args[1]); 
+		 Options.v().set_soot_classpath(args[1]);
+		 Options.v().set_whole_program(true);
+		 // For benchmarks: findbug-3.0.1, fastjson-1.2.62, quartz-2.3.1
+		 if (args[0].contains("findbugs") || args[0].contains("quartz") || args[0].contains("fastjson"))
+		     Options.v().set_allow_phantom_refs(true); 
 		 soot.Main.main(pd.toArray(new String[0]));
 	}
 	
@@ -79,17 +83,19 @@ public class Main {
 		protected void internalTransform(String phaseName, Map options) {
 	    	// after process the entire directory, get the active hierarchy, with all the classes loaded onto scene. 
 	    	Hierarchy hierarchy = Scene.v().getActiveHierarchy();
-	    	System.out.println(Scene.v().getSootClassPath());
+	    	// System.out.println(Scene.v().getSootClassPath());
+	    	
 	    	
 	    	HashMap<Pair<SootClass, String>, Integer> missingMethodCoverageClassMap = new HashMap<Pair<SootClass, String>, Integer>();
 	    	Map<SootClass, Integer> nonExcludedSubclassCount = new HashMap<SootClass, Integer>();
 	    	Map<SootClass, List<SootMethod>> classMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
-	    	Map<SootMethod, String> methodDescriptorMap = new HashMap<SootMethod, String>();
 	    	
 	    	// Completable candidates are stored as a hashmap with entries containing key of SootMethod 
 	    	// and value of SootClass, which is the direct superclass of the class in
 	    	// the missing_methods.csv file
-	    	Map<String, SootClass> completable_candidates = new HashMap<String, SootClass>();
+	    	Map<String, SootClass> completableCandidates = new HashMap<String, SootClass>();
+	    	
+	    	Map<String, SootClass> partialCompletableCandidates = new HashMap<String, SootClass>();
 	  		
 	    	String classname = null;
 	    	String methodname = null;
@@ -185,6 +191,7 @@ public class Main {
 		  		}
 		  		
 		  		boolean isCandidate = true;
+		  		int methodNotImplementedCounter = 0;
 		  		int missingMethodClassCounter = 0;
 		  		
 		  		for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
@@ -222,14 +229,14 @@ public class Main {
 		  					}
 		  				}
 		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
-		  				if (isCandidate && !completable_candidates.containsKey(sootmethod.getSubSignature())) {
-		  					completable_candidates.put(sootmethod.getSubSignature(), sootclass);
+		  				if (isCandidate && !completableCandidates.containsKey(sootmethod.getSubSignature())) {
+		  					completableCandidates.put(sootmethod.getSubSignature(), sootclass);
 		  				}
 		  				isCandidate = true;
 		  			}
 		  		} 
-		  		System.out.println("Completable candidates size: " + completable_candidates.size());
-		  		for (Entry<String, SootClass> entry: completable_candidates.entrySet()) {
+		  		System.out.println("Completable candidates size: " + completableCandidates.size());
+		  		for (Entry<String, SootClass> entry: completableCandidates.entrySet()) {
 					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
 					 List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
 			  		 for (SootClass sc: sootClassList) {
