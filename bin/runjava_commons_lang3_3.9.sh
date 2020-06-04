@@ -21,8 +21,7 @@ cd $BENCHMARK_PATH
 # touch is_maven in the benchmark directory to indicate that a benchmark is mvn
 if [ -a is_maven ]; then
   echo "it is a maven project"
-  rm -rf is_maven
-  mvn compile
+  mvn -Drat.skip=true compile
 fi
 # cd $SUB_PATH
 

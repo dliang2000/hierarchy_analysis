@@ -95,7 +95,7 @@ public class Main {
 	    	// the missing_methods.csv file
 	    	Map<String, SootClass> completableCandidates = new HashMap<String, SootClass>();
 	    	
-	    	Map<String, SootClass> partialCompletableCandidates = new HashMap<String, SootClass>();
+	    	Map<SootMethod, SootClass> partialCompletableCandidates = new HashMap<SootMethod, SootClass>();
 	  		
 	    	String classname = null;
 	    	String methodname = null;
@@ -190,10 +190,6 @@ public class Main {
 		  			}
 		  		}
 		  		
-		  		boolean isCandidate = true;
-		  		int methodNotImplementedCounter = 0;
-		  		int missingMethodClassCounter = 0;
-		  		
 		  		for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
 		  			SootClass sootclass = entry.getKey();
 		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
@@ -208,8 +204,18 @@ public class Main {
 		  			}
 		  			if (concreteSootClassList.size() <= 1)
 		  				continue;
+		  			
+		  			boolean isCandidate = true;
+	                boolean isPartialCandidate = true;
+	                int methodNotImplementedCounter = 0;
+	                int missingMethodClassCounter = 0;
+	                
 		  			for (SootMethod sootmethod: entry.getValue()) {
 		  				// Horizontal Completable Hierarchy Condition Requirement 1: there are multiple sibling classes
+	                    isCandidate = true;
+	                    isPartialCandidate = true;
+	                    methodNotImplementedCounter = 0;
+	                    missingMethodClassCounter = 0;
 		  				if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
 		  					isCandidate = false;
 		  				}
@@ -218,34 +224,57 @@ public class Main {
 		  				for (SootClass sc: concreteSootClassList) {
 		  					if (!sc.declaresMethod(sootmethod.getName(), sootmethod.getParameterTypes(), sootmethod.getReturnType())) {
 		  						isCandidate = false;
+		  						methodNotImplementedCounter++;
 		  					}
 		  					// Horizontal Completable Hierarchy Condition Requirement 3: 
 			  				// At least one of the sibling classes have the SootMethod in interest tested
 		  					Pair<SootClass, String> temp_pair = new Pair<SootClass, String>(sootclass, sootmethod.getSubSignature());
 		  					if (missingMethodCoverageClassMap.containsKey(temp_pair)) {
 		  						missingMethodClassCounter =  missingMethodCoverageClassMap.get(temp_pair);
-		  						if (missingMethodClassCounter >= concreteSootClassList.size())
+		  						if (missingMethodClassCounter >= concreteSootClassList.size()) {
 		  							isCandidate = false;
+		  							isPartialCandidate = false;
+		  						}
 		  					}
 		  				}
 		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
 		  				if (isCandidate && !completableCandidates.containsKey(sootmethod.getSubSignature())) {
 		  					completableCandidates.put(sootmethod.getSubSignature(), sootclass);
 		  				}
-		  				isCandidate = true;
+		  				
+		  				//System.out.println("concreateSootClassList size: " + concreteSootClassList.size());
+		  				//System.out.println("Number of subclasses that did not implement the method " + methodNotImplementedCounter);
+		  				//System.out.println("concreateSootClassList size - methodNotImplementedCounter = " + (concreteSootClassList.size() - methodNotImplementedCounter));
+		  				if ((concreteSootClassList.size() - methodNotImplementedCounter >= 2) && !isCandidate && isPartialCandidate) {
+		  				    // System.out.println("Partial Completable candidate found: " + sootclass.getName() + ", sootMethod: " + sootmethod.getSubSignature());
+		  				    partialCompletableCandidates.put(sootmethod, sootclass);
+		  				}
 		  			}
 		  		} 
 		  		System.out.println("Completable candidates size: " + completableCandidates.size());
 		  		for (Entry<String, SootClass> entry: completableCandidates.entrySet()) {
-					 System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
-					 List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
-			  		 for (SootClass sc: sootClassList) {
-			  			 if(sc.isConcrete() && !Scene.v().isExcluded(sc)) {
-			  				System.out.println("Concrete direct subclass: " + sc.getName());
-			  			 }
-			  		 }
+		  		    System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
+					List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
+			  		for (SootClass sc: sootClassList) {
+			  		    if(sc.isConcrete() && !Scene.v().isExcluded(sc)) {
+			  		        System.out.println("Concrete direct subclass: " + sc.getName());
+			  			}
+			  		}
 			  		System.out.println();
 				}
+		  		
+		  		System.out.println("Partial completable candidates size: " + partialCompletableCandidates.size());
+                for (Entry<SootMethod, SootClass> entry: partialCompletableCandidates.entrySet()) {
+                    SootMethod sm = entry.getKey();
+                    System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + sm.getSubSignature());
+                    List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
+                    for (SootClass sc: sootClassList) {
+                        if(sc.isConcrete() && !Scene.v().isExcluded(sc) && sc.declaresMethod(sm.getName(), sm.getParameterTypes(), sm.getReturnType())) {
+                           System.out.println("Concrete direct subclass that has method implemented: " + sc.getName());
+                        }
+                    }
+                    System.out.println();
+                }
 	  		 } catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
