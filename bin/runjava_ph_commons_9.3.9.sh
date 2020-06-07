@@ -6,6 +6,7 @@ SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencie
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
 CC_CLASS="ca.uwaterloo.liang.Main"
 BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched"
+BENCHMARK="ph_commons_ph_commons_9.3.9"
 TARGET_PATH="ph-commons/target/classes"
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/ph-commons/mvn_dependencies"
@@ -24,5 +25,5 @@ if [ -a is_maven ]; then
   mvn compile
 fi
 
-echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH ph_commons_9.3.9_missing_methods.csv
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH ph_commons_9.3.9_missing_methods.csv
+echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH ph_commons_9.3.9_missing_methods.csv $BENCHMARK
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path`:$JAR_PATH ph_commons_9.3.9_missing_methods.csv $BENCHMARK

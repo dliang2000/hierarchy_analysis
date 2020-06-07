@@ -6,6 +6,7 @@ SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencie
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
 CC_CLASS="ca.uwaterloo.liang.Main"
 BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/commons-math-MATH_3_6_1"
+BENCHMARK="commons_math_3.6.1"
 TARGET_PATH="target/classes"
 
 cd $BENCHMARK_PATH
@@ -16,4 +17,4 @@ if [ -a is_maven ]; then
   mvn compile
 fi
 
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH `cat benchmark_class_path` commons_MATH_3_6_1_missing_methods.csv
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH `cat benchmark_class_path` commons_MATH_3_6_1_missing_methods.csv $BENCHMARK

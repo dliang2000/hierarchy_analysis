@@ -6,6 +6,7 @@ SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencie
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
 CC_CLASS="ca.uwaterloo.liang.Main"
 BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/gson-gson-parent-2.8.5-patched/gson"
+BENCHMARK="gson_2.8.5"
 TARGET_PATH="target/classes"
 
 # MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/ph-commons/mvn_dependencies"
@@ -24,5 +25,5 @@ if [ -a is_maven ]; then
   mvn compile
 fi
 
-echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path` gson_2.8.5_missing_methods.csv
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path` gson_2.8.5_missing_methods.csv
+echo java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path` gson_2.8.5_missing_methods.csv $BENCHMARK
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_PATH $jars`cat benchmark_class_path` gson_2.8.5_missing_methods.csv $BENCHMARK
