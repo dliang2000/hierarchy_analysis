@@ -12,9 +12,10 @@ import java.util.Map.Entry;
 
 public class Main {
 	private static String csv_arg;
-
+	private static String benchmark;
 	public static void main(String[] args) throws IOException {
 		 Main.csv_arg = args[2];
+		 Main.benchmark = args[3];
 		 PackManager.v().getPack("wjtp").add(
 			     new Transform("wjtp.myTransform", CompletableTestTransformer.v()) {
 			     });
@@ -93,9 +94,14 @@ public class Main {
 	    	// Completable candidates are stored as a hashmap with entries containing key of SootMethod 
 	    	// and value of SootClass, which is the direct superclass of the class in
 	    	// the missing_methods.csv file
-	    	Map<String, SootClass> completableCandidates = new HashMap<String, SootClass>();
-	    	
+	    	Map<SootMethod, SootClass> completableCandidates = new HashMap<SootMethod, SootClass>();
 	    	Map<SootMethod, SootClass> partialCompletableCandidates = new HashMap<SootMethod, SootClass>();
+	    	
+	    	// Stores the list of completable candidates' identifications
+	    	Set<String> candidatesIdentificationSet = new HashSet<String>();
+	    	
+	    	Map<Pair<SootClass, SootMethod>, String> identificationMap = new HashMap<Pair<SootClass, SootMethod>, String>();
+	    	
 	  		
 	    	String classname = null;
 	    	String methodname = null;
@@ -191,6 +197,7 @@ public class Main {
 		  		}
 		  		
 		  		for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
+		  		    // get Superclass
 		  			SootClass sootclass = entry.getKey();
 		  			List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
 		  			List<SootClass> concreteSootClassList = new ArrayList<SootClass>();
@@ -218,6 +225,7 @@ public class Main {
 	                    missingMethodClassCounter = 0;
 		  				if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
 		  					isCandidate = false;
+		  					isPartialCandidate = false;
 		  				}
 		  				// Horizontal Completable Hierarchy Condition Requirement 2: 
 		  				// All sibling classes have an implementation of the SootMethod in interest
@@ -237,24 +245,63 @@ public class Main {
 		  						}
 		  					}
 		  				}
-		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
-		  				if (isCandidate && !completableCandidates.containsKey(sootmethod.getSubSignature())) {
-		  					completableCandidates.put(sootmethod.getSubSignature(), sootclass);
+		  				if (concreteSootClassList.size() - methodNotImplementedCounter < 2)
+		  				    isPartialCandidate = false;
+		  				// Stores the right information when the sootclass and sootmethod together is a candidate or
+		  				// a partial candidate (where some of the subclasses implement the method)
+		  				if (isCandidate || isPartialCandidate) {
+		  				    String candidate_identification = generateIdentification(benchmark, sootclass, sootmethod);
+		  				    if (!candidatesIdentificationSet.contains(candidate_identification)) {
+		  				        candidatesIdentificationSet.add(candidate_identification);
+		  				        if (isCandidate) {
+		  				            identificationMap.put(new Pair<SootClass, SootMethod>(sootclass, sootmethod), candidate_identification);
+		  				            completableCandidates.put(sootmethod, sootclass);
+		  				        } else {
+		  				            identificationMap.put(new Pair<SootClass, SootMethod>(sootclass, sootmethod), candidate_identification);
+		                            partialCompletableCandidates.put(sootmethod, sootclass);
+		  				        }
+		  				    }
 		  				}
-		  				
-		  				//System.out.println("concreateSootClassList size: " + concreteSootClassList.size());
-		  				//System.out.println("Number of subclasses that did not implement the method " + methodNotImplementedCounter);
-		  				//System.out.println("concreateSootClassList size - methodNotImplementedCounter = " + (concreteSootClassList.size() - methodNotImplementedCounter));
-		  				if ((concreteSootClassList.size() - methodNotImplementedCounter >= 2) && !isCandidate && isPartialCandidate) {
-		  				    // System.out.println("Partial Completable candidate found: " + sootclass.getName() + ", sootMethod: " + sootmethod.getSubSignature());
-		  				    partialCompletableCandidates.put(sootmethod, sootclass);
-		  				}
+//		  				//System.out.println("missingMethodClassCounter: " + missingMethodClassCounter);
+//		  				if (isCandidate && !completableCandidates.containsKey(sootmethod)) {
+//		  				    String candidate_identification = generateIdentification(benchmark, sootclass, sootmethod);
+//		  				    identificationMap.put(new Pair<SootClass, SootMethod>(sootclass, sootmethod), candidate_identification);
+//		  				    candidatesIdentificationSet.add(candidate_identification);
+//		  					completableCandidates.put(sootmethod, sootclass);
+//		  				}
+//		  				
+//		  				//System.out.println("concreateSootClassList size: " + concreteSootClassList.size());
+//		  				//System.out.println("Number of subclasses that did not implement the method " + methodNotImplementedCounter);
+//		  				//System.out.println("concreateSootClassList size - methodNotImplementedCounter = " + (concreteSootClassList.size() - methodNotImplementedCounter));
+//		  				if ((concreteSootClassList.size() - methodNotImplementedCounter >= 2) 
+//		  				      && !partialCompletableCandidates.containsKey(sootmethod) 
+//		  				      && !isCandidate && isPartialCandidate) {
+//		  				    // System.out.println("Partial Completable candidate found: " + sootclass.getName() + ", sootMethod: " + sootmethod.getSubSignature());
+//		  				    String candidate_identification = generateIdentification(benchmark, sootclass, sootmethod);
+//		  				    identificationMap.put(new Pair<SootClass, SootMethod>(sootclass, sootmethod), candidate_identification);
+//		  				  candidatesIdentificationSet.add(candidate_identification);
+//		  				    partialCompletableCandidates.put(sootmethod, sootclass);
+//		  				}
 		  			}
-		  		} 
+		  		}
+		  		
+		  		if (candidatesIdentificationSet.size() > 0) {
+		  		    System.out.println("Candidates Identifications Overview: ");
+		  		    for (String id: candidatesIdentificationSet) {
+		  		        System.out.println(id);
+		  		    }
+		  		    System.out.println();
+		  		}
+		  		
 		  		System.out.println("Completable candidates size: " + completableCandidates.size());
-		  		for (Entry<String, SootClass> entry: completableCandidates.entrySet()) {
-		  		    System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + entry.getKey());
-					List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
+		  		for (Entry<SootMethod, SootClass> entry: completableCandidates.entrySet()) {
+		  		    SootClass sootClass = entry.getValue();
+		  		    SootMethod sootMethod = entry.getKey();
+		  		    Pair<SootClass, SootMethod> currPair = new Pair<SootClass, SootMethod>(sootClass, sootMethod);
+		  		    String candidate_identification = identificationMap.get(currPair);
+		  		    System.out.println("Candidate class name: " + sootClass.getName() + ", method subsignature: " + sootMethod.getSubSignature());
+		  		    System.out.println("Candidate ID: " + candidate_identification);
+					List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootClass);
 			  		for (SootClass sc: sootClassList) {
 			  		    if(sc.isConcrete() && !Scene.v().isExcluded(sc)) {
 			  		        System.out.println("Concrete direct subclass: " + sc.getName());
@@ -265,11 +312,15 @@ public class Main {
 		  		
 		  		System.out.println("Partial completable candidates size: " + partialCompletableCandidates.size());
                 for (Entry<SootMethod, SootClass> entry: partialCompletableCandidates.entrySet()) {
-                    SootMethod sm = entry.getKey();
-                    System.out.println("Candidate class name: " + entry.getValue().getName() + ", method name: " + sm.getSubSignature());
+                    SootClass sootClass = entry.getValue();
+                    SootMethod sootMethod = entry.getKey();
+                    Pair<SootClass, SootMethod> currPair = new Pair<SootClass, SootMethod>(sootClass, sootMethod);
+                    String candidate_identification = identificationMap.get(currPair);
+                    System.out.println("Candidate class name: " + sootClass.getName() + ", method subsignature: " + sootMethod.getSubSignature());
+                    System.out.println("Candidate ID: " + candidate_identification);
                     List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(entry.getValue());
                     for (SootClass sc: sootClassList) {
-                        if(sc.isConcrete() && !Scene.v().isExcluded(sc) && sc.declaresMethod(sm.getName(), sm.getParameterTypes(), sm.getReturnType())) {
+                        if(sc.isConcrete() && !Scene.v().isExcluded(sc) && sc.declaresMethod(sootMethod.getName(), sootMethod.getParameterTypes(), sootMethod.getReturnType())) {
                            System.out.println("Concrete direct subclass that has method implemented: " + sc.getName());
                         }
                     }
@@ -283,6 +334,19 @@ public class Main {
 				e.printStackTrace();
 	  		 }
 	  	 }
+	}
+	
+	private static String generateIdentification(String benchmark, SootClass sc, SootMethod sm) {
+	    String className = sc.getShortJavaStyleName();
+	    String methodName = sm.getName();
+	    String lastThreeDigitHash = String.valueOf(lastThreeDigitsHash(sm.getSubSignature()));
+	    String result = benchmark + "_" + className + "_" + methodName + "_" + lastThreeDigitHash;
+	    
+	    return result;
+	}
+	
+	private static int lastThreeDigitsHash(String str) {
+	    return Math.abs(str.hashCode() % 1000);
 	}
 	
 	private static boolean ifHaveMultipleDirectSubClasses(SootClass sc, Hierarchy h) {		

@@ -1,46 +1,59 @@
 ## java-classmate-1.5.1
 
-java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/junit-4.12.jar classmate_1.5.1_missing_methods.csv
-Soot started on Wed Jun 03 20:04:23 EDT 2020
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/junit-4.12.jar classmate_1.5.1_missing_methods.csv java_classmate_1.5.1
+Soot started on Sat Jun 06 23:28:59 EDT 2020
 File Found: true
 Completable candidates size: 0
 Partial completable candidates size: 0
-Soot finished on Wed Jun 03 20:04:42 EDT 2020
-Soot has run for 0 min. 19 sec.
+Soot finished on Sat Jun 06 23:29:19 EDT 2020
+Soot has run for 0 min. 20 sec.
 
 
 ## commons-collections-4.3
 
-Soot started on Wed Jun 03 20:04:49 EDT 2020
+Soot started on Sat Jun 06 23:29:26 EDT 2020
 File Found: true
+Candidates Identifications Overview:
+commons_collections_4.3_AbstractMultiValuedMapDecorator_putAll_413
+commons_collections_4.3_AbstractMultiValuedMapDecorator_putAll_336
+commons_collections_4.3_AbstractSortedMapDecorator_putAll_127
+commons_collections_4.3_AbstractBagDecorator_addAll_123
+commons_collections_4.3_AbstractSerializableListDecorator_subList_627
+commons_collections_4.3_AbstractMapDecorator_putAll_127
+commons_collections_4.3_AbstractSerializableListDecorator_addAll_722
+commons_collections_4.3_AbstractSortedBagDecorator_addAll_123
 
-Completable candidates size: 3
-Candidate class name: org.apache.commons.collections4.bag.AbstractBagDecorator, method name: boolean addAll(java.util.Collection)
+Completable candidates size: 4
+Candidate class name: org.apache.commons.collections4.bag.AbstractBagDecorator, method subsignature: boolean addAll(java.util.Collection)
+Candidate ID: commons_collections_4.3_AbstractBagDecorator_addAll_123
 Concrete direct subclass: org.apache.commons.collections4.bag.UnmodifiableBag
 Concrete direct subclass: org.apache.commons.collections4.bag.CollectionBag
 
-Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(java.util.Map)
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method subsignature: boolean putAll(java.util.Map)
+Candidate ID: commons_collections_4.3_AbstractMultiValuedMapDecorator_putAll_413
 Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
 Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
 
-Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method name: boolean putAll(org.apache.commons.collections4.MultiValuedMap)
+Candidate class name: org.apache.commons.collections4.bag.AbstractSortedBagDecorator, method subsignature: boolean addAll(java.util.Collection)
+Candidate ID: commons_collections_4.3_AbstractSortedBagDecorator_addAll_123
+Concrete direct subclass: org.apache.commons.collections4.bag.UnmodifiableSortedBag
+Concrete direct subclass: org.apache.commons.collections4.bag.CollectionSortedBag
+
+Candidate class name: org.apache.commons.collections4.multimap.AbstractMultiValuedMapDecorator, method subsignature: boolean putAll(org.apache.commons.collections4.MultiValuedMap)
+Candidate ID: commons_collections_4.3_AbstractMultiValuedMapDecorator_putAll_336
 Concrete direct subclass: org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMap
 Concrete direct subclass: org.apache.commons.collections4.multimap.TransformedMultiValuedMap
 
-Partial completable candidates size: 5
-Candidate class name: org.apache.commons.collections4.list.AbstractSerializableListDecorator, method name: java.util.List subList(int,int)
+Partial completable candidates size: 4
+Candidate class name: org.apache.commons.collections4.list.AbstractSerializableListDecorator, method subsignature: boolean addAll(int,java.util.Collection)
+Candidate ID: commons_collections_4.3_AbstractSerializableListDecorator_addAll_722
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.UnmodifiableList
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.FixedSizeList
-Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.LazyList
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.SetUniqueList
+Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.GrowthList
 
-Candidate class name: org.apache.commons.collections4.list.AbstractSerializableListDecorator, method name: java.util.List subList(int,int)
-Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.UnmodifiableList
-Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.FixedSizeList
-Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.LazyList
-Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.SetUniqueList
-
-Candidate class name: org.apache.commons.collections4.map.AbstractMapDecorator, method name: void putAll(java.util.Map)
+Candidate class name: org.apache.commons.collections4.map.AbstractMapDecorator, method subsignature: void putAll(java.util.Map)
+Candidate ID: commons_collections_4.3_AbstractMapDecorator_putAll_127
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.MultiValueMap
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.ListOrderedMap
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.FixedSizeMap
@@ -48,29 +61,28 @@ Concrete direct subclass that has method implemented: org.apache.commons.collect
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.PassiveExpiringMap
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.MultiKeyMap
 
-Candidate class name: org.apache.commons.collections4.list.AbstractSerializableListDecorator, method name: boolean addAll(int,java.util.Collection)
+Candidate class name: org.apache.commons.collections4.list.AbstractSerializableListDecorator, method subsignature: java.util.List subList(int,int)
+Candidate ID: commons_collections_4.3_AbstractSerializableListDecorator_subList_627
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.UnmodifiableList
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.FixedSizeList
+Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.LazyList
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.SetUniqueList
-Concrete direct subclass that has method implemented: org.apache.commons.collections4.list.GrowthList
 
-Candidate class name: org.apache.commons.collections4.map.AbstractSortedMapDecorator, method name: void putAll(java.util.Map)
+Candidate class name: org.apache.commons.collections4.map.AbstractSortedMapDecorator, method subsignature: void putAll(java.util.Map)
+Candidate ID: commons_collections_4.3_AbstractSortedMapDecorator_putAll_127
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.UnmodifiableSortedMap
 Concrete direct subclass that has method implemented: org.apache.commons.collections4.map.FixedSizeSortedMap
-
-Soot finished on Wed Jun 03 20:05:16 EDT 2020
-Soot has run for 0 min. 26 sec.
 
 
 ## commons-lang3-3.9
 
-java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/apiguardian-api-1.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/dexmaker-1.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/easymock-4.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/hamcrest-2.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-api-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-engine-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-params-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-pioneer-0.3.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-commons-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-engine-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/objenesis-3.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/opentest4j-1.1.1.jar commons_lang3_3.9_src_missing_methods.csv
-Soot started on Wed Jun 03 20:05:21 EDT 2020
+java -cp /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/soot_jar/sootclasses-trunk-jar-with-dependencies.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/hierarchy-analysis/target/classes ca.uwaterloo.liang.Main /home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/target/classes target/classes::/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/apiguardian-api-1.0.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/commons-math3-3.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/dexmaker-1.5.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/easymock-4.0.2.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/hamcrest-2.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-core-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jmh-generator-annprocess-1.21.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/jopt-simple-4.6.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-api-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-engine-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-jupiter-params-5.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-pioneer-0.3.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-commons-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/junit-platform-engine-1.4.0.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/objenesis-3.0.1.jar:/home/daveroar/Graduation_Studies/ThesisWork/OpenSourceProjects/Benchmarks/commons-lang3-3.9-src-patched/mvn_dependencies/opentest4j-1.1.1.jar commons_lang3_3.9_src_missing_methods.csv commons_lang3_3.9
+Soot started on Sat Jun 06 23:30:03 EDT 2020
 File Found: true
 Completable candidates size: 0
 Partial completable candidates size: 0
-Soot finished on Wed Jun 03 20:05:44 EDT 2020
-Soot has run for 0 min. 23 sec.
+Soot finished on Sat Jun 06 23:30:27 EDT 2020
+Soot has run for 0 min. 24 sec.
 
 
 ## commons-math-3.6.1
