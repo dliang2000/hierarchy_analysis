@@ -2,6 +2,7 @@
 
 ### Maven build projects:
 - Already added:
+	- java-classmate-1.5.1
 	- commons-lang3-3.9
 	- findbugs-3.0.1  (%)
 	- gson-2.8.5
@@ -34,17 +35,21 @@
 	- JMoney
 
 ## Completable Candidates table
-| Benchmark | Number of Completable Candidates |
-| --- | --- |
-| soot-4.0.0 | 197 |
-| gson-parent-2.8.5 | 0 |
-| commons-math-3.6.1 | 5 |
-| jsoup-1.10.1 | 0 |
-| plexus-utils-3.3.0 | 2 |
-| commons-lang3-3.9 | 0 |
-| jgrapht-1.3.1-core | 1 |
-| joda-time-2.10.5 | 14 |
-| javacc-7.0.5 | 14 |
-| ph-commons-9.3.9 | 4 |
-| velocity-engine-2.1-core | 3 |
-| commons-collections-4.3 | 3 |
+| Benchmark | Number of Completable Candidates | Number of Partial Completable Candidates |
+| --- | --- | --- |
+| java-classmate-1.5.1 | 4 | 4 |
+| commons-collections-4.3 | 4 | 4 |
+| commons-lang3-3.9 | 0 | 0 |
+| commons-math-3.6.1 | 3 | 4 |
+| fastjson-1.2.62 | 0 | 0 |
+| findbugs-3.0.1 | 11 | 360 |
+| gson-parent-2.8.5 | 0 | 0 |
+| javacc-7.0.5 | 9 | 0 |
+| jgrapht-1.3.1-core | 1 | 4 |
+| joda-time-2.10.5 | 14 | 27 |
+| ph-commons-9.3.9 | 7 | 29 |
+| plexus-utils-3.3.0 | 0 | 0 |
+| quartz-2.3.1-core | 3 | 2 |
+| soot-4.0.0 | 31 | 1875 |
+| velocity-engine-2.1-core | 3 | 3 |
+| woodstox-core-6.2.0 | 7 | 5 | |
