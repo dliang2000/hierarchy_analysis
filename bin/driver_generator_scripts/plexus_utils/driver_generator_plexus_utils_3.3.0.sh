@@ -1,12 +1,12 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork"
+MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
 
 PACKAGE="org.codehaus.plexus.util"
-SOOT_JAR="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
-JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
+SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
+JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
 CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/OpenSourceProjects/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/plexus-utils-plexus-utils-3.3.0-patched"
 TARGET_TEST_PATH="target/test-classes"
 DESTINATION="$BENCHMARK_PATH/src/test/java/org/codehaus/plexus/util"
 BENCHMARK="plexus_utils_3.3.0"

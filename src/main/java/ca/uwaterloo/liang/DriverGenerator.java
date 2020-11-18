@@ -73,9 +73,9 @@ public class DriverGenerator {
                     SootClass appClass = (SootClass) classIt.next();
                     System.out.println("SootClass Visited: " + appClass.toString());
                     containsConstructor = false;
-                    // skip classes that are not concrete, and classes that are private (which would
+                    // skip classes that are final or not concrete, and classes that are private (which would
                     // contain a "$" sign)
-                    if (!appClass.isConcrete() || !appClass.getName().contains("Test")
+                    if (!appClass.isConcrete() || !appClass.getName().contains("Test") || appClass.isFinal()
                             || appClass.getName().contains("$"))
                         continue;
                     System.out.println("Concrete SootClass Package: " + appClass.getPackageName() + ", SootClass Name: "

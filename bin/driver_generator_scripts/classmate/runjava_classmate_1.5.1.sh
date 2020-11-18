@@ -1,12 +1,12 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/HelperMethodAnalysis"
+MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
 
 PACKAGE="com.fasterxml.classmate"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
-CC_CLASS="ca.uwaterloo.liang.Main"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/java-classmate-classmate-1.5.1"
+CC_CLASS="ca.uwaterloo.liang.CorrespondingTestClassesCandidatesAnalyzer"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/java-classmate-classmate-1.5.1-patched"
 TARGET_PATH="target/classes"
 TARGET_TEST_PATH="target/test-classes"
 BENCHMARK="java_classmate_1.5.1"
@@ -29,5 +29,5 @@ if [ -a is_maven ]; then
   mvn clean test
 fi
 
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $DRIVER_PATH $BENCHMARK_PATH/$TARGET_PATH $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $BENCHMARK $OUTPUT_PATH
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $DRIVER_PATH $BENCHMARK_PATH/$TARGET_PATH $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $BENCHMARK $OUTPUT_PATH classmate_1.5.1_missing_methods.csv
 rm -rf "sootOutput/"

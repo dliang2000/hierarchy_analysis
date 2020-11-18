@@ -1,12 +1,12 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork"
+MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
 
 PACKAGE="com.helger.commons"
-SOOT_JAR="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
-JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
+SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
+JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
 CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/OpenSourceProjects/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched"
 TARGET_TEST_PATH="ph-commons/target/test-classes"
 DESTINATION="$BENCHMARK_PATH/ph-commons/src/test/java/com/helger/commons"
 BENCHMARK="ph_commons_ph_commons_9.3.9"

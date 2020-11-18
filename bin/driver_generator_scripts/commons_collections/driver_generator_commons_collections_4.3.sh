@@ -1,16 +1,16 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork"
+MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
 
 PACKAGE="org.apache.commons.collections4"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
-JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
+JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
 CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/OpenSourceProjects/Benchmarks/commons-collections-collections-4.3"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/commons-collections-collections-4.3"
 TARGET_TEST_PATH="target/test-classes"
 DESTINATION="$BENCHMARK_PATH/src/test/java/org/apache/commons/collections4"
 BENCHMARK="commons_collections_4.3"
-OUTPUT_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/analysis_output"
+OUTPUT_PATH="$MACHINE_SPECIFIC_PATH/analysis_output"
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/mvn_dependencies"
 

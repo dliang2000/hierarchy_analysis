@@ -1,12 +1,12 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/HelperMethodAnalysis"
+MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
 
 PACKAGE="com.helger.commons"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
-CC_CLASS="ca.uwaterloo.liang.Main"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9"
+CC_CLASS="ca.uwaterloo.liang.CorrespondingTestClassesCandidatesAnalyzer"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched"
 TARGET_PATH="ph-commons/target/classes"
 TARGET_TEST_PATH="ph-commons/target/test-classes"
 BENCHMARK="ph_commons_ph_commons_9.3.9"
@@ -29,5 +29,5 @@ if [ -a is_maven ]; then
   mvn clean test
 fi
 
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $DRIVER_PATH $BENCHMARK_PATH/$TARGET_PATH $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $BENCHMARK $OUTPUT_PATH
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $DRIVER_PATH $BENCHMARK_PATH/$TARGET_PATH $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $BENCHMARK $OUTPUT_PATH ph_commons_9.3.9_missing_methods.csv
 rm -rf "sootOutput/"
