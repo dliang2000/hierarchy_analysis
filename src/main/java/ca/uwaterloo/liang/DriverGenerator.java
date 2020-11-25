@@ -66,32 +66,21 @@ public class DriverGenerator {
                 int counter = 1, error_counter = 1;
                 String class_var = String.format("class%d", counter);
                 String error_var = String.format("err%d", error_counter);
-                boolean containsConstructor = false;
                 Iterator<SootClass> classIt = Scene.v().getApplicationClasses().iterator();
 
                 while (classIt.hasNext()) {
                     SootClass appClass = (SootClass) classIt.next();
                     System.out.println("SootClass Visited: " + appClass.toString());
-                    containsConstructor = false;
+                    
                     // skip classes that are final or not concrete, and classes that are private (which would
                     // contain a "$" sign)
-                    if (!appClass.isConcrete() || !appClass.getName().contains("Test") || appClass.isFinal()
-                            || appClass.getName().contains("$"))
+                    if (!appClass.isConcrete() || appClass.getName().contains("$"))
                         continue;
-                    System.out.println("Concrete SootClass Package: " + appClass.getPackageName() + ", SootClass Name: "
-                            + appClass.getName());
-                    for (SootMethod sm : appClass.getMethods()) {
-                        // exclude test classes with multi-arg constructor or private no-arg constructor
-                        if (sm.isConstructor() && (sm.getParameterCount() > 0 || sm.isPrivate())) {
-                            System.out.println("Concrete SootClass " + appClass.getName()
-                                    + " has a multi-arg or private no-arg constructor.");
-                            sb2.append(appClass.getName() + "\n");
-                            containsConstructor = true;
-                        }
-                    }
-                    // skips the test classes with a constructor
-                    if (containsConstructor)
+                    
+                    // skip the test classes with a constructor
+                    if (ifContainsConstructor(appClass, sb2)) 
                         continue;
+                    
                     sb.append("\t\t" + appClass.getName() + " " + class_var + " = new " + appClass.getName() + "();\n");
                     Iterator<SootMethod> mIt = appClass.getMethods().iterator();
                     while (mIt.hasNext()) {
@@ -125,7 +114,7 @@ public class DriverGenerator {
                 writer.close();
                 if (sb2.length() != 0) {
                     BufferedWriter writer2 = new BufferedWriter(new FileWriter(
-                            output_path + "/" + benchmark + "_excluded_test_class_with_contsructor.txt"));
+                            output_path + "/" + benchmark + "_excluded_test_class_with_constructor.txt"));
                     writer2.write(sb2.toString());
                     writer2.close();
                 }
@@ -141,6 +130,23 @@ public class DriverGenerator {
         str.append("package " + packagename + ";\n\n");
         str.append("public class Driver {\n" + "\tpublic static void main(String[] argv) {\n");
         return str;
+    }
+    
+    private static boolean ifContainsConstructor(SootClass sc, StringBuilder sb) {
+        boolean containsConstructor = false;
+        System.out.println("Concrete SootClass Package: " + sc.getPackageName() + ", SootClass Name: "
+                + sc.getName());
+        for (SootMethod sm : sc.getMethods()) {
+            // exclude test classes with multi-arg constructor or private no-arg constructor
+            if (sm.isConstructor() && (sm.getParameterCount() > 0 || sm.isPrivate())) {
+                System.out.println("Concrete SootClass " + sc.getName()
+                        + " has a multi-arg or private no-arg constructor.");
+                sb.append(sc.getName() + "\n");
+                containsConstructor = true;
+            }
+        }
+        return containsConstructor;
+        
     }
 
     private static boolean isTestMethod(SootMethod sm) {
