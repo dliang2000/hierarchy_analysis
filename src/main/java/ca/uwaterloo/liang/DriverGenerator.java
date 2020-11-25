@@ -64,8 +64,8 @@ public class DriverGenerator {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(destination + "/Driver.java"));
 
                 int counter = 1, error_counter = 1;
-                String class_var = "class" + String.valueOf(counter);
-                String error_var = "err" + String.valueOf(error_counter);
+                String class_var = String.format("class%d", counter);
+                String error_var = String.format("err%d", error_counter);
                 boolean containsConstructor = false;
                 Iterator<SootClass> classIt = Scene.v().getApplicationClasses().iterator();
 
@@ -97,7 +97,7 @@ public class DriverGenerator {
                     while (mIt.hasNext()) {
                         SootMethod sm = (SootMethod) mIt.next();
                         // check that the sootmethod is indeed a test case
-                        if (!isTestCase(sm))
+                        if (!isTestMethod(sm))
                             continue;
                         System.out.println("SootMethod " + sm.getSubSignature() + " is visited in SootClass "
                                 + appClass.getName());
@@ -143,7 +143,7 @@ public class DriverGenerator {
         return str;
     }
 
-    private static boolean isTestCase(SootMethod sm) {
+    private static boolean isTestMethod(SootMethod sm) {
         // JUnit 3
 
         if (sm.getName().startsWith("test") && sm.getParameterCount() == 0 && sm.getReturnType().toString() == "void") {
