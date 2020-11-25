@@ -78,7 +78,7 @@ public class DriverGenerator {
                         continue;
                     
                     // skip the test classes with a constructor
-                    if (ifContainsConstructor(appClass, sb2)) 
+                    if (containsConstructor(appClass, sb2)) 
                         continue;
                     
                     sb.append("\t\t" + appClass.getName() + " " + class_var + " = new " + appClass.getName() + "();\n");
@@ -132,7 +132,7 @@ public class DriverGenerator {
         return str;
     }
     
-    private static boolean ifContainsConstructor(SootClass sc, StringBuilder sb) {
+    private static boolean containsConstructor(SootClass sc, StringBuilder sb) {
         boolean containsConstructor = false;
         System.out.println("Concrete SootClass Package: " + sc.getPackageName() + ", SootClass Name: "
                 + sc.getName());
