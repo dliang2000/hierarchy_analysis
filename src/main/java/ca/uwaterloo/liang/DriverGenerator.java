@@ -1,6 +1,9 @@
 package ca.uwaterloo.liang;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,25 +27,33 @@ public class DriverGenerator {
     private static String output_path;
 
     public static void main(String[] args) throws IOException {
+        File file = new File(args[0]); 
+        
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        String line;
+        List<String> lines = new ArrayList<String>();
+        while ((line = br.readLine()) != null) {
+            lines.add(line);
+        }
         PackManager.v().getPack("wjtp").add(new Transform("wjtp.myTransform", DriverTransformer.v()) {
         });
         Options.v().set_prepend_classpath(true);
         Options.v().set_verbose(true);
         Options.v().set_whole_program(true);
         List<String> pd = new ArrayList<>();
-        System.out.println("args[0]: " + args[0]);
-        System.out.println("args[1]: " + args[1]);
-        System.out.println("args[2]: " + args[2]);
-        System.out.println("args[3]: " + args[3]);
-        System.out.println("args[4]: " + args[4]);
-        System.out.println("args[5]: " + args[5]);
+        //System.out.println("args[0]: " + args[0]);
+        //System.out.println("args[1]: " + args[1]);
+        //System.out.println("args[2]: " + args[2]);
+        //System.out.println("args[3]: " + args[3]);
+        //System.out.println("args[4]: " + args[4]);
+        //System.out.println("args[5]: " + args[5]);
         pd.add("-process-dir");
-        pd.add(args[0]);
-        Options.v().set_soot_classpath(args[1]);
-        DriverGenerator.packagename = args[2];
-        DriverGenerator.destination = args[3];
-        DriverGenerator.benchmark = args[4];
-        DriverGenerator.output_path = args[5];
+        pd.add(lines.get(0));
+        Options.v().set_soot_classpath(lines.get(1));
+        DriverGenerator.packagename = lines.get(2);
+        DriverGenerator.destination = lines.get(3);
+        DriverGenerator.benchmark = lines.get(4);
+        DriverGenerator.output_path = lines.get(5);
         soot.Main.main(pd.toArray(new String[0]));
     }
 

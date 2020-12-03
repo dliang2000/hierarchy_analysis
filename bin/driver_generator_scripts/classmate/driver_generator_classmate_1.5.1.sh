@@ -7,7 +7,7 @@ SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencie
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
 CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
 BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/java-classmate-classmate-1.5.1-patched"
-TARGET_TEST_PATH="target/test-classes"
+TEXT_PATH="benchmark_info.txt"
 DESTINATION="$BENCHMARK_PATH/src/test/java/com/fasterxml/classmate"
 BENCHMARK="java_classmate_1.5.1"
 OUTPUT_PATH="$MACHINE_SPECIFIC_PATH/analysis_output"
@@ -28,5 +28,6 @@ if [ -a is_maven ]; then
   mvn clean test
 fi
 
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $PACKAGE $DESTINATION $BENCHMARK $OUTPUT_PATH
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TEXT_PATH
+#java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $PACKAGE $DESTINATION $BENCHMARK $OUTPUT_PATH
 rm -rf "sootOutput/"
