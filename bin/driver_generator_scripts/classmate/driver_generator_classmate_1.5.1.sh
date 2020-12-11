@@ -1,16 +1,15 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
+source ../../../config.sh
+echo $MACHINE_SPECIFIC_PATH
 
-PACKAGE="com.fasterxml.classmate"
+
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
 CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
 BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/java-classmate-classmate-1.5.1-patched"
 TEXT_PATH="benchmark_info.txt"
-DESTINATION="$BENCHMARK_PATH/src/test/java/com/fasterxml/classmate"
-BENCHMARK="java_classmate_1.5.1"
-OUTPUT_PATH="$MACHINE_SPECIFIC_PATH/analysis_output"
+
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/mvn_dependencies"
 
@@ -29,5 +28,4 @@ if [ -a is_maven ]; then
 fi
 
 java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TEXT_PATH
-#java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $PACKAGE $DESTINATION $BENCHMARK $OUTPUT_PATH
 rm -rf "sootOutput/"

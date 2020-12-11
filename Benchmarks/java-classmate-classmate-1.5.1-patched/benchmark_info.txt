@@ -1,6 +1,7 @@
-/home/daveroar/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis/Benchmarks/java-classmate-classmate-1.5.1-patched/target/test-classes
-target/classes::/home/daveroar/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/hamcrest-core-1.3.jar:/home/daveroar/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis/Benchmarks/java-classmate-classmate-1.5.1-patched/mvn_dependencies/junit-4.12.jar
+./target/test-classes
+target/classes::./mvn_dependencies/hamcrest-core-1.3.jar:./mvn_dependencies/junit-4.12.jar
 com.fasterxml.classmate
-/home/daveroar/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis/Benchmarks/java-classmate-classmate-1.5.1-patched/src/test/java/com/fasterxml/classmate
+./src/test/java/com/fasterxml/classmate
 java_classmate_1.5.1
-/home/daveroar/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis/analysis_output
+../../analysis_output
+Junit4

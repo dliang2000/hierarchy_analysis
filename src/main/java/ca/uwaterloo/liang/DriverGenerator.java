@@ -26,9 +26,8 @@ public class DriverGenerator {
     private static String benchmark;
     private static String output_path;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {        
         File file = new File(args[0]); 
-        
         BufferedReader br = new BufferedReader(new FileReader(file)); 
         String line;
         List<String> lines = new ArrayList<String>();
@@ -41,12 +40,6 @@ public class DriverGenerator {
         Options.v().set_verbose(true);
         Options.v().set_whole_program(true);
         List<String> pd = new ArrayList<>();
-        //System.out.println("args[0]: " + args[0]);
-        //System.out.println("args[1]: " + args[1]);
-        //System.out.println("args[2]: " + args[2]);
-        //System.out.println("args[3]: " + args[3]);
-        //System.out.println("args[4]: " + args[4]);
-        //System.out.println("args[5]: " + args[5]);
         pd.add("-process-dir");
         pd.add(lines.get(0));
         Options.v().set_soot_classpath(lines.get(1));
