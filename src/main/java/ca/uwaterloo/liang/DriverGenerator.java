@@ -26,7 +26,7 @@ public class DriverGenerator {
     private static String benchmark;
     private static String output_path;
 
-    public static void main(String[] args) throws IOException {        
+    public static void main(String[] args) throws IOException {
         File file = new File(args[0]); 
         BufferedReader br = new BufferedReader(new FileReader(file)); 
         String line;
@@ -74,7 +74,6 @@ public class DriverGenerator {
 
                 while (classIt.hasNext()) {
                     SootClass appClass = (SootClass) classIt.next();
-                    System.out.println("SootClass Visited: " + appClass.toString());
                     
                     // skip classes that are final or not concrete, and classes that are private (which would
                     // contain a "$" sign)
@@ -91,9 +90,7 @@ public class DriverGenerator {
                         SootMethod sm = (SootMethod) mIt.next();
                         // check that the sootmethod is indeed a test case
                         if (!isTestMethod(sm))
-                            continue;
-                        System.out.println("SootMethod " + sm.getSubSignature() + " is visited in SootClass "
-                                + appClass.getName());
+                            continue;;
                         if (sm.getExceptions().isEmpty()) {
                             sb.append("\t\t" + class_var + "." + sm.getName() + "();\n");
                         } else {
@@ -138,8 +135,6 @@ public class DriverGenerator {
     
     private static boolean containsConstructor(SootClass sc, StringBuilder sb) {
         boolean containsConstructor = false;
-        System.out.println("Concrete SootClass Package: " + sc.getPackageName() + ", SootClass Name: "
-                + sc.getName());
         for (SootMethod sm : sc.getMethods()) {
             // exclude test classes with multi-arg constructor or private no-arg constructor
             if (sm.isConstructor() && (sm.getParameterCount() > 0 || sm.isPrivate())) {
