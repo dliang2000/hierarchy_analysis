@@ -1,16 +1,13 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
+source ../../../config.sh
+echo $MACHINE_SPECIFIC_PATH
 
-PACKAGE="com.helger.commons"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
 CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
 BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/ph-commons-ph-commons-parent-pom-9.3.9-patched"
-TARGET_TEST_PATH="ph-commons/target/test-classes"
-DESTINATION="$BENCHMARK_PATH/ph-commons/src/test/java/com/helger/commons"
-BENCHMARK="ph_commons_ph_commons_9.3.9"
-OUTPUT_PATH="$MACHINE_SPECIFIC_PATH/analysis_output"
+TEXT_PATH="benchmark_info.txt"
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/ph-commons/mvn_dependencies"
 
@@ -28,5 +25,5 @@ if [ -a is_maven ]; then
   mvn clean test
 fi
 
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $PACKAGE $DESTINATION $BENCHMARK $OUTPUT_PATH
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TEXT_PATH
 rm -rf "sootOutput/"
