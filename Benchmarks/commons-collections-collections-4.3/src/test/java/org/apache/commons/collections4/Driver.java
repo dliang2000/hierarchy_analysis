@@ -352,76 +352,77 @@ public class Driver {
 		class10.testUnmodifiableSet();
 		class10.testUnmodifiableSetWrap();
 		class10.union();
-		org.apache.commons.collections4.sequence.SequencesComparatorTest class11 = new org.apache.commons.collections4.sequence.SequencesComparatorTest();
-		class11.testLength();
-		class11.testExecution();
-		class11.testMinimal();
-		class11.testShadok();
-		org.apache.commons.collections4.FluentIterableTest class12 = new org.apache.commons.collections4.FluentIterableTest();
-		class12.factoryMethodOf();
-		class12.appendElements();
-		class12.appendIterable();
-		class12.collate();
-		class12.collateWithComparator();
-		class12.filter();
-		class12.forEach();
-		class12.limit();
-		class12.reverse();
-		class12.skip();
-		class12.transform();
-		class12.unique();
-		class12.unmodifiable();
-		class12.zip();
-		class12.asEnumeration();
-		class12.allMatch();
-		class12.anyMatch();
-		class12.isEmpty();
-		class12.size();
-		class12.eval();
-		class12.contains();
-		class12.copyInto();
-		class12.iterator();
-		class12.get();
-		class12.toArray();
-		class12.testToString();
-		org.apache.commons.collections4.keyvalue.DefaultKeyValueTest class13 = new org.apache.commons.collections4.keyvalue.DefaultKeyValueTest();
-		class13.testAccessorsAndMutators();
-		class13.testSelfReferenceHandling();
-		class13.testConstructors();
-		class13.testEqualsAndHashCode();
+		org.apache.commons.collections4.MapPerformance class11 = new org.apache.commons.collections4.MapPerformance();
+		org.apache.commons.collections4.sequence.SequencesComparatorTest class12 = new org.apache.commons.collections4.sequence.SequencesComparatorTest();
+		class12.testLength();
+		class12.testExecution();
+		class12.testMinimal();
+		class12.testShadok();
+		org.apache.commons.collections4.FluentIterableTest class13 = new org.apache.commons.collections4.FluentIterableTest();
+		class13.factoryMethodOf();
+		class13.appendElements();
+		class13.appendIterable();
+		class13.collate();
+		class13.collateWithComparator();
+		class13.filter();
+		class13.forEach();
+		class13.limit();
+		class13.reverse();
+		class13.skip();
+		class13.transform();
+		class13.unique();
+		class13.unmodifiable();
+		class13.zip();
+		class13.asEnumeration();
+		class13.allMatch();
+		class13.anyMatch();
+		class13.isEmpty();
+		class13.size();
+		class13.eval();
+		class13.contains();
+		class13.copyInto();
+		class13.iterator();
+		class13.get();
+		class13.toArray();
 		class13.testToString();
-		class13.testToMapEntry();
-		org.apache.commons.collections4.keyvalue.DefaultMapEntryTest class14 = new org.apache.commons.collections4.keyvalue.DefaultMapEntryTest();
-		class14.testConstructors();
+		org.apache.commons.collections4.keyvalue.DefaultKeyValueTest class14 = new org.apache.commons.collections4.keyvalue.DefaultKeyValueTest();
+		class14.testAccessorsAndMutators();
 		class14.testSelfReferenceHandling();
-		org.apache.commons.collections4.keyvalue.MultiKeyTest class15 = new org.apache.commons.collections4.keyvalue.MultiKeyTest();
+		class14.testConstructors();
+		class14.testEqualsAndHashCode();
+		class14.testToString();
+		class14.testToMapEntry();
+		org.apache.commons.collections4.keyvalue.DefaultMapEntryTest class15 = new org.apache.commons.collections4.keyvalue.DefaultMapEntryTest();
+		class15.testConstructors();
+		class15.testSelfReferenceHandling();
+		org.apache.commons.collections4.keyvalue.MultiKeyTest class16 = new org.apache.commons.collections4.keyvalue.MultiKeyTest();
 		try {
-			class15.testConstructors();
+			class16.testConstructors();
 		}
 		catch (java.lang.Exception err17) {
 			err17.printStackTrace();
 		}
 		try {
-			class15.testConstructorsByArray();
+			class16.testConstructorsByArray();
 		}
 		catch (java.lang.Exception err18) {
 			err18.printStackTrace();
 		}
 		try {
-			class15.testConstructorsByArrayNull();
+			class16.testConstructorsByArrayNull();
 		}
 		catch (java.lang.Exception err19) {
 			err19.printStackTrace();
 		}
-		class15.testSize();
-		class15.testGetIndexed();
-		class15.testGetKeysSimpleConstructor();
-		class15.testGetKeysArrayConstructorCloned();
-		class15.testGetKeysArrayConstructorNonCloned();
-		class15.testHashCode();
-		class15.testEquals();
+		class16.testSize();
+		class16.testGetIndexed();
+		class16.testGetKeysSimpleConstructor();
+		class16.testGetKeysArrayConstructorCloned();
+		class16.testGetKeysArrayConstructorNonCloned();
+		class16.testHashCode();
+		class16.testEquals();
 		try {
-			class15.testEqualsAfterSerialization();
+			class16.testEqualsAfterSerialization();
 		}
 		catch (java.io.IOException err20) {
 			err20.printStackTrace();
@@ -430,7 +431,7 @@ public class Driver {
 			err21.printStackTrace();
 		}
 		try {
-			class15.testEqualsAfterSerializationOfDerivedClass();
+			class16.testEqualsAfterSerializationOfDerivedClass();
 		}
 		catch (java.io.IOException err22) {
 			err22.printStackTrace();
@@ -438,266 +439,267 @@ public class Driver {
 		catch (java.lang.ClassNotFoundException err23) {
 			err23.printStackTrace();
 		}
-		org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest class16 = new org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest();
-		class16.testConstructors();
-		class16.testAccessorsAndMutators();
-		class16.testSelfReferenceHandling();
-		class16.testUnmodifiable();
-		org.apache.commons.collections4.keyvalue.TiedMapEntryTest class17 = new org.apache.commons.collections4.keyvalue.TiedMapEntryTest();
+		org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest class17 = new org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest();
 		class17.testConstructors();
-		class17.testSetValue();
-		org.apache.commons.collections4.SplitMapUtilsTest class18 = new org.apache.commons.collections4.SplitMapUtilsTest();
-		class18.testReadableMap();
-		class18.testAlreadyReadableMap();
-		class18.testWritableMap();
-		class18.testAlreadyWritableMap();
-		org.apache.commons.collections4.properties.SortedPropertiesTest class19 = new org.apache.commons.collections4.properties.SortedPropertiesTest();
-		class19.testKeys();
-		org.apache.commons.collections4.MultiMapUtilsTest class20 = new org.apache.commons.collections4.MultiMapUtilsTest();
-		class20.testEmptyUnmodifiableMultiValuedMap();
-		class20.testTypeSafeEmptyMultiValuedMap();
-		class20.testEmptyIfNull();
-		class20.testIsEmptyWithEmptyMap();
-		class20.testIsEmptyWithNonEmptyMap();
-		class20.testIsEmptyWithNull();
-		class20.testGetCollection();
-		class20.testGetValuesAsList();
-		class20.testGetValuesAsSet();
-		class20.testGetValuesAsBag();
-		org.apache.commons.collections4.functors.EqualPredicateTest class21 = new org.apache.commons.collections4.functors.EqualPredicateTest();
+		class17.testAccessorsAndMutators();
+		class17.testSelfReferenceHandling();
+		class17.testUnmodifiable();
+		org.apache.commons.collections4.keyvalue.TiedMapEntryTest class18 = new org.apache.commons.collections4.keyvalue.TiedMapEntryTest();
+		class18.testConstructors();
+		class18.testSetValue();
+		org.apache.commons.collections4.SplitMapUtilsTest class19 = new org.apache.commons.collections4.SplitMapUtilsTest();
+		class19.testReadableMap();
+		class19.testAlreadyReadableMap();
+		class19.testWritableMap();
+		class19.testAlreadyWritableMap();
+		org.apache.commons.collections4.properties.SortedPropertiesTest class20 = new org.apache.commons.collections4.properties.SortedPropertiesTest();
+		class20.testKeys();
+		org.apache.commons.collections4.MultiMapUtilsTest class21 = new org.apache.commons.collections4.MultiMapUtilsTest();
+		class21.testEmptyUnmodifiableMultiValuedMap();
+		class21.testTypeSafeEmptyMultiValuedMap();
+		class21.testEmptyIfNull();
+		class21.testIsEmptyWithEmptyMap();
+		class21.testIsEmptyWithNonEmptyMap();
+		class21.testIsEmptyWithNull();
+		class21.testGetCollection();
+		class21.testGetValuesAsList();
+		class21.testGetValuesAsSet();
+		class21.testGetValuesAsBag();
+		org.apache.commons.collections4.functors.EqualPredicateTest class22 = new org.apache.commons.collections4.functors.EqualPredicateTest();
 		try {
-			class21.testNullArgumentEqualsNullPredicate();
+			class22.testNullArgumentEqualsNullPredicate();
 		}
 		catch (java.lang.Exception err24) {
 			err24.printStackTrace();
 		}
 		try {
-			class21.objectFactoryUsesEqualsForTest();
+			class22.objectFactoryUsesEqualsForTest();
 		}
 		catch (java.lang.Exception err25) {
 			err25.printStackTrace();
 		}
 		try {
-			class21.testPredicateTypeCanBeSuperClassOfObject();
+			class22.testPredicateTypeCanBeSuperClassOfObject();
 		}
 		catch (java.lang.Exception err26) {
 			err26.printStackTrace();
 		}
-		org.apache.commons.collections4.functors.ComparatorPredicateTest class22 = new org.apache.commons.collections4.functors.ComparatorPredicateTest();
-		class22.compareEquals();
-		class22.compareGreater();
-		class22.compareLess();
-		class22.compareGreaterOrEqual();
-		class22.compareLessOrEqual();
-		org.apache.commons.collections4.functors.CatchAndRethrowClosureTest class23 = new org.apache.commons.collections4.functors.CatchAndRethrowClosureTest();
-		class23.testThrowingClosure();
-		org.apache.commons.collections4.functors.AllPredicateTest class24 = new org.apache.commons.collections4.functors.AllPredicateTest();
-		class24.emptyArrayToGetInstance();
-		class24.emptyCollectionToGetInstance();
-		class24.oneTruePredicate();
-		class24.oneFalsePredicate();
-		class24.allTrue();
-		class24.trueAndFalseCombined();
-		org.apache.commons.collections4.functors.NullPredicateTest class25 = new org.apache.commons.collections4.functors.NullPredicateTest();
-		class25.testNullPredicate();
+		org.apache.commons.collections4.functors.ComparatorPredicateTest class23 = new org.apache.commons.collections4.functors.ComparatorPredicateTest();
+		class23.compareEquals();
+		class23.compareGreater();
+		class23.compareLess();
+		class23.compareGreaterOrEqual();
+		class23.compareLessOrEqual();
+		org.apache.commons.collections4.functors.CatchAndRethrowClosureTest class24 = new org.apache.commons.collections4.functors.CatchAndRethrowClosureTest();
+		class24.testThrowingClosure();
+		org.apache.commons.collections4.functors.AllPredicateTest class25 = new org.apache.commons.collections4.functors.AllPredicateTest();
+		class25.emptyArrayToGetInstance();
+		class25.emptyCollectionToGetInstance();
+		class25.oneTruePredicate();
+		class25.oneFalsePredicate();
+		class25.allTrue();
+		class25.trueAndFalseCombined();
+		org.apache.commons.collections4.functors.NullPredicateTest class26 = new org.apache.commons.collections4.functors.NullPredicateTest();
+		class26.testNullPredicate();
 		try {
-			class25.ensurePredicateCanBeTypedWithoutWarning();
+			class26.ensurePredicateCanBeTypedWithoutWarning();
 		}
 		catch (java.lang.Exception err27) {
 			err27.printStackTrace();
 		}
-		org.apache.commons.collections4.QueueUtilsTest class26 = new org.apache.commons.collections4.QueueUtilsTest();
-		class26.testSynchronizedQueue();
-		class26.testUnmodifiableQueue();
-		class26.testPredicatedQueue();
-		class26.testTransformedQueue();
-		class26.testEmptyQueue();
-		org.apache.commons.collections4.iterators.LoopingIteratorTest class27 = new org.apache.commons.collections4.iterators.LoopingIteratorTest();
+		org.apache.commons.collections4.QueueUtilsTest class27 = new org.apache.commons.collections4.QueueUtilsTest();
+		class27.testSynchronizedQueue();
+		class27.testUnmodifiableQueue();
+		class27.testPredicatedQueue();
+		class27.testTransformedQueue();
+		class27.testEmptyQueue();
+		org.apache.commons.collections4.iterators.LoopingIteratorTest class28 = new org.apache.commons.collections4.iterators.LoopingIteratorTest();
 		try {
-			class27.testConstructorEx();
+			class28.testConstructorEx();
 		}
 		catch (java.lang.Exception err28) {
 			err28.printStackTrace();
 		}
 		try {
-			class27.testLooping0();
+			class28.testLooping0();
 		}
 		catch (java.lang.Exception err29) {
 			err29.printStackTrace();
 		}
 		try {
-			class27.testLooping1();
+			class28.testLooping1();
 		}
 		catch (java.lang.Exception err30) {
 			err30.printStackTrace();
 		}
 		try {
-			class27.testLooping2();
+			class28.testLooping2();
 		}
 		catch (java.lang.Exception err31) {
 			err31.printStackTrace();
 		}
 		try {
-			class27.testLooping3();
+			class28.testLooping3();
 		}
 		catch (java.lang.Exception err32) {
 			err32.printStackTrace();
 		}
 		try {
-			class27.testRemoving1();
+			class28.testRemoving1();
 		}
 		catch (java.lang.Exception err33) {
 			err33.printStackTrace();
 		}
 		try {
-			class27.testReset();
+			class28.testReset();
 		}
 		catch (java.lang.Exception err34) {
 			err34.printStackTrace();
 		}
 		try {
-			class27.testSize();
+			class28.testSize();
 		}
 		catch (java.lang.Exception err35) {
 			err35.printStackTrace();
 		}
-		org.apache.commons.collections4.iterators.IteratorEnumerationTest class28 = new org.apache.commons.collections4.iterators.IteratorEnumerationTest();
-		class28.testEnumeration();
-		org.apache.commons.collections4.iterators.FilterListIteratorTest class29 = new org.apache.commons.collections4.iterators.FilterListIteratorTest();
-		class29.testWalkLists();
-		class29.testManual();
-		class29.testTruePredicate();
-		class29.testFalsePredicate();
-		class29.testEvens();
-		class29.testOdds();
-		class29.testThrees();
-		class29.testFours();
-		class29.testNestedSixes();
-		class29.testNestedSixes2();
-		class29.testNestedSixes3();
-		class29.testNextChangesPrevious();
-		class29.testPreviousChangesNext();
-		class29.testFailingHasNextBug();
+		org.apache.commons.collections4.iterators.IteratorEnumerationTest class29 = new org.apache.commons.collections4.iterators.IteratorEnumerationTest();
+		class29.testEnumeration();
+		org.apache.commons.collections4.iterators.FilterListIteratorTest class30 = new org.apache.commons.collections4.iterators.FilterListIteratorTest();
+		class30.testWalkLists();
+		class30.testManual();
+		class30.testTruePredicate();
+		class30.testFalsePredicate();
+		class30.testEvens();
+		class30.testOdds();
+		class30.testThrees();
+		class30.testFours();
+		class30.testNestedSixes();
+		class30.testNestedSixes2();
+		class30.testNestedSixes3();
+		class30.testNextChangesPrevious();
+		class30.testPreviousChangesNext();
+		class30.testFailingHasNextBug();
 		try {
-			class29.testCollections360();
+			class30.testCollections360();
 		}
 		catch (java.lang.Throwable err36) {
 			err36.printStackTrace();
 		}
-		org.apache.commons.collections4.iterators.LoopingListIteratorTest class30 = new org.apache.commons.collections4.iterators.LoopingListIteratorTest();
+		org.apache.commons.collections4.iterators.LoopingListIteratorTest class31 = new org.apache.commons.collections4.iterators.LoopingListIteratorTest();
 		try {
-			class30.testConstructorEx();
+			class31.testConstructorEx();
 		}
 		catch (java.lang.Exception err37) {
 			err37.printStackTrace();
 		}
 		try {
-			class30.testLooping0();
+			class31.testLooping0();
 		}
 		catch (java.lang.Exception err38) {
 			err38.printStackTrace();
 		}
 		try {
-			class30.testLooping1();
+			class31.testLooping1();
 		}
 		catch (java.lang.Exception err39) {
 			err39.printStackTrace();
 		}
 		try {
-			class30.testLooping2();
+			class31.testLooping2();
 		}
 		catch (java.lang.Exception err40) {
 			err40.printStackTrace();
 		}
-		class30.testJoggingNotOverBoundary();
-		class30.testJoggingOverBoundary();
-		class30.testRemovingElementsAndIteratingForward();
-		class30.testRemovingElementsAndIteratingBackwards();
-		class30.testReset();
-		class30.testAdd();
-		class30.testNextAndPreviousIndex();
-		class30.testSet();
-		org.apache.commons.collections4.list.Collections701Test class31 = new org.apache.commons.collections4.list.Collections701Test();
-		class31.testArrayList();
-		class31.testHashSet();
-		class31.testSetUniqueList();
-		org.apache.commons.collections4.ComparatorUtilsTest class32 = new org.apache.commons.collections4.ComparatorUtilsTest();
-		class32.booleanComparator();
-		class32.chainedComparator();
-		class32.max();
-		class32.min();
-		class32.nullLowComparator();
-		class32.nullHighComparator();
-		org.apache.commons.collections4.TransformerUtilsTest class33 = new org.apache.commons.collections4.TransformerUtilsTest();
-		class33.testExceptionTransformer();
-		class33.testNullTransformer();
-		class33.testNopTransformer();
-		class33.testConstantTransformer();
-		class33.testCloneTransformer();
-		class33.testMapTransformer();
-		class33.testExecutorTransformer();
-		class33.testPredicateTransformer();
-		class33.testFactoryTransformer();
-		class33.testChainedTransformer();
-		class33.testIfTransformer();
-		class33.testSwitchTransformer();
-		class33.testSwitchMapTransformer();
-		class33.testInvokerTransformer();
-		class33.testInvokerTransformer2();
-		class33.testStringValueTransformer();
-		class33.testInstantiateTransformerNull();
-		class33.testSingletonPatternInSerialization();
-		org.apache.commons.collections4.BagUtilsTest class34 = new org.apache.commons.collections4.BagUtilsTest();
-		class34.testSynchronizedBag();
-		class34.testUnmodifiableBag();
-		class34.testPredicatedBag();
-		class34.testTransformedBag();
-		class34.testSynchronizedSortedBag();
-		class34.testUnmodifiableSortedBag();
-		class34.testPredicatedSortedBag();
-		class34.testTransformedSortedBag();
-		org.apache.commons.collections4.IteratorUtilsTest class35 = new org.apache.commons.collections4.IteratorUtilsTest();
-		class35.testArrayIterator();
-		class35.testArrayListIterator();
-		class35.testAsIterable();
-		class35.testAsIterableNull();
-		class35.testAsMultipleIterable();
-		class35.testAsMultipleIterableNull();
-		class35.testCollatedIterator();
-		class35.testEmptyIterator();
-		class35.testEmptyListIterator();
-		class35.testEmptyMapIterator();
-		class35.testEmptyOrderedIterator();
-		class35.testEmptyOrderedMapIterator();
-		class35.testFind();
+		class31.testJoggingNotOverBoundary();
+		class31.testJoggingOverBoundary();
+		class31.testRemovingElementsAndIteratingForward();
+		class31.testRemovingElementsAndIteratingBackwards();
+		class31.testReset();
+		class31.testAdd();
+		class31.testNextAndPreviousIndex();
+		class31.testSet();
+		org.apache.commons.collections4.list.Collections701Test class32 = new org.apache.commons.collections4.list.Collections701Test();
+		class32.testArrayList();
+		class32.testHashSet();
+		class32.testSetUniqueList();
+		org.apache.commons.collections4.junit.ObjectToStringComparator class33 = new org.apache.commons.collections4.junit.ObjectToStringComparator();
+		org.apache.commons.collections4.ComparatorUtilsTest class34 = new org.apache.commons.collections4.ComparatorUtilsTest();
+		class34.booleanComparator();
+		class34.chainedComparator();
+		class34.max();
+		class34.min();
+		class34.nullLowComparator();
+		class34.nullHighComparator();
+		org.apache.commons.collections4.TransformerUtilsTest class35 = new org.apache.commons.collections4.TransformerUtilsTest();
+		class35.testExceptionTransformer();
+		class35.testNullTransformer();
+		class35.testNopTransformer();
+		class35.testConstantTransformer();
+		class35.testCloneTransformer();
+		class35.testMapTransformer();
+		class35.testExecutorTransformer();
+		class35.testPredicateTransformer();
+		class35.testFactoryTransformer();
+		class35.testChainedTransformer();
+		class35.testIfTransformer();
+		class35.testSwitchTransformer();
+		class35.testSwitchMapTransformer();
+		class35.testInvokerTransformer();
+		class35.testInvokerTransformer2();
+		class35.testStringValueTransformer();
+		class35.testInstantiateTransformerNull();
+		class35.testSingletonPatternInSerialization();
+		org.apache.commons.collections4.BagUtilsTest class36 = new org.apache.commons.collections4.BagUtilsTest();
+		class36.testSynchronizedBag();
+		class36.testUnmodifiableBag();
+		class36.testPredicatedBag();
+		class36.testTransformedBag();
+		class36.testSynchronizedSortedBag();
+		class36.testUnmodifiableSortedBag();
+		class36.testPredicatedSortedBag();
+		class36.testTransformedSortedBag();
+		org.apache.commons.collections4.IteratorUtilsTest class37 = new org.apache.commons.collections4.IteratorUtilsTest();
+		class37.testArrayIterator();
+		class37.testArrayListIterator();
+		class37.testAsIterable();
+		class37.testAsIterableNull();
+		class37.testAsMultipleIterable();
+		class37.testAsMultipleIterableNull();
+		class37.testCollatedIterator();
+		class37.testEmptyIterator();
+		class37.testEmptyListIterator();
+		class37.testEmptyMapIterator();
+		class37.testEmptyOrderedIterator();
+		class37.testEmptyOrderedMapIterator();
+		class37.testFind();
 		try {
-			class35.testFirstFromIterator();
+			class37.testFirstFromIterator();
 		}
 		catch (java.lang.Exception err41) {
 			err41.printStackTrace();
 		}
-		class35.testForEach();
-		class35.testForEachButLast();
+		class37.testForEach();
+		class37.testForEachButLast();
 		try {
-			class35.testGetAtIndexFromIterator();
+			class37.testGetAtIndexFromIterator();
 		}
 		catch (java.lang.Exception err42) {
 			err42.printStackTrace();
 		}
-		class35.testGetIterator();
-		class35.testIndexOf();
-		class35.testNodeIterator();
-		class35.testNodeListIterator();
-		class35.testToArray();
-		class35.testToArray2();
-		class35.testToList();
-		class35.testToListIterator();
-		class35.testToListIteratorNull();
-		class35.testUnmodifiableIteratorImmutability();
-		class35.testUnmodifiableIteratorIteration();
-		class35.testUnmodifiableListIteratorImmutability();
-		class35.testUnmodifiableListIteratorIteration();
-		org.apache.commons.collections4.TrieUtilsTest class36 = new org.apache.commons.collections4.TrieUtilsTest();
-		class36.testUnmodifiableTrie();
+		class37.testGetIterator();
+		class37.testIndexOf();
+		class37.testNodeIterator();
+		class37.testNodeListIterator();
+		class37.testToArray();
+		class37.testToArray2();
+		class37.testToList();
+		class37.testToListIterator();
+		class37.testToListIteratorNull();
+		class37.testUnmodifiableIteratorImmutability();
+		class37.testUnmodifiableIteratorIteration();
+		class37.testUnmodifiableListIteratorImmutability();
+		class37.testUnmodifiableListIteratorIteration();
+		org.apache.commons.collections4.TrieUtilsTest class38 = new org.apache.commons.collections4.TrieUtilsTest();
+		class38.testUnmodifiableTrie();
 	}
 }

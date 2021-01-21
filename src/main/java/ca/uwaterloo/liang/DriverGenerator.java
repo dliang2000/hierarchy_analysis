@@ -75,9 +75,8 @@ public class DriverGenerator {
                 while (classIt.hasNext()) {
                     SootClass appClass = (SootClass) classIt.next();
                     
-                    // skip classes that are final or not concrete, and classes that are private (which would
-                    // contain a "$" sign)
-                    if (!appClass.isConcrete() || appClass.getName().contains("$"))
+                    // skip classes that are final or not concrete, and classes that are not public
+                    if (!appClass.isConcrete() || !appClass.isPublic() || appClass.getName().contains("$"))
                         continue;
                     
                     // skip the test classes with a constructor
@@ -88,8 +87,9 @@ public class DriverGenerator {
                     Iterator<SootMethod> mIt = appClass.getMethods().iterator();
                     while (mIt.hasNext()) {
                         SootMethod sm = (SootMethod) mIt.next();
-                        // check that the sootmethod is indeed a test case
-                        if (!isTestMethod(sm))
+                        // check that the sootmethod is indeed a test case, and it is public 
+                        // (or else the Driver class will likely not have the access to the method)
+                        if (!isTestMethod(sm) || !sm.isPublic())
                             continue;;
                         if (sm.getExceptions().isEmpty()) {
                             sb.append("\t\t" + class_var + "." + sm.getName() + "();\n");
@@ -141,6 +141,12 @@ public class DriverGenerator {
                 System.out.println("Concrete SootClass " + sc.getName()
                         + " has a multi-arg or private no-arg constructor.");
                 sb.append(sc.getName() + "\n");
+                containsConstructor = true;
+            }
+            // exclude test classes with constructor that throws exception
+            if (sm.isConstructor() && !sm.getExceptions().isEmpty()) {
+                System.out.println("Concrete SootClass " + sc.getName()
+                + " has a constructor throwing exception.");
                 containsConstructor = true;
             }
         }

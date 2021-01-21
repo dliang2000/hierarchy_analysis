@@ -162,998 +162,1128 @@ public class Driver {
 		class8.testMatchPath_DefaultFileSeparator();
 		class8.testMatchPath_UnixFileSeparator();
 		class8.testMatchPath_WindowsFileSeparator();
-		org.codehaus.plexus.util.introspection.ReflectionValueExtractorTest class9 = new org.codehaus.plexus.util.introspection.ReflectionValueExtractorTest();
+		org.codehaus.plexus.util.ReflectionUtilsTest class9 = new org.codehaus.plexus.util.ReflectionUtilsTest();
 		try {
-			class9.testValueExtraction();
+			class9.testSimpleVariableAccess();
 		}
-		catch (java.lang.Exception err25) {
+		catch (java.lang.IllegalAccessException err25) {
 			err25.printStackTrace();
 		}
 		try {
-			class9.testValueExtractorWithAInvalidExpression();
+			class9.testComplexVariableAccess();
 		}
-		catch (java.lang.Exception err26) {
+		catch (java.lang.IllegalAccessException err26) {
 			err26.printStackTrace();
 		}
 		try {
-			class9.testMappedDottedKey();
+			class9.testSuperClassVariableAccess();
 		}
-		catch (java.lang.Exception err27) {
+		catch (java.lang.IllegalAccessException err27) {
 			err27.printStackTrace();
 		}
 		try {
-			class9.testIndexedMapped();
+			class9.testSettingVariableValue();
 		}
-		catch (java.lang.Exception err28) {
+		catch (java.lang.IllegalAccessException err28) {
 			err28.printStackTrace();
 		}
+		org.codehaus.plexus.util.IOUtilTest class10 = new org.codehaus.plexus.util.IOUtilTest();
 		try {
-			class9.testMappedIndexed();
+			class10.testInputStreamToOutputStream();
 		}
 		catch (java.lang.Exception err29) {
 			err29.printStackTrace();
 		}
 		try {
-			class9.testMappedMissingDot();
+			class10.testInputStreamToWriter();
 		}
 		catch (java.lang.Exception err30) {
 			err30.printStackTrace();
 		}
 		try {
-			class9.testIndexedMissingDot();
+			class10.testInputStreamToString();
 		}
 		catch (java.lang.Exception err31) {
 			err31.printStackTrace();
 		}
 		try {
-			class9.testDotDot();
+			class10.testReaderToOutputStream();
 		}
 		catch (java.lang.Exception err32) {
 			err32.printStackTrace();
 		}
 		try {
-			class9.testBadIndexedSyntax();
+			class10.testReaderToWriter();
 		}
 		catch (java.lang.Exception err33) {
 			err33.printStackTrace();
 		}
 		try {
-			class9.testBadMappedSyntax();
+			class10.testReaderToString();
 		}
 		catch (java.lang.Exception err34) {
 			err34.printStackTrace();
 		}
 		try {
-			class9.testIllegalIndexedType();
+			class10.testStringToOutputStream();
 		}
 		catch (java.lang.Exception err35) {
 			err35.printStackTrace();
 		}
 		try {
-			class9.testIllegalMappedType();
+			class10.testStringToWriter();
 		}
 		catch (java.lang.Exception err36) {
 			err36.printStackTrace();
 		}
 		try {
-			class9.testTrimRootToken();
+			class10.testInputStreamToByteArray();
 		}
 		catch (java.lang.Exception err37) {
 			err37.printStackTrace();
 		}
 		try {
-			class9.testArtifactMap();
+			class10.testStringToByteArray();
 		}
 		catch (java.lang.Exception err38) {
 			err38.printStackTrace();
 		}
 		try {
-			class9.testRootPropertyRegression();
+			class10.testByteArrayToWriter();
 		}
 		catch (java.lang.Exception err39) {
 			err39.printStackTrace();
 		}
-		org.codehaus.plexus.util.StringUtilsTest class10 = new org.codehaus.plexus.util.StringUtilsTest();
-		class10.testIsEmpty();
-		class10.testIsNotEmpty();
-		class10.testIsBlank();
-		class10.testIsNotBlank();
-		class10.testCapitalizeFirstLetter();
-		class10.testCapitalizeFirstLetterTurkish();
-		class10.testLowerCaseFirstLetter();
-		class10.testLowerCaseFirstLetterTurkish();
-		class10.testRemoveAndHump();
-		class10.testRemoveAndHumpTurkish();
-		class10.testQuote_EscapeEmbeddedSingleQuotes();
-		class10.testQuote_EscapeEmbeddedSingleQuotesWithPattern();
-		class10.testQuote_EscapeEmbeddedDoubleQuotesAndSpaces();
-		class10.testQuote_DontQuoteIfUnneeded();
-		class10.testQuote_WrapWithSingleQuotes();
-		class10.testQuote_PreserveExistingQuotes();
-		class10.testQuote_WrapExistingQuotesWhenForceIsTrue();
-		class10.testQuote_ShortVersion_SingleQuotesPreserved();
-		class10.testSplit();
 		try {
-			class10.testRemoveDuplicateWhitespace();
+			class10.testByteArrayToString();
 		}
 		catch (java.lang.Exception err40) {
 			err40.printStackTrace();
 		}
 		try {
-			class10.testUnifyLineSeparators();
+			class10.testByteArrayToOutputStream();
 		}
 		catch (java.lang.Exception err41) {
 			err41.printStackTrace();
 		}
-		org.codehaus.plexus.util.cli.EnhancedStringTokenizerTest class11 = new org.codehaus.plexus.util.cli.EnhancedStringTokenizerTest();
-		class11.test1();
-		class11.test2();
-		class11.test3();
-		class11.testMultipleDelim();
-		class11.testEmptyString();
-		class11.testSimpleString();
-		org.codehaus.plexus.util.cli.CommandLineUtilsTest class12 = new org.codehaus.plexus.util.cli.CommandLineUtilsTest();
-		class12.testQuoteArguments();
 		try {
-			class12.testGetSystemEnvVarsCaseInsensitive();
+			class10.testCloseInputStream();
 		}
 		catch (java.lang.Exception err42) {
 			err42.printStackTrace();
 		}
 		try {
-			class12.testGetSystemEnvVarsWindows();
+			class10.testCloseOutputStream();
 		}
 		catch (java.lang.Exception err43) {
 			err43.printStackTrace();
 		}
 		try {
-			class12.testTranslateCommandline();
+			class10.testCloseReader();
 		}
 		catch (java.lang.Exception err44) {
 			err44.printStackTrace();
 		}
-		org.codehaus.plexus.util.cli.shell.BourneShellTest class13 = new org.codehaus.plexus.util.cli.shell.BourneShellTest();
-		class13.testQuoteWorkingDirectoryAndExecutable();
-		class13.testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes();
-		class13.testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep();
-		class13.testPreserveSingleQuotesOnArgument();
-		class13.testAddSingleQuotesOnArgumentWithSpaces();
-		class13.testEscapeSingleQuotesOnArgument();
-		class13.testArgumentsWithsemicolon();
 		try {
-			class13.testBourneShellQuotingCharacters();
+			class10.testCloseWriter();
 		}
 		catch (java.lang.Exception err45) {
 			err45.printStackTrace();
 		}
-		org.codehaus.plexus.util.cli.StreamPumperTest class14 = new org.codehaus.plexus.util.cli.StreamPumperTest();
-		class14.testPumping();
-		class14.testPumpingWithPrintWriter();
-		class14.testPumperReadsInputStreamUntilEndEvenIfConsumerFails();
-		class14.testEnabled();
-		class14.testDisabled();
-		org.codehaus.plexus.util.cli.DefaultConsumerTest class15 = new org.codehaus.plexus.util.cli.DefaultConsumerTest();
+		org.codehaus.plexus.util.introspection.ReflectionValueExtractorTest class11 = new org.codehaus.plexus.util.introspection.ReflectionValueExtractorTest();
 		try {
-			class15.testConsumeLine();
+			class11.testValueExtraction();
 		}
 		catch (java.lang.Exception err46) {
 			err46.printStackTrace();
 		}
-		org.codehaus.plexus.util.cli.CommandlineTest class16 = new org.codehaus.plexus.util.cli.CommandlineTest();
-		class16.testCommandlineWithoutCommandInConstructor();
-		class16.testCommandlineWithCommandInConstructor();
 		try {
-			class16.testExecuteBinaryOnPath();
+			class11.testValueExtractorWithAInvalidExpression();
 		}
 		catch (java.lang.Exception err47) {
 			err47.printStackTrace();
 		}
 		try {
-			class16.testExecute();
+			class11.testMappedDottedKey();
 		}
 		catch (java.lang.Exception err48) {
 			err48.printStackTrace();
 		}
-		class16.testSetLine();
-		class16.testCreateCommandInReverseOrder();
-		class16.testSetFile();
 		try {
-			class16.testGetShellCommandLineWindows();
+			class11.testIndexedMapped();
 		}
 		catch (java.lang.Exception err49) {
 			err49.printStackTrace();
 		}
 		try {
-			class16.testGetShellCommandLineWindowsWithSeveralQuotes();
+			class11.testMappedIndexed();
 		}
 		catch (java.lang.Exception err50) {
 			err50.printStackTrace();
 		}
 		try {
-			class16.testGetShellCommandLineBash();
+			class11.testMappedMissingDot();
 		}
 		catch (java.lang.Exception err51) {
 			err51.printStackTrace();
 		}
 		try {
-			class16.testGetShellCommandLineBash_WithWorkingDirectory();
+			class11.testIndexedMissingDot();
 		}
 		catch (java.lang.Exception err52) {
 			err52.printStackTrace();
 		}
 		try {
-			class16.testGetShellCommandLineBash_WithSingleQuotedArg();
+			class11.testDotDot();
 		}
 		catch (java.lang.Exception err53) {
 			err53.printStackTrace();
 		}
 		try {
-			class16.testGetShellCommandLineNonWindows();
+			class11.testBadIndexedSyntax();
 		}
 		catch (java.lang.Exception err54) {
 			err54.printStackTrace();
 		}
 		try {
-			class16.testEnvironment();
+			class11.testBadMappedSyntax();
 		}
 		catch (java.lang.Exception err55) {
 			err55.printStackTrace();
 		}
 		try {
-			class16.testEnvironmentWitOverrideSystemEnvironment();
+			class11.testIllegalIndexedType();
 		}
 		catch (java.lang.Exception err56) {
 			err56.printStackTrace();
 		}
 		try {
-			class16.testQuotedPathWithSingleApostrophe();
+			class11.testIllegalMappedType();
 		}
 		catch (java.lang.Exception err57) {
 			err57.printStackTrace();
 		}
 		try {
-			class16.testPathWithShellExpansionStrings();
+			class11.testTrimRootToken();
 		}
 		catch (java.lang.Exception err58) {
 			err58.printStackTrace();
 		}
 		try {
-			class16.testQuotedPathWithQuotationMark();
+			class11.testArtifactMap();
 		}
 		catch (java.lang.Exception err59) {
 			err59.printStackTrace();
 		}
 		try {
-			class16.testQuotedPathWithQuotationMarkAndApostrophe();
+			class11.testRootPropertyRegression();
 		}
 		catch (java.lang.Exception err60) {
 			err60.printStackTrace();
 		}
+		org.codehaus.plexus.util.StringUtilsTest class12 = new org.codehaus.plexus.util.StringUtilsTest();
+		class12.testIsEmpty();
+		class12.testIsNotEmpty();
+		class12.testIsBlank();
+		class12.testIsNotBlank();
+		class12.testCapitalizeFirstLetter();
+		class12.testCapitalizeFirstLetterTurkish();
+		class12.testLowerCaseFirstLetter();
+		class12.testLowerCaseFirstLetterTurkish();
+		class12.testRemoveAndHump();
+		class12.testRemoveAndHumpTurkish();
+		class12.testQuote_EscapeEmbeddedSingleQuotes();
+		class12.testQuote_EscapeEmbeddedSingleQuotesWithPattern();
+		class12.testQuote_EscapeEmbeddedDoubleQuotesAndSpaces();
+		class12.testQuote_DontQuoteIfUnneeded();
+		class12.testQuote_WrapWithSingleQuotes();
+		class12.testQuote_PreserveExistingQuotes();
+		class12.testQuote_WrapExistingQuotesWhenForceIsTrue();
+		class12.testQuote_ShortVersion_SingleQuotesPreserved();
+		class12.testSplit();
 		try {
-			class16.testOnlyQuotedPath();
+			class12.testRemoveDuplicateWhitespace();
 		}
 		catch (java.lang.Exception err61) {
 			err61.printStackTrace();
 		}
 		try {
-			class16.testDollarSignInArgumentPath();
+			class12.testUnifyLineSeparators();
 		}
 		catch (java.lang.Exception err62) {
 			err62.printStackTrace();
 		}
+		org.codehaus.plexus.util.cli.EnhancedStringTokenizerTest class13 = new org.codehaus.plexus.util.cli.EnhancedStringTokenizerTest();
+		class13.test1();
+		class13.test2();
+		class13.test3();
+		class13.testMultipleDelim();
+		class13.testEmptyString();
+		class13.testSimpleString();
+		org.codehaus.plexus.util.cli.CommandLineUtilsTest class14 = new org.codehaus.plexus.util.cli.CommandLineUtilsTest();
+		class14.testQuoteArguments();
 		try {
-			class16.testTimeOutException();
+			class14.testGetSystemEnvVarsCaseInsensitive();
 		}
 		catch (java.lang.Exception err63) {
 			err63.printStackTrace();
 		}
-		org.codehaus.plexus.util.InterpolationFilterReaderTest class17 = new org.codehaus.plexus.util.InterpolationFilterReaderTest();
 		try {
-			class17.testShouldNotInterpolateExpressionAtEndOfDataWithInvalidEndToken();
+			class14.testGetSystemEnvVarsWindows();
 		}
 		catch (java.lang.Exception err64) {
 			err64.printStackTrace();
 		}
 		try {
-			class17.testShouldNotInterpolateExpressionWithMissingEndToken();
+			class14.testTranslateCommandline();
 		}
 		catch (java.lang.Exception err65) {
 			err65.printStackTrace();
 		}
+		org.codehaus.plexus.util.cli.shell.BourneShellTest class15 = new org.codehaus.plexus.util.cli.shell.BourneShellTest();
+		class15.testQuoteWorkingDirectoryAndExecutable();
+		class15.testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes();
+		class15.testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep();
+		class15.testPreserveSingleQuotesOnArgument();
+		class15.testAddSingleQuotesOnArgumentWithSpaces();
+		class15.testEscapeSingleQuotesOnArgument();
+		class15.testArgumentsWithsemicolon();
 		try {
-			class17.testShouldNotInterpolateWithMalformedStartToken();
+			class15.testBourneShellQuotingCharacters();
 		}
 		catch (java.lang.Exception err66) {
 			err66.printStackTrace();
 		}
+		org.codehaus.plexus.util.cli.StreamPumperTest class16 = new org.codehaus.plexus.util.cli.StreamPumperTest();
+		class16.testPumping();
+		class16.testPumpingWithPrintWriter();
+		class16.testPumperReadsInputStreamUntilEndEvenIfConsumerFails();
+		class16.testEnabled();
+		class16.testDisabled();
+		org.codehaus.plexus.util.cli.DefaultConsumerTest class17 = new org.codehaus.plexus.util.cli.DefaultConsumerTest();
 		try {
-			class17.testShouldNotInterpolateWithMalformedEndToken();
+			class17.testConsumeLine();
 		}
 		catch (java.lang.Exception err67) {
 			err67.printStackTrace();
 		}
+		org.codehaus.plexus.util.cli.CommandlineTest class18 = new org.codehaus.plexus.util.cli.CommandlineTest();
+		class18.testCommandlineWithoutCommandInConstructor();
+		class18.testCommandlineWithCommandInConstructor();
 		try {
-			class17.testInterpolationWithMulticharDelimiters();
+			class18.testExecuteBinaryOnPath();
 		}
 		catch (java.lang.Exception err68) {
 			err68.printStackTrace();
 		}
 		try {
-			class17.testDefaultInterpolationWithNonInterpolatedValueAtEnd();
+			class18.testExecute();
 		}
 		catch (java.lang.Exception err69) {
 			err69.printStackTrace();
 		}
+		class18.testSetLine();
+		class18.testCreateCommandInReverseOrder();
+		class18.testSetFile();
 		try {
-			class17.testDefaultInterpolationWithInterpolatedValueAtEnd();
+			class18.testGetShellCommandLineWindows();
 		}
 		catch (java.lang.Exception err70) {
 			err70.printStackTrace();
 		}
 		try {
-			class17.testInterpolationWithSpecifiedBoundaryTokens();
+			class18.testGetShellCommandLineWindowsWithSeveralQuotes();
 		}
 		catch (java.lang.Exception err71) {
 			err71.printStackTrace();
 		}
 		try {
-			class17.testInterpolationWithSpecifiedBoundaryTokensWithNonInterpolatedValueAtEnd();
+			class18.testGetShellCommandLineBash();
 		}
 		catch (java.lang.Exception err72) {
 			err72.printStackTrace();
 		}
 		try {
-			class17.testInterpolationWithSpecifiedBoundaryTokensWithInterpolatedValueAtEnd();
+			class18.testGetShellCommandLineBash_WithWorkingDirectory();
 		}
 		catch (java.lang.Exception err73) {
 			err73.printStackTrace();
 		}
 		try {
-			class17.testInterpolationWithSpecifiedBoundaryTokensAndAdditionalTokenCharacter();
+			class18.testGetShellCommandLineBash_WithSingleQuotedArg();
 		}
 		catch (java.lang.Exception err74) {
 			err74.printStackTrace();
 		}
-		org.codehaus.plexus.util.PerfTest class18 = new org.codehaus.plexus.util.PerfTest();
-		class18.testSubString();
-		class18.testResDir();
-		org.codehaus.plexus.util.dag.TopologicalSorterTest class19 = new org.codehaus.plexus.util.dag.TopologicalSorterTest();
 		try {
-			class19.testDfs();
+			class18.testGetShellCommandLineNonWindows();
 		}
-		catch (org.codehaus.plexus.util.dag.CycleDetectedException err75) {
+		catch (java.lang.Exception err75) {
 			err75.printStackTrace();
 		}
-		org.codehaus.plexus.util.dag.CycleDetectedExceptionTest class20 = new org.codehaus.plexus.util.dag.CycleDetectedExceptionTest();
-		class20.testException();
-		org.codehaus.plexus.util.dag.CycleDetectorTest class21 = new org.codehaus.plexus.util.dag.CycleDetectorTest();
-		class21.testCycyleDetection();
-		org.codehaus.plexus.util.dag.VertexTest class22 = new org.codehaus.plexus.util.dag.VertexTest();
-		class22.testVertex();
-		org.codehaus.plexus.util.dag.DAGTest class23 = new org.codehaus.plexus.util.dag.DAGTest();
 		try {
-			class23.testDAG();
+			class18.testEnvironment();
 		}
-		catch (org.codehaus.plexus.util.dag.CycleDetectedException err76) {
+		catch (java.lang.Exception err76) {
 			err76.printStackTrace();
 		}
 		try {
-			class23.testGetPredecessors();
+			class18.testEnvironmentWitOverrideSystemEnvironment();
 		}
-		catch (org.codehaus.plexus.util.dag.CycleDetectedException err77) {
+		catch (java.lang.Exception err77) {
 			err77.printStackTrace();
 		}
-		org.codehaus.plexus.util.OsTest class24 = new org.codehaus.plexus.util.OsTest();
-		class24.testUndefinedFamily();
-		class24.testOs();
-		class24.testValidList();
-		org.codehaus.plexus.util.xml.XmlUtilTest class25 = new org.codehaus.plexus.util.xml.XmlUtilTest();
 		try {
-			class25.testPrettyFormatInputStreamOutputStream();
+			class18.testQuotedPathWithSingleApostrophe();
 		}
 		catch (java.lang.Exception err78) {
 			err78.printStackTrace();
 		}
 		try {
-			class25.testPrettyFormatReaderWriter();
+			class18.testPathWithShellExpansionStrings();
 		}
 		catch (java.lang.Exception err79) {
 			err79.printStackTrace();
 		}
 		try {
-			class25.testPrettyFormatString();
+			class18.testQuotedPathWithQuotationMark();
 		}
 		catch (java.lang.Exception err80) {
 			err80.printStackTrace();
 		}
 		try {
-			class25.testPrettyFormatReaderWriter2();
+			class18.testQuotedPathWithQuotationMarkAndApostrophe();
 		}
 		catch (java.lang.Exception err81) {
 			err81.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.Xpp3DomPerfTest class26 = new org.codehaus.plexus.util.xml.Xpp3DomPerfTest();
-		org.codehaus.plexus.util.xml.XmlStreamReaderTest class27 = new org.codehaus.plexus.util.xml.XmlStreamReaderTest();
 		try {
-			class27.testNoXmlHeader();
+			class18.testOnlyQuotedPath();
 		}
-		catch (java.io.IOException err82) {
+		catch (java.lang.Exception err82) {
 			err82.printStackTrace();
 		}
 		try {
-			class27.testDefaultEncoding();
+			class18.testDollarSignInArgumentPath();
 		}
-		catch (java.io.IOException err83) {
+		catch (java.lang.Exception err83) {
 			err83.printStackTrace();
 		}
 		try {
-			class27.testUTF8Encoding();
+			class18.testTimeOutException();
 		}
-		catch (java.io.IOException err84) {
+		catch (java.lang.Exception err84) {
 			err84.printStackTrace();
 		}
+		org.codehaus.plexus.util.InterpolationFilterReaderTest class19 = new org.codehaus.plexus.util.InterpolationFilterReaderTest();
 		try {
-			class27.testUTF16Encoding();
+			class19.testShouldNotInterpolateExpressionAtEndOfDataWithInvalidEndToken();
 		}
-		catch (java.io.IOException err85) {
+		catch (java.lang.Exception err85) {
 			err85.printStackTrace();
 		}
 		try {
-			class27.testUTF16BEEncoding();
+			class19.testShouldNotInterpolateExpressionWithMissingEndToken();
 		}
-		catch (java.io.IOException err86) {
+		catch (java.lang.Exception err86) {
 			err86.printStackTrace();
 		}
 		try {
-			class27.testUTF16LEEncoding();
+			class19.testShouldNotInterpolateWithMalformedStartToken();
 		}
-		catch (java.io.IOException err87) {
+		catch (java.lang.Exception err87) {
 			err87.printStackTrace();
 		}
 		try {
-			class27.testLatin1Encoding();
+			class19.testShouldNotInterpolateWithMalformedEndToken();
 		}
-		catch (java.io.IOException err88) {
+		catch (java.lang.Exception err88) {
 			err88.printStackTrace();
 		}
 		try {
-			class27.testLatin7Encoding();
+			class19.testInterpolationWithMulticharDelimiters();
 		}
-		catch (java.io.IOException err89) {
+		catch (java.lang.Exception err89) {
 			err89.printStackTrace();
 		}
 		try {
-			class27.testLatin15Encoding();
+			class19.testDefaultInterpolationWithNonInterpolatedValueAtEnd();
 		}
-		catch (java.io.IOException err90) {
+		catch (java.lang.Exception err90) {
 			err90.printStackTrace();
 		}
 		try {
-			class27.testEUC_JPEncoding();
+			class19.testDefaultInterpolationWithInterpolatedValueAtEnd();
 		}
-		catch (java.io.IOException err91) {
+		catch (java.lang.Exception err91) {
 			err91.printStackTrace();
 		}
 		try {
-			class27.testEBCDICEncoding();
+			class19.testInterpolationWithSpecifiedBoundaryTokens();
 		}
-		catch (java.io.IOException err92) {
+		catch (java.lang.Exception err92) {
 			err92.printStackTrace();
 		}
 		try {
-			class27.testInappropriateEncoding();
+			class19.testInterpolationWithSpecifiedBoundaryTokensWithNonInterpolatedValueAtEnd();
 		}
-		catch (java.io.IOException err93) {
+		catch (java.lang.Exception err93) {
 			err93.printStackTrace();
 		}
 		try {
-			class27.testEncodingAttribute();
+			class19.testInterpolationWithSpecifiedBoundaryTokensWithInterpolatedValueAtEnd();
 		}
-		catch (java.io.IOException err94) {
+		catch (java.lang.Exception err94) {
 			err94.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.Xpp3DomWriterTest class28 = new org.codehaus.plexus.util.xml.Xpp3DomWriterTest();
-		class28.testWriter();
-		class28.testWriterNoEscape();
-		org.codehaus.plexus.util.xml.XmlStreamWriterTest class29 = new org.codehaus.plexus.util.xml.XmlStreamWriterTest();
 		try {
-			class29.testNoXmlHeader();
+			class19.testInterpolationWithSpecifiedBoundaryTokensAndAdditionalTokenCharacter();
 		}
-		catch (java.io.IOException err95) {
+		catch (java.lang.Exception err95) {
 			err95.printStackTrace();
 		}
+		org.codehaus.plexus.util.PerfTest class20 = new org.codehaus.plexus.util.PerfTest();
+		class20.testSubString();
+		class20.testResDir();
+		org.codehaus.plexus.util.dag.TopologicalSorterTest class21 = new org.codehaus.plexus.util.dag.TopologicalSorterTest();
 		try {
-			class29.testEmpty();
+			class21.testDfs();
 		}
-		catch (java.io.IOException err96) {
+		catch (org.codehaus.plexus.util.dag.CycleDetectedException err96) {
 			err96.printStackTrace();
 		}
+		org.codehaus.plexus.util.dag.CycleDetectedExceptionTest class22 = new org.codehaus.plexus.util.dag.CycleDetectedExceptionTest();
+		class22.testException();
+		org.codehaus.plexus.util.dag.CycleDetectorTest class23 = new org.codehaus.plexus.util.dag.CycleDetectorTest();
+		class23.testCycyleDetection();
+		org.codehaus.plexus.util.dag.VertexTest class24 = new org.codehaus.plexus.util.dag.VertexTest();
+		class24.testVertex();
+		org.codehaus.plexus.util.dag.DAGTest class25 = new org.codehaus.plexus.util.dag.DAGTest();
 		try {
-			class29.testDefaultEncoding();
+			class25.testDAG();
 		}
-		catch (java.io.IOException err97) {
+		catch (org.codehaus.plexus.util.dag.CycleDetectedException err97) {
 			err97.printStackTrace();
 		}
 		try {
-			class29.testUTF8Encoding();
+			class25.testGetPredecessors();
 		}
-		catch (java.io.IOException err98) {
+		catch (org.codehaus.plexus.util.dag.CycleDetectedException err98) {
 			err98.printStackTrace();
 		}
+		org.codehaus.plexus.util.OsTest class26 = new org.codehaus.plexus.util.OsTest();
+		class26.testUndefinedFamily();
+		class26.testOs();
+		class26.testValidList();
+		org.codehaus.plexus.util.xml.XmlUtilTest class27 = new org.codehaus.plexus.util.xml.XmlUtilTest();
 		try {
-			class29.testUTF16Encoding();
+			class27.testPrettyFormatInputStreamOutputStream();
 		}
-		catch (java.io.IOException err99) {
+		catch (java.lang.Exception err99) {
 			err99.printStackTrace();
 		}
 		try {
-			class29.testUTF16BEEncoding();
+			class27.testPrettyFormatReaderWriter();
 		}
-		catch (java.io.IOException err100) {
+		catch (java.lang.Exception err100) {
 			err100.printStackTrace();
 		}
 		try {
-			class29.testUTF16LEEncoding();
+			class27.testPrettyFormatString();
 		}
-		catch (java.io.IOException err101) {
+		catch (java.lang.Exception err101) {
 			err101.printStackTrace();
 		}
 		try {
-			class29.testLatin1Encoding();
+			class27.testPrettyFormatReaderWriter2();
 		}
-		catch (java.io.IOException err102) {
+		catch (java.lang.Exception err102) {
 			err102.printStackTrace();
 		}
+		org.codehaus.plexus.util.xml.Xpp3DomPerfTest class28 = new org.codehaus.plexus.util.xml.Xpp3DomPerfTest();
+		org.codehaus.plexus.util.xml.XmlStreamReaderTest class29 = new org.codehaus.plexus.util.xml.XmlStreamReaderTest();
 		try {
-			class29.testLatin7Encoding();
+			class29.testNoXmlHeader();
 		}
 		catch (java.io.IOException err103) {
 			err103.printStackTrace();
 		}
 		try {
-			class29.testLatin15Encoding();
+			class29.testDefaultEncoding();
 		}
 		catch (java.io.IOException err104) {
 			err104.printStackTrace();
 		}
 		try {
-			class29.testEUC_JPEncoding();
+			class29.testUTF8Encoding();
 		}
 		catch (java.io.IOException err105) {
 			err105.printStackTrace();
 		}
 		try {
-			class29.testEBCDICEncoding();
+			class29.testUTF16Encoding();
 		}
 		catch (java.io.IOException err106) {
 			err106.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.pull.MXParserTest class30 = new org.codehaus.plexus.util.xml.pull.MXParserTest();
 		try {
-			class30.testHexadecimalEntities();
+			class29.testUTF16BEEncoding();
 		}
-		catch (java.lang.Exception err107) {
+		catch (java.io.IOException err107) {
 			err107.printStackTrace();
 		}
 		try {
-			class30.testDecimalEntities();
+			class29.testUTF16LEEncoding();
 		}
-		catch (java.lang.Exception err108) {
+		catch (java.io.IOException err108) {
 			err108.printStackTrace();
 		}
 		try {
-			class30.testPredefinedEntities();
+			class29.testLatin1Encoding();
 		}
-		catch (java.lang.Exception err109) {
+		catch (java.io.IOException err109) {
 			err109.printStackTrace();
 		}
 		try {
-			class30.testEntityReplacementMap();
+			class29.testLatin7Encoding();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err110) {
+		catch (java.io.IOException err110) {
 			err110.printStackTrace();
+		}
+		try {
+			class29.testLatin15Encoding();
 		}
 		catch (java.io.IOException err111) {
 			err111.printStackTrace();
 		}
 		try {
-			class30.testCustomEntities();
+			class29.testEUC_JPEncoding();
 		}
-		catch (java.lang.Exception err112) {
+		catch (java.io.IOException err112) {
 			err112.printStackTrace();
 		}
 		try {
-			class30.testUnicodeEntities();
+			class29.testEBCDICEncoding();
 		}
-		catch (java.lang.Exception err113) {
+		catch (java.io.IOException err113) {
 			err113.printStackTrace();
 		}
 		try {
-			class30.testInvalidCharacterReferenceHexa();
+			class29.testInappropriateEncoding();
 		}
-		catch (java.lang.Exception err114) {
+		catch (java.io.IOException err114) {
 			err114.printStackTrace();
 		}
 		try {
-			class30.testValidCharacterReferenceHexa();
+			class29.testEncodingAttribute();
 		}
-		catch (java.lang.Exception err115) {
+		catch (java.io.IOException err115) {
 			err115.printStackTrace();
 		}
+		org.codehaus.plexus.util.xml.Xpp3DomWriterTest class30 = new org.codehaus.plexus.util.xml.Xpp3DomWriterTest();
+		class30.testWriter();
+		class30.testWriterNoEscape();
+		org.codehaus.plexus.util.xml.XmlStreamWriterTest class31 = new org.codehaus.plexus.util.xml.XmlStreamWriterTest();
 		try {
-			class30.testInvalidCharacterReferenceDecimal();
+			class31.testNoXmlHeader();
 		}
-		catch (java.lang.Exception err116) {
+		catch (java.io.IOException err116) {
 			err116.printStackTrace();
 		}
 		try {
-			class30.testValidCharacterReferenceDecimal();
+			class31.testEmpty();
 		}
-		catch (java.lang.Exception err117) {
+		catch (java.io.IOException err117) {
 			err117.printStackTrace();
 		}
 		try {
-			class30.testProcessingInstruction();
+			class31.testDefaultEncoding();
 		}
-		catch (java.lang.Exception err118) {
+		catch (java.io.IOException err118) {
 			err118.printStackTrace();
 		}
 		try {
-			class30.testProcessingInstructionsContainingXml();
+			class31.testUTF8Encoding();
 		}
-		catch (java.lang.Exception err119) {
+		catch (java.io.IOException err119) {
 			err119.printStackTrace();
 		}
 		try {
-			class30.testSubsequentProcessingInstructionShort();
+			class31.testUTF16Encoding();
 		}
-		catch (java.lang.Exception err120) {
+		catch (java.io.IOException err120) {
 			err120.printStackTrace();
 		}
 		try {
-			class30.testSubsequentProcessingInstructionMoreThan8k();
+			class31.testUTF16BEEncoding();
 		}
-		catch (java.lang.Exception err121) {
+		catch (java.io.IOException err121) {
 			err121.printStackTrace();
 		}
 		try {
-			class30.testMalformedProcessingInstructionAfterTag();
+			class31.testUTF16LEEncoding();
 		}
-		catch (java.lang.Exception err122) {
+		catch (java.io.IOException err122) {
 			err122.printStackTrace();
 		}
 		try {
-			class30.testMalformedProcessingInstructionBeforeTag();
+			class31.testLatin1Encoding();
 		}
-		catch (java.lang.Exception err123) {
+		catch (java.io.IOException err123) {
 			err123.printStackTrace();
 		}
 		try {
-			class30.testMalformedProcessingInstructionSpaceBeforeName();
+			class31.testLatin7Encoding();
 		}
-		catch (java.lang.Exception err124) {
+		catch (java.io.IOException err124) {
 			err124.printStackTrace();
 		}
 		try {
-			class30.testMalformedProcessingInstructionNoClosingQuestionMark();
+			class31.testLatin15Encoding();
 		}
-		catch (java.lang.Exception err125) {
+		catch (java.io.IOException err125) {
 			err125.printStackTrace();
 		}
 		try {
-			class30.testSubsequentMalformedProcessingInstructionNoClosingQuestionMark();
+			class31.testEUC_JPEncoding();
 		}
-		catch (java.lang.Exception err126) {
+		catch (java.io.IOException err126) {
 			err126.printStackTrace();
 		}
 		try {
-			class30.testMalformedXMLRootElement();
+			class31.testEBCDICEncoding();
 		}
-		catch (java.lang.Exception err127) {
+		catch (java.io.IOException err127) {
 			err127.printStackTrace();
 		}
+		org.codehaus.plexus.util.xml.pull.MXParserTest class32 = new org.codehaus.plexus.util.xml.pull.MXParserTest();
 		try {
-			class30.testMalformedXMLRootElement2();
+			class32.testHexadecimalEntities();
 		}
 		catch (java.lang.Exception err128) {
 			err128.printStackTrace();
 		}
 		try {
-			class30.testMalformedXMLRootElement3();
+			class32.testDecimalEntities();
 		}
 		catch (java.lang.Exception err129) {
 			err129.printStackTrace();
 		}
 		try {
-			class30.testMalformedXMLRootElement4();
+			class32.testPredefinedEntities();
 		}
 		catch (java.lang.Exception err130) {
 			err130.printStackTrace();
 		}
 		try {
-			class30.testMalformedXMLRootElement5();
+			class32.testEntityReplacementMap();
 		}
-		catch (java.lang.Exception err131) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err131) {
 			err131.printStackTrace();
-		}
-		org.codehaus.plexus.util.xml.PrettyPrintXMLWriterTest class31 = new org.codehaus.plexus.util.xml.PrettyPrintXMLWriterTest();
-		class31.testDefaultPrettyPrintXMLWriter();
-		class31.testPrettyPrintXMLWriterWithGivenLineSeparator();
-		class31.testPrettyPrintXMLWriterWithGivenLineIndenter();
-		class31.testEscapeXmlAttribute();
-		class31.testendElementAlreadyClosed();
-		try {
-			class31.testIssue51DetectJava7ConcatenationBug();
 		}
 		catch (java.io.IOException err132) {
 			err132.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.Xpp3DomBuilderTest class32 = new org.codehaus.plexus.util.xml.Xpp3DomBuilderTest();
 		try {
-			class32.testBuildFromReader();
+			class32.testCustomEntities();
 		}
 		catch (java.lang.Exception err133) {
 			err133.printStackTrace();
 		}
 		try {
-			class32.testBuildTrimming();
+			class32.testUnicodeEntities();
 		}
 		catch (java.lang.Exception err134) {
 			err134.printStackTrace();
 		}
 		try {
-			class32.testBuildFromXpp3Dom();
+			class32.testInvalidCharacterReferenceHexa();
 		}
 		catch (java.lang.Exception err135) {
 			err135.printStackTrace();
 		}
-		class32.testUnclosedXml();
 		try {
-			class32.testEscapingInContent();
+			class32.testValidCharacterReferenceHexa();
 		}
-		catch (java.io.IOException err136) {
+		catch (java.lang.Exception err136) {
 			err136.printStackTrace();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err137) {
+		try {
+			class32.testInvalidCharacterReferenceDecimal();
+		}
+		catch (java.lang.Exception err137) {
 			err137.printStackTrace();
 		}
 		try {
-			class32.testEscapingInAttributes();
+			class32.testValidCharacterReferenceDecimal();
 		}
-		catch (java.io.IOException err138) {
+		catch (java.lang.Exception err138) {
 			err138.printStackTrace();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err139) {
+		try {
+			class32.testProcessingInstruction();
+		}
+		catch (java.lang.Exception err139) {
 			err139.printStackTrace();
 		}
 		try {
-			class32.testInputLocationTracking();
+			class32.testProcessingInstructionsContainingXml();
 		}
-		catch (java.io.IOException err140) {
+		catch (java.lang.Exception err140) {
 			err140.printStackTrace();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err141) {
+		try {
+			class32.testSubsequentProcessingInstructionShort();
+		}
+		catch (java.lang.Exception err141) {
 			err141.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.Xpp3DomTest class33 = new org.codehaus.plexus.util.xml.Xpp3DomTest();
-		class33.testShouldPerformAppendAtFirstSubElementLevel();
-		class33.testShouldOverrideAppendAndDeepMerge();
-		class33.testShouldPerformSelfOverrideAtTopLevel();
-		class33.testShouldMergeValuesAtTopLevelByDefault();
-		class33.testShouldMergeValuesAtTopLevel();
-		class33.testNullAttributeNameOrValue();
-		class33.testEquals();
 		try {
-			class33.testEqualsIsNullSafe();
+			class32.testSubsequentProcessingInstructionMoreThan8k();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err142) {
+		catch (java.lang.Exception err142) {
 			err142.printStackTrace();
 		}
-		catch (java.io.IOException err143) {
+		try {
+			class32.testMalformedProcessingInstructionAfterTag();
+		}
+		catch (java.lang.Exception err143) {
 			err143.printStackTrace();
 		}
 		try {
-			class33.testShouldOverwritePluginConfigurationSubItemsByDefault();
+			class32.testMalformedProcessingInstructionBeforeTag();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err144) {
+		catch (java.lang.Exception err144) {
 			err144.printStackTrace();
 		}
-		catch (java.io.IOException err145) {
+		try {
+			class32.testMalformedProcessingInstructionSpaceBeforeName();
+		}
+		catch (java.lang.Exception err145) {
 			err145.printStackTrace();
 		}
 		try {
-			class33.testShouldMergePluginConfigurationSubItemsWithMergeAttributeSet();
+			class32.testMalformedProcessingInstructionNoClosingQuestionMark();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err146) {
+		catch (java.lang.Exception err146) {
 			err146.printStackTrace();
 		}
-		catch (java.io.IOException err147) {
+		try {
+			class32.testSubsequentMalformedProcessingInstructionNoClosingQuestionMark();
+		}
+		catch (java.lang.Exception err147) {
 			err147.printStackTrace();
 		}
 		try {
-			class33.testShouldNotChangeUponMergeWithItselfWhenFirstOrLastSubItemIsEmpty();
+			class32.testMalformedXMLRootElement();
 		}
 		catch (java.lang.Exception err148) {
 			err148.printStackTrace();
 		}
 		try {
-			class33.testShouldCopyRecessiveChildrenNotPresentInTarget();
+			class32.testMalformedXMLRootElement2();
 		}
 		catch (java.lang.Exception err149) {
 			err149.printStackTrace();
 		}
 		try {
-			class33.testDupeChildren();
+			class32.testMalformedXMLRootElement3();
 		}
-		catch (java.io.IOException err150) {
+		catch (java.lang.Exception err150) {
 			err150.printStackTrace();
 		}
-		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err151) {
+		try {
+			class32.testMalformedXMLRootElement4();
+		}
+		catch (java.lang.Exception err151) {
 			err151.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.Xpp3DomUtilsTest class34 = new org.codehaus.plexus.util.xml.Xpp3DomUtilsTest();
 		try {
-			class34.testCombineId();
+			class32.testMalformedXMLRootElement5();
 		}
 		catch (java.lang.Exception err152) {
 			err152.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.XmlWriterUtilTest class35 = new org.codehaus.plexus.util.xml.XmlWriterUtilTest();
+		org.codehaus.plexus.util.xml.PrettyPrintXMLWriterTest class33 = new org.codehaus.plexus.util.xml.PrettyPrintXMLWriterTest();
+		class33.testDefaultPrettyPrintXMLWriter();
+		class33.testPrettyPrintXMLWriterWithGivenLineSeparator();
+		class33.testPrettyPrintXMLWriterWithGivenLineIndenter();
+		class33.testEscapeXmlAttribute();
+		class33.testendElementAlreadyClosed();
 		try {
-			class35.testWriteLineBreakXMLWriter();
+			class33.testIssue51DetectJava7ConcatenationBug();
 		}
-		catch (java.lang.Exception err153) {
+		catch (java.io.IOException err153) {
 			err153.printStackTrace();
 		}
+		org.codehaus.plexus.util.xml.Xpp3DomBuilderTest class34 = new org.codehaus.plexus.util.xml.Xpp3DomBuilderTest();
 		try {
-			class35.testWriteLineBreakXMLWriterInt();
+			class34.testBuildFromReader();
 		}
 		catch (java.lang.Exception err154) {
 			err154.printStackTrace();
 		}
 		try {
-			class35.testWriteLineBreakXMLWriterIntInt();
+			class34.testBuildTrimming();
 		}
 		catch (java.lang.Exception err155) {
 			err155.printStackTrace();
 		}
 		try {
-			class35.testWriteLineBreakXMLWriterIntIntInt();
+			class34.testBuildFromXpp3Dom();
 		}
 		catch (java.lang.Exception err156) {
 			err156.printStackTrace();
 		}
+		class34.testUnclosedXml();
 		try {
-			class35.testWriteCommentLineBreakXMLWriter();
+			class34.testEscapingInContent();
 		}
-		catch (java.lang.Exception err157) {
+		catch (java.io.IOException err157) {
 			err157.printStackTrace();
 		}
-		try {
-			class35.testWriteCommentLineBreakXMLWriterInt();
-		}
-		catch (java.lang.Exception err158) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err158) {
 			err158.printStackTrace();
 		}
 		try {
-			class35.testWriteCommentXMLWriterString();
+			class34.testEscapingInAttributes();
 		}
-		catch (java.lang.Exception err159) {
+		catch (java.io.IOException err159) {
 			err159.printStackTrace();
 		}
-		try {
-			class35.testWriteCommentXMLWriterStringInt();
-		}
-		catch (java.lang.Exception err160) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err160) {
 			err160.printStackTrace();
 		}
 		try {
-			class35.testWriteCommentXMLWriterStringIntInt();
+			class34.testInputLocationTracking();
 		}
-		catch (java.lang.Exception err161) {
+		catch (java.io.IOException err161) {
 			err161.printStackTrace();
 		}
-		try {
-			class35.testWriteCommentXMLWriterStringIntIntInt();
-		}
-		catch (java.lang.Exception err162) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err162) {
 			err162.printStackTrace();
 		}
+		org.codehaus.plexus.util.xml.Xpp3DomTest class35 = new org.codehaus.plexus.util.xml.Xpp3DomTest();
+		class35.testShouldPerformAppendAtFirstSubElementLevel();
+		class35.testShouldOverrideAppendAndDeepMerge();
+		class35.testShouldPerformSelfOverrideAtTopLevel();
+		class35.testShouldMergeValuesAtTopLevelByDefault();
+		class35.testShouldMergeValuesAtTopLevel();
+		class35.testNullAttributeNameOrValue();
+		class35.testEquals();
 		try {
-			class35.testWriteCommentTextXMLWriterStringInt();
+			class35.testEqualsIsNullSafe();
 		}
-		catch (java.lang.Exception err163) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err163) {
 			err163.printStackTrace();
 		}
-		try {
-			class35.testWriteCommentTextXMLWriterStringIntInt();
-		}
-		catch (java.lang.Exception err164) {
+		catch (java.io.IOException err164) {
 			err164.printStackTrace();
 		}
 		try {
-			class35.testWriteCommentTextXMLWriterStringIntIntInt();
+			class35.testShouldOverwritePluginConfigurationSubItemsByDefault();
 		}
-		catch (java.lang.Exception err165) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err165) {
 			err165.printStackTrace();
 		}
-		try {
-			class35.testWriteCommentNull();
-		}
-		catch (java.lang.Exception err166) {
+		catch (java.io.IOException err166) {
 			err166.printStackTrace();
 		}
 		try {
-			class35.testWriteCommentShort();
+			class35.testShouldMergePluginConfigurationSubItemsWithMergeAttributeSet();
 		}
-		catch (java.lang.Exception err167) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err167) {
 			err167.printStackTrace();
 		}
-		try {
-			class35.testWriteCommentLong();
-		}
-		catch (java.lang.Exception err168) {
+		catch (java.io.IOException err168) {
 			err168.printStackTrace();
 		}
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B3 class36 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B3();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B3 class37 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B3();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B1 class38 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B1();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType class39 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType class40 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B2 class41 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B2();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B1 class42 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B1();
-		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B2 class43 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B2();
-		org.codehaus.plexus.util.PathToolTest class44 = new org.codehaus.plexus.util.PathToolTest();
 		try {
-			class44.testGetRelativePath();
+			class35.testShouldNotChangeUponMergeWithItselfWhenFirstOrLastSubItemIsEmpty();
 		}
 		catch (java.lang.Exception err169) {
 			err169.printStackTrace();
 		}
 		try {
-			class44.testGetDirectoryComponent();
+			class35.testShouldCopyRecessiveChildrenNotPresentInTarget();
 		}
 		catch (java.lang.Exception err170) {
 			err170.printStackTrace();
 		}
 		try {
-			class44.testCalculateLink();
+			class35.testDupeChildren();
 		}
-		catch (java.lang.Exception err171) {
+		catch (java.io.IOException err171) {
 			err171.printStackTrace();
 		}
-		try {
-			class44.testGetRelativeWebPath();
-		}
-		catch (java.lang.Exception err172) {
+		catch (org.codehaus.plexus.util.xml.pull.XmlPullParserException err172) {
 			err172.printStackTrace();
 		}
+		org.codehaus.plexus.util.xml.Xpp3DomUtilsTest class36 = new org.codehaus.plexus.util.xml.Xpp3DomUtilsTest();
 		try {
-			class44.testGetRelativeFilePath();
+			class36.testCombineId();
 		}
 		catch (java.lang.Exception err173) {
 			err173.printStackTrace();
 		}
-		org.codehaus.plexus.util.DirectoryWalkerTest class45 = new org.codehaus.plexus.util.DirectoryWalkerTest();
-		class45.testDirectoryWalk();
-		org.codehaus.plexus.util.reflection.ReflectorTest class46 = new org.codehaus.plexus.util.reflection.ReflectorTest();
+		org.codehaus.plexus.util.xml.XmlWriterUtilTest class37 = new org.codehaus.plexus.util.xml.XmlWriterUtilTest();
 		try {
-			class46.testObjectPropertyFromName();
+			class37.testWriteLineBreakXMLWriter();
 		}
 		catch (java.lang.Exception err174) {
 			err174.printStackTrace();
 		}
 		try {
-			class46.testObjectPropertyFromBean();
+			class37.testWriteLineBreakXMLWriterInt();
 		}
 		catch (java.lang.Exception err175) {
 			err175.printStackTrace();
 		}
 		try {
-			class46.testObjectPropertyFromField();
+			class37.testWriteLineBreakXMLWriterIntInt();
 		}
 		catch (java.lang.Exception err176) {
 			err176.printStackTrace();
+		}
+		try {
+			class37.testWriteLineBreakXMLWriterIntIntInt();
+		}
+		catch (java.lang.Exception err177) {
+			err177.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentLineBreakXMLWriter();
+		}
+		catch (java.lang.Exception err178) {
+			err178.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentLineBreakXMLWriterInt();
+		}
+		catch (java.lang.Exception err179) {
+			err179.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentXMLWriterString();
+		}
+		catch (java.lang.Exception err180) {
+			err180.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentXMLWriterStringInt();
+		}
+		catch (java.lang.Exception err181) {
+			err181.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentXMLWriterStringIntInt();
+		}
+		catch (java.lang.Exception err182) {
+			err182.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentXMLWriterStringIntIntInt();
+		}
+		catch (java.lang.Exception err183) {
+			err183.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentTextXMLWriterStringInt();
+		}
+		catch (java.lang.Exception err184) {
+			err184.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentTextXMLWriterStringIntInt();
+		}
+		catch (java.lang.Exception err185) {
+			err185.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentTextXMLWriterStringIntIntInt();
+		}
+		catch (java.lang.Exception err186) {
+			err186.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentNull();
+		}
+		catch (java.lang.Exception err187) {
+			err187.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentShort();
+		}
+		catch (java.lang.Exception err188) {
+			err188.printStackTrace();
+		}
+		try {
+			class37.testWriteCommentLong();
+		}
+		catch (java.lang.Exception err189) {
+			err189.printStackTrace();
+		}
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B3 class38 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B3();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B3 class39 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B3();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B1 class40 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B1();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType class41 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType class42 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B2 class43 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B2();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_benchmarkMerge_jmhTest class44 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_benchmarkMerge_jmhTest();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_benchmarkClone_jmhTest class45 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_benchmarkClone_jmhTest();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B1 class46 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_jmhType_B1();
+		org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B2 class47 = new org.codehaus.plexus.util.xml.generated.Xpp3DomPerfTest_AdditionState_jmhType_B2();
+		org.codehaus.plexus.util.PathToolTest class48 = new org.codehaus.plexus.util.PathToolTest();
+		try {
+			class48.testGetRelativePath();
+		}
+		catch (java.lang.Exception err190) {
+			err190.printStackTrace();
+		}
+		try {
+			class48.testGetDirectoryComponent();
+		}
+		catch (java.lang.Exception err191) {
+			err191.printStackTrace();
+		}
+		try {
+			class48.testCalculateLink();
+		}
+		catch (java.lang.Exception err192) {
+			err192.printStackTrace();
+		}
+		try {
+			class48.testGetRelativeWebPath();
+		}
+		catch (java.lang.Exception err193) {
+			err193.printStackTrace();
+		}
+		try {
+			class48.testGetRelativeFilePath();
+		}
+		catch (java.lang.Exception err194) {
+			err194.printStackTrace();
+		}
+		org.codehaus.plexus.util.DirectoryWalkerTest class49 = new org.codehaus.plexus.util.DirectoryWalkerTest();
+		class49.testDirectoryWalk();
+		org.codehaus.plexus.util.reflection.ReflectorTest class50 = new org.codehaus.plexus.util.reflection.ReflectorTest();
+		try {
+			class50.testObjectPropertyFromName();
+		}
+		catch (java.lang.Exception err195) {
+			err195.printStackTrace();
+		}
+		try {
+			class50.testObjectPropertyFromBean();
+		}
+		catch (java.lang.Exception err196) {
+			err196.printStackTrace();
+		}
+		try {
+			class50.testObjectPropertyFromField();
+		}
+		catch (java.lang.Exception err197) {
+			err197.printStackTrace();
 		}
 	}
 }
