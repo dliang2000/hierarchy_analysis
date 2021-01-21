@@ -1,6 +1,7 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork/JRefactoring/hierarchy-analysis"
+source ../../../config.sh
+echo $MACHINE_SPECIFIC_PATH
 
 PACKAGE="org.apache.commons.math3"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"

@@ -1,12 +1,13 @@
 #!/bin/bash
 #under msp everything should be identical on all computers
-MACHINE_SPECIFIC_PATH="$HOME/Graduation_Studies/ThesisWork"
+source ../../../config.sh
+echo $MACHINE_SPECIFIC_PATH
 
 PACKAGE="org.jsoup"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/hierarchy-analysis/target/classes"
-CC_CLASS="ca.uwaterloo.liang.Main"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/OpenSourceProjects/Benchmarks/jsoup-jsoup-1.10.1-patched"
+CC_CLASS="ca.uwaterloo.liang.CorrespondingTestClassesCandidatesAnalyzer"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/jsoup-jsoup-1.10.1-patched"
 TARGET_PATH="target/classes"
 TARGET_TEST_PATH="target/test-classes"
 BENCHMARK="jsoup_1.10.1"
