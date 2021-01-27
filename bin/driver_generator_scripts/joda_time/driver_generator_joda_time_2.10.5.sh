@@ -3,16 +3,11 @@
 source ../../../config.sh
 echo $MACHINE_SPECIFIC_PATH
 
-PACKAGE="org.jsoup"
 SOOT_JAR="$MACHINE_SPECIFIC_PATH/soot_jar/sootclasses-trunk-jar-with-dependencies.jar"
 JAVA_PATH="$MACHINE_SPECIFIC_PATH/target/classes"
-CC_CLASS="ca.uwaterloo.liang.CorrespondingTestClassesCandidatesAnalyzer"
-BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/jsoup-jsoup-1.10.1-patched"
-TARGET_PATH="target/classes"
-TARGET_TEST_PATH="target/test-classes"
-BENCHMARK="jsoup_1.10.1"
-DRIVER_PATH="org.jsoup.Driver"
-OUTPUT_PATH="$MACHINE_SPECIFIC_PATH/analysis_output"
+CC_CLASS="ca.uwaterloo.liang.DriverGenerator"
+BENCHMARK_PATH="$MACHINE_SPECIFIC_PATH/Benchmarks/joda-time-2.10.5-patched"
+TEXT_PATH="benchmark_info.txt"
 
 MVN_DEPENDENCY_PATH="$BENCHMARK_PATH/mvn_dependencies"
 
@@ -30,5 +25,5 @@ if [ -a is_maven ]; then
   mvn clean test
 fi
 
-java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $DRIVER_PATH $BENCHMARK_PATH/$TARGET_PATH $BENCHMARK_PATH/$TARGET_TEST_PATH $jars`cat benchmark_class_path`:$JAR_PATH $BENCHMARK $OUTPUT_PATH jsoup_jsoup_1.10.1_missing_methods.csv
+java -cp $SOOT_JAR:$JAVA_PATH $CC_CLASS $BENCHMARK_PATH/$TEXT_PATH
 rm -rf "sootOutput/"
