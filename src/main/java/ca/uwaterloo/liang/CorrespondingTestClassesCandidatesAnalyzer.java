@@ -82,9 +82,14 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
             // after process the entire directory, get the active hierarchy, with all the classes loaded onto scene.             
             Hierarchy hierarchy = Scene.v().getActiveHierarchy();
             
+            // Each pair consists of SootClass - the superclass, and String - the missing method's subsignature
+            // After running jacoco-plugin and collect the methods that are untested, the map of Pair and Integer will 
+            // later be updated to check if 
             HashMap<Pair<SootClass, String>, Integer> missingMethodCoverageClassMap = new HashMap<Pair<SootClass, String>, Integer>();
-            Map<SootClass, Integer> nonExcludedSubclassCount = new HashMap<SootClass, Integer>();
-            Map<SootClass, List<SootMethod>> classMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
+            
+            
+            Map<SootClass, List<SootMethod>> superclassMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
+            Map<SootMethod, SootClass> sootMethodMissingClassMap = new HashMap<SootMethod, SootClass>();
             
             // Completable candidates are stored as a hashmap with entries containing key of SootMethod 
             // and value of SootClass, which is the direct superclass of the class in
@@ -164,11 +169,6 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                         continue;
                     }
                     SootClass superclass = l.get(0);
-                    if (nonExcludedSubclassCount.containsKey(superclass)) {
-                        nonExcludedSubclassCount.put(superclass, nonExcludedSubclassCount.get(superclass) + 1);
-                    } else {
-                        nonExcludedSubclassCount.put(superclass, 1);
-                    }
                     
                     SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
                     String methodSubsignature = sootMethod.getSubSignature();
@@ -182,18 +182,20 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                     }
                     
                     // update classMethodsListMap
-                    if (classMethodsListMap.containsKey(superclass)) {
-                        List<SootMethod> sootMethodList = classMethodsListMap.get(superclass);
+                    if (superclassMethodsListMap.containsKey(superclass)) {
+                        List<SootMethod> sootMethodList = superclassMethodsListMap.get(superclass);
                         sootMethodList.add(sootMethod);
-                        classMethodsListMap.put(superclass, sootMethodList);
+                        superclassMethodsListMap.put(superclass, sootMethodList);
+                        sootMethodMissingClassMap.put(sootMethod, sc);
                     } else {
                         List<SootMethod> sootMethodList = new ArrayList<SootMethod>();
                         sootMethodList.add(sootMethod);
-                        classMethodsListMap.put(superclass, sootMethodList);
+                        superclassMethodsListMap.put(superclass, sootMethodList);
+                        sootMethodMissingClassMap.put(sootMethod, sc);
                     }
                 }
                 
-                for (Entry<SootClass, List<SootMethod>> entry : classMethodsListMap.entrySet()) {
+                for (Entry<SootClass, List<SootMethod>> entry : superclassMethodsListMap.entrySet()) {
                     // get Superclass
                     SootClass sootclass = entry.getKey();
                     List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
@@ -263,6 +265,13 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                     }
                 }
                 
+                //for (SootMethod cand: CompletableCandidateMethods) {
+                //    System.out.println("In CC, SootMethod candidate: " + cand.getSubSignature());
+                //}
+                
+                //for (SootMethod cand: PartialCompletableCandidateMethods) {
+                //    System.out.println("In PCC, SootMethod candidate: " + cand.getSubSignature());
+                //}
                 CallGraph cg;
                 Iterator<SootClass> classIt = Scene.v().getApplicationClasses().iterator();
 
@@ -288,10 +297,16 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                     Iterator<SootMethod> mIt = appClass.getMethods().iterator();
                     while (mIt.hasNext()) {
                         SootMethod sootmethod = (SootMethod) mIt.next();
+                        if (sootmethod.getSubSignature().contains("withZone")) {
+                            System.out.println("SootClass Visited: " + appClass.getName());
+                            System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
+                        }
                         if (sootmethod.isAbstract() || sootmethod.isNative() || sootmethod.isConstructor()
                                 || sootmethod.isStaticInitializer())
                             continue;
+                        //System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
                         if (CompletableCandidateMethods.contains(sootmethod)) {
+                            System.out.println("In CC, SootMethod Visited: " + sootmethod.getSubSignature());
                             Iterator<Edge> it = cg.edgesInto(sootmethod);
                             while (it.hasNext()) {
                                 Edge e = (Edge) it.next();
@@ -303,6 +318,7 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                             }
                         }
                         if (PartialCompletableCandidateMethods.contains(sootmethod)) {
+                            System.out.println("In PCC, SootMethod Visited: " + sootmethod.getSubSignature());
                             Iterator<Edge> it = cg.edgesInto(sootmethod);
                             while (it.hasNext()) {
                                 Edge e = (Edge) it.next();
