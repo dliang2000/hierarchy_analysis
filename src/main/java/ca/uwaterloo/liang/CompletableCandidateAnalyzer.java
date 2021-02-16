@@ -21,7 +21,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class CorrespondingTestClassesCandidatesAnalyzer {
+public class CompletableCandidateAnalyzer {
     private static String benchmark;
     private static String output_path;
     private static String csv_arg;
@@ -40,9 +40,9 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
         pd.add("-process-dir");
         pd.add(args[2]);
         Options.v().set_soot_classpath(args[3]);
-        CorrespondingTestClassesCandidatesAnalyzer.benchmark = args[4];
-        CorrespondingTestClassesCandidatesAnalyzer.output_path = args[5];
-        CorrespondingTestClassesCandidatesAnalyzer.csv_arg = args[6];
+        CompletableCandidateAnalyzer.benchmark = args[4];
+        CompletableCandidateAnalyzer.output_path = args[5];
+        CompletableCandidateAnalyzer.csv_arg = args[6];
         System.out.println("args[0]: " + args[0]);
         System.out.println("args[1]: " + args[1]);
         System.out.println("args[2]: " + args[2]);
@@ -89,29 +89,28 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
             
             
             Map<SootClass, List<SootMethod>> superclassMethodsListMap = new HashMap<SootClass, List<SootMethod>>();
-            Map<SootMethod, SootClass> sootMethodMissingClassMap = new HashMap<SootMethod, SootClass>();
+          
+            //  Map<SootMethod, SootClass> sootMethodMissingClassMap = new HashMap<SootMethod, SootClass>();
             
             // Completable candidates are stored as a hashmap with entries containing key of SootMethod 
             // and value of SootClass, which is the direct superclass of the class in
             // the missing_methods.csv file
-            Map<SootMethod, SootClass> completableCandidates = new HashMap<SootMethod, SootClass>();
-            Map<SootMethod, SootClass> partialCompletableCandidates = new HashMap<SootMethod, SootClass>();
+            Map<String, SootClass> completableCandidates = new HashMap<String, SootClass>();
+            Map<String, SootClass> partialCompletableCandidates = new HashMap<String, SootClass>();
             
             // Stores the list of completable candidates' identifications
             Set<String> candidatesIdentificationSet = new HashSet<String>();
             
             Map<Pair<SootClass, SootMethod>, String> identificationMap = new HashMap<Pair<SootClass, SootMethod>, String>();
             
-            List<SootMethod> CompletableCandidateMethods = new ArrayList<SootMethod>();
-            List<SootMethod> PartialCompletableCandidateMethods = new ArrayList<SootMethod>();
+            // List<SootMethod> CompletableCandidateMethods = new ArrayList<SootMethod>();
+            // List<SootMethod> PartialCompletableCandidateMethods = new ArrayList<SootMethod>();
             
-            String classname = null;
-            String methodname = null;
-            String descriptor = null;
+            String classname = null, methodname = null, descriptor = null;
             
             // Read in the classes with missed methods coverage
             String csv_file = csv_arg;
-            ClassLoader classLoader = new CorrespondingTestClassesCandidatesAnalyzer().getClass().getClassLoader();
+            ClassLoader classLoader = new CompletableCandidateAnalyzer().getClass().getClassLoader();
             File file = new File(classLoader.getResource(csv_file).getFile());
              
             System.out.println("File Found: " + file.exists());
@@ -130,9 +129,9 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                     if (methodname.startsWith("set") || methodname.startsWith("get"))
                         continue;
                     
-                    SootClass sc = Scene.v().loadClassAndSupport(classname);
                     // Skip the sootclass if it is an interface, an abstract class, 
                     // or if it belongs to one of the excluded packages
+                    SootClass sc = Scene.v().loadClassAndSupport(classname);
                     if (sc.isInterface() || sc.isAbstract() || Scene.v().isExcluded(sc))
                         continue;
                     
@@ -164,15 +163,14 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                     sc.setApplicationClass();
                     
                     List<SootClass> l = hierarchy.getSuperclassesOf(sc);
-                    if (l.size() == 1) {
+                    if (l.size() == 1)
                         // when the size of l is 1, it means the superclass of sc is java.lang.Object.
                         continue;
-                    }
+                    
                     SootClass superclass = l.get(0);
                     
                     SootMethod sootMethod = new SootMethod(methodname, parameterTypeList, returnType);
                     String methodSubsignature = sootMethod.getSubSignature();
-                    // System.out.println("Method subsignature: " + sootMethod.getSubSignature());
                     
                     Pair<SootClass, String> pair = new Pair<SootClass, String>(superclass, methodSubsignature);
                     if (missingMethodCoverageClassMap.containsKey(pair)) {
@@ -181,24 +179,24 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                         missingMethodCoverageClassMap.put(pair, 1);
                     }
                     
-                    // update classMethodsListMap
+                    // update superclassMethodsListMap
                     if (superclassMethodsListMap.containsKey(superclass)) {
                         List<SootMethod> sootMethodList = superclassMethodsListMap.get(superclass);
                         sootMethodList.add(sootMethod);
                         superclassMethodsListMap.put(superclass, sootMethodList);
-                        sootMethodMissingClassMap.put(sootMethod, sc);
+                       // sootMethodMissingClassMap.put(sootMethod, sc);
                     } else {
                         List<SootMethod> sootMethodList = new ArrayList<SootMethod>();
                         sootMethodList.add(sootMethod);
                         superclassMethodsListMap.put(superclass, sootMethodList);
-                        sootMethodMissingClassMap.put(sootMethod, sc);
+                      // sootMethodMissingClassMap.put(sootMethod, sc);
                     }
                 }
                 
                 for (Entry<SootClass, List<SootMethod>> entry : superclassMethodsListMap.entrySet()) {
                     // get Superclass
-                    SootClass sootclass = entry.getKey();
-                    List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(sootclass);
+                    SootClass superclass = entry.getKey();
+                    List<SootClass> sootClassList = hierarchy.getDirectSubclassesOf(superclass);
                     List<SootClass> concreteSootClassList = new ArrayList<SootClass>();
                     for (SootClass sc: sootClassList) {
                         if (Scene.v().isExcluded(sc))
@@ -221,7 +219,7 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                         isPartialCandidate = true;
                         methodNotImplementedCounter = 0;
                         missingMethodClassCounter = 0;
-                        if (!ifHaveMultipleDirectSubClasses(sootclass, hierarchy)) {
+                        if (!ifHaveMultipleDirectSubClasses(superclass, hierarchy)) {
                             isCandidate = false;
                             isPartialCandidate = false;
                         }
@@ -234,7 +232,7 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                             }
                             // Horizontal Completable Hierarchy Condition Requirement 3: 
                             // At least one of the sibling classes have the SootMethod in interest tested
-                            Pair<SootClass, String> temp_pair = new Pair<SootClass, String>(sootclass, sootmethod.getSubSignature());
+                            Pair<SootClass, String> temp_pair = new Pair<SootClass, String>(superclass, sootmethod.getSubSignature());
                             if (missingMethodCoverageClassMap.containsKey(temp_pair)) {
                                 missingMethodClassCounter =  missingMethodCoverageClassMap.get(temp_pair);
                                 if (missingMethodClassCounter >= concreteSootClassList.size()) {
@@ -248,30 +246,25 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                         // Stores the right information when the sootclass and sootmethod together is a candidate or
                         // a partial candidate (where some of the subclasses implement the method)
                         if (isCandidate || isPartialCandidate) {
-                            String candidate_identification = generateIdentification(benchmark, sootclass, sootmethod);
+                            String candidate_identification = generateIdentification(benchmark, superclass, sootmethod);
                             if (!candidatesIdentificationSet.contains(candidate_identification)) {
                                 candidatesIdentificationSet.add(candidate_identification);
+                                String methodSubsignature = sootmethod.getSubSignature();
+                                
                                 if (isCandidate) {
-                                    identificationMap.put(new Pair<SootClass, SootMethod>(sootclass, sootmethod), candidate_identification);
-                                    completableCandidates.put(sootmethod, sootclass);
-                                    CompletableCandidateMethods.add(sootmethod);
+                                    identificationMap.put(new Pair<SootClass, SootMethod>(superclass, sootmethod), candidate_identification);
+                                    completableCandidates.put(methodSubsignature, superclass);
+                                    // CompletableCandidateMethods.add(sootmethod);
                                 } else {
-                                    identificationMap.put(new Pair<SootClass, SootMethod>(sootclass, sootmethod), candidate_identification);
-                                    partialCompletableCandidates.put(sootmethod, sootclass);
-                                    PartialCompletableCandidateMethods.add(sootmethod);
+                                    identificationMap.put(new Pair<SootClass, SootMethod>(superclass, sootmethod), candidate_identification);
+                                    partialCompletableCandidates.put(methodSubsignature, superclass);
+                                    // PartialCompletableCandidateMethods.add(sootmethod);
                                 }
                             }
                         }
                     }
                 }
                 
-                //for (SootMethod cand: CompletableCandidateMethods) {
-                //    System.out.println("In CC, SootMethod candidate: " + cand.getSubSignature());
-                //}
-                
-                //for (SootMethod cand: PartialCompletableCandidateMethods) {
-                //    System.out.println("In PCC, SootMethod candidate: " + cand.getSubSignature());
-                //}
                 CallGraph cg;
                 Iterator<SootClass> classIt = Scene.v().getApplicationClasses().iterator();
 
@@ -284,48 +277,52 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                 }
                 
                 List<String[]> CCLinesToAdd = new ArrayList<>();
-                CCLinesToAdd.add(new String[] {"Class", "Method Name", "Test Case Invoked the Method"});
+                CCLinesToAdd.add(new String[] {"Class", "Method Name", "Testing Class", "Test Case Invoked the Method"});
                 
                 List<String[]> PCCLinesToAdd = new ArrayList<>();
-                PCCLinesToAdd.add(new String[] {"Class", "Method Name", "Test Case Invoked the Method"});
+                PCCLinesToAdd.add(new String[] {"Class", "Method Name", "Testing Class", "Test Case Invoked the Method"});
                 
                 while (classIt.hasNext()) {
                     SootClass appClass = (SootClass) classIt.next();
-                    //System.out.println("SootClass Visited: " + appClass.toString());
                     if (!appClass.isConcrete())
                         continue;
                     Iterator<SootMethod> mIt = appClass.getMethods().iterator();
                     while (mIt.hasNext()) {
                         SootMethod sootmethod = (SootMethod) mIt.next();
-                        if (sootmethod.getSubSignature().contains("withZone")) {
-                            System.out.println("SootClass Visited: " + appClass.getName());
-                            System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
-                        }
                         if (sootmethod.isAbstract() || sootmethod.isNative() || sootmethod.isConstructor()
                                 || sootmethod.isStaticInitializer())
                             continue;
-                        //System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
-                        if (CompletableCandidateMethods.contains(sootmethod)) {
-                            System.out.println("In CC, SootMethod Visited: " + sootmethod.getSubSignature());
+                        
+                        String methodSubsignature = sootmethod.getSubSignature();
+                        if (completableCandidates.containsKey(methodSubsignature)) {
                             Iterator<Edge> it = cg.edgesInto(sootmethod);
                             while (it.hasNext()) {
                                 Edge e = (Edge) it.next();
                                 SootMethod srcMethod = e.src();
                                 if (isTestCase(srcMethod)) {
+                                    /*if (sootmethod.getSubSignature().contains("withZone")) {
+                                        System.out.println("SootClass Visited: " + appClass.getName());
+                                        System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
+                                        System.out.println("Invoking Method: " + srcMethod.getSubSignature());
+                                    }*/
                                     System.out.println("CC - Test Case " + srcMethod.getSubSignature() + " called this method " + sootmethod.getSubSignature());
-                                    CCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getSubSignature()});
+                                    CCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()});
                                 }
                             }
                         }
-                        if (PartialCompletableCandidateMethods.contains(sootmethod)) {
-                            System.out.println("In PCC, SootMethod Visited: " + sootmethod.getSubSignature());
+                        if (partialCompletableCandidates.containsKey(methodSubsignature)) {
                             Iterator<Edge> it = cg.edgesInto(sootmethod);
                             while (it.hasNext()) {
                                 Edge e = (Edge) it.next();
                                 SootMethod srcMethod = e.src();
                                 if (isTestCase(srcMethod)) {
+                                    /*if (sootmethod.getSubSignature().contains("withZone")) {
+                                        System.out.println("SootClass Visited: " + appClass.getName());
+                                        System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
+                                        System.out.println("Invoking Method: " + srcMethod.getSubSignature());
+                                    }*/
                                     System.out.println("PCC - Test Case " + srcMethod.getSubSignature() + " called this method " + sootmethod.getSubSignature());
-                                    PCCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getSubSignature()});
+                                    PCCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()});
                                 }
                             }
                         }
@@ -381,7 +378,7 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
     
     private static boolean isTestCase(SootMethod sm) {
         // JUnit 3
-        if (sm.getName().startsWith("test") && sm.getParameterCount() == 0 && sm.getReturnType().toString() == "void") {
+        if (sm.getName().toLowerCase().startsWith("test") && sm.getParameterCount() == 0 && sm.getReturnType().toString() == "void") {
             //System.out.println("Test case found: " + sm.getSubSignature());
             return true;
         }
@@ -399,7 +396,7 @@ public class CorrespondingTestClassesCandidatesAnalyzer {
                 }
             }
         }
-
         return false;
     }
 }
+
