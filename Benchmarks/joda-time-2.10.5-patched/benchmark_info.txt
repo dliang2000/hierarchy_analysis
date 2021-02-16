@@ -1,0 +1,7 @@
+./target/test-classes
+target/classes::./mvn_dependencies/joda-convert-1.9.2.jar:./mvn_dependencies/junit-3.8.2.jar
+com.fasterxml.classmate
+./src/test/java/com/fasterxml/classmate
+java_classmate_1.5.1
+../../analysis_output
+Junit4
