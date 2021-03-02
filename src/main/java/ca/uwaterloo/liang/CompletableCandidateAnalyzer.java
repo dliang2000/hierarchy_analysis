@@ -4,24 +4,36 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import soot.jimple.AssignStmt;
+import soot.jimple.DefinitionStmt;
+import soot.jimple.InstanceInvokeExpr;
+import soot.jimple.InvokeExpr;
+import soot.jimple.InvokeStmt;
+import soot.jimple.Stmt;
+import soot.jimple.internal.JInvokeStmt;
 import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.CallGraphBuilder;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 import soot.tagkit.AnnotationTag;
-
+import soot.tagkit.Tag;
 import soot.*;
-
 import soot.options.*;
+import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.ExceptionalUnitGraph;
+import soot.toolkits.scalar.LocalDefs;
+import soot.toolkits.scalar.LocalUses;
+import soot.toolkits.scalar.SimpleLocalDefs;
+import soot.toolkits.scalar.SimpleLocalUses;
+import soot.toolkits.scalar.UnitValueBoxPair;
 import soot.util.*;
 
 import java.io.*;
 import java.util.*;
-import java.util.Map.Entry;
 
 public class CompletableCandidateAnalyzer {
+    //private static final String  = null;
     private static String benchmark;
     private static String output_path;
     private static String csv_arg;
@@ -276,11 +288,11 @@ public class CompletableCandidateAnalyzer {
                     Scene.v().releaseCallGraph();
                 }
                 
-                List<String[]> CCLinesToAdd = new ArrayList<>();
-                CCLinesToAdd.add(new String[] {"Class", "Method Name", "Testing Class", "Test Case Invoked the Method"});
+                List<String> CCLinesToAdd = new ArrayList<>();
+                CCLinesToAdd.add(String.join("\t", "Class", "Method Name", "Testing Class", "Test Case Invoked the Method"));
                 
-                List<String[]> PCCLinesToAdd = new ArrayList<>();
-                PCCLinesToAdd.add(new String[] {"Class", "Method Name", "Testing Class", "Test Case Invoked the Method"});
+                List<String> PCCLinesToAdd = new ArrayList<>();
+                PCCLinesToAdd.add(String.join("\t", "Class", "Method Name", "Testing Class", "Test Case Invoked the Method"));
                 
                 while (classIt.hasNext()) {
                     SootClass appClass = (SootClass) classIt.next();
@@ -299,14 +311,69 @@ public class CompletableCandidateAnalyzer {
                             while (it.hasNext()) {
                                 Edge e = (Edge) it.next();
                                 SootMethod srcMethod = e.src();
+                                
+                                Body body = srcMethod.getActiveBody();
+                                
+                                Chain units = body.getUnits();
+                                List<Unit> stmtList = new ArrayList<Unit>();
+                                stmtList.addAll(units);
+                                
+                                LocalDefs mLocalDefs = LocalDefs.Factory.newLocalDefs(body);
+                                LocalUses mLocalUses = LocalUses.Factory.newLocalUses(body, mLocalDefs);
+                                
+                                Iterator<Unit> stmtIt = stmtList.iterator();
+                                Value val = null;
+                                /* fold in NewExpr's with specialinvoke's */
+                                while (stmtIt.hasNext()) {
+                                  Stmt s = (Stmt) stmtIt.next();
+                                  if (s instanceof InvokeStmt && String.valueOf(s).contains(methodSubsignature)) {
+                                      ValueBox vb = ((InvokeStmt) s).getInvokeExprBox();
+                                      InvokeExpr ie = ((InvokeStmt) s).getInvokeExpr();
+                                                                            
+                                      if (ie instanceof InstanceInvokeExpr) {
+                                          val = ((InstanceInvokeExpr) ie).getBase();
+                                          System.out.println("Basebox: " + val.getType().toString());
+                                      }
+                                  }
+
+                                }
+                                
+                                stmtIt = stmtList.iterator();
+                                
+                                while (stmtIt.hasNext()) {
+                                    Stmt s = (Stmt) stmtIt.next();
+                                    if (s instanceof DefinitionStmt && ((DefinitionStmt) s).getLeftOp() == val) {
+                                        System.out.println("RightOP: " + ((DefinitionStmt) s).getRightOp());
+                                    }
+                                }
+                                /*for (ValueBox vb: srcMethod.getActiveBody().getUseBoxes()) {
+                                    if (vb.getValue() instanceof InstanceInvokeExpr && String.valueOf(vb.getValue()).contains(methodSubsignature)) {
+                                        // Source method ValueBox that is of type InstanceInvokeExpr and invoked the focal method in interest
+                                        Value val = vb.getValue();
+                                        System.out.println(String.valueOf(val));
+                                        // Get the Base box, but need to reveal base box is created via createMock
+                                        ValueBox bb = ((InstanceInvokeExpr) val).getBaseBox();
+                                        val = bb.getValue();
+                                        System.out.println(val.getType().toString());                                     
+                                    }
+                                }*/
+                                
+                                /*for (ValueBox vb: srcMethod.getActiveBody().getUseBoxes()) {
+                                    System.out.println(String.valueOf(vb.getValue()));
+                                }*/
+                                //System.out.println("Source Unit: " + e.srcUnit().toString());
+                                //System.out.println("Kind: " + e.kind());
+                                
                                 if (isTestCase(srcMethod)) {
                                     /*if (sootmethod.getSubSignature().contains("withZone")) {
                                         System.out.println("SootClass Visited: " + appClass.getName());
                                         System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
                                         System.out.println("Invoking Method: " + srcMethod.getSubSignature());
                                     }*/
-                                    System.out.println("CC - Test Case " + srcMethod.getSubSignature() + " called this method " + sootmethod.getSubSignature());
-                                    CCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()});
+                                    SootClass declaringClass = sootmethod.getDeclaringClass();
+                                    // System.out.println("CC - Test Case " + srcMethod.getSubSignature() + " called this method " + sootmethod.getSubSignature());
+                                    System.out.println(String.join("\t", declaringClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()));
+                                    CCLinesToAdd.add(String.join("\t", declaringClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()));
                                 }
                             }
                         }
@@ -321,8 +388,11 @@ public class CompletableCandidateAnalyzer {
                                         System.out.println("SootMethod Visited: " + sootmethod.getSubSignature());
                                         System.out.println("Invoking Method: " + srcMethod.getSubSignature());
                                     }*/
-                                    System.out.println("PCC - Test Case " + srcMethod.getSubSignature() + " called this method " + sootmethod.getSubSignature());
-                                    PCCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()});
+                                    SootClass declaringClass = sootmethod.getDeclaringClass();
+                                    //System.out.println("PCC - Test Case " + srcMethod.getSubSignature() + " called this method " + sootmethod.getSubSignature());
+                                    System.out.println(String.join("\t", declaringClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()));
+                                    PCCLinesToAdd.add(String.join("\t", declaringClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()));
+                                    //PCCLinesToAdd.add(new String[] { appClass.getName(), sootmethod.getSubSignature(), srcMethod.getDeclaringClass().getName(), srcMethod.getSubSignature()});
                                 }
                             }
                         }
@@ -330,13 +400,21 @@ public class CompletableCandidateAnalyzer {
                 }
                 
                 File csvCCOutputFile = new File(output_path + "/CSV_Files/" + benchmark + "_CC_methods_invoked_by_test.csv");
-                try (PrintWriter pw = new PrintWriter(csvCCOutputFile)) {
-                    CCLinesToAdd.stream().map(this::convertToCSV).forEach(pw::println);
+                try (FileWriter fw = new FileWriter(csvCCOutputFile)) {
+                    for (String s: CCLinesToAdd) {
+                        String[] split = s.split("\t");
+                        fw.write(Arrays.asList(split).stream().collect(Collectors.joining("\t")));
+                        fw.write("\n");
+                    }
                 }
                 
                 File csvPCCOutputFile = new File(output_path + "/CSV_Files/" + benchmark + "_PCC_methods_invoked_by_test.csv");
-                try (PrintWriter pw = new PrintWriter(csvPCCOutputFile)) {
-                    PCCLinesToAdd.stream().map(this::convertToCSV).forEach(pw::println);
+                try (FileWriter fw = new FileWriter(csvPCCOutputFile)) {
+                    for (String s: PCCLinesToAdd) {
+                        String[] split = s.split("\t");
+                        fw.write(Arrays.asList(split).stream().collect(Collectors.joining("\t")));
+                        fw.write("\n");
+                    }
                 }
              } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
@@ -346,9 +424,9 @@ public class CompletableCandidateAnalyzer {
                 e.printStackTrace();
              }
          }
-         public String convertToCSV(String[] data) {
-             return Stream.of(data).collect(Collectors.joining("\t"));
-         }
+//         public String convertToCSV(String[] data) {
+//             return Stream.of(data).collect(Collectors.joining("\t"));
+//         }
     }
     
     private static String generateIdentification(String benchmark, SootClass sc, SootMethod sm) {
@@ -375,6 +453,16 @@ public class CompletableCandidateAnalyzer {
         }
         return count_nonExcluded > 1;
     }
+    
+    /*private static boolean isMockInvokingMethod(List<ValueBox> boxes, String methodSubsignature) {
+        for (ValueBox vb: boxes) {
+            if (vb.getValue() instanceof InvokeExpr) {
+                Value val = vb.getValue();
+                if (val.contains(methodSubsignature))
+            }
+        }
+        return true;
+    }*/
     
     private static boolean isTestCase(SootMethod sm) {
         // JUnit 3
