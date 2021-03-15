@@ -13,12 +13,10 @@ import soot.SootClass;
 import soot.SootMethod;
 import soot.Type;
 import soot.Unit;
-import soot.VoidType;
 import soot.jimple.AssignStmt;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.Stmt;
 import soot.jimple.toolkits.callgraph.CallGraph;
-import soot.jimple.toolkits.callgraph.Edge;
 import soot.jimple.toolkits.callgraph.ReachableMethods;
 
 public class MockAnalyzer {
@@ -28,32 +26,46 @@ public class MockAnalyzer {
     private static final String PowerMock_library = "org.powermock.api.mockito.PowerMockito";
     
     // EasyMock createMock function
-    private static final String EasyMock_methodname = "org.easymock.EasyMock createMock";
-    private static final String EasyMock_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
+    private static final String EasyMock_methodname = "createMock";
+    //private static final String EasyMock_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
     
     // Mockito mock function
-    private static final String Mockito_methodname = "org.mockito.Mockito mock";
-    private static final String Mockito_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
+    private static final String Mockito_methodname = "mock";
+    //private static final String Mockito_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
     
     // PowerMock mock function
-    private static final String PowerMock_methodname = "org.powermock.api.mockito.PowerMockito mock";
-    private static final String PowerMock_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
+    private static final String PowerMock_methodname = "mock";
+    // private static final String PowerMock_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
+    
+    private static final Type classType = Scene.v().getType("java.lang.Class");
+    private static final Type returnType = Scene.v().getType("java.lang.Object");
     
     private static final Logger logger = LoggerFactory.getLogger(PackManager.class);
     
     public static boolean isMock(Scene scene, CallGraph cg, Unit u) {
+        List<Type> paramList = new ArrayList<Type>();
+        paramList.add(classType);
+        
+        List<String> mockLibraries = new ArrayList<String>();
+        mockLibraries.add(EasyMock_library);
+        mockLibraries.add(Mockito_library);
+        mockLibraries.add(PowerMock_library);
+        
+        if (determineMockLibrary(scene, mockLibraries) == null) {
+            // Scene could not find any mocking libraries, so return false
+            return false;
+        }
+        
+        String str_mock = determineMockLibrary(scene, mockLibraries);
+        //logger.debug("The mocking library in the benchmark: " + str_mock);
+        
         List<MethodOrMethodContext> sootMethodList = new ArrayList<MethodOrMethodContext>();
         
-        // The sootMethod for EasyMock, Mockito, and PowerMock function to create mock object
-        MethodOrMethodContext easyMockMethod = new SootMethod(EasyMock_methodname, paramTypeList(scene, EasyMock_descriptor), returnType(scene, EasyMock_descriptor));
-        MethodOrMethodContext mockitoMethod = new SootMethod(Mockito_methodname, paramTypeList(scene, Mockito_descriptor), returnType(scene, Mockito_descriptor));
-        MethodOrMethodContext powerMockMethod = new SootMethod(PowerMock_methodname, paramTypeList(scene, PowerMock_descriptor), returnType(scene, PowerMock_descriptor));
+        MethodOrMethodContext method = determineSootMethod(scene, str_mock, paramList, returnType);
         
-        sootMethodList.add(easyMockMethod);
-        sootMethodList.add(mockitoMethod);
-        sootMethodList.add(powerMockMethod);
+        sootMethodList.add(method);
         
-        logger.debug("easyMockMethod: " + ((SootMethod) easyMockMethod).getSubSignature());
+        //logger.debug("Mock method: " + ((SootMethod) method).getSubSignature());
         
         if (isWrapperMock(cg, u, sootMethodList)) {
             return true;
@@ -63,6 +75,42 @@ public class MockAnalyzer {
         return false;
     }
     
+    private static SootMethod determineSootMethod(Scene scene, String str_mock, List<Type> paramList, Type returnType) {
+        SootMethod sm = null;
+        switch (str_mock) {
+            case EasyMock_library:
+                sm = new SootMethod(EasyMock_methodname, paramList, returnType);
+                SootClass sc1 = scene.getSootClassUnsafe(str_mock);
+                sm.setDeclaringClass(sc1);
+                sm.setDeclared(true);
+                break;
+            case Mockito_library:
+                sm = new SootMethod(Mockito_methodname, paramList, returnType);
+                SootClass sc2 = scene.getSootClassUnsafe(str_mock);
+                sm.setDeclaringClass(sc2);
+                sm.setDeclared(true);
+                break;
+            case PowerMock_library:
+                sm = new SootMethod(PowerMock_methodname, paramList, returnType);
+                SootClass sc3 = scene.getSootClassUnsafe(str_mock);
+                sm.setDeclaringClass(sc3);
+                sm.setDeclared(true);
+                break;
+            default:
+                break;
+        }
+        return sm;
+    }
+    
+    private static String determineMockLibrary(Scene scene, List<String> mockLibraries) {
+        for (String mock: mockLibraries) {
+            if (scene.containsClass(mock)) {
+                //logger.debug("The mocking library in the benchmark: " + mock);
+                return mock;
+            }
+        }
+        return null;
+    }
     /**
      * 
      * @param cg
@@ -83,9 +131,10 @@ public class MockAnalyzer {
             ReachableMethods reachableMethods = new ReachableMethods(cg, callbacks.iterator());
             reachableMethods.update();
             for (MethodOrMethodContext method: sootMethodList) {
-                logger.debug(((SootMethod) method).getSignature());
+                // System.out.println(((SootMethod) method).getSignature());
                 if (reachableMethods.contains(method)) {
-                    logger.debug("The object is a mock created through a wrapper.");
+                    System.out.println("The object is a mock created through a wrapper.");
+                    System.out.println("The mocking library: " + ((SootMethod) method).getDeclaringClass().toString());
                     return true;
                 }
             }
@@ -121,40 +170,5 @@ public class MockAnalyzer {
     private static boolean isMockLibrary(String declaringClassName) {
         return (declaringClassName.contains(EasyMock_library) || declaringClassName.contains(Mockito_library)
                                 || declaringClassName.contains(PowerMock_library));
-    }
-
-    /** 
-     * 
-     * @param descriptor
-     * @return
-     * 
-     * The function determines the parameterTypes list necessary for the SootMethod
-     */
-    private static List<Type> paramTypeList(Scene scene, String descriptor) {
-        String params = ClassFile.parseMethodDesc_params(descriptor);
-        logger.debug(params);
-        if (params.length() == 0 || params == null)
-            params = "void";
-        String[] paramList = params.split(",");
-
-        List<Type> parameterTypeList = new ArrayList<Type>(); 
-                            
-        for (String p: paramList) {
-            Type t = scene.getType(p);
-            parameterTypeList.add(t);
-        }
-        return parameterTypeList;
-    }
-    
-    /**
-     * 
-     * @param descriptor
-     * @return
-     * 
-     * The function determines the returnType necessary for the SootMethod
-     */
-    private static Type returnType(Scene scene, String descriptor) {
-        Type returnType  = scene.getType(ClassFile.parseMethodDesc_return(descriptor));
-        return returnType;
     }
 }
