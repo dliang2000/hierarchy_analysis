@@ -27,15 +27,12 @@ public class MockAnalyzer {
     
     // EasyMock createMock function
     private static final String EasyMock_methodname = "createMock";
-    //private static final String EasyMock_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
     
     // Mockito mock function
     private static final String Mockito_methodname = "mock";
-    //private static final String Mockito_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
     
     // PowerMock mock function
     private static final String PowerMock_methodname = "mock";
-    // private static final String PowerMock_descriptor = "(Ljava/lang/Class;)Ljava/lang/Object;";
     
     private static final Type classType = Scene.v().getType("java.lang.Class");
     private static final Type returnType = Scene.v().getType("java.lang.Object");
@@ -57,8 +54,13 @@ public class MockAnalyzer {
         }
         
         String str_mock = determineMockLibrary(scene, mockLibraries);
-        //logger.debug("The mocking library in the benchmark: " + str_mock);
         
+        SootClass sc = null;
+//        if (scene.containsClass(str_mock)) {
+//            sc = scene.getSootClass(str_mock);
+//            System.out.println(sc.getName());
+//        }
+                
         List<MethodOrMethodContext> sootMethodList = new ArrayList<MethodOrMethodContext>();
         
         MethodOrMethodContext method = determineSootMethod(scene, str_mock, paramList, returnType);
@@ -81,20 +83,17 @@ public class MockAnalyzer {
             case EasyMock_library:
                 sm = new SootMethod(EasyMock_methodname, paramList, returnType);
                 SootClass sc1 = scene.getSootClassUnsafe(str_mock);
-                sm.setDeclaringClass(sc1);
-                sm.setDeclared(true);
+                sm = sc1.getMethod(sm.getSubSignature());
                 break;
             case Mockito_library:
                 sm = new SootMethod(Mockito_methodname, paramList, returnType);
                 SootClass sc2 = scene.getSootClassUnsafe(str_mock);
-                sm.setDeclaringClass(sc2);
-                sm.setDeclared(true);
+                sm = sc2.getMethod(sm.getSubSignature());
                 break;
             case PowerMock_library:
                 sm = new SootMethod(PowerMock_methodname, paramList, returnType);
                 SootClass sc3 = scene.getSootClassUnsafe(str_mock);
-                sm.setDeclaringClass(sc3);
-                sm.setDeclared(true);
+                sm = sc3.getMethod(sm.getSubSignature());
                 break;
             default:
                 break;
