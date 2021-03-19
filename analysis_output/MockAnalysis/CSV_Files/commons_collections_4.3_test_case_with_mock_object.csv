@@ -1,0 +1,10 @@
+Test Class	Test Method
+org.apache.commons.collections4.CollectionUtilsTest	void getFromList()
+org.apache.commons.collections4.CollectionUtilsTest	void addAllForIterable()
+org.apache.commons.collections4.functors.AllPredicateTest	void oneTruePredicate()
+org.apache.commons.collections4.functors.AllPredicateTest	void oneFalsePredicate()
+org.apache.commons.collections4.functors.AllPredicateTest	void allTrue()
+org.apache.commons.collections4.functors.AllPredicateTest	void trueAndFalseCombined()
+org.apache.commons.collections4.IteratorUtilsTest	void testGetIterator()
+org.apache.commons.collections4.IteratorUtilsTest	void testNodeIterator()
+org.apache.commons.collections4.IteratorUtilsTest	void testNodeListIterator()
