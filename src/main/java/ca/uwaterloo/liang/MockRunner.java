@@ -84,9 +84,12 @@ public class MockRunner {
             MockLinesToAdd.add(String.join("\t", "Test Class", "Test Method"));
             
             if (mockLibrary != null) {
-                MethodOrMethodContext mockMethod = MockAnalyzer.v().retrieveMockCreationSootMethod(Scene.v(), mockLibrary);
                 
+                int count_totalTestCases = 0;
                 int count_testCaseWithMock = 0;
+                int count_testCaseWithImmediateMock = 0;
+                int count_testCaseWithWrapperMock = 0;
+                
                 List<SootMethod> testCaseListWithMock = new ArrayList<SootMethod>();
                 
                 CallGraph cg;
@@ -117,6 +120,7 @@ public class MockRunner {
                         SootMethod sm = (SootMethod) mIt.next();
                         
                         if (isTestCase(sm) && sm.isPublic()) {
+                            count_totalTestCases += 1;
                             //logger.debug("Source Method: " + srcMethod);
                             Body body = sm.getActiveBody();
                             
@@ -126,18 +130,29 @@ public class MockRunner {
                             
                             for (Unit u: stmtList) {
                                 Stmt s = (Stmt) u;
-                                if (MockAnalyzer.v().isMock(Scene.v(), cg, u, mockMethod)) {
+                                if (MockAnalyzer.v().isMock(Scene.v(), cg, u, mockLibrary)) {
                                     count_testCaseWithMock += 1;
                                     testCaseListWithMock.add(sm);
-                                    //logger.debug("SootMethod " + sm.getSubSignature() + " has one or more mock object(s) created in the test.");
+                                    
                                     MockLinesToAdd.add(String.join("\t", testClass.getName(), sm.getSubSignature()));
+                                    if (MockAnalyzer.v().isImmediateMock(u)) {
+                                        count_testCaseWithImmediateMock += 1;
+                                    }
+                                    
+                                    if (MockAnalyzer.v().isWrapperMock(Scene.v(), cg, u, mockLibrary)) {
+                                        count_testCaseWithWrapperMock += 1;
+                                    }
                                     break;
                                 }
                             }
+                            
                         }
                     }
                 }
-                logger.debug("Number of Test cases with Mock object created: " + count_testCaseWithMock);
+                System.out.println("Total Number of public, non-constructor test cases in the benchmark: " + count_totalTestCases);
+                System.out.println("Number of Test cases with Mock object created: " + count_testCaseWithMock);
+                System.out.println("Number of Test cases with Immediate Mock object: " + count_testCaseWithImmediateMock);
+                System.out.println("Number of Test cases with Wrapper Mock object: " + count_testCaseWithWrapperMock);
             }
             File csvMockOutputFile = new File(output_path + "/CSV_Files/" + benchmark + "_test_case_with_mock_object.csv");
             try (FileWriter fw = new FileWriter(csvMockOutputFile)) {

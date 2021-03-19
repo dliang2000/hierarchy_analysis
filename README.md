@@ -1,5 +1,11 @@
 ##Benchmarks List:
 
+## Analysis for Mock objects in Test Cases
+| Benchmark | Number of Test Cases | Number of Test Cases with Mock Object | Number of Test Cases with Immediate Mock | Number of Test Cases with Wrapper Mock |
+| --- | --- | --- | --- | --- |
+| commons-collections-4.3 | 455 | 9 | 0 | 9 |
+
+
 ### Maven build projects:
 - Already added:
 	- java-classmate-1.5.1

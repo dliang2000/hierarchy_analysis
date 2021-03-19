@@ -6,14 +6,11 @@ import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import soot.G;
 import soot.MethodOrMethodContext;
 import soot.PackManager;
 import soot.Scene;
-import soot.Singletons;
 import soot.SootClass;
 import soot.SootMethod;
-import soot.Type;
 import soot.Unit;
 import soot.jimple.AssignStmt;
 import soot.jimple.InstanceInvokeExpr;
@@ -25,22 +22,6 @@ public class MockAnalyzer {
     
     private static final Logger logger = LoggerFactory.getLogger(PackManager.class);
     
-    public static final String EasyMock_library = "org.easymock.EasyMock";
-    public static final String Mockito_library = "org.mockito.Mockito";
-    public static final String PowerMock_library = "org.powermock.api.mockito.PowerMockito";
-
-    // EasyMock createMock function
-    public static final String EasyMock_methodname = "createMock";
-    
-    // Mockito mock function
-    public static final String Mockito_methodname = "mock";
-    
-    // PowerMock mock function
-    public static final String PowerMock_methodname = "mock";
-    
-    public static final Type classType = Scene.v().getType("java.lang.Class");
-    public static final Type returnType = Scene.v().getType("java.lang.Object");
-    
     public MockAnalyzer(MockG.Global g) {
     }
     
@@ -48,13 +29,8 @@ public class MockAnalyzer {
        return MockG.v().instance_MockAnalyzer();
     }
     
-    public boolean isMock(Scene scene, CallGraph cg, Unit u, MethodOrMethodContext method) {
-                
-        List<MethodOrMethodContext> sootMethodList = new ArrayList<MethodOrMethodContext>();
-        
-        sootMethodList.add(method);
-        
-        if (isWrapperMock(cg, u, sootMethodList)) {
+    public boolean isMock(Scene scene, CallGraph cg, Unit u, MockLibrary mockLibrary) {        
+        if (isWrapperMock(scene, cg, u, mockLibrary)) {
             return true;
         } else if (isImmediateMock(u)) {
             return true;
@@ -62,31 +38,6 @@ public class MockAnalyzer {
         return false;
     }
     
-    public SootMethod retrieveMockCreationSootMethod(Scene scene, MockLibrary mockLibrary) {
-        SootMethod sm = null;
-        List<Type> paramList = new ArrayList<Type>();
-        paramList.add(MockAnalyzer.classType);
-        switch (mockLibrary) {
-            case EASYMOCK:
-                sm = new SootMethod(MockLibrary.EASYMOCK.method(), paramList, returnType);
-                SootClass sc1 = scene.getSootClassUnsafe(MockLibrary.EASYMOCK.library());
-                sm = sc1.getMethod(sm.getSubSignature());
-                break;
-            case MOCKITO:
-                sm = new SootMethod(MockLibrary.MOCKITO.library(), paramList, returnType);
-                SootClass sc2 = scene.getSootClassUnsafe(MockLibrary.MOCKITO.library());
-                sm = sc2.getMethod(sm.getSubSignature());
-                break;
-            case POWERMOCK:
-                sm = new SootMethod(MockLibrary.POWERMOCK.library(), paramList, returnType);
-                SootClass sc3 = scene.getSootClassUnsafe(MockLibrary.POWERMOCK.library());
-                sm = sc3.getMethod(sm.getSubSignature());
-                break;
-            default:
-                break;
-        }
-        return sm;
-    }
     
     public MockLibrary determineMockLibrary(Scene scene, List<MockLibrary> mockLibraries) {
         for (MockLibrary mock: mockLibraries) {
@@ -108,7 +59,9 @@ public class MockAnalyzer {
      * Example: <T> T createMock(final Class<?> name) function defined 
      *          in org.apache.commons.collections4.MockTestCase 
      */
-    private static boolean isWrapperMock(CallGraph cg, Unit u, List<MethodOrMethodContext> sootMethodList) {
+    public boolean isWrapperMock(Scene scene, CallGraph cg, Unit u, MockLibrary mockLibrary) {
+        SootClass sc = scene.getSootClassUnsafe(mockLibrary.library());
+        MethodOrMethodContext sm = sc.getMethod(mockLibrary.subSignature());
         Stmt s = (Stmt) u;
         if (isAssignStmtWithInvokeExpr(s)) {
             SootMethod sootMethod = s.getInvokeExpr().getMethod();
@@ -116,13 +69,11 @@ public class MockAnalyzer {
             callbacks.add(sootMethod);
             ReachableMethods reachableMethods = new ReachableMethods(cg, callbacks.iterator());
             reachableMethods.update();
-            for (MethodOrMethodContext method: sootMethodList) {
-                // logger.debug(((SootMethod) method).getSignature());
-                if (reachableMethods.contains(method)) {
-                    logger.debug("The object is a mock created through a wrapper.");
-                    System.out.println("The mocking library: " + ((SootMethod) method).getDeclaringClass().toString());
-                    return true;
-                }
+            // logger.debug(((SootMethod) method).getSignature());
+            if (reachableMethods.contains(sm)) {
+                logger.debug("The object is a mock created through a wrapper.");
+                logger.debug("The mocking library: " + ((SootMethod) sm).getDeclaringClass().toString());
+                return true;
             }
         }
         return false;
@@ -135,7 +86,7 @@ public class MockAnalyzer {
      * 
      * The function determines whether the unit is an immediate mock object. 
      */
-    private static boolean isImmediateMock(Unit u) {
+    public boolean isImmediateMock(Unit u) {
         Stmt s = (Stmt) u;
             
         if (isAssignStmtWithInvokeExpr(s)) {
@@ -154,7 +105,7 @@ public class MockAnalyzer {
     }
     
     private static boolean isMockLibrary(String declaringClassName) {
-        return (declaringClassName.contains(EasyMock_library) || declaringClassName.contains(Mockito_library)
-                                || declaringClassName.contains(PowerMock_library));
+        return (declaringClassName.contains(MockLibrary.EASYMOCK.library()) || declaringClassName.contains(MockLibrary.MOCKITO.library())
+                                || declaringClassName.contains(MockLibrary.POWERMOCK.library()));
     }
 }
