@@ -52,11 +52,7 @@ public class MockAnalyzer {
                 
         List<MethodOrMethodContext> sootMethodList = new ArrayList<MethodOrMethodContext>();
         
-        // MethodOrMethodContext method = getSootMethod(scene, paramList, returnType);
-        
         sootMethodList.add(method);
-        
-        //logger.debug("Mock method: " + ((SootMethod) method).getSubSignature());
         
         if (isWrapperMock(cg, u, sootMethodList)) {
             return true;
@@ -66,22 +62,24 @@ public class MockAnalyzer {
         return false;
     }
     
-    public SootMethod getSootMethod(Scene scene, String str_mock, List<Type> paramList, Type returnType) {
+    public SootMethod retrieveMockCreationSootMethod(Scene scene, MockLibrary mockLibrary) {
         SootMethod sm = null;
-        switch (str_mock) {
-            case EasyMock_library:
-                sm = new SootMethod(EasyMock_methodname, paramList, returnType);
-                SootClass sc1 = scene.getSootClassUnsafe(str_mock);
+        List<Type> paramList = new ArrayList<Type>();
+        paramList.add(MockAnalyzer.classType);
+        switch (mockLibrary) {
+            case EASYMOCK:
+                sm = new SootMethod(MockLibrary.EASYMOCK.method(), paramList, returnType);
+                SootClass sc1 = scene.getSootClassUnsafe(MockLibrary.EASYMOCK.library());
                 sm = sc1.getMethod(sm.getSubSignature());
                 break;
-            case Mockito_library:
-                sm = new SootMethod(Mockito_methodname, paramList, returnType);
-                SootClass sc2 = scene.getSootClassUnsafe(str_mock);
+            case MOCKITO:
+                sm = new SootMethod(MockLibrary.MOCKITO.library(), paramList, returnType);
+                SootClass sc2 = scene.getSootClassUnsafe(MockLibrary.MOCKITO.library());
                 sm = sc2.getMethod(sm.getSubSignature());
                 break;
-            case PowerMock_library:
-                sm = new SootMethod(PowerMock_methodname, paramList, returnType);
-                SootClass sc3 = scene.getSootClassUnsafe(str_mock);
+            case POWERMOCK:
+                sm = new SootMethod(MockLibrary.POWERMOCK.library(), paramList, returnType);
+                SootClass sc3 = scene.getSootClassUnsafe(MockLibrary.POWERMOCK.library());
                 sm = sc3.getMethod(sm.getSubSignature());
                 break;
             default:
@@ -90,9 +88,9 @@ public class MockAnalyzer {
         return sm;
     }
     
-    public String determineMockLibrary(Scene scene, List<String> mockLibraries) {
-        for (String mock: mockLibraries) {
-            if (scene.containsClass(mock)) {
+    public MockLibrary determineMockLibrary(Scene scene, List<MockLibrary> mockLibraries) {
+        for (MockLibrary mock: mockLibraries) {
+            if (scene.containsClass(mock.library())) {
                 //logger.debug("The mocking library in the benchmark: " + mock);
                 return mock;
             }
@@ -122,7 +120,7 @@ public class MockAnalyzer {
                 // logger.debug(((SootMethod) method).getSignature());
                 if (reachableMethods.contains(method)) {
                     logger.debug("The object is a mock created through a wrapper.");
-                    logger.debug("The mocking library: " + ((SootMethod) method).getDeclaringClass().toString());
+                    System.out.println("The mocking library: " + ((SootMethod) method).getDeclaringClass().toString());
                     return true;
                 }
             }
