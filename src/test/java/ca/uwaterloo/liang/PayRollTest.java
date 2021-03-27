@@ -4,7 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,8 +27,17 @@ public class PayRollTest {
     public void init() {
         employees = new ArrayList<Employee>();
         
-        employeeList = mock(EmployeeList.class);
-        bankService = mock(BankService.class);
+        List<Employee> employee_List = new ArrayList<>();
+
+        employee_List.add(createTestEmployee("Test Employee1", "ID0", 1000));
+        employee_List.add(createTestEmployee("Test Employee2", "ID1", 2000));
+        
+        employeeList = new EmployeeList(employee_List);
+        
+        Map<String, Integer> employee_salary = new HashMap<String, Integer>();
+        employee_salary.put("ID0", 1000);
+        employee_salary.put("ID1", 2000);
+        bankService = new BankService(employee_salary);
 
         when(employeeList.getAllEmployees()).thenReturn(employees);
 
@@ -93,16 +104,16 @@ public class PayRollTest {
     
     @Test
     public void testInteractionOrder() {
-        String employeeId = "ID0";
+        String bankId = "ID0";
         int salary = 1000;
 
-        employees.add(createTestEmployee("Test Employee", employeeId, salary));
+        employees.add(createTestEmployee("Test Employee", bankId, salary));
 
         assertNumberOfPayments(1);
         
         InOrder inOrder = inOrder(employeeList, bankService);
         inOrder.verify(employeeList).getAllEmployees();
-        inOrder.verify(bankService).makePayment(employeeId, salary);
+        inOrder.verify(bankService).makePayment(bankId, salary);
     }
 
     private void assertNumberOfPayments(int expected) {

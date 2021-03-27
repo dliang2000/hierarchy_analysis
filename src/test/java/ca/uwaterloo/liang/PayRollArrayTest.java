@@ -9,7 +9,9 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,8 +31,17 @@ public class PayRollArrayTest {
     public void init() {
         employees = new Employee[2];
         
-        employeeList = mock(EmployeeList.class);
-        bankService = mock(BankService.class);
+        List<Employee> employee_List = new ArrayList<>();
+
+        employee_List.add(createTestEmployee("Test Employee1", "ID0", 1000));
+        employee_List.add(createTestEmployee("Test Employee2", "ID1", 2000));
+        
+        employeeList = new EmployeeList(employee_List);
+        
+        Map<String, Integer> employee_salary = new HashMap<String, Integer>();
+        employee_salary.put("ID0", 1000);
+        employee_salary.put("ID1", 2000);
+        bankService = new BankService(employee_salary);
 
         when(employeeList.getAllEmployees()).thenReturn((List<Employee>) Arrays.asList(employees));
 
