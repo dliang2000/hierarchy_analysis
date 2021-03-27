@@ -1,9 +1,14 @@
 package ca.uwaterloo.liang;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
@@ -11,26 +16,25 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InOrder;
 
-public class PayRollTest {
-
+public class PayRollArrayTest {
     private PayRoll payRoll;
 
     private EmployeeList employeeList;
 
     private BankService bankService;
 
-    private List<Employee> employees;
+    private Employee[] employees;
 
     @Before
     public void init() {
-        employees = new ArrayList<Employee>();
+        employees = new Employee[2];
         
         employeeList = mock(EmployeeList.class);
         bankService = mock(BankService.class);
 
-        when(employeeList.getAllEmployees()).thenReturn(employees);
+        when(employeeList.getAllEmployees()).thenReturn((List<Employee>) Arrays.asList(employees));
 
-        payRoll = new PayRoll(employeeList, bankService);
+        payRoll = new PayRoll(employees, bankService);
     }
 
     @Test
@@ -40,14 +44,17 @@ public class PayRollTest {
     
     @Test
     public void testNoEmployeesIntra() {
-        List<Employee> employees_intra = new ArrayList<Employee>();
-
-        EmployeeList employeeList_intra = mock(EmployeeList.class);
+        Employee[] employees_intra = new Employee[2];
+        employees_intra[0] = mock(Employee.class);
+        employees_intra[1] = mock(Employee.class);
+        
+        EmployeeList emplyeeList_intra = (EmployeeList) Arrays.asList(employees_intra);
+        
         BankService bankService_intra = mock(BankService.class);
 
-        when(employeeList_intra.getAllEmployees()).thenReturn(employees_intra);
+        when(emplyeeList_intra.getAllEmployees()).thenReturn((List<Employee>) Arrays.asList(employees_intra));
 
-        PayRoll payRoll_intra = new PayRoll(employeeList_intra, bankService_intra);
+        PayRoll payRoll_intra = new PayRoll(employees_intra, bankService_intra);
         
         int numberOfPayments = payRoll_intra.monthlyPayment();
         assertEquals(0, numberOfPayments);
@@ -55,7 +62,7 @@ public class PayRollTest {
     
     @Test
     public void testSingleEmployee() {
-        employees.add(createTestEmployee("Test Employee", "ID0", 1000));
+        employees[0] = createTestEmployee("Test Employee", "ID0", 1000);
 
         assertNumberOfPayments(1);
     }
@@ -64,18 +71,16 @@ public class PayRollTest {
     public void testEmployeeIsPaid() {
         String employeeId = "ID0";
         int salary = 1000;
-
-        employees.add(createTestEmployee("Test Employee", employeeId, salary));
+        employees[0] = createTestEmployee("Test Employee", "ID1", 1000);
 
         assertNumberOfPayments(1);
 
         verify(bankService, times(1)).makePayment(employeeId, salary);
     }
-
+    
     @Test
-    public void testAllEmployeesArePaid() {
-        employees.add(createTestEmployee("Test Employee1", "ID0", 1000));
-        employees.add(createTestEmployee("Test Employee2", "ID1", 2000));
+    public void testAllEmployeesArePaidArray() {
+        employees = createEmployees();
 
         assertNumberOfPayments(2);
 
@@ -89,21 +94,6 @@ public class PayRollTest {
         assertEquals(1000, salaryCaptor.getAllValues().get(0).intValue());
         assertEquals(2000, salaryCaptor.getAllValues().get(1).intValue());
     }
-    
-    
-    @Test
-    public void testInteractionOrder() {
-        String employeeId = "ID0";
-        int salary = 1000;
-
-        employees.add(createTestEmployee("Test Employee", employeeId, salary));
-
-        assertNumberOfPayments(1);
-        
-        InOrder inOrder = inOrder(employeeList, bankService);
-        inOrder.verify(employeeList).getAllEmployees();
-        inOrder.verify(bankService).makePayment(employeeId, salary);
-    }
 
     private void assertNumberOfPayments(int expected) {
         int numberOfPayments = payRoll.monthlyPayment();
@@ -112,5 +102,15 @@ public class PayRollTest {
 
     private Employee createTestEmployee(String name, String id, int salary) {
         return new Employee(name, id, salary);
+    }
+    
+    /**
+     * creates an array of four Node instances, mocked by EasyMock.
+     */
+    private Employee[] createEmployees() {
+        Employee employee1 = mock(Employee.class);
+        Employee employee2 = mock(Employee.class);
+        
+        return new Employee[]{employee1, employee2};
     }
 }

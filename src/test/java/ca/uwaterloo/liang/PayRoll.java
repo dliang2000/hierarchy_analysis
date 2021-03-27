@@ -1,5 +1,6 @@
 package ca.uwaterloo.liang;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class PayRoll {
@@ -13,7 +14,13 @@ public class PayRoll {
         this.employeeList = employeeList;
         this.bankService = bankService;
     }
-
+    
+    public PayRoll(Employee[] employeeArr, BankService bankService) {
+        super();
+        this.employeeList = (EmployeeList) convertArrayToList(employeeArr);
+        this.bankService = bankService;
+    }
+    
     public int monthlyPayment() {
         List<Employee> employees = employeeList.getAllEmployees();
 
@@ -22,6 +29,18 @@ public class PayRoll {
         }
 
         return employees.size();
+    }
+    
+ // Generic function to convert an Array to List
+    private static <T> List<T> convertArrayToList(T array[])
+    {
+  
+        // Create the List by passing the Array
+        // as parameter in the constructor
+        List<T> list = Arrays.asList(array);
+  
+        // Return the converted List
+        return list;
     }
 }
 
