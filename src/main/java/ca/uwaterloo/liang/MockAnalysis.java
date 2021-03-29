@@ -46,25 +46,27 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
     
     private static FlowSet<Local> emptyFlowSet = new ArraySparseSet() ;
     
-    private static HashMap<Local, Boolean> emptyPossiblyMocks = new HashMap<Local, Boolean>();
+    private static HashMap<Unit, HashMap<Local, Boolean>> emptyPossiblyMocks = new HashMap<Unit, HashMap<Local, Boolean>>();
     
-    private static HashMap<Local, Boolean> emptyCollectionMocks = new HashMap<Local, Boolean>();
+    private static HashMap<Unit, HashMap<Local, Boolean>> emptyCollectionMocks = new HashMap<Unit, HashMap<Local, Boolean>>();
     
-    private static HashMap<Local, Boolean> emptyArrayMocks = new HashMap<Local, Boolean>();
+    private static HashMap<Unit, HashMap<Local, Boolean>> emptyArrayMocks = new HashMap<Unit, HashMap<Local, Boolean>>();
     
-  //Contains all the affects information of the analyzed method
+    //Contains all the affects information of the analyzed method
     private FlowSet<Local> myMocksInfo;
     
     //Contains all the invoked methods by the method under analysis
     private ArrayList<SootMethod> myInvokedMethods;
     
-    // Contains all the map entry of ((Local) unit, true), 
-    // where the Local contains a mock creation API
-    private Map<Local, Boolean> possiblyMocks;
+    // For each unit x local, will store a boolean for if it is a possible mock,
+    // if is a possible mock within Collection, or if it is a possible mock within Array.
+    // Right now, they are stored in three different maps. 
+    // This may be updated into one combined map with three boolean.
+    private HashMap<Unit, HashMap<Local, Boolean>> possiblyMocks;
     
-    private Map<Local, Boolean> isCollectionMocks;
+    private HashMap<Unit, HashMap<Local, Boolean>> mayBeCollectionMocks;
     
-    private Map<Local, Boolean> isArrayMocks;
+    private HashMap<Unit, HashMap<Local, Boolean>> mayBeArrayMocks;
     
     @SuppressWarnings("unchecked")
     public MockAnalysis(UnitGraph graph) {
@@ -72,11 +74,11 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
         
         myInvokedMethods = (ArrayList<SootMethod>) emptyInvokedMethods.clone();
         
-        possiblyMocks = (HashMap<Local, Boolean>) emptyPossiblyMocks.clone();
+        possiblyMocks = (HashMap<Unit, HashMap<Local, Boolean>>) emptyPossiblyMocks.clone();
         
-        isCollectionMocks = (HashMap<Local, Boolean>) emptyCollectionMocks.clone();
+        mayBeCollectionMocks = (HashMap<Unit, HashMap<Local, Boolean>>) emptyCollectionMocks.clone();
         
-        isArrayMocks = (HashMap<Local, Boolean>) emptyArrayMocks.clone();
+        mayBeArrayMocks = (HashMap<Unit, HashMap<Local, Boolean>>) emptyArrayMocks.clone();
         
         myMocksInfo = emptyFlowSet.clone();
         
@@ -99,16 +101,41 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
         
         //TODO: check that no library classes methods are put in the
         //invoked methods list
+        if (notMock(aStmt)) {
+            // This part tries to consider for the following scenarios:
+            // X x = mock(...);
+            // x = y; || x = new Object();
+            // In both cases, the local defbox x was a mock object in line 1, but no longer
+            // a mock object after line 2 (Missing: Still need to check for the useBox y)
+            HashMap<Local, Boolean> running_result = new HashMap<Local, Boolean>();
+            List<ValueBox> defBoxes = unit.getDefBoxes();
+            for (ValueBox vb: defBoxes) {
+                Local l = (Local) vb.getValue();
+                running_result.put(l, false);
+                if (myMocksInfo.contains(l))
+                    myMocksInfo.remove(l);
+            }
+            possiblyMocks.put(unit, running_result);
+            return;
+        }
         if (aStmt.containsInvokeExpr()) {
             InvokeExpr invkExpr = aStmt.getInvokeExpr();
             SootMethod sootMethod = invkExpr.getMethod();
             myInvokedMethods.add(sootMethod);
             
             if (isMockAPI(sootMethod)) {
-                out.add((Local) unit);
-                possiblyMocks.put((Local) unit, true); 
+                HashMap<Local, Boolean> running_result = new HashMap<Local, Boolean>();
+                List<ValueBox> defBoxes = unit.getDefBoxes();
+                for (ValueBox vb: defBoxes) {
+                    Local l = (Local) vb.getValue();
+                    out.add(l);
+                    running_result.put(l, true);
+                }
+                possiblyMocks.put(unit, running_result); 
             }
         }
+        
+        // Remove the local from out FlowSet with the following 
         myMocksInfo.union(out);
     }
     
@@ -124,6 +151,10 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
     @Override
     protected void copy(FlowSet<Local> srcSet, FlowSet<Local> destSet) {
         srcSet.copy(destSet);
+    }
+    
+    private static boolean notMock(Stmt stmt) {
+        return (!stmt.containsInvokeExpr() || !isMockAPI(stmt.getInvokeExpr().getMethod()));
     }
     
     private static boolean isMockAPI(SootMethod method) {
