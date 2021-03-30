@@ -87,24 +87,23 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Map<Local, T
         
         //TODO: check that no library classes methods are put in the
         //invoked methods list
-        /*if (notMock(aStmt)) {
+        if (notMock(aStmt)) {
             // This part tries to consider for the following two scenarios:
             // X x = mock(...);
             // Scenario 1: x = y; || Scenario 2: x = new Object();
             // In both scenarios, the local defbox x was a mock object in line 1, but no longer
             // a mock object after line 2 (Missing: Still need to check for the useBox y)
-            HashMap<Local, Boolean> running_result = new HashMap<Local, Boolean>();
+            HashMap<Local, TripleBoolean> running_result = new HashMap<Local, TripleBoolean>();
             List<ValueBox> defBoxes = unit.getDefBoxes();
             List<ValueBox> useBoxes = unit.getUseBoxes();
             for (ValueBox vb: defBoxes) {
                 Local l = (Local) vb.getValue();
-                running_result.put(l, false);
-                if (myMocksInfo.contains(l))
-                    myMocksInfo.remove(l);
+                TripleBoolean trip = new TripleBoolean(false);
+                running_result.put(l, trip);
             }
             possiblyMocks.put(unit, running_result);
             return;
-        }*/
+        }
         if (aStmt.containsInvokeExpr()) {
             InvokeExpr invkExpr = aStmt.getInvokeExpr();
             SootMethod sootMethod = invkExpr.getMethod();
