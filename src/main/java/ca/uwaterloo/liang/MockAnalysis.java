@@ -40,33 +40,23 @@ import soot.toolkits.scalar.ForwardFlowAnalysis;
  * Flow analysis to determine all locals guaranteed to be defined at a
  * given program point.
  **/
-public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
+public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Map<Local, TripleBoolean>>> {
 
     private static ArrayList<SootMethod> emptyInvokedMethods = new ArrayList<SootMethod>();
     
-    private static FlowSet<Local> emptyFlowSet = new ArraySparseSet() ;
+    private static FlowSet<Map<Local, TripleBoolean>> emptyFlowSet = new ArraySparseSet() ;
     
-    private static HashMap<Unit, HashMap<Local, Boolean>> emptyPossiblyMocks = new HashMap<Unit, HashMap<Local, Boolean>>();
-    
-    private static HashMap<Unit, HashMap<Local, Boolean>> emptyCollectionMocks = new HashMap<Unit, HashMap<Local, Boolean>>();
-    
-    private static HashMap<Unit, HashMap<Local, Boolean>> emptyArrayMocks = new HashMap<Unit, HashMap<Local, Boolean>>();
+    private static HashMap<Unit, HashMap<Local, TripleBoolean>> emptyPossiblyMocks = new HashMap<Unit, HashMap<Local, TripleBoolean>>();
     
     //Contains all the affects information of the analyzed method
-    private FlowSet<Local> myMocksInfo;
+    private FlowSet<Map<Local, TripleBoolean>> myMocksInfo;
     
     //Contains all the invoked methods by the method under analysis
     private ArrayList<SootMethod> myInvokedMethods;
     
     // For each unit x local, will store a boolean for if it is a possible mock,
     // if is a possible mock within Collection, or if it is a possible mock within Array.
-    // Right now, they are stored in three different maps. 
-    // This may be updated into one combined map with three boolean.
-    private HashMap<Unit, HashMap<Local, Boolean>> possiblyMocks;
-    
-    private HashMap<Unit, HashMap<Local, Boolean>> mayBeCollectionMocks;
-    
-    private HashMap<Unit, HashMap<Local, Boolean>> mayBeArrayMocks;
+    private HashMap<Unit, HashMap<Local, TripleBoolean>> possiblyMocks;
     
     @SuppressWarnings("unchecked")
     public MockAnalysis(UnitGraph graph) {
@@ -74,11 +64,7 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
         
         myInvokedMethods = (ArrayList<SootMethod>) emptyInvokedMethods.clone();
         
-        possiblyMocks = (HashMap<Unit, HashMap<Local, Boolean>>) emptyPossiblyMocks.clone();
-        
-        mayBeCollectionMocks = (HashMap<Unit, HashMap<Local, Boolean>>) emptyCollectionMocks.clone();
-        
-        mayBeArrayMocks = (HashMap<Unit, HashMap<Local, Boolean>>) emptyArrayMocks.clone();
+        possiblyMocks = (HashMap<Unit, HashMap<Local, TripleBoolean>>) emptyPossiblyMocks.clone();
         
         myMocksInfo = emptyFlowSet.clone();
         
@@ -86,29 +72,30 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
     }
     
     @Override
-    protected FlowSet<Local> newInitialFlow() { 
+    protected FlowSet<Map<Local, TripleBoolean>> newInitialFlow() { 
         return emptyFlowSet.clone();
     }
     
     @Override
-    protected FlowSet<Local> entryInitialFlow() { 
+    protected FlowSet<Map<Local, TripleBoolean>> entryInitialFlow() { 
         return emptyFlowSet.clone();
     }
     
     @Override
-    protected void flowThrough(FlowSet<Local> in, Unit unit, FlowSet<Local> out) {
+    protected void flowThrough(FlowSet<Map<Local, TripleBoolean>> in, Unit unit, FlowSet<Map<Local, TripleBoolean>> out) {
         Stmt aStmt = (Stmt) unit;
         
         //TODO: check that no library classes methods are put in the
         //invoked methods list
-        if (notMock(aStmt)) {
-            // This part tries to consider for the following scenarios:
+        /*if (notMock(aStmt)) {
+            // This part tries to consider for the following two scenarios:
             // X x = mock(...);
-            // x = y; || x = new Object();
-            // In both cases, the local defbox x was a mock object in line 1, but no longer
+            // Scenario 1: x = y; || Scenario 2: x = new Object();
+            // In both scenarios, the local defbox x was a mock object in line 1, but no longer
             // a mock object after line 2 (Missing: Still need to check for the useBox y)
             HashMap<Local, Boolean> running_result = new HashMap<Local, Boolean>();
             List<ValueBox> defBoxes = unit.getDefBoxes();
+            List<ValueBox> useBoxes = unit.getUseBoxes();
             for (ValueBox vb: defBoxes) {
                 Local l = (Local) vb.getValue();
                 running_result.put(l, false);
@@ -117,20 +104,21 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
             }
             possiblyMocks.put(unit, running_result);
             return;
-        }
+        }*/
         if (aStmt.containsInvokeExpr()) {
             InvokeExpr invkExpr = aStmt.getInvokeExpr();
             SootMethod sootMethod = invkExpr.getMethod();
             myInvokedMethods.add(sootMethod);
             
             if (isMockAPI(sootMethod)) {
-                HashMap<Local, Boolean> running_result = new HashMap<Local, Boolean>();
+                HashMap<Local, TripleBoolean> running_result = new HashMap<Local, TripleBoolean>();
                 List<ValueBox> defBoxes = unit.getDefBoxes();
                 for (ValueBox vb: defBoxes) {
                     Local l = (Local) vb.getValue();
-                    out.add(l);
-                    running_result.put(l, true);
+                    TripleBoolean trip = new TripleBoolean(true);
+                    running_result.put(l, trip);
                 }
+                out.add(running_result);
                 possiblyMocks.put(unit, running_result); 
             }
         }
@@ -144,12 +132,12 @@ public class MockAnalysis extends ForwardFlowAnalysis<Unit, FlowSet<Local>> {
     }
     
     @Override
-    protected void merge(FlowSet<Local> in1, FlowSet<Local> in2, FlowSet<Local> out) {
+    protected void merge(FlowSet<Map<Local, TripleBoolean>> in1, FlowSet<Map<Local, TripleBoolean>> in2, FlowSet<Map<Local, TripleBoolean>> out) {
         in1.union(in2, out);
     }
     
     @Override
-    protected void copy(FlowSet<Local> srcSet, FlowSet<Local> destSet) {
+    protected void copy(FlowSet<Map<Local, TripleBoolean>> srcSet, FlowSet<Map<Local, TripleBoolean>> destSet) {
         srcSet.copy(destSet);
     }
     
